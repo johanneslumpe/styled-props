@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "tsc -p . --noEmit && jest",
+    "test:watch": "jest --watch",
+    "build": "rimraf ./dist && tsc -p ."
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "@types/jest": "^23.3.1",
     "jest": "^23.4.2",
     "prettier": "^1.13.7",
+    "rimraf": "^2.6.2",
     "ts-jest": "^23.0.1",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
