@@ -1,6 +1,7 @@
 import { IStyleOptions, IStyles, ResponsiveObject, WithTheme } from './types';
 
 const BASE_EMPTY_OBJECT = {};
+const BREAKPOINTS_BASE_VALUE_KEY = 'base';
 
 export function style<P, T = {}, B = never>({
   cssProp,
@@ -46,7 +47,7 @@ export function style<P, T = {}, B = never>({
       return keys.reduce((acc, key) => {
         const value = styles[key];
         const val = themeVal[value] || value;
-        if (!key) {
+        if (key === BREAKPOINTS_BASE_VALUE_KEY) {
           acc[cssProp] = val;
         } else {
           acc[breakpoints[key]] = {

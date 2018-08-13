@@ -185,7 +185,7 @@ describe('style', () => {
     });
   });
 
-  it('should allow an empty string value for breakpoints to define the base value of a property', () => {
+  it('should allow `base` as value for breakpoints to define the base value (without media query) of a property', () => {
     const result = style<
       IColorProps<typeof theme.colors>,
       ITheme,
@@ -196,7 +196,7 @@ describe('style', () => {
       themeProp: 'colors',
     })({
       input: {
-        '': 'red',
+        base: 'red',
         large: 'red',
         medium: 'green',
         small: 'blue',
