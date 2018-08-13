@@ -4,6 +4,11 @@ interface IBaseCssValue<T> {
    */
   base?: T;
 }
+
+export type StyleProps<T> = T extends (props: infer R) => any
+  ? R extends { theme?: any } ? Pick<R, Exclude<keyof R, 'theme'>> : R
+  : never;
+
 export type ResponsiveProp<ValueType, BreakPoints = never> = [
   BreakPoints
 ] extends [never]
