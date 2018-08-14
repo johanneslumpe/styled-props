@@ -10,4 +10,9 @@ module.exports = {
   testURL: 'http://localhost',
   coverageDirectory: './coverage/',
   collectCoverage: true,
+  globals: {
+    'ts-jest': {
+      tsConfigFile: 'tsconfig.cjs.json',
+    },
+  },
 };
