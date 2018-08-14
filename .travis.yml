@@ -3,8 +3,12 @@ node_js:
   - "node"
 before_install:
   - npm i -g npm@6.2.0
+  - npm install codecov -g
 install:
   - npm ci
+scripts:
+  - npm run test
+  - codecov
 cache:
   directories:
     - "$HOME/.npm"

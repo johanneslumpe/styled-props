@@ -8,5 +8,6 @@ module.exports = {
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   testMatch: ['**/__tests__/**/*.ts?(x)'],
   testURL: 'http://localhost',
+  coverageDirectory: './coverage/',
   collectCoverage: true,
 };

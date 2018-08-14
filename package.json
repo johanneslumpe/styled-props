@@ -1,15 +1,28 @@
 {
   "name": "styled-props",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Typed prop styling for react components",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "tsc -p . --noEmit && jest",
+    "lint": "tslint --project tsconfig.base.json",
+    "format": "prettier --write \"src/**/*.ts\"",
     "test:watch": "jest --watch",
-    "build": "rimraf ./dist && tsc -p ."
+    "build": "rimraf ./lib && rimraf ./es && tsc -p ./tsconfig.cjs.json && tsc -p ./tsconfig.esm.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
   },
+  "files": [
+    "/lib",
+    "/es"
+  ],
   "keywords": [],
-  "author": "",
+  "author": "Johannes Lumpe",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^23.3.1",

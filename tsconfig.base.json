@@ -2,12 +2,11 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "target": "es5",
-    "module": "commonjs",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*"
