@@ -47,9 +47,12 @@ describe('style', () => {
     themeWithBreakpoints = {
       ...theme,
       breakpoints: {
-        large: buildMediaQueryString(50),
-        medium: buildMediaQueryString(40),
+        // disabling tslint to get semantic ordering here instead of alphabetical
+        /* tslint:disable */
         small: buildMediaQueryString(30),
+        medium: buildMediaQueryString(40),
+        large: buildMediaQueryString(50),
+        /* tslint:enable */
       },
     };
   });
@@ -185,6 +188,33 @@ describe('style', () => {
     });
   });
 
+  it('should order media query results based on ordering within `theme.breakpoints` not based on ordering of the responsive object props', () => {
+    const result = style<
+      IColorProps<{ [index: string]: string }>,
+      ITheme,
+      IBreakpoints
+    >({
+      cssProp: 'color',
+      prop: 'input',
+      themeProp: 'colors',
+    })({
+      input: {
+        /* tslint:disable */
+        medium: '#ff0',
+        small: '#fff',
+        large: '#000',
+        /* tslint:enable */
+      },
+      theme: themeWithBreakpoints,
+    });
+
+    expect(Object.keys(result)).toEqual([
+      themeWithBreakpoints.breakpoints.small,
+      themeWithBreakpoints.breakpoints.medium,
+      themeWithBreakpoints.breakpoints.large,
+    ]);
+  });
+
   it('should allow `base` as value for breakpoints to define the base value (without media query) of a property', () => {
     const result = style<
       IColorProps<typeof theme.colors>,
@@ -218,9 +248,9 @@ describe('style', () => {
     });
   });
 
-  it('should return `undefined` for an empty responsive object', () => {
+  it('should put base values in front of all other values', () => {
     const result = style<
-      IColorProps<{ [index: string]: string }>,
+      IColorProps<typeof theme.colors>,
       ITheme,
       IBreakpoints
     >({
@@ -228,10 +258,20 @@ describe('style', () => {
       prop: 'input',
       themeProp: 'colors',
     })({
-      input: {},
+      input: {
+        base: 'red',
+        large: 'red',
+        medium: 'green',
+        small: 'blue',
+      },
       theme: themeWithBreakpoints,
     });
 
-    expect(result).toEqual(undefined);
+    expect(Object.keys(result)).toEqual([
+      'color',
+      themeWithBreakpoints.breakpoints.small,
+      themeWithBreakpoints.breakpoints.medium,
+      themeWithBreakpoints.breakpoints.large,
+    ]);
   });
 });
