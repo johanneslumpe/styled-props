@@ -6,7 +6,7 @@
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "tsc -p . --noEmit && jest",
+    "test": "tsc -p ./tsconfig.cjs.json --noEmit && jest",
     "lint": "tslint --project tsconfig.base.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "test:watch": "jest --watch",

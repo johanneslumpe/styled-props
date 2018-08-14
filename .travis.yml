@@ -7,6 +7,7 @@ before_install:
 install:
   - npm ci
 scripts:
+  - npm run lint
   - npm run test
   - codecov
 cache:
