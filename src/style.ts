@@ -35,10 +35,6 @@ export function style<P, T = {}, B = never>({
         [cssProp]: finalValue,
       };
     } else {
-      // we know that we can only have passed in an object at this point because
-      // our types do not permit anything else, so asserting the type here
-      // should be fine
-      const styles = finalValue as ResponsivePropValue<typeof finalValue, B>;
       const result: IStyles = {};
       const { theme } = props;
       const { breakpoints = BASE_EMPTY_OBJECT } = theme;
@@ -56,10 +52,9 @@ export function style<P, T = {}, B = never>({
           Object.keys(breakpoints),
         ));
 
-      return (bpkeys as Array<Extract<keyof typeof styles, string>>).reduce(
+      return (bpkeys as Array<Extract<keyof typeof finalValue, string>>).reduce(
         (acc, key) => {
-          // TODO how to get around the cast to any?
-          const value: string = styles[key] as any;
+          const value = finalValue[key];
           const val = themeVal[value] || value;
           if (value === undefined) {
             return acc;
