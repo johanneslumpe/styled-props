@@ -9,14 +9,16 @@ export type StyleProps<T> = T extends (props: infer R) => any
   ? R extends { theme?: any } ? Pick<R, Exclude<keyof R, 'theme'>> : R
   : never;
 
+export type ResponsivePropValue<BreakPoints, ValueType> = {
+  [P in Extract<keyof BreakPoints, string>]?: ValueType
+} &
+  IBaseCssValue<ValueType>;
+
 export type ResponsiveProp<ValueType, BreakPoints = never> = [
   BreakPoints
 ] extends [never]
   ? ValueType
-  :
-      | ValueType
-      | ({ [P in Extract<keyof BreakPoints, string>]?: ValueType } &
-          IBaseCssValue<ValueType>);
+  : ValueType | ResponsivePropValue<BreakPoints, ValueType>;
 
 export type ResponsiveObject<P, B> = {
   [K in keyof P]?: ResponsiveProp<P[K], B>
