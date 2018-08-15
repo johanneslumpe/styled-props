@@ -1,14 +1,16 @@
 import {
+  IDictionary,
   IStyleOptions,
   IStyles,
   ResponsivePropValue,
   WithTheme,
 } from './types';
 
-const BASE_EMPTY_OBJECT: { [index: string]: string } = {};
+const BASE_EMPTY_OBJECT = {};
+const BASE_EMPTY_INDEXED_OBJECT: IDictionary<any> = BASE_EMPTY_OBJECT;
 const BREAKPOINTS_BASE_VALUE_KEY = 'base';
 
-export function style<P, T = {}, B = never>({
+export function style<P, T extends {} = never, B extends {} = never>({
   cssProp,
   prop,
   themeProp,
@@ -20,9 +22,11 @@ export function style<P, T = {}, B = never>({
       return undefined;
     }
 
-    const themeValue = themeProp
-      ? (props.theme[themeProp] as { [index: string]: any })
-      : undefined;
+    const themeValue =
+      themeProp && props.theme
+        ? (props.theme[themeProp] as { [index: string]: any })
+        : undefined;
+
     const finalValue =
       themeValue &&
       (typeof propValue === 'string' || typeof propValue === 'number') &&
@@ -34,11 +38,12 @@ export function style<P, T = {}, B = never>({
       return {
         [cssProp]: finalValue,
       };
+    } else if (!props.theme || !props.theme.breakpoints) {
+      return undefined;
     } else {
       const result: IStyles = {};
-      const { theme } = props;
-      const { breakpoints = BASE_EMPTY_OBJECT } = theme;
-      const themeVal = themeValue || BASE_EMPTY_OBJECT;
+      const { breakpoints } = props.theme;
+      const themeVal = themeValue || BASE_EMPTY_INDEXED_OBJECT;
       // We rely on the fact that `Object.keys` enumerates keys in the way
       // they are added to an object. This should be consistent across engines.
       // In case that a bug is discovered we will have to switch to an implicit
@@ -62,8 +67,9 @@ export function style<P, T = {}, B = never>({
           if (key === BREAKPOINTS_BASE_VALUE_KEY) {
             acc[cssProp] = val;
           } else {
-            // TODO how to get around the cast to any?
-            const breakpointValue: string = breakpoints[key] as any;
+            const breakpointValue: string = (breakpoints as IDictionary<any>)[
+              key.toString()
+            ];
             acc[breakpointValue] = {
               [cssProp]: val,
             };

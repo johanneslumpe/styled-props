@@ -7,7 +7,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "tsc -p ./tsconfig.cjs.json --noEmit && jest",
-    "lint": "tslint --project tsconfig.base.json",
+    "lint": "tslint --project tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "test:watch": "jest --watch",
     "build": "rimraf ./lib && rimraf ./es && tsc -p ./tsconfig.cjs.json && tsc -p ./tsconfig.esm.json",

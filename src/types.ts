@@ -20,6 +20,10 @@ export type ResponsiveProp<ValueType, BreakPoints = never> = [
   ? ValueType
   : ValueType | ResponsivePropValue<BreakPoints, ValueType>;
 
+export interface IDictionary<T> {
+  [index: string]: T;
+}
+
 export type ResponsiveObject<P, B> = {
   [K in keyof P]?: ResponsiveProp<P[K], B>
 };
@@ -33,7 +37,7 @@ export interface IBreakpointTheme<T, B> {
 }
 
 export type ThemeWithBreakpoints<T, B> = [B] extends [never]
-  ? ITheme<T>
+  ? [T] extends [never] ? Partial<ITheme<T>> : ITheme<T>
   : IBreakpointTheme<T, B>;
 
 export type WithTheme<P, T, B> = ResponsiveObject<P, B> &
