@@ -37,7 +37,7 @@ export interface IBreakpointTheme<T, B> {
 }
 
 export type ThemeWithBreakpoints<T, B> = [B] extends [never]
-  ? [T] extends [never] ? Partial<ITheme<T>> : ITheme<T>
+  ? [T] extends [never] ? Partial<ITheme<any>> : ITheme<T>
   : IBreakpointTheme<T, B>;
 
 export type WithTheme<P, T, B> = ResponsiveObject<P, B> &
