@@ -25,7 +25,7 @@
   ],
   "keywords": [],
   "author": "Johannes Lumpe",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "jest": "^23.4.2",
