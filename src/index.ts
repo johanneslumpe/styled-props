@@ -1,2 +1,2 @@
 export { style } from './style';
-export { IStyles } from './types';
+export { IStyles, StyleProps } from './types';
