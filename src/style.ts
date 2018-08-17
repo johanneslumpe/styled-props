@@ -16,7 +16,9 @@ export function style<P, T extends {} = never, B extends {} = never>({
   themeProp,
 }: IStyleOptions<P, T>) {
   let breakpointKeys: string[];
-  return (props: WithTheme<P, T, B>): IStyles | undefined => {
+  return function styleImplementation(
+    props: WithTheme<P, T, B>,
+  ): IStyles | undefined {
     const propValue = props[prop];
     if (propValue === undefined || propValue === null) {
       return undefined;
