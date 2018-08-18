@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "target": "es5",
+    "target": "esnext",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "declaration": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "typeRoots": [
+      "./node_modules/@types", "./types"
+    ]
   },
   "include": [
     "src/**/*"

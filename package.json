@@ -16,7 +16,8 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "docs": "typedoc --tsconfig ./tsconfig.cjs.json --hideGenerator --readme none --theme markdown --out docs"
+    "docs": "typedoc --tsconfig ./tsconfig.cjs.json --hideGenerator --readme none --theme markdown --out docs",
+    "utils:generate": "ts-node generateLengthHelpers.ts && npm run format"
   },
   "files": [
     "/lib",
@@ -29,10 +30,11 @@
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "jest": "^23.4.2",
+    "mdn-data": "^1.1.4",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
     "ts-jest": "^23.0.1",
-    "ts-node": "^7.0.0",
+    "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
     "typedoc": "^0.12.0",
