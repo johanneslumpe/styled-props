@@ -9,6 +9,7 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.ts?(x)'],
   testURL: 'http://localhost',
   coverageDirectory: './coverage/',
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   collectCoverage: true,
   globals: {
     'ts-jest': {
