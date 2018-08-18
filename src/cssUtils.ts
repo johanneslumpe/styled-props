@@ -38,7 +38,6 @@ export type CSSLengthValues =
   | ICmValue
   | IEmValue
   | IExValue
-  | IFrValue
   | IInchValue
   | IMmValue
   | IPcValue
