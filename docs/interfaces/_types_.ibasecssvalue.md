@@ -1,4 +1,4 @@
-[styled-props](../README.md) > ["types"](../modules/_types_.md) > [IBaseCssValue](../interfaces/_types_.ibasecssvalue.md)
+[@johanneslumpe/styled-props](../README.md) > ["types"](../modules/_types_.md) > [IBaseCssValue](../interfaces/_types_.ibasecssvalue.md)
 
 # Interface: IBaseCssValue
 
@@ -24,7 +24,7 @@
 
 **● base**: *[T]()*
 
-*Defined in [types.ts:5](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/types.ts#L5)*
+*Defined in [types.ts:5](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L5)*
 
 The base css value, without any media queries applied
 

@@ -1,4 +1,4 @@
-[styled-props](../README.md) > ["types"](../modules/_types_.md) > [IBreakpointTheme](../interfaces/_types_.ibreakpointtheme.md)
+[@johanneslumpe/styled-props](../README.md) > ["types"](../modules/_types_.md) > [IBreakpointTheme](../interfaces/_types_.ibreakpointtheme.md)
 
 # Interface: IBreakpointTheme
 
@@ -26,7 +26,7 @@
 **● theme**: * `T` & `object`
 *
 
-*Defined in [types.ts:36](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/types.ts#L36)*
+*Defined in [types.ts:36](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L36)*
 
 ___
 
