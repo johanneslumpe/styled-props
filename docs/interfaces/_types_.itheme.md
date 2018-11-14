@@ -1,4 +1,4 @@
-[styled-props](../README.md) > ["types"](../modules/_types_.md) > [ITheme](../interfaces/_types_.itheme.md)
+[@johanneslumpe/styled-props](../README.md) > ["types"](../modules/_types_.md) > [ITheme](../interfaces/_types_.itheme.md)
 
 # Interface: ITheme
 
@@ -25,7 +25,7 @@
 **● theme**: * `T` & `object`
 *
 
-*Defined in [types.ts:32](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/types.ts#L32)*
+*Defined in [types.ts:32](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L32)*
 
 ___
 

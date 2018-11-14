@@ -1,4 +1,4 @@
-[styled-props](../README.md) > ["style"](../modules/_style_.md)
+[@johanneslumpe/styled-props](../README.md) > ["style"](../modules/_style_.md)
 
 # External module: "style"
 
@@ -12,6 +12,7 @@
 
 ### Functions
 
+* [DEFAULT_ARRAY_RESOLVER](_style_.md#default_array_resolver)
 * [style](_style_.md#style)
 
 ---
@@ -24,7 +25,7 @@
 
 **● BASE_EMPTY_INDEXED_OBJECT**: *[IDictionary](../interfaces/_types_.idictionary.md)<`any`>* =  BASE_EMPTY_OBJECT
 
-*Defined in [style.ts:10](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/style.ts#L10)*
+*Defined in [style.ts:4](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/style.ts#L4)*
 
 ___
 <a id="base_empty_object"></a>
@@ -33,7 +34,7 @@ ___
 
 **● BASE_EMPTY_OBJECT**: *`object`*
 
-*Defined in [style.ts:9](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/style.ts#L9)*
+*Defined in [style.ts:3](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/style.ts#L3)*
 
 #### Type declaration
 
@@ -44,19 +45,36 @@ ___
 
 **● BREAKPOINTS_BASE_VALUE_KEY**: *"base"* = "base"
 
-*Defined in [style.ts:11](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/style.ts#L11)*
+*Defined in [style.ts:5](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/style.ts#L5)*
 
 ___
 
 ## Functions
 
+<a id="default_array_resolver"></a>
+
+### `<Const>` DEFAULT_ARRAY_RESOLVER
+
+▸ **DEFAULT_ARRAY_RESOLVER**(value: *`Array`< `string` &#124; `number`>*): `string`
+
+*Defined in [style.ts:7](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/style.ts#L7)*
+
+**Parameters:**
+
+| Param | Type |
+| ------ | ------ |
+| value | `Array`< `string` &#124; `number`> |
+
+**Returns:** `string`
+
+___
 <a id="style"></a>
 
 ###  style
 
 ▸ **style**P,T,B(__namedParameters: *`object`*): `styleImplementation`
 
-*Defined in [style.ts:13](https://github.com/johanneslumpe/styled-props/blob/892c9ca/src/style.ts#L13)*
+*Defined in [style.ts:10](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/style.ts#L10)*
 
 **Type parameters:**
 
