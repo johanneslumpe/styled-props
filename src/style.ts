@@ -1,19 +1,17 @@
-import {
-  IDictionary,
-  IStyleOptions,
-  IStyles,
-  ResponsivePropValue,
-  WithTheme,
-} from './types';
+import { IDictionary, IStyleOptions, IStyles, WithTheme } from './types';
 
 const BASE_EMPTY_OBJECT = {};
 const BASE_EMPTY_INDEXED_OBJECT: IDictionary<any> = BASE_EMPTY_OBJECT;
 const BREAKPOINTS_BASE_VALUE_KEY = 'base';
 
+const DEFAULT_ARRAY_RESOLVER = (value: Array<string | number>) =>
+  value.join(' ');
+
 export function style<P, T extends {} = never, B extends {} = never>({
   cssProp,
   prop,
   themeProp,
+  arrayResolver = DEFAULT_ARRAY_RESOLVER,
 }: IStyleOptions<P, T>) {
   let breakpointKeys: string[];
   return function styleImplementation(
@@ -34,7 +32,9 @@ export function style<P, T extends {} = never, B extends {} = never>({
       (typeof propValue === 'string' || typeof propValue === 'number') &&
       Object(themeValue) === themeValue
         ? themeValue[propValue] || propValue
-        : propValue;
+        : Array.isArray(propValue)
+          ? arrayResolver(propValue, themeValue as any)
+          : propValue;
 
     if (typeof finalValue === 'string' || typeof finalValue === 'number') {
       return {

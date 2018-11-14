@@ -1,17 +1,12 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "target": "es5",
+    "noEmitOnError": true,
+    "target": "esnext",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "declaration": true,
     "sourceMap": true
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "**/*/__tests__/**/*"
-  ]  
+  }
 }
