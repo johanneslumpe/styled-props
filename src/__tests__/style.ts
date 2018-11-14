@@ -29,6 +29,10 @@ interface IThemeWithBreakpoints {
   breakpoints: IBreakpoints;
 }
 
+interface IArrayProps {
+  input: [string, string];
+}
+
 const buildMediaQueryString = (emValue: number) =>
   `@media (min-width: ${emValue}em)`;
 describe('style', () => {
@@ -48,7 +52,7 @@ describe('style', () => {
       ...theme,
       breakpoints: {
         // disabling tslint to get semantic ordering here instead of alphabetical
-        /* tslint:disable */
+        /* tslint:disable:object-literal-sort-keys */
         small: buildMediaQueryString(30),
         medium: buildMediaQueryString(40),
         large: buildMediaQueryString(50),
@@ -196,7 +200,7 @@ describe('style', () => {
       themeProp: 'colors',
     })({
       input: {
-        /* tslint:disable */
+        /* tslint:disable:object-literal-sort-keys */
         medium: '#ff0',
         small: '#fff',
         large: '#000',
@@ -205,7 +209,7 @@ describe('style', () => {
       theme: themeWithBreakpoints,
     });
 
-    expect(Object.keys(result)).toEqual([
+    expect(result && Object.keys(result)).toEqual([
       themeWithBreakpoints.breakpoints.small,
       themeWithBreakpoints.breakpoints.medium,
       themeWithBreakpoints.breakpoints.large,
@@ -264,7 +268,7 @@ describe('style', () => {
       theme: themeWithBreakpoints,
     });
 
-    expect(Object.keys(result)).toEqual([
+    expect(result && Object.keys(result)).toEqual([
       'color',
       themeWithBreakpoints.breakpoints.small,
       themeWithBreakpoints.breakpoints.medium,
@@ -290,7 +294,7 @@ describe('style', () => {
         medium: 'green',
         small: 'blue',
       },
-      theme: null as typeof themeWithBreakpoints,
+      theme: (null as unknown) as typeof themeWithBreakpoints,
     });
 
     const noBreakpointsResult = func({
@@ -305,5 +309,36 @@ describe('style', () => {
 
     expect(noThemeResult).toBe(undefined);
     expect(noBreakpointsResult).toBe(undefined);
+  });
+
+  it('should combine array values', () => {
+    const func = style<IArrayProps>({
+      cssProp: 'test',
+      prop: 'input',
+    });
+
+    const result = func({ input: ['a', 'b'] });
+
+    expect(result).toEqual({
+      test: 'a b',
+    });
+  });
+
+  it('should allow resolving of theme values in within arrays using a custom array resolver', () => {
+    const func = style<IArrayProps, typeof theme>({
+      arrayResolver: (value, themeValue) => {
+        const myTheme: any = themeValue || ({} as { [index: string]: string });
+        return value.map((val, i) => myTheme[val.toString()] || val).join(' ');
+      },
+      cssProp: 'test',
+      prop: 'input',
+      themeProp: 'colors',
+    });
+
+    const result = func({ input: ['red', 'green'], theme });
+
+    expect(result).toEqual({
+      test: '#f00 #0f0',
+    });
   });
 });

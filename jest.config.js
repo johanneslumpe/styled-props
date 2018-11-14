@@ -1,19 +1,16 @@
-const { defaults } = require('jest-config');
-
 module.exports = {
   roots: ['<rootDir>/src'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   testMatch: ['**/__tests__/**/*.ts?(x)'],
+  testPathIgnorePatterns: ['/node_modules', '__tests__/utils'],
   testURL: 'http://localhost',
   coverageDirectory: './coverage/',
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   collectCoverage: true,
   globals: {
     'ts-jest': {
-      tsConfigFile: 'tsconfig.cjs.json',
+      tsConfig: 'tsconfig.cjs.json',
+      enableTsDiagnostics: true,
     },
   },
+  preset: 'ts-jest',
 };

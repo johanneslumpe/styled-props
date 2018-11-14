@@ -1,7 +1,6 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.compile.base.json",
   "compilerOptions": {
-    "target": "es5",
     "module": "commonjs",
     "outDir": "lib"
   }

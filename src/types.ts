@@ -43,19 +43,30 @@ export type ThemeWithBreakpoints<T, B> = [B] extends [never]
 export type WithTheme<P, T, B> = ResponsiveObject<P, B> &
   ThemeWithBreakpoints<T, B>;
 
-export interface IStyleOptions<P, T> {
+export interface IStyleOptions<
+  P,
+  T,
+  K extends Extract<keyof T, string> = Extract<keyof T, string>
+> {
   /**
    * The css property this function should map to
    */
   cssProp: string;
+
   /**
    * The property of the component's props to read from
    */
   prop: Extract<keyof P, string>;
+
   /**
    * The property within the theme to map the `prop` value to
    */
-  themeProp?: Extract<keyof T, string>;
+  themeProp?: K;
+
+  /**
+   * The resolver to be used for array values
+   */
+  arrayResolver?: (value: Array<string | number>, themeValue?: T[K]) => string;
 }
 
 export interface IStyles {

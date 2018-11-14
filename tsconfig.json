@@ -1,20 +1,12 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "noEmitOnError": true,
     "target": "esnext",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "declaration": true,
-    "sourceMap": true,
-    "typeRoots": [
-      "./node_modules/@types", "./types"
-    ]
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "**/*/__tests__/**/*"
-  ]  
+    "sourceMap": true
+  }
 }
