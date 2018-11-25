@@ -1,6 +1,6 @@
 import { FlexProperty } from '@johanneslumpe/css-types';
 
-import { style } from './style';
+import { style } from '../style';
 
 export interface IFlexProps<T> {
   flex: T;

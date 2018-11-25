@@ -1,5 +1,6 @@
+import { IBreakpoints, IColors, ITheme, theme } from '../../test-utils/theme';
+
 import { textColor } from '../textColor';
-import { IBreakpoints, IColors, ITheme, theme } from './utils/theme';
 
 describe('textColor', () => {
   it('should return a function', () => {
@@ -7,7 +8,7 @@ describe('textColor', () => {
     expect(result).toBeInstanceOf(Function);
   });
 
-  it('should have sensible defaults', () => {
+  it('should use `textColor` as component `color` as css prop', () => {
     const result = textColor()({ textColor: 'red' });
     expect(result).toEqual({ color: 'red' });
   });

@@ -1,13 +1,12 @@
 import { display } from '../display';
-import { IBreakpoints, IColors, ITheme, theme } from './utils/theme';
 
-describe('textColor', () => {
+describe('display', () => {
   it('should return a function', () => {
     const result = display();
     expect(result).toBeInstanceOf(Function);
   });
 
-  it('should have sensible defaults', () => {
+  it('should use `display` as css and component prop', () => {
     const result = display()({ display: 'block' });
     expect(result).toEqual({ display: 'block' });
   });

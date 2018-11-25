@@ -1,6 +1,6 @@
 import { DisplayPropertyCombined } from '@johanneslumpe/css-types';
 
-import { style } from './style';
+import { style } from '../style';
 
 export interface IDisplayProps<T> {
   display: T;
