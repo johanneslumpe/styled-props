@@ -1,0 +1,21 @@
+import { __TYPE_NAME__ } from '@johanneslumpe/css-types';
+
+import { style } from '../../style';
+import { IStyleOptions } from '../../types';
+
+export interface I__INTERFACE_PROPERTY_NAME__Props<T> {
+  __PROPERTY_NAME__: T;
+}
+
+export const __PROPERTY_NAME__ = <
+  T = __TYPE_NAME__,
+  Theme = never,
+  Breakpoints = never
+>({
+  themeProp,
+}: Partial<IStyleOptions<I__INTERFACE_PROPERTY_NAME__Props<T>, Theme>> = {}) =>
+  style<I__INTERFACE_PROPERTY_NAME__Props<T>, Theme, Breakpoints>({
+    cssProp: '__PROPERTY_NAME__',
+    prop: '__PROPERTY_NAME__',
+    themeProp,
+  });
