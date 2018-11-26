@@ -5,6 +5,7 @@
     "tslint-config-prettier"
   ],
   "rules": {
-    "quotemark": [true, "single", "avoid-escape", "jsx-double"]
+    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
+    "object-literal-sort-keys": false
   }
 }

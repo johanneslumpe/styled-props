@@ -17,7 +17,7 @@
     "release": "standard-version",
     "postrelease": "git push --follow-tags origin master",
     "docs": "typedoc --tsconfig ./tsconfig.cjs.json --hideGenerator --readme none --theme markdown --out docs",
-    "generate-types-utils": "ts-node ./code-generation/generateLengthHelpers.ts && ts-node ./code-generation/generateCssTypes.ts && npm run format"
+    "utils:generate": "npx ts-node generateUtils"
   },
   "files": [
     "/lib",
@@ -28,9 +28,12 @@
   "author": "Johannes Lumpe",
   "license": "MIT",
   "devDependencies": {
+    "@types/cli-progress": "^1.8.0",
     "@types/jest": "^23.3.1",
+    "cli-progress": "^2.1.0",
     "jest": "^23.6.0",
-    "mdn-data": "^1.1.4",
+    "lodash": "^4.17.11",
+    "mdn-data": "^1.2.0",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
     "standard-version": "^4.4.0",
@@ -40,9 +43,9 @@
     "tslint-config-prettier": "^1.14.0",
     "typedoc": "^0.12.0",
     "typedoc-plugin-markdown": "^1.1.13",
-    "typescript": "^3.0.1"
+    "typescript": "^3.1.6"
   },
   "dependencies": {
-    "@johanneslumpe/css-types": "^0.1.0"
+    "@johanneslumpe/css-types": "^0.3.0"
   }
 }

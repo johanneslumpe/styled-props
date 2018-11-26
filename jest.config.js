@@ -1,7 +1,7 @@
 module.exports = {
   roots: ['<rootDir>/src'],
   testMatch: ['**/__tests__/**/*.ts?(x)'],
-  testPathIgnorePatterns: ['/node_modules', '__tests__/utils'],
+  testPathIgnorePatterns: ['/node_modules', '__tests__/utils', 'test-utils'],
   testURL: 'http://localhost',
   coverageDirectory: './coverage/',
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
@@ -9,7 +9,7 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.cjs.json',
-      enableTsDiagnostics: true,
+      diagnostics: true,
     },
   },
   preset: 'ts-jest',
