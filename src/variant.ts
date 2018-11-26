@@ -1,9 +1,6 @@
 import { BREAKPOINTS_BASE_VALUE_KEY } from './constants';
 import { createBreakpointStyles } from './createBreakpointStyles';
-import { IDictionary, IStyles, IVariantOptions, WithTheme } from './types';
-
-const BASE_EMPTY_OBJECT = {};
-const BASE_EMPTY_INDEXED_OBJECT: IDictionary<any> = BASE_EMPTY_OBJECT;
+import { IStyles, IVariantOptions, WithTheme } from './types';
 
 export function variant<P, T extends {}, B extends {} = never>({
   prop,
@@ -33,11 +30,6 @@ export function variant<P, T extends {}, B extends {} = never>({
       (breakpointKeys = [BREAKPOINTS_BASE_VALUE_KEY].concat(
         Object.keys(breakpoints),
       ));
-    return createBreakpointStyles(
-      props.theme,
-      themeValue || BASE_EMPTY_INDEXED_OBJECT,
-      bpkeys,
-      propValue,
-    );
+    return createBreakpointStyles(props.theme, bpkeys, propValue, themeValue);
   };
 }

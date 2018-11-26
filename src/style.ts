@@ -1,9 +1,6 @@
 import { BREAKPOINTS_BASE_VALUE_KEY } from './constants';
 import { createBreakpointStyles } from './createBreakpointStyles';
-import { IDictionary, IStyleOptions, IStyles, WithTheme } from './types';
-
-const BASE_EMPTY_OBJECT = {};
-const BASE_EMPTY_INDEXED_OBJECT: IDictionary<any> = BASE_EMPTY_OBJECT;
+import { IStyleOptions, IStyles, WithTheme } from './types';
 
 const DEFAULT_ARRAY_RESOLVER = (value: Array<string | number>) =>
   value.join(' ');
@@ -61,9 +58,9 @@ export function style<P, T extends {} = never, B extends {} = never>({
 
     return createBreakpointStyles(
       props.theme,
-      themeValue || BASE_EMPTY_INDEXED_OBJECT,
       bpkeys,
       finalValue,
+      themeValue,
       cssProp,
     );
   };

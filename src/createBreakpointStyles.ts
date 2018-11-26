@@ -8,14 +8,14 @@ export function createBreakpointStyles<
   T extends { breakpoints: { [index: string]: string } }
 >(
   theme: T,
-  themeValue: { [index: string]: any },
   breakpointKeys: string[],
   propValue: { [index: string]: any },
+  themeValue: { [index: string]: any } = BASE_EMPTY_INDEXED_OBJECT,
   cssProp?: string,
 ) {
   const result: IStyles = {};
   const { breakpoints } = theme;
-  const themeVal = themeValue || BASE_EMPTY_INDEXED_OBJECT;
+  const themeVal = themeValue;
 
   return breakpointKeys.reduce((acc, key) => {
     const value = propValue[key];
