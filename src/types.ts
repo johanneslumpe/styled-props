@@ -69,6 +69,22 @@ export interface IStyleOptions<
   arrayResolver?: (value: Array<string | number>, themeValue?: T[K]) => string;
 }
 
+export interface IVariantOptions<
+  P,
+  T,
+  K extends Extract<keyof T, string> = Extract<keyof T, string>
+> {
+  /**
+   * The property of the component's props to read from
+   */
+  prop: Extract<keyof P, string>;
+
+  /**
+   * The property within the theme to map the `prop` value to
+   */
+  themeProp: K;
+}
+
 export interface IStyles {
   [ruleOrSelector: string]: string | number | IStyles;
 }
