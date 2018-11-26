@@ -1,8 +1,9 @@
+import { BREAKPOINTS_BASE_VALUE_KEY } from './constants';
+import { createBreakpointStyles } from './createBreakpointStyles';
 import { IDictionary, IStyleOptions, IStyles, WithTheme } from './types';
 
 const BASE_EMPTY_OBJECT = {};
 const BASE_EMPTY_INDEXED_OBJECT: IDictionary<any> = BASE_EMPTY_OBJECT;
-const BREAKPOINTS_BASE_VALUE_KEY = 'base';
 
 const DEFAULT_ARRAY_RESOLVER = (value: Array<string | number>) =>
   value.join(' ');
@@ -44,9 +45,7 @@ export function style<P, T extends {} = never, B extends {} = never>({
       return undefined;
     }
 
-    const result: IStyles = {};
     const { breakpoints } = props.theme;
-    const themeVal = themeValue || BASE_EMPTY_INDEXED_OBJECT;
     // We rely on the fact that `Object.keys` enumerates keys in the way
     // they are added to an object. This should be consistent across engines.
     // In case that a bug is discovered we will have to switch to an implicit
@@ -60,26 +59,12 @@ export function style<P, T extends {} = never, B extends {} = never>({
         Object.keys(breakpoints),
       ));
 
-    return (bpkeys as Array<Extract<keyof typeof finalValue, string>>).reduce(
-      (acc, key) => {
-        const value = finalValue[key];
-        const val = themeVal[value] || value;
-        if (value === undefined) {
-          return acc;
-        }
-        if (key === BREAKPOINTS_BASE_VALUE_KEY) {
-          acc[cssProp] = val;
-        } else {
-          const breakpointValue = (breakpoints as IDictionary<string>)[
-            key.toString()
-          ];
-          acc[breakpointValue] = {
-            [cssProp]: val,
-          };
-        }
-        return acc;
-      },
-      result,
+    return createBreakpointStyles(
+      props.theme,
+      themeValue || BASE_EMPTY_INDEXED_OBJECT,
+      bpkeys,
+      finalValue,
+      cssProp,
     );
   };
 }
