@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IMaskProps<T> {
+  /**
+   * The **`mask`** CSS property hides an element (partially or fully) by masking or clipping the image at specific points.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/mask
+   */
   mask: T;
 }
 

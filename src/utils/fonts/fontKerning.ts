@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontKerningProps<T> {
+  /**
+   * The **`font-kerning`** CSS property sets the use of the kerning information stored in a font.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-kerning
+   */
   fontKerning: T;
 }
 

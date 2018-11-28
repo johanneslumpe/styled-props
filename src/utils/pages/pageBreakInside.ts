@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IPageBreakInsideProps<T> {
+  /**
+   * The **`page-break-inside`** CSS property adjusts page breaks _inside_ the current element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/page-break-inside
+   */
   pageBreakInside: T;
 }
 

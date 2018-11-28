@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITabSizeProps<T> {
+  /**
+   * The **`tab-size`** CSS property is used to customize the width of a tab (`U+0009`) character.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/tab-size
+   */
   tabSize: T;
 }
 

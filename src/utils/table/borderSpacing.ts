@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderSpacingProps<T> {
+  /**
+   * The **`border-spacing`** CSS property sets the distance between the borders of adjacent `<table>` cells. This property applies only when `border-collapse` is `separate`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-spacing
+   */
   borderSpacing: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IScrollSnapTypeProps<T> {
+  /**
+   * The **`scroll-snap-type`** CSS property defines how strictly snap points are enforced on the scroll container in case there is one.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type
+   */
   scrollSnapType: T;
 }
 

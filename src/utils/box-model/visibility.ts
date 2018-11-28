@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IVisibilityProps<T> {
+  /**
+   * The **`visibility`** CSS property shows or hides an element without changing the layout of a document. The property can also hide rows or columns in a `<table>`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/visibility
+   */
   visibility: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IPositionProps<T> {
+  /**
+   * The **`position`** CSS property specifies how an element is positioned in a document. The `top`, `right`, `bottom`, and `left` properties determine the final location of positioned elements.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/position
+   */
   position: T;
 }
 

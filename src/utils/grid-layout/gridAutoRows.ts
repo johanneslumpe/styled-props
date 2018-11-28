@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IGridAutoRowsProps<T> {
+  /**
+   * The **`grid-auto-rows`** CSS property specifies the size of an implicitly-created grid row track.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/grid-auto-rows
+   */
   gridAutoRows: T;
 }
 

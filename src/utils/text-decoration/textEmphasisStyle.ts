@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITextEmphasisStyleProps<T> {
+  /**
+   * The **`text-emphasis-style`** CSS property defines the type of emphasis used. It can also be set, and reset, using the `text-emphasis` shorthand.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-style
+   */
   textEmphasisStyle: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderBlockStartProps<T> {
+  /**
+   * The **`border-block-start`** CSS property is a shorthand property for setting the individual logical block-start border property values in a single place in the style sheet.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-block-start
+   */
   borderBlockStart: T;
 }
 

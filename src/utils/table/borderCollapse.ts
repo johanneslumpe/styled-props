@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderCollapseProps<T> {
+  /**
+   * The **`border-collapse`** CSS property sets whether cells inside a `<table>` have shared or separate borders.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-collapse
+   */
   borderCollapse: T;
 }
 

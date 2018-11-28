@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontVariantNumericProps<T> {
+  /**
+   * The **`font-variant-numeric`** CSS property controls the usage of alternate glyphs for numbers, fractions, and ordinal markers.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
+   */
   fontVariantNumeric: T;
 }
 

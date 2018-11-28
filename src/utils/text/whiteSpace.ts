@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IWhiteSpaceProps<T> {
+  /**
+   * The **`white-space`** CSS property sets how white space inside an element is handled.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/white-space
+   */
   whiteSpace: T;
 }
 

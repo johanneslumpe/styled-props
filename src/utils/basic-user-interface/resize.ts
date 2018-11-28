@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IResizeProps<T> {
+  /**
+   * The **`resize`** CSS property sets whether an element is resizable, and if so, in which directions.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/resize
+   */
   resize: T;
 }
 

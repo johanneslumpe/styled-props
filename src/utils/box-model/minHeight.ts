@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IMinHeightProps<T> {
+  /**
+   * The **`min-height`** CSS property sets the minimum height of an element. It prevents the used value of the `height` property from becoming smaller than the value specified for `min-height`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/min-height
+   */
   minHeight: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontFamilyProps<T> {
+  /**
+   * The **`font-family`** CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-family
+   */
   fontFamily: T;
 }
 

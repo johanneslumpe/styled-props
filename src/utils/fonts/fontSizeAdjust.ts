@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontSizeAdjustProps<T> {
+  /**
+   * The **`font-size-adjust`** CSS property sets how the font size should be chosen based on the height of lowercase rather than capital letters.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
+   */
   fontSizeAdjust: T;
 }
 

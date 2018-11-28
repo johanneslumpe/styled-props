@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IListStyleImageProps<T> {
+  /**
+   * The **`list-style-image`** CSS property sets an image to be used as the list item marker.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/list-style-image
+   */
   listStyleImage: T;
 }
 

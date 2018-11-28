@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IJustifySelfProps<T> {
+  /**
+   * The CSS **`justify-self`** property set the way a box is justified inside its alignment container along the appropriate axis.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/justify-self
+   */
   justifySelf: T;
 }
 

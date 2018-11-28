@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITextOverflowProps<T> {
+  /**
+   * The **`text-overflow`** CSS property determines how overflowed content that is not displayed is signaled to users. It can be clipped, display an ellipsis ('`…`', `U+2026 Horizontal Ellipsis`), or display a custom string.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/text-overflow
+   */
   textOverflow: T;
 }
 

@@ -28,8 +28,11 @@
   "author": "Johannes Lumpe",
   "license": "MIT",
   "devDependencies": {
+    "@types/cheerio": "^0.22.10",
     "@types/cli-progress": "^1.8.0",
     "@types/jest": "^23.3.1",
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
     "cli-progress": "^2.1.0",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",
@@ -41,6 +44,7 @@
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
+    "turndown": "^5.0.1",
     "typedoc": "^0.12.0",
     "typedoc-plugin-markdown": "^1.1.13",
     "typescript": "^3.1.6"

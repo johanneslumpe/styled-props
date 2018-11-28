@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontLanguageOverrideProps<T> {
+  /**
+   * The **`font-language-override`** CSS property controls the use of language-specific glyphs in a typeface.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-language-override
+   */
   fontLanguageOverride: T;
 }
 

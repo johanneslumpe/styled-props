@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IMaskRepeatProps<T> {
+  /**
+   * The **`mask-repeat`** CSS property sets how mask images are repeated. A mask image can be repeated along the horizontal axis, the vertical axis, both axes, or not repeated at all.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/mask-repeat
+   */
   maskRepeat: T;
 }
 

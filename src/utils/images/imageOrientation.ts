@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IImageOrientationProps<T> {
+  /**
+   * The **`image-orientation`** CSS property specifies a layout-independent correction to the orientation of an image. It should _not_ be used for any other orientation adjustments; instead, the `transform` property should be used with the `rotate` `<transform-function>`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/image-orientation
+   */
   imageOrientation: T;
 }
 

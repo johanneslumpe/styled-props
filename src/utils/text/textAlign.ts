@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITextAlignProps<T> {
+  /**
+   * The **`text-align`** CSS property specifies the horizontal alignment of an inline or table-cell box.This means it works like `vertical-align` but in the horizontal direction.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/text-align
+   */
   textAlign: T;
 }
 

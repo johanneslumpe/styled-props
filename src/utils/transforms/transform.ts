@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITransformProps<T> {
+  /**
+   * The **`transform`** CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/transform
+   */
   transform: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBackgroundBlendModeProps<T> {
+  /**
+   * The **`background-blend-mode`** CSS property sets how an element's background images should blend with each other and with the element's background color.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/background-blend-mode
+   */
   backgroundBlendMode: T;
 }
 

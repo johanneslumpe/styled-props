@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IAnimationPlayStateProps<T> {
+  /**
+   * The **`animation-play-state`** CSS property sets whether an animation is running or paused.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/animation-play-state
+   */
   animationPlayState: T;
 }
 

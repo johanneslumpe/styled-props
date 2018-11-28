@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IEmptyCellsProps<T> {
+  /**
+   * The **`empty-cells`** CSS property sets whether borders and backgrounds appear around `<table>` cells that have no visible content.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/empty-cells
+   */
   emptyCells: T;
 }
 

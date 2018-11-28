@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IClipPathProps<T> {
+  /**
+   * The `**clip-path**` CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/clip-path
+   */
   clipPath: T;
 }
 

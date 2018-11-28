@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IColumnCountProps<T> {
+  /**
+   * The **`column-count`** CSS property breaks an element's content into the specified number of columns.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/column-count
+   */
   columnCount: T;
 }
 

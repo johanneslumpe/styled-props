@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderRadiusProps<T> {
+  /**
+   * The **`border-radius`** CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-radius
+   */
   borderRadius: T;
 }
 

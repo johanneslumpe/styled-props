@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderRightColorProps<T> {
+  /**
+   * The **`border-right-color`** CSS property sets the color of an element's right border. It can also be set with the shorthand CSS properties `border-color` or `border-right`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-right-color
+   */
   borderRightColor: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderTopStyleProps<T> {
+  /**
+   * The **`border-top-style`** CSS property sets the line style of an element's top `border`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-top-style
+   */
   borderTopStyle: T;
 }
 

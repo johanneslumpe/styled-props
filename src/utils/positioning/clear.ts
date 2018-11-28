@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IClearProps<T> {
+  /**
+   * The **`clear`** CSS property sets whether an element must be moved below (cleared) floating elements that precede it. The `clear` property applies to floating and non-floating elements.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/clear
+   */
   clear: T;
 }
 

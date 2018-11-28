@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IWordBreakProps<T> {
+  /**
+   * The **`word-break`** CSS property sets whether line breaks appear wherever the text would otherwise overflow its content box.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/word-break
+   */
   wordBreak: T;
 }
 
