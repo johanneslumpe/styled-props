@@ -24,6 +24,11 @@ describe('textRendering', () => {
     expect(result).toEqual({ textRendering: 'a' });
   });
 
+  it('should use an interface which marks `textRendering` as optional', () => {
+    const result = textRendering<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textRendering<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('__PROPERTY_NAME__', () => {
     expect(result).toEqual({ __PROPERTY_NAME__: 'a' });
   });
 
+  it('should use an interface which marks `__PROPERTY_NAME__` as optional', () => {
+    const result = __PROPERTY_NAME__<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = __PROPERTY_NAME__<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

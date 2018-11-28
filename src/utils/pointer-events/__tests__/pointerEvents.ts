@@ -24,6 +24,11 @@ describe('pointerEvents', () => {
     expect(result).toEqual({ pointerEvents: 'a' });
   });
 
+  it('should use an interface which marks `pointerEvents` as optional', () => {
+    const result = pointerEvents<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = pointerEvents<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

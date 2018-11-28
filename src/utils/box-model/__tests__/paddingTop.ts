@@ -24,6 +24,11 @@ describe('paddingTop', () => {
     expect(result).toEqual({ paddingTop: 'a' });
   });
 
+  it('should use an interface which marks `paddingTop` as optional', () => {
+    const result = paddingTop<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = paddingTop<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

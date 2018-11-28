@@ -24,6 +24,11 @@ describe('whiteSpace', () => {
     expect(result).toEqual({ whiteSpace: 'a' });
   });
 
+  it('should use an interface which marks `whiteSpace` as optional', () => {
+    const result = whiteSpace<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = whiteSpace<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('scrollBehavior', () => {
     expect(result).toEqual({ scrollBehavior: 'a' });
   });
 
+  it('should use an interface which marks `scrollBehavior` as optional', () => {
+    const result = scrollBehavior<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = scrollBehavior<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

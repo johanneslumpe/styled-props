@@ -24,6 +24,11 @@ describe('clip', () => {
     expect(result).toEqual({ clip: 'a' });
   });
 
+  it('should use an interface which marks `clip` as optional', () => {
+    const result = clip<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = clip<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

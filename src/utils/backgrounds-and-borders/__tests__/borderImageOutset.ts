@@ -24,6 +24,11 @@ describe('borderImageOutset', () => {
     expect(result).toEqual({ borderImageOutset: 'a' });
   });
 
+  it('should use an interface which marks `borderImageOutset` as optional', () => {
+    const result = borderImageOutset<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderImageOutset<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

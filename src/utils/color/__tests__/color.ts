@@ -24,6 +24,11 @@ describe('color', () => {
     expect(result).toEqual({ color: 'a' });
   });
 
+  it('should use an interface which marks `color` as optional', () => {
+    const result = color<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = color<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

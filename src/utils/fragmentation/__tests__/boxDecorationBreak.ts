@@ -24,6 +24,11 @@ describe('boxDecorationBreak', () => {
     expect(result).toEqual({ boxDecorationBreak: 'a' });
   });
 
+  it('should use an interface which marks `boxDecorationBreak` as optional', () => {
+    const result = boxDecorationBreak<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = boxDecorationBreak<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

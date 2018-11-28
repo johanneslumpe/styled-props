@@ -24,6 +24,11 @@ describe('translate', () => {
     expect(result).toEqual({ translate: 'a' });
   });
 
+  it('should use an interface which marks `translate` as optional', () => {
+    const result = translate<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = translate<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

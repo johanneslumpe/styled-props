@@ -24,6 +24,11 @@ describe('borderBottomRightRadius', () => {
     expect(result).toEqual({ borderBottomRightRadius: 'a' });
   });
 
+  it('should use an interface which marks `borderBottomRightRadius` as optional', () => {
+    const result = borderBottomRightRadius<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderBottomRightRadius<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

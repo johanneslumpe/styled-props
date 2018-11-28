@@ -24,6 +24,11 @@ describe('transformBox', () => {
     expect(result).toEqual({ transformBox: 'a' });
   });
 
+  it('should use an interface which marks `transformBox` as optional', () => {
+    const result = transformBox<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = transformBox<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

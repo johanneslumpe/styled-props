@@ -24,6 +24,11 @@ describe('shapeOutside', () => {
     expect(result).toEqual({ shapeOutside: 'a' });
   });
 
+  it('should use an interface which marks `shapeOutside` as optional', () => {
+    const result = shapeOutside<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = shapeOutside<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

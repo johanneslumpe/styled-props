@@ -24,6 +24,11 @@ describe('listStylePosition', () => {
     expect(result).toEqual({ listStylePosition: 'a' });
   });
 
+  it('should use an interface which marks `listStylePosition` as optional', () => {
+    const result = listStylePosition<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = listStylePosition<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

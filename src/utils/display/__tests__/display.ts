@@ -24,6 +24,11 @@ describe('display', () => {
     expect(result).toEqual({ display: 'a' });
   });
 
+  it('should use an interface which marks `display` as optional', () => {
+    const result = display<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = display<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

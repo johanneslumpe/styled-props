@@ -24,6 +24,11 @@ describe('placeContent', () => {
     expect(result).toEqual({ placeContent: 'a' });
   });
 
+  it('should use an interface which marks `placeContent` as optional', () => {
+    const result = placeContent<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = placeContent<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

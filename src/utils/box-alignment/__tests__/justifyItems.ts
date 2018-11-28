@@ -24,6 +24,11 @@ describe('justifyItems', () => {
     expect(result).toEqual({ justifyItems: 'a' });
   });
 
+  it('should use an interface which marks `justifyItems` as optional', () => {
+    const result = justifyItems<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = justifyItems<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

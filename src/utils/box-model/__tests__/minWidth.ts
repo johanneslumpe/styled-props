@@ -24,6 +24,11 @@ describe('minWidth', () => {
     expect(result).toEqual({ minWidth: 'a' });
   });
 
+  it('should use an interface which marks `minWidth` as optional', () => {
+    const result = minWidth<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = minWidth<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

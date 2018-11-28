@@ -24,6 +24,11 @@ describe('flexBasis', () => {
     expect(result).toEqual({ flexBasis: 'a' });
   });
 
+  it('should use an interface which marks `flexBasis` as optional', () => {
+    const result = flexBasis<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flexBasis<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

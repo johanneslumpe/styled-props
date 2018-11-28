@@ -24,6 +24,11 @@ describe('columnSpan', () => {
     expect(result).toEqual({ columnSpan: 'a' });
   });
 
+  it('should use an interface which marks `columnSpan` as optional', () => {
+    const result = columnSpan<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnSpan<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

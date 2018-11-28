@@ -24,6 +24,11 @@ describe('tabSize', () => {
     expect(result).toEqual({ tabSize: 'a' });
   });
 
+  it('should use an interface which marks `tabSize` as optional', () => {
+    const result = tabSize<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = tabSize<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('backgroundOrigin', () => {
     expect(result).toEqual({ backgroundOrigin: 'a' });
   });
 
+  it('should use an interface which marks `backgroundOrigin` as optional', () => {
+    const result = backgroundOrigin<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundOrigin<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

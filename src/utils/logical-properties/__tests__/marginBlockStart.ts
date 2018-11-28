@@ -24,6 +24,11 @@ describe('marginBlockStart', () => {
     expect(result).toEqual({ marginBlockStart: 'a' });
   });
 
+  it('should use an interface which marks `marginBlockStart` as optional', () => {
+    const result = marginBlockStart<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = marginBlockStart<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('textJustify', () => {
     expect(result).toEqual({ textJustify: 'a' });
   });
 
+  it('should use an interface which marks `textJustify` as optional', () => {
+    const result = textJustify<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textJustify<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

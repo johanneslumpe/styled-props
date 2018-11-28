@@ -24,6 +24,11 @@ describe('columnFill', () => {
     expect(result).toEqual({ columnFill: 'a' });
   });
 
+  it('should use an interface which marks `columnFill` as optional', () => {
+    const result = columnFill<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnFill<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

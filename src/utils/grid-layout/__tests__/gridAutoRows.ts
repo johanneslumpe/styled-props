@@ -24,6 +24,11 @@ describe('gridAutoRows', () => {
     expect(result).toEqual({ gridAutoRows: 'a' });
   });
 
+  it('should use an interface which marks `gridAutoRows` as optional', () => {
+    const result = gridAutoRows<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridAutoRows<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

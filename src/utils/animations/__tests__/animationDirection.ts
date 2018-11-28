@@ -24,6 +24,11 @@ describe('animationDirection', () => {
     expect(result).toEqual({ animationDirection: 'a' });
   });
 
+  it('should use an interface which marks `animationDirection` as optional', () => {
+    const result = animationDirection<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = animationDirection<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

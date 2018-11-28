@@ -24,6 +24,11 @@ describe('transformStyle', () => {
     expect(result).toEqual({ transformStyle: 'a' });
   });
 
+  it('should use an interface which marks `transformStyle` as optional', () => {
+    const result = transformStyle<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = transformStyle<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

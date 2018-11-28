@@ -24,6 +24,11 @@ describe('lineHeight', () => {
     expect(result).toEqual({ lineHeight: 'a' });
   });
 
+  it('should use an interface which marks `lineHeight` as optional', () => {
+    const result = lineHeight<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = lineHeight<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

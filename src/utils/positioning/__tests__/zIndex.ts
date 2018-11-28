@@ -24,6 +24,11 @@ describe('zIndex', () => {
     expect(result).toEqual({ zIndex: 'a' });
   });
 
+  it('should use an interface which marks `zIndex` as optional', () => {
+    const result = zIndex<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = zIndex<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

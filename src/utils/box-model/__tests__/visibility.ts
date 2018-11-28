@@ -24,6 +24,11 @@ describe('visibility', () => {
     expect(result).toEqual({ visibility: 'a' });
   });
 
+  it('should use an interface which marks `visibility` as optional', () => {
+    const result = visibility<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = visibility<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

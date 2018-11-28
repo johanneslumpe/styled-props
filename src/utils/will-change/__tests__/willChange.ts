@@ -24,6 +24,11 @@ describe('willChange', () => {
     expect(result).toEqual({ willChange: 'a' });
   });
 
+  it('should use an interface which marks `willChange` as optional', () => {
+    const result = willChange<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = willChange<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

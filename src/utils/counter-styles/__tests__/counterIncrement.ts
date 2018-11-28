@@ -24,6 +24,11 @@ describe('counterIncrement', () => {
     expect(result).toEqual({ counterIncrement: 'a' });
   });
 
+  it('should use an interface which marks `counterIncrement` as optional', () => {
+    const result = counterIncrement<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = counterIncrement<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

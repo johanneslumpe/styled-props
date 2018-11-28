@@ -24,6 +24,11 @@ describe('caretColor', () => {
     expect(result).toEqual({ caretColor: 'a' });
   });
 
+  it('should use an interface which marks `caretColor` as optional', () => {
+    const result = caretColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = caretColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

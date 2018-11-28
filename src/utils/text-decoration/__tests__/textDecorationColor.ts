@@ -24,6 +24,11 @@ describe('textDecorationColor', () => {
     expect(result).toEqual({ textDecorationColor: 'a' });
   });
 
+  it('should use an interface which marks `textDecorationColor` as optional', () => {
+    const result = textDecorationColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textDecorationColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

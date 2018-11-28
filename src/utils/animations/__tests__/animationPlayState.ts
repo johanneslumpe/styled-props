@@ -24,6 +24,11 @@ describe('animationPlayState', () => {
     expect(result).toEqual({ animationPlayState: 'a' });
   });
 
+  it('should use an interface which marks `animationPlayState` as optional', () => {
+    const result = animationPlayState<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = animationPlayState<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

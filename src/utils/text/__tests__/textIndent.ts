@@ -24,6 +24,11 @@ describe('textIndent', () => {
     expect(result).toEqual({ textIndent: 'a' });
   });
 
+  it('should use an interface which marks `textIndent` as optional', () => {
+    const result = textIndent<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textIndent<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

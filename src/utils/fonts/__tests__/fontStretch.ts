@@ -24,6 +24,11 @@ describe('fontStretch', () => {
     expect(result).toEqual({ fontStretch: 'a' });
   });
 
+  it('should use an interface which marks `fontStretch` as optional', () => {
+    const result = fontStretch<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontStretch<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('flexWrap', () => {
     expect(result).toEqual({ flexWrap: 'a' });
   });
 
+  it('should use an interface which marks `flexWrap` as optional', () => {
+    const result = flexWrap<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flexWrap<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

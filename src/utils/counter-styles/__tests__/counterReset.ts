@@ -24,6 +24,11 @@ describe('counterReset', () => {
     expect(result).toEqual({ counterReset: 'a' });
   });
 
+  it('should use an interface which marks `counterReset` as optional', () => {
+    const result = counterReset<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = counterReset<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

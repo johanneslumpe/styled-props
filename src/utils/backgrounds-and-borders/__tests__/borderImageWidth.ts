@@ -24,6 +24,11 @@ describe('borderImageWidth', () => {
     expect(result).toEqual({ borderImageWidth: 'a' });
   });
 
+  it('should use an interface which marks `borderImageWidth` as optional', () => {
+    const result = borderImageWidth<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderImageWidth<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

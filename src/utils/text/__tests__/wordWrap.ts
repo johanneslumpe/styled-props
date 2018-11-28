@@ -24,6 +24,11 @@ describe('wordWrap', () => {
     expect(result).toEqual({ wordWrap: 'a' });
   });
 
+  it('should use an interface which marks `wordWrap` as optional', () => {
+    const result = wordWrap<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = wordWrap<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

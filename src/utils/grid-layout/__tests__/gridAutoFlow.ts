@@ -24,6 +24,11 @@ describe('gridAutoFlow', () => {
     expect(result).toEqual({ gridAutoFlow: 'a' });
   });
 
+  it('should use an interface which marks `gridAutoFlow` as optional', () => {
+    const result = gridAutoFlow<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridAutoFlow<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('letterSpacing', () => {
     expect(result).toEqual({ letterSpacing: 'a' });
   });
 
+  it('should use an interface which marks `letterSpacing` as optional', () => {
+    const result = letterSpacing<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = letterSpacing<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

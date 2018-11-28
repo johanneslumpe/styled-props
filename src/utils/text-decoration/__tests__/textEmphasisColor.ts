@@ -24,6 +24,11 @@ describe('textEmphasisColor', () => {
     expect(result).toEqual({ textEmphasisColor: 'a' });
   });
 
+  it('should use an interface which marks `textEmphasisColor` as optional', () => {
+    const result = textEmphasisColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textEmphasisColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('animationIterationCount', () => {
     expect(result).toEqual({ animationIterationCount: 'a' });
   });
 
+  it('should use an interface which marks `animationIterationCount` as optional', () => {
+    const result = animationIterationCount<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = animationIterationCount<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

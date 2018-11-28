@@ -24,6 +24,11 @@ describe('tableLayout', () => {
     expect(result).toEqual({ tableLayout: 'a' });
   });
 
+  it('should use an interface which marks `tableLayout` as optional', () => {
+    const result = tableLayout<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = tableLayout<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

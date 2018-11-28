@@ -24,6 +24,11 @@ describe('scrollSnapType', () => {
     expect(result).toEqual({ scrollSnapType: 'a' });
   });
 
+  it('should use an interface which marks `scrollSnapType` as optional', () => {
+    const result = scrollSnapType<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = scrollSnapType<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

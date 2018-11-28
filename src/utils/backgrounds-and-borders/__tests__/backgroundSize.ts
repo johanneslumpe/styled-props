@@ -24,6 +24,11 @@ describe('backgroundSize', () => {
     expect(result).toEqual({ backgroundSize: 'a' });
   });
 
+  it('should use an interface which marks `backgroundSize` as optional', () => {
+    const result = backgroundSize<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundSize<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

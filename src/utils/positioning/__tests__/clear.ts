@@ -24,6 +24,11 @@ describe('clear', () => {
     expect(result).toEqual({ clear: 'a' });
   });
 
+  it('should use an interface which marks `clear` as optional', () => {
+    const result = clear<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = clear<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

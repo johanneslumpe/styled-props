@@ -24,6 +24,11 @@ describe('borderCollapse', () => {
     expect(result).toEqual({ borderCollapse: 'a' });
   });
 
+  it('should use an interface which marks `borderCollapse` as optional', () => {
+    const result = borderCollapse<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderCollapse<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

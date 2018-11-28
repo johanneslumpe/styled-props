@@ -24,6 +24,11 @@ describe('right', () => {
     expect(result).toEqual({ right: 'a' });
   });
 
+  it('should use an interface which marks `right` as optional', () => {
+    const result = right<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = right<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

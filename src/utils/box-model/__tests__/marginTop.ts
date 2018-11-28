@@ -24,6 +24,11 @@ describe('marginTop', () => {
     expect(result).toEqual({ marginTop: 'a' });
   });
 
+  it('should use an interface which marks `marginTop` as optional', () => {
+    const result = marginTop<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = marginTop<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

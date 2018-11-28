@@ -24,6 +24,11 @@ describe('textOverflow', () => {
     expect(result).toEqual({ textOverflow: 'a' });
   });
 
+  it('should use an interface which marks `textOverflow` as optional', () => {
+    const result = textOverflow<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textOverflow<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

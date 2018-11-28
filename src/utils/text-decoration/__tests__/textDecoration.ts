@@ -24,6 +24,11 @@ describe('textDecoration', () => {
     expect(result).toEqual({ textDecoration: 'a' });
   });
 
+  it('should use an interface which marks `textDecoration` as optional', () => {
+    const result = textDecoration<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textDecoration<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('animationName', () => {
     expect(result).toEqual({ animationName: 'a' });
   });
 
+  it('should use an interface which marks `animationName` as optional', () => {
+    const result = animationName<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = animationName<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

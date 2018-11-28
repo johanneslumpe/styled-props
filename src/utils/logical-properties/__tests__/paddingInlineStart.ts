@@ -24,6 +24,11 @@ describe('paddingInlineStart', () => {
     expect(result).toEqual({ paddingInlineStart: 'a' });
   });
 
+  it('should use an interface which marks `paddingInlineStart` as optional', () => {
+    const result = paddingInlineStart<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = paddingInlineStart<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

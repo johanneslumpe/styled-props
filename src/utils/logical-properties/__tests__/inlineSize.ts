@@ -24,6 +24,11 @@ describe('inlineSize', () => {
     expect(result).toEqual({ inlineSize: 'a' });
   });
 
+  it('should use an interface which marks `inlineSize` as optional', () => {
+    const result = inlineSize<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = inlineSize<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

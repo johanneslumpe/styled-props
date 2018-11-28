@@ -24,6 +24,11 @@ describe('pageBreakBefore', () => {
     expect(result).toEqual({ pageBreakBefore: 'a' });
   });
 
+  it('should use an interface which marks `pageBreakBefore` as optional', () => {
+    const result = pageBreakBefore<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = pageBreakBefore<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

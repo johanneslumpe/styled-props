@@ -24,6 +24,11 @@ describe('hyphens', () => {
     expect(result).toEqual({ hyphens: 'a' });
   });
 
+  it('should use an interface which marks `hyphens` as optional', () => {
+    const result = hyphens<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = hyphens<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

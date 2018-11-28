@@ -24,6 +24,11 @@ describe('opacity', () => {
     expect(result).toEqual({ opacity: 'a' });
   });
 
+  it('should use an interface which marks `opacity` as optional', () => {
+    const result = opacity<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = opacity<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

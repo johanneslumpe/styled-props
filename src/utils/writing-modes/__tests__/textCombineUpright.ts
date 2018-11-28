@@ -24,6 +24,11 @@ describe('textCombineUpright', () => {
     expect(result).toEqual({ textCombineUpright: 'a' });
   });
 
+  it('should use an interface which marks `textCombineUpright` as optional', () => {
+    const result = textCombineUpright<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textCombineUpright<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

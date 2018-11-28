@@ -24,6 +24,11 @@ describe('gridColumnEnd', () => {
     expect(result).toEqual({ gridColumnEnd: 'a' });
   });
 
+  it('should use an interface which marks `gridColumnEnd` as optional', () => {
+    const result = gridColumnEnd<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridColumnEnd<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('height', () => {
     expect(result).toEqual({ height: 'a' });
   });
 
+  it('should use an interface which marks `height` as optional', () => {
+    const result = height<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = height<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

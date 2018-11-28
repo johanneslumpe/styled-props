@@ -24,6 +24,11 @@ describe('wordBreak', () => {
     expect(result).toEqual({ wordBreak: 'a' });
   });
 
+  it('should use an interface which marks `wordBreak` as optional', () => {
+    const result = wordBreak<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = wordBreak<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

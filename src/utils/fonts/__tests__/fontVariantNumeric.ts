@@ -24,6 +24,11 @@ describe('fontVariantNumeric', () => {
     expect(result).toEqual({ fontVariantNumeric: 'a' });
   });
 
+  it('should use an interface which marks `fontVariantNumeric` as optional', () => {
+    const result = fontVariantNumeric<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontVariantNumeric<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

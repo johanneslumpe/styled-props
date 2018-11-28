@@ -5,7 +5,7 @@ import { IStyleOptions } from '../../types';
 
 export interface IBorderLeftProps<T> {
   /**
-   * The **`border-left`** CSS property is a shorthand that sets the values of `border-left-width`, `border-left-style`, and `border-left-color`. These properties describe an element's left `border`.
+   * The **`border-left`** CSS property is a shorthand that sets the values of `border-left-width`, `border-left-style` and `border-left-color`. These properties set an element's left border.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-left
    */

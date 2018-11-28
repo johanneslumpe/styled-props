@@ -24,6 +24,11 @@ describe('fontVariantEastAsian', () => {
     expect(result).toEqual({ fontVariantEastAsian: 'a' });
   });
 
+  it('should use an interface which marks `fontVariantEastAsian` as optional', () => {
+    const result = fontVariantEastAsian<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontVariantEastAsian<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

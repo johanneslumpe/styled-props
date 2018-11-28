@@ -24,6 +24,11 @@ describe('borderInlineEndWidth', () => {
     expect(result).toEqual({ borderInlineEndWidth: 'a' });
   });
 
+  it('should use an interface which marks `borderInlineEndWidth` as optional', () => {
+    const result = borderInlineEndWidth<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderInlineEndWidth<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('fontKerning', () => {
     expect(result).toEqual({ fontKerning: 'a' });
   });
 
+  it('should use an interface which marks `fontKerning` as optional', () => {
+    const result = fontKerning<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontKerning<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

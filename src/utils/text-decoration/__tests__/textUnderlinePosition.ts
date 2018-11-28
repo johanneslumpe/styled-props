@@ -24,6 +24,11 @@ describe('textUnderlinePosition', () => {
     expect(result).toEqual({ textUnderlinePosition: 'a' });
   });
 
+  it('should use an interface which marks `textUnderlinePosition` as optional', () => {
+    const result = textUnderlinePosition<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textUnderlinePosition<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

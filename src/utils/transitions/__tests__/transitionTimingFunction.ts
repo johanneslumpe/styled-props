@@ -24,6 +24,11 @@ describe('transitionTimingFunction', () => {
     expect(result).toEqual({ transitionTimingFunction: 'a' });
   });
 
+  it('should use an interface which marks `transitionTimingFunction` as optional', () => {
+    const result = transitionTimingFunction<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = transitionTimingFunction<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('borderBlockEndColor', () => {
     expect(result).toEqual({ borderBlockEndColor: 'a' });
   });
 
+  it('should use an interface which marks `borderBlockEndColor` as optional', () => {
+    const result = borderBlockEndColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderBlockEndColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

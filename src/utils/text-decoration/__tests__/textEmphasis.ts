@@ -24,6 +24,11 @@ describe('textEmphasis', () => {
     expect(result).toEqual({ textEmphasis: 'a' });
   });
 
+  it('should use an interface which marks `textEmphasis` as optional', () => {
+    const result = textEmphasis<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textEmphasis<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

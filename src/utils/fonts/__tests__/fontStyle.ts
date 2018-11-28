@@ -24,6 +24,11 @@ describe('fontStyle', () => {
     expect(result).toEqual({ fontStyle: 'a' });
   });
 
+  it('should use an interface which marks `fontStyle` as optional', () => {
+    const result = fontStyle<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontStyle<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

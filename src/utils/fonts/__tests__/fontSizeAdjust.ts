@@ -24,6 +24,11 @@ describe('fontSizeAdjust', () => {
     expect(result).toEqual({ fontSizeAdjust: 'a' });
   });
 
+  it('should use an interface which marks `fontSizeAdjust` as optional', () => {
+    const result = fontSizeAdjust<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontSizeAdjust<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

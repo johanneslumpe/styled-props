@@ -24,6 +24,11 @@ describe('columnRuleColor', () => {
     expect(result).toEqual({ columnRuleColor: 'a' });
   });
 
+  it('should use an interface which marks `columnRuleColor` as optional', () => {
+    const result = columnRuleColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnRuleColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

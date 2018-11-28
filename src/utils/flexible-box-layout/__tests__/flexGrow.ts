@@ -24,6 +24,11 @@ describe('flexGrow', () => {
     expect(result).toEqual({ flexGrow: 'a' });
   });
 
+  it('should use an interface which marks `flexGrow` as optional', () => {
+    const result = flexGrow<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flexGrow<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',
