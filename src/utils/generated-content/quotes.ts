@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IQuotesProps<T> {
+  /**
+   * The **`quotes`** CSS property sets how quotation marks appear.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/quotes
+   */
   quotes: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBackgroundColorProps<T> {
+  /**
+   * The **`background-color`** CSS property sets the background color of an element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/background-color
+   */
   backgroundColor: T;
 }
 

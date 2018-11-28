@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IOutlineWidthProps<T> {
+  /**
+   * The **`outline-width`** CSS property sets the thickness of an element's outline. An outline is a line that is drawn around an element, outside the `border`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/outline-width
+   */
   outlineWidth: T;
 }
 

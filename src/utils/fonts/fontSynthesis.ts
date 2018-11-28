@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontSynthesisProps<T> {
+  /**
+   * The **`font-synthesis`** CSS property controls which missing typefaces, bold or italic, may be synthesized by the browser.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-synthesis
+   */
   fontSynthesis: T;
 }
 

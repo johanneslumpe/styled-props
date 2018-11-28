@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IGridTemplateColumnsProps<T> {
+  /**
+   * The **`grid-template-columns`** CSS property defines the line names and track sizing functions of the grid columns.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/grid-template-columns
+   */
   gridTemplateColumns: T;
 }
 

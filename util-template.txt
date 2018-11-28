@@ -4,6 +4,7 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface I__INTERFACE_PROPERTY_NAME__Props<T> {
+  __INTERFACE_PROPERTY_COMMENT__
   __PROPERTY_NAME__: T;
 }
 

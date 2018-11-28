@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IMixBlendModeProps<T> {
+  /**
+   * The **`mix-blend-mode`** CSS property sets how an element's content should blend with the content of the element's parent and the element's background.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode
+   */
   mixBlendMode: T;
 }
 

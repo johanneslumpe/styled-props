@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IPaddingRightProps<T> {
+  /**
+   * The **`padding-right`** CSS property sets the width of the padding area on the right side of an element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/padding-right
+   */
   paddingRight: T;
 }
 

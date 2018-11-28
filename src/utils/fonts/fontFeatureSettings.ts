@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontFeatureSettingsProps<T> {
+  /**
+   * The **`font-feature-settings`** CSS property controls advanced typographic features in OpenType fonts.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-feature-settings
+   */
   fontFeatureSettings: T;
 }
 

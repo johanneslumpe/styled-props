@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderRightStyleProps<T> {
+  /**
+   * The **`border-right-style`** CSS property sets the line style of an element's right `border`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-right-style
+   */
   borderRightStyle: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ICounterIncrementProps<T> {
+  /**
+   * The **`counter-increment`** CSS property increases or decreases the value of a CSS counter by a given value.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/counter-increment
+   */
   counterIncrement: T;
 }
 

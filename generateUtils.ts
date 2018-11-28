@@ -1,20 +1,27 @@
+import axios from 'axios';
+import cheerio from 'cheerio';
 import cliProgress from 'cli-progress';
 import * as fs from 'fs';
-import { camelCase, kebabCase, upperFirst } from 'lodash/fp';
+import { camelCase, chunk, kebabCase, upperFirst } from 'lodash/fp';
+import { IRawProperties } from 'mdn-data';
 import cssProperties from 'mdn-data/css/properties.json';
 import * as path from 'path';
+import TurndownService from 'turndown';
 import * as util from 'util';
 
-const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 const mkdirAsync = util.promisify(fs.mkdir);
 
+// Using basic string replacements and txt templates
+// instead of the typescript ast for now,
+// because there is no need for anything more complex yet.
 const utilTemplate = fs.readFileSync('./util-template.txt').toString();
 const utilTestTemplate = fs.readFileSync('./util-test-template.txt').toString();
 const TYPE_DECLARATION_REGEX = /.*?type(.*?)(<|=).*/;
 const TYPE_NAME_REGEX = /__TYPE_NAME__/g;
 const PROPERTY_NAME_REGEX = /__PROPERTY_NAME__/g;
 const INTERFACE_PROPERTY_NAME_REGEX = /__INTERFACE_PROPERTY_NAME__/g;
+const INTERFACE_PROPERTY_COMMENT_TOKEN = '__INTERFACE_PROPERTY_COMMENT__';
 
 const types = fs
   .readFileSync(
@@ -37,10 +44,12 @@ const types = fs
 const UTILS_BASE_PATH = path.resolve(__dirname, './src/utils');
 
 interface IUtilData {
-  __INTERFACE_PROPERTY_NAME__: string;
-  __PROPERTY_NAME__: string;
-  __TYPE_NAME__: string;
+  comment?: string;
+  interfacePropertyName: string;
+  propertyName: string;
+  typeName: string;
   directory: string;
+  url: string;
 }
 
 function isString(val: string | undefined): val is string {
@@ -67,20 +76,27 @@ async function writeUtilFileAsync(data: IUtilData) {
   await mkDirNestedAsync(`utils/${data.directory}/__tests__`);
 
   const source = utilTemplate
-    .replace(TYPE_NAME_REGEX, data.__TYPE_NAME__)
-    .replace(PROPERTY_NAME_REGEX, data.__PROPERTY_NAME__)
-    .replace(INTERFACE_PROPERTY_NAME_REGEX, data.__INTERFACE_PROPERTY_NAME__);
+    .replace(TYPE_NAME_REGEX, data.typeName)
+    .replace(PROPERTY_NAME_REGEX, data.propertyName)
+    .replace(INTERFACE_PROPERTY_NAME_REGEX, data.interfacePropertyName)
+    .replace(
+      INTERFACE_PROPERTY_COMMENT_TOKEN,
+      (data.comment &&
+        `/**
+   * ${data.comment}
+   * 
+   * @see ${data.url}
+   */`) ||
+        '',
+    );
+
   const testSource = utilTestTemplate.replace(
     PROPERTY_NAME_REGEX,
-    data.__PROPERTY_NAME__,
+    data.propertyName,
   );
 
   const utilPromise = writeFileAsync(
-    path.resolve(
-      UTILS_BASE_PATH,
-      data.directory,
-      `${data.__PROPERTY_NAME__}.ts`,
-    ),
+    path.resolve(UTILS_BASE_PATH, data.directory, `${data.propertyName}.ts`),
     source,
   );
   const utilTestPromise = writeFileAsync(
@@ -88,7 +104,7 @@ async function writeUtilFileAsync(data: IUtilData) {
       UTILS_BASE_PATH,
       data.directory,
       '__tests__',
-      `${data.__PROPERTY_NAME__}.ts`,
+      `${data.propertyName}.ts`,
     ),
     testSource,
   );
@@ -96,15 +112,52 @@ async function writeUtilFileAsync(data: IUtilData) {
   return Promise.all([utilPromise, utilTestPromise]);
 }
 
+function generateUtilsWithComments(
+  dataToProcess: IUtilData[],
+  progress: cliProgress.Bar,
+) {
+  const chunked = chunk(10, dataToProcess);
+  const turndownService = new TurndownService();
+  turndownService.addRule('links', {
+    filter: ['a'],
+    replacement(content: string) {
+      return content;
+    },
+  });
+  return chunked.reduce(
+    (acc, item) =>
+      acc.then(async data => {
+        const dataWithComments = await Promise.all(
+          item.map(async i => {
+            const result = await axios.get(i.url);
+            const $ = cheerio.load(result.data);
+            const comment = turndownService.turndown(
+              $('#wikiArticle > p:not(:empty)')
+                .first()
+                .html(),
+            );
+            const utilData = { ...i, comment };
+            await writeUtilFileAsync(utilData);
+            progress.increment(1);
+            return utilData;
+          }),
+        );
+
+        return data.concat(dataWithComments);
+      }),
+    Promise.resolve([] as IUtilData[]),
+  );
+}
+
 async function generateUtils() {
   const utilsToGenerate = Object.keys(cssProperties)
     .map(key => {
       const prop = cssProperties[key];
       const directory = kebabCase(prop.groups[0].replace('CSS ', '').trim());
-      const __PROPERTY_NAME__ = camelCase(key);
-      const __INTERFACE_PROPERTY_NAME__ = upperFirst(__PROPERTY_NAME__);
-      const keyLower = __PROPERTY_NAME__.toLowerCase();
-      const __TYPE_NAME__ = types.find(type => {
+      const propertyName = camelCase(key);
+      const interfacePropertyName = upperFirst(propertyName);
+      const keyLower = propertyName.toLowerCase();
+      const typeName = types.find(type => {
         const typeLower = type.toLowerCase();
         return (
           `${keyLower}propertycombined` === typeLower ||
@@ -113,12 +166,13 @@ async function generateUtils() {
         );
       });
 
-      return __TYPE_NAME__
+      return typeName
         ? {
-            __INTERFACE_PROPERTY_NAME__,
-            __PROPERTY_NAME__,
-            __TYPE_NAME__,
+            interfacePropertyName,
+            propertyName,
+            typeName,
             directory,
+            url: prop.mdn_url,
           }
         : undefined;
     })
@@ -134,13 +188,7 @@ async function generateUtils() {
   });
 
   progress.start(utilsToGenerate.length, 0);
-  await Promise.all(
-    utilsToGenerate.map(
-      utilData =>
-        writeUtilFileAsync(utilData).then(() => progress.increment(1)),
-      utilsToGenerate,
-    ),
-  );
+  await generateUtilsWithComments(utilsToGenerate, progress);
   // tslint:disable-next-line:no-console
   console.log('\nDone!');
 }

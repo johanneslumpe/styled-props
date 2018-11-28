@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBackgroundRepeatProps<T> {
+  /**
+   * The **`background-repeat`** CSS property sets how background images are repeated. A background image can be repeated along the horizontal and vertical axes, or not repeated at all.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/background-repeat
+   */
   backgroundRepeat: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IPaddingTopProps<T> {
+  /**
+   * The **`padding-top`** CSS property sets the height of the padding area on the top of an element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/padding-top
+   */
   paddingTop: T;
 }
 

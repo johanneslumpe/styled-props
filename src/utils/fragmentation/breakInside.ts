@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBreakInsideProps<T> {
+  /**
+   * The **`break-inside`** CSS property defines how page, column, or region breaks should behave inside a generated box. If there is no generated box, the property is ignored.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/break-inside
+   */
   breakInside: T;
 }
 

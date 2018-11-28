@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITransformOriginProps<T> {
+  /**
+   * The **`transform-origin`** CSS property sets the origin for an element's transformations.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/transform-origin
+   */
   transformOrigin: T;
 }
 

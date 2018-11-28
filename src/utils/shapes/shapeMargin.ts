@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IShapeMarginProps<T> {
+  /**
+   * The **`shape-margin`** CSS property specifies a margin for a CSS shape created using `shape-outside`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/shape-margin
+   */
   shapeMargin: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderColorProps<T> {
+  /**
+   * The **`border-color`** shorthand CSS property sets the color of all sides of an element's border.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-color
+   */
   borderColor: T;
 }
 

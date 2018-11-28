@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderTopWidthProps<T> {
+  /**
+   * The **`border-top-width`** CSS property sets the width of the top border of an element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-top-width
+   */
   borderTopWidth: T;
 }
 

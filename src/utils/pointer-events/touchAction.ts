@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITouchActionProps<T> {
+  /**
+   * The **`touch-action`** CSS property sets how a region can be manipulated by a touchscreen user (for example, by zooming features built into the browser).
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/touch-action
+   */
   touchAction: T;
 }
 

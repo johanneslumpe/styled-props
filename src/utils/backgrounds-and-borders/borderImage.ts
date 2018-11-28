@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderImageProps<T> {
+  /**
+   * The **`border-image`** CSS property draws an image in place of an element's `border-style`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-image
+   */
   borderImage: T;
 }
 

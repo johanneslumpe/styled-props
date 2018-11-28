@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IPointerEventsProps<T> {
+  /**
+   * The **`pointer-events`** CSS property sets under what circumstances (if any) a particular graphic element can become the target of mouse events.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/pointer-events
+   */
   pointerEvents: T;
 }
 

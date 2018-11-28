@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IAnimationFillModeProps<T> {
+  /**
+   * The **`animation-fill-mode`** CSS property sets how a CSS animation applies styles to its target before and after its execution.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/animation-fill-mode
+   */
   animationFillMode: T;
 }
 

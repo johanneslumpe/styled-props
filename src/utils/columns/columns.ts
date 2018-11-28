@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IColumnsProps<T> {
+  /**
+   * The **`columns`** CSS property sets the column width and column count of an element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/columns
+   */
   columns: T;
 }
 

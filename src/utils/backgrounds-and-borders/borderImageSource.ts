@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderImageSourceProps<T> {
+  /**
+   * The **`border-image-source`** CSS property sets the source image used to create an element's border image.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-image-source
+   */
   borderImageSource: T;
 }
 

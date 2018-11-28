@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderBottomWidthProps<T> {
+  /**
+   * The **`border-bottom-width`** CSS property sets the width of the bottom border of a box.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-width
+   */
   borderBottomWidth: T;
 }
 

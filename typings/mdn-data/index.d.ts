@@ -8,6 +8,7 @@ declare module 'mdn-data' {
   export interface IRawProperty extends IRawSyntax {
     status: PropertyStatus;
     groups: string[];
+    mdn_url: string;
   }
 
   export interface IRawProperties {

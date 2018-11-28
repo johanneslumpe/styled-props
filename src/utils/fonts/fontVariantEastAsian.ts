@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IFontVariantEastAsianProps<T> {
+  /**
+   * The **`font-variant-east-asian`** CSS property controls the use of alternate glyphs for East Asian scripts, like Japanese and Chinese.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-east-asian
+   */
   fontVariantEastAsian: T;
 }
 

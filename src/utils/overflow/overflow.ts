@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IOverflowProps<T> {
+  /**
+   * The **`overflow`** CSS property sets what to do when an element's content is too big to fit in its block formatting context. It is a shorthand for `overflow-x` and `overflow-y`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/overflow
+   */
   overflow: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderBottomStyleProps<T> {
+  /**
+   * The **`border-bottom-style`** CSS property sets the line style of an element's bottom `border`.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-style
+   */
   borderBottomStyle: T;
 }
 

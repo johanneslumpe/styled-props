@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IIsolationProps<T> {
+  /**
+   * The **`isolation`** CSS property determines whether an element must create a new stacking context.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/isolation
+   */
   isolation: T;
 }
 

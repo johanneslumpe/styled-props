@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITextDecorationLineProps<T> {
+  /**
+   * The **`text-decoration-line`** CSS property sets the kind of decoration that is used on text in an element, such as an underline or overline.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-line
+   */
   textDecorationLine: T;
 }
 

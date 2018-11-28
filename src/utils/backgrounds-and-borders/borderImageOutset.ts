@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderImageOutsetProps<T> {
+  /**
+   * The **`border-image-outset`** CSS property sets the distance by which an element's border image is set out from its border box.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-image-outset
+   */
   borderImageOutset: T;
 }
 

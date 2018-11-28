@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ITopProps<T> {
+  /**
+   * The **`top`** CSS property participates in specifying the vertical position of a _positioned element_. It has no effect on non-positioned elements.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/top
+   */
   top: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IMaskTypeProps<T> {
+  /**
+   * The **`mask-type`** CSS property sets whether an SVG `<mask>` element is used as a _luminance_ or an _alpha_ mask. It applies to the `<mask>` element itself.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/mask-type
+   */
   maskType: T;
 }
 

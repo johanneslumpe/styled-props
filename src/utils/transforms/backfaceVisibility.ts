@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBackfaceVisibilityProps<T> {
+  /**
+   * The **`backface-visibility`** CSS property sets whether the back face of an element is visible when turned towards the user.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/backface-visibility
+   */
   backfaceVisibility: T;
 }
 

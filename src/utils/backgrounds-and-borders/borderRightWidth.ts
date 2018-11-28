@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface IBorderRightWidthProps<T> {
+  /**
+   * The **`border-right-width`** CSS property sets the width of the right border of an element.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/border-right-width
+   */
   borderRightWidth: T;
 }
 

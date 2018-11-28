@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ICounterResetProps<T> {
+  /**
+   * The **`counter-reset`** CSS property resets a CSS counter to a given value.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/counter-reset
+   */
   counterReset: T;
 }
 

@@ -4,6 +4,11 @@ import { style } from '../../style';
 import { IStyleOptions } from '../../types';
 
 export interface ILetterSpacingProps<T> {
+  /**
+   * The **`letter-spacing`** CSS property sets the spacing behavior between text characters.
+   * 
+   * @see https://developer.mozilla.org/docs/Web/CSS/letter-spacing
+   */
   letterSpacing: T;
 }
 
