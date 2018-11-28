@@ -24,6 +24,11 @@ describe('writingMode', () => {
     expect(result).toEqual({ writingMode: 'a' });
   });
 
+  it('should use an interface which marks `writingMode` as optional', () => {
+    const result = writingMode<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = writingMode<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

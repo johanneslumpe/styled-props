@@ -24,6 +24,11 @@ describe('gridTemplateRows', () => {
     expect(result).toEqual({ gridTemplateRows: 'a' });
   });
 
+  it('should use an interface which marks `gridTemplateRows` as optional', () => {
+    const result = gridTemplateRows<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridTemplateRows<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

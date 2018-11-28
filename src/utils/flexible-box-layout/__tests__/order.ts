@@ -24,6 +24,11 @@ describe('order', () => {
     expect(result).toEqual({ order: 'a' });
   });
 
+  it('should use an interface which marks `order` as optional', () => {
+    const result = order<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = order<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

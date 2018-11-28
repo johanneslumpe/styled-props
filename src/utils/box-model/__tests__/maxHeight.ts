@@ -24,6 +24,11 @@ describe('maxHeight', () => {
     expect(result).toEqual({ maxHeight: 'a' });
   });
 
+  it('should use an interface which marks `maxHeight` as optional', () => {
+    const result = maxHeight<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = maxHeight<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('outline', () => {
     expect(result).toEqual({ outline: 'a' });
   });
 
+  it('should use an interface which marks `outline` as optional', () => {
+    const result = outline<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = outline<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

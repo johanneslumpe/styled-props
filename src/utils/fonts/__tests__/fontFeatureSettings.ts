@@ -24,6 +24,11 @@ describe('fontFeatureSettings', () => {
     expect(result).toEqual({ fontFeatureSettings: 'a' });
   });
 
+  it('should use an interface which marks `fontFeatureSettings` as optional', () => {
+    const result = fontFeatureSettings<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontFeatureSettings<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

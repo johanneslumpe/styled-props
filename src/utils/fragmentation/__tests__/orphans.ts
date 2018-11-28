@@ -24,6 +24,11 @@ describe('orphans', () => {
     expect(result).toEqual({ orphans: 'a' });
   });
 
+  it('should use an interface which marks `orphans` as optional', () => {
+    const result = orphans<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = orphans<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

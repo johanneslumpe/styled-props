@@ -24,6 +24,11 @@ describe('quotes', () => {
     expect(result).toEqual({ quotes: 'a' });
   });
 
+  it('should use an interface which marks `quotes` as optional', () => {
+    const result = quotes<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = quotes<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

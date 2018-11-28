@@ -24,6 +24,11 @@ describe('objectFit', () => {
     expect(result).toEqual({ objectFit: 'a' });
   });
 
+  it('should use an interface which marks `objectFit` as optional', () => {
+    const result = objectFit<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = objectFit<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

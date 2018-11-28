@@ -24,6 +24,11 @@ describe('textTransform', () => {
     expect(result).toEqual({ textTransform: 'a' });
   });
 
+  it('should use an interface which marks `textTransform` as optional', () => {
+    const result = textTransform<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textTransform<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

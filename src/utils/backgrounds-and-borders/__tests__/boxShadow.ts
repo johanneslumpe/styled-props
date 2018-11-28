@@ -24,6 +24,11 @@ describe('boxShadow', () => {
     expect(result).toEqual({ boxShadow: 'a' });
   });
 
+  it('should use an interface which marks `boxShadow` as optional', () => {
+    const result = boxShadow<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = boxShadow<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

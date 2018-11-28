@@ -24,6 +24,11 @@ describe('borderImageRepeat', () => {
     expect(result).toEqual({ borderImageRepeat: 'a' });
   });
 
+  it('should use an interface which marks `borderImageRepeat` as optional', () => {
+    const result = borderImageRepeat<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderImageRepeat<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

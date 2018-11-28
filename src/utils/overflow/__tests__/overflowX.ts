@@ -24,6 +24,11 @@ describe('overflowX', () => {
     expect(result).toEqual({ overflowX: 'a' });
   });
 
+  it('should use an interface which marks `overflowX` as optional', () => {
+    const result = overflowX<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = overflowX<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

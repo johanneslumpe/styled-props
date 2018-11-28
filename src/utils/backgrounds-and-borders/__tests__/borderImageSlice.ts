@@ -24,6 +24,11 @@ describe('borderImageSlice', () => {
     expect(result).toEqual({ borderImageSlice: 'a' });
   });
 
+  it('should use an interface which marks `borderImageSlice` as optional', () => {
+    const result = borderImageSlice<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderImageSlice<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

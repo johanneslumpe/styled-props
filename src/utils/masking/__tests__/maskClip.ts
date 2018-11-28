@@ -24,6 +24,11 @@ describe('maskClip', () => {
     expect(result).toEqual({ maskClip: 'a' });
   });
 
+  it('should use an interface which marks `maskClip` as optional', () => {
+    const result = maskClip<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = maskClip<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

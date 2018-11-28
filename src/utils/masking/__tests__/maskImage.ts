@@ -24,6 +24,11 @@ describe('maskImage', () => {
     expect(result).toEqual({ maskImage: 'a' });
   });
 
+  it('should use an interface which marks `maskImage` as optional', () => {
+    const result = maskImage<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = maskImage<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

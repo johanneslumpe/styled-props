@@ -24,6 +24,11 @@ describe('backgroundRepeat', () => {
     expect(result).toEqual({ backgroundRepeat: 'a' });
   });
 
+  it('should use an interface which marks `backgroundRepeat` as optional', () => {
+    const result = backgroundRepeat<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundRepeat<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('breakBefore', () => {
     expect(result).toEqual({ breakBefore: 'a' });
   });
 
+  it('should use an interface which marks `breakBefore` as optional', () => {
+    const result = breakBefore<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = breakBefore<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

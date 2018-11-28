@@ -24,6 +24,11 @@ describe('emptyCells', () => {
     expect(result).toEqual({ emptyCells: 'a' });
   });
 
+  it('should use an interface which marks `emptyCells` as optional', () => {
+    const result = emptyCells<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = emptyCells<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

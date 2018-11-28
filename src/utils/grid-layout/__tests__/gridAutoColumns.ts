@@ -24,6 +24,11 @@ describe('gridAutoColumns', () => {
     expect(result).toEqual({ gridAutoColumns: 'a' });
   });
 
+  it('should use an interface which marks `gridAutoColumns` as optional', () => {
+    const result = gridAutoColumns<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridAutoColumns<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

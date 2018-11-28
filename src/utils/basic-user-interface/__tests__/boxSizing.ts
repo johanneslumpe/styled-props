@@ -24,6 +24,11 @@ describe('boxSizing', () => {
     expect(result).toEqual({ boxSizing: 'a' });
   });
 
+  it('should use an interface which marks `boxSizing` as optional', () => {
+    const result = boxSizing<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = boxSizing<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

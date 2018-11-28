@@ -24,6 +24,11 @@ describe('textShadow', () => {
     expect(result).toEqual({ textShadow: 'a' });
   });
 
+  it('should use an interface which marks `textShadow` as optional', () => {
+    const result = textShadow<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textShadow<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

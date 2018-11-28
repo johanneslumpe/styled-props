@@ -24,6 +24,11 @@ describe('imageRendering', () => {
     expect(result).toEqual({ imageRendering: 'a' });
   });
 
+  it('should use an interface which marks `imageRendering` as optional', () => {
+    const result = imageRendering<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = imageRendering<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

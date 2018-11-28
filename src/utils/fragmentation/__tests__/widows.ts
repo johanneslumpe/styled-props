@@ -24,6 +24,11 @@ describe('widows', () => {
     expect(result).toEqual({ widows: 'a' });
   });
 
+  it('should use an interface which marks `widows` as optional', () => {
+    const result = widows<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = widows<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('colorAdjust', () => {
     expect(result).toEqual({ colorAdjust: 'a' });
   });
 
+  it('should use an interface which marks `colorAdjust` as optional', () => {
+    const result = colorAdjust<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = colorAdjust<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

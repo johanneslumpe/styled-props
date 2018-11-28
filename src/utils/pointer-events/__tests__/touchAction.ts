@@ -24,6 +24,11 @@ describe('touchAction', () => {
     expect(result).toEqual({ touchAction: 'a' });
   });
 
+  it('should use an interface which marks `touchAction` as optional', () => {
+    const result = touchAction<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = touchAction<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('backfaceVisibility', () => {
     expect(result).toEqual({ backfaceVisibility: 'a' });
   });
 
+  it('should use an interface which marks `backfaceVisibility` as optional', () => {
+    const result = backfaceVisibility<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backfaceVisibility<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

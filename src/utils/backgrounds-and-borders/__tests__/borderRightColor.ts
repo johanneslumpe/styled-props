@@ -24,6 +24,11 @@ describe('borderRightColor', () => {
     expect(result).toEqual({ borderRightColor: 'a' });
   });
 
+  it('should use an interface which marks `borderRightColor` as optional', () => {
+    const result = borderRightColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderRightColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

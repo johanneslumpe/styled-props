@@ -24,6 +24,11 @@ describe('listStyleType', () => {
     expect(result).toEqual({ listStyleType: 'a' });
   });
 
+  it('should use an interface which marks `listStyleType` as optional', () => {
+    const result = listStyleType<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = listStyleType<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

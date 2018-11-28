@@ -24,6 +24,11 @@ describe('paddingBottom', () => {
     expect(result).toEqual({ paddingBottom: 'a' });
   });
 
+  it('should use an interface which marks `paddingBottom` as optional', () => {
+    const result = paddingBottom<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = paddingBottom<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

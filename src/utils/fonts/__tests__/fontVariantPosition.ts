@@ -24,6 +24,11 @@ describe('fontVariantPosition', () => {
     expect(result).toEqual({ fontVariantPosition: 'a' });
   });
 
+  it('should use an interface which marks `fontVariantPosition` as optional', () => {
+    const result = fontVariantPosition<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontVariantPosition<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

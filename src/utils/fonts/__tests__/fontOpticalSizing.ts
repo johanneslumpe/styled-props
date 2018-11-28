@@ -24,6 +24,11 @@ describe('fontOpticalSizing', () => {
     expect(result).toEqual({ fontOpticalSizing: 'a' });
   });
 
+  it('should use an interface which marks `fontOpticalSizing` as optional', () => {
+    const result = fontOpticalSizing<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontOpticalSizing<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

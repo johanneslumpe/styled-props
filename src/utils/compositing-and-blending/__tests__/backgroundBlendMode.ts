@@ -24,6 +24,11 @@ describe('backgroundBlendMode', () => {
     expect(result).toEqual({ backgroundBlendMode: 'a' });
   });
 
+  it('should use an interface which marks `backgroundBlendMode` as optional', () => {
+    const result = backgroundBlendMode<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundBlendMode<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

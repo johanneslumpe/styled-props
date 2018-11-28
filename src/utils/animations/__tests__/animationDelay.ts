@@ -24,6 +24,11 @@ describe('animationDelay', () => {
     expect(result).toEqual({ animationDelay: 'a' });
   });
 
+  it('should use an interface which marks `animationDelay` as optional', () => {
+    const result = animationDelay<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = animationDelay<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

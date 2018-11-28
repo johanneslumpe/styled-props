@@ -24,6 +24,11 @@ describe('resize', () => {
     expect(result).toEqual({ resize: 'a' });
   });
 
+  it('should use an interface which marks `resize` as optional', () => {
+    const result = resize<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = resize<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

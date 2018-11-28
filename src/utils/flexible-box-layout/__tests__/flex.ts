@@ -24,6 +24,11 @@ describe('flex', () => {
     expect(result).toEqual({ flex: 'a' });
   });
 
+  it('should use an interface which marks `flex` as optional', () => {
+    const result = flex<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flex<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('scale', () => {
     expect(result).toEqual({ scale: 'a' });
   });
 
+  it('should use an interface which marks `scale` as optional', () => {
+    const result = scale<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = scale<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

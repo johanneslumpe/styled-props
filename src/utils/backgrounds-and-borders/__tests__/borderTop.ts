@@ -24,6 +24,11 @@ describe('borderTop', () => {
     expect(result).toEqual({ borderTop: 'a' });
   });
 
+  it('should use an interface which marks `borderTop` as optional', () => {
+    const result = borderTop<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderTop<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

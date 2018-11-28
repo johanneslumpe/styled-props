@@ -24,6 +24,11 @@ describe('columnRuleStyle', () => {
     expect(result).toEqual({ columnRuleStyle: 'a' });
   });
 
+  it('should use an interface which marks `columnRuleStyle` as optional', () => {
+    const result = columnRuleStyle<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnRuleStyle<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

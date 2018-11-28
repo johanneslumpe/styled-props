@@ -24,6 +24,11 @@ describe('unicodeBidi', () => {
     expect(result).toEqual({ unicodeBidi: 'a' });
   });
 
+  it('should use an interface which marks `unicodeBidi` as optional', () => {
+    const result = unicodeBidi<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = unicodeBidi<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

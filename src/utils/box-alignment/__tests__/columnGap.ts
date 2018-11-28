@@ -24,6 +24,11 @@ describe('columnGap', () => {
     expect(result).toEqual({ columnGap: 'a' });
   });
 
+  it('should use an interface which marks `columnGap` as optional', () => {
+    const result = columnGap<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnGap<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

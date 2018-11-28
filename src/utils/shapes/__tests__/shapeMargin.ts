@@ -24,6 +24,11 @@ describe('shapeMargin', () => {
     expect(result).toEqual({ shapeMargin: 'a' });
   });
 
+  it('should use an interface which marks `shapeMargin` as optional', () => {
+    const result = shapeMargin<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = shapeMargin<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

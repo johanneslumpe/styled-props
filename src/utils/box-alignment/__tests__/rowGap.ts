@@ -24,6 +24,11 @@ describe('rowGap', () => {
     expect(result).toEqual({ rowGap: 'a' });
   });
 
+  it('should use an interface which marks `rowGap` as optional', () => {
+    const result = rowGap<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = rowGap<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

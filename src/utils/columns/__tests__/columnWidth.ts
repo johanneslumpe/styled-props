@@ -24,6 +24,11 @@ describe('columnWidth', () => {
     expect(result).toEqual({ columnWidth: 'a' });
   });
 
+  it('should use an interface which marks `columnWidth` as optional', () => {
+    const result = columnWidth<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnWidth<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

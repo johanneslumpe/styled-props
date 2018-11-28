@@ -24,6 +24,11 @@ describe('animationFillMode', () => {
     expect(result).toEqual({ animationFillMode: 'a' });
   });
 
+  it('should use an interface which marks `animationFillMode` as optional', () => {
+    const result = animationFillMode<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = animationFillMode<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

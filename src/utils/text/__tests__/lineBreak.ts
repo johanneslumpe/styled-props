@@ -24,6 +24,11 @@ describe('lineBreak', () => {
     expect(result).toEqual({ lineBreak: 'a' });
   });
 
+  it('should use an interface which marks `lineBreak` as optional', () => {
+    const result = lineBreak<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = lineBreak<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

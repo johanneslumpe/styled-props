@@ -24,6 +24,11 @@ describe('flexDirection', () => {
     expect(result).toEqual({ flexDirection: 'a' });
   });
 
+  it('should use an interface which marks `flexDirection` as optional', () => {
+    const result = flexDirection<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flexDirection<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

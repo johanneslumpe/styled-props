@@ -24,6 +24,11 @@ describe('flexFlow', () => {
     expect(result).toEqual({ flexFlow: 'a' });
   });
 
+  it('should use an interface which marks `flexFlow` as optional', () => {
+    const result = flexFlow<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flexFlow<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

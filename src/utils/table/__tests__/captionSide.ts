@@ -24,6 +24,11 @@ describe('captionSide', () => {
     expect(result).toEqual({ captionSide: 'a' });
   });
 
+  it('should use an interface which marks `captionSide` as optional', () => {
+    const result = captionSide<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = captionSide<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

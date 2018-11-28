@@ -24,6 +24,11 @@ describe('maskRepeat', () => {
     expect(result).toEqual({ maskRepeat: 'a' });
   });
 
+  it('should use an interface which marks `maskRepeat` as optional', () => {
+    const result = maskRepeat<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = maskRepeat<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

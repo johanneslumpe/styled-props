@@ -24,6 +24,11 @@ describe('textOrientation', () => {
     expect(result).toEqual({ textOrientation: 'a' });
   });
 
+  it('should use an interface which marks `textOrientation` as optional', () => {
+    const result = textOrientation<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textOrientation<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

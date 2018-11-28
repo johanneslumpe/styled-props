@@ -24,6 +24,11 @@ describe('clipPath', () => {
     expect(result).toEqual({ clipPath: 'a' });
   });
 
+  it('should use an interface which marks `clipPath` as optional', () => {
+    const result = clipPath<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = clipPath<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

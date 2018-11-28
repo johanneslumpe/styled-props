@@ -24,6 +24,11 @@ describe('backgroundImage', () => {
     expect(result).toEqual({ backgroundImage: 'a' });
   });
 
+  it('should use an interface which marks `backgroundImage` as optional', () => {
+    const result = backgroundImage<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundImage<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

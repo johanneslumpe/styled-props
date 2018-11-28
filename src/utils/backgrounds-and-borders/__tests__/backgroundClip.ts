@@ -24,6 +24,11 @@ describe('backgroundClip', () => {
     expect(result).toEqual({ backgroundClip: 'a' });
   });
 
+  it('should use an interface which marks `backgroundClip` as optional', () => {
+    const result = backgroundClip<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundClip<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

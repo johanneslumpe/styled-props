@@ -24,6 +24,11 @@ describe('gap', () => {
     expect(result).toEqual({ gap: 'a' });
   });
 
+  it('should use an interface which marks `gap` as optional', () => {
+    const result = gap<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gap<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

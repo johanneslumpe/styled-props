@@ -24,6 +24,11 @@ describe('wordSpacing', () => {
     expect(result).toEqual({ wordSpacing: 'a' });
   });
 
+  it('should use an interface which marks `wordSpacing` as optional', () => {
+    const result = wordSpacing<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = wordSpacing<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('textEmphasisPosition', () => {
     expect(result).toEqual({ textEmphasisPosition: 'a' });
   });
 
+  it('should use an interface which marks `textEmphasisPosition` as optional', () => {
+    const result = textEmphasisPosition<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textEmphasisPosition<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

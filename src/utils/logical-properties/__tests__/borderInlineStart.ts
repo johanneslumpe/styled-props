@@ -24,6 +24,11 @@ describe('borderInlineStart', () => {
     expect(result).toEqual({ borderInlineStart: 'a' });
   });
 
+  it('should use an interface which marks `borderInlineStart` as optional', () => {
+    const result = borderInlineStart<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderInlineStart<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

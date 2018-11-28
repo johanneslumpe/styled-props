@@ -24,6 +24,11 @@ describe('isolation', () => {
     expect(result).toEqual({ isolation: 'a' });
   });
 
+  it('should use an interface which marks `isolation` as optional', () => {
+    const result = isolation<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = isolation<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

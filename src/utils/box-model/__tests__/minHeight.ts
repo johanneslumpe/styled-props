@@ -24,6 +24,11 @@ describe('minHeight', () => {
     expect(result).toEqual({ minHeight: 'a' });
   });
 
+  it('should use an interface which marks `minHeight` as optional', () => {
+    const result = minHeight<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = minHeight<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

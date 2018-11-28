@@ -24,6 +24,11 @@ describe('maskType', () => {
     expect(result).toEqual({ maskType: 'a' });
   });
 
+  it('should use an interface which marks `maskType` as optional', () => {
+    const result = maskType<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = maskType<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

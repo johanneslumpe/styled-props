@@ -24,6 +24,11 @@ describe('gridTemplateColumns', () => {
     expect(result).toEqual({ gridTemplateColumns: 'a' });
   });
 
+  it('should use an interface which marks `gridTemplateColumns` as optional', () => {
+    const result = gridTemplateColumns<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridTemplateColumns<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

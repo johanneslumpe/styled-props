@@ -24,6 +24,11 @@ describe('maskComposite', () => {
     expect(result).toEqual({ maskComposite: 'a' });
   });
 
+  it('should use an interface which marks `maskComposite` as optional', () => {
+    const result = maskComposite<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = maskComposite<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

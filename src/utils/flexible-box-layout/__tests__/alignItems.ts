@@ -24,6 +24,11 @@ describe('alignItems', () => {
     expect(result).toEqual({ alignItems: 'a' });
   });
 
+  it('should use an interface which marks `alignItems` as optional', () => {
+    const result = alignItems<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = alignItems<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

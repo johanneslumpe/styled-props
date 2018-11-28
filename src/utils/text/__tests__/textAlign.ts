@@ -24,6 +24,11 @@ describe('textAlign', () => {
     expect(result).toEqual({ textAlign: 'a' });
   });
 
+  it('should use an interface which marks `textAlign` as optional', () => {
+    const result = textAlign<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textAlign<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

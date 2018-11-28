@@ -24,6 +24,11 @@ describe('columnRuleWidth', () => {
     expect(result).toEqual({ columnRuleWidth: 'a' });
   });
 
+  it('should use an interface which marks `columnRuleWidth` as optional', () => {
+    const result = columnRuleWidth<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnRuleWidth<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

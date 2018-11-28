@@ -24,6 +24,11 @@ describe('fontWeight', () => {
     expect(result).toEqual({ fontWeight: 'a' });
   });
 
+  it('should use an interface which marks `fontWeight` as optional', () => {
+    const result = fontWeight<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontWeight<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('hangingPunctuation', () => {
     expect(result).toEqual({ hangingPunctuation: 'a' });
   });
 
+  it('should use an interface which marks `hangingPunctuation` as optional', () => {
+    const result = hangingPunctuation<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = hangingPunctuation<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

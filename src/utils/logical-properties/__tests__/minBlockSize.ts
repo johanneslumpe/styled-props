@@ -24,6 +24,11 @@ describe('minBlockSize', () => {
     expect(result).toEqual({ minBlockSize: 'a' });
   });
 
+  it('should use an interface which marks `minBlockSize` as optional', () => {
+    const result = minBlockSize<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = minBlockSize<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('transitionDelay', () => {
     expect(result).toEqual({ transitionDelay: 'a' });
   });
 
+  it('should use an interface which marks `transitionDelay` as optional', () => {
+    const result = transitionDelay<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = transitionDelay<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

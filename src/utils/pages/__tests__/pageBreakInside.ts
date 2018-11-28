@@ -24,6 +24,11 @@ describe('pageBreakInside', () => {
     expect(result).toEqual({ pageBreakInside: 'a' });
   });
 
+  it('should use an interface which marks `pageBreakInside` as optional', () => {
+    const result = pageBreakInside<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = pageBreakInside<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

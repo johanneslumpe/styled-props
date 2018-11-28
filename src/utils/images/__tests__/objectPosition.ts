@@ -24,6 +24,11 @@ describe('objectPosition', () => {
     expect(result).toEqual({ objectPosition: 'a' });
   });
 
+  it('should use an interface which marks `objectPosition` as optional', () => {
+    const result = objectPosition<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = objectPosition<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

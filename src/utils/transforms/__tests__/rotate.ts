@@ -24,6 +24,11 @@ describe('rotate', () => {
     expect(result).toEqual({ rotate: 'a' });
   });
 
+  it('should use an interface which marks `rotate` as optional', () => {
+    const result = rotate<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = rotate<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

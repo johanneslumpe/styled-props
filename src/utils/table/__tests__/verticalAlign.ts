@@ -24,6 +24,11 @@ describe('verticalAlign', () => {
     expect(result).toEqual({ verticalAlign: 'a' });
   });
 
+  it('should use an interface which marks `verticalAlign` as optional', () => {
+    const result = verticalAlign<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = verticalAlign<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

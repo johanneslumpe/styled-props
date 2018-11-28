@@ -24,6 +24,11 @@ describe('transformOrigin', () => {
     expect(result).toEqual({ transformOrigin: 'a' });
   });
 
+  it('should use an interface which marks `transformOrigin` as optional', () => {
+    const result = transformOrigin<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = transformOrigin<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

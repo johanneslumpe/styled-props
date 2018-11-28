@@ -24,6 +24,11 @@ describe('fontSynthesis', () => {
     expect(result).toEqual({ fontSynthesis: 'a' });
   });
 
+  it('should use an interface which marks `fontSynthesis` as optional', () => {
+    const result = fontSynthesis<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontSynthesis<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

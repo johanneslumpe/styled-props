@@ -24,6 +24,11 @@ describe('float', () => {
     expect(result).toEqual({ float: 'a' });
   });
 
+  it('should use an interface which marks `float` as optional', () => {
+    const result = float<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = float<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

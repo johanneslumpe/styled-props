@@ -24,6 +24,11 @@ describe('textAlignLast', () => {
     expect(result).toEqual({ textAlignLast: 'a' });
   });
 
+  it('should use an interface which marks `textAlignLast` as optional', () => {
+    const result = textAlignLast<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = textAlignLast<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

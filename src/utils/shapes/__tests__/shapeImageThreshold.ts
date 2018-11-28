@@ -24,6 +24,11 @@ describe('shapeImageThreshold', () => {
     expect(result).toEqual({ shapeImageThreshold: 'a' });
   });
 
+  it('should use an interface which marks `shapeImageThreshold` as optional', () => {
+    const result = shapeImageThreshold<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = shapeImageThreshold<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

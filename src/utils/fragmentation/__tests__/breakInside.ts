@@ -24,6 +24,11 @@ describe('breakInside', () => {
     expect(result).toEqual({ breakInside: 'a' });
   });
 
+  it('should use an interface which marks `breakInside` as optional', () => {
+    const result = breakInside<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = breakInside<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

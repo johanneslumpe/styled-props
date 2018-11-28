@@ -24,6 +24,11 @@ describe('fontVariantLigatures', () => {
     expect(result).toEqual({ fontVariantLigatures: 'a' });
   });
 
+  it('should use an interface which marks `fontVariantLigatures` as optional', () => {
+    const result = fontVariantLigatures<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontVariantLigatures<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('all', () => {
     expect(result).toEqual({ all: 'a' });
   });
 
+  it('should use an interface which marks `all` as optional', () => {
+    const result = all<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = all<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

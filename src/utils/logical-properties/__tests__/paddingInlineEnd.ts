@@ -24,6 +24,11 @@ describe('paddingInlineEnd', () => {
     expect(result).toEqual({ paddingInlineEnd: 'a' });
   });
 
+  it('should use an interface which marks `paddingInlineEnd` as optional', () => {
+    const result = paddingInlineEnd<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = paddingInlineEnd<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

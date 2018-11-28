@@ -24,6 +24,11 @@ describe('borderInlineStartColor', () => {
     expect(result).toEqual({ borderInlineStartColor: 'a' });
   });
 
+  it('should use an interface which marks `borderInlineStartColor` as optional', () => {
+    const result = borderInlineStartColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = borderInlineStartColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

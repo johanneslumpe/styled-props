@@ -24,6 +24,11 @@ describe('backgroundColor', () => {
     expect(result).toEqual({ backgroundColor: 'a' });
   });
 
+  it('should use an interface which marks `backgroundColor` as optional', () => {
+    const result = backgroundColor<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = backgroundColor<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

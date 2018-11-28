@@ -24,6 +24,11 @@ describe('marginInlineEnd', () => {
     expect(result).toEqual({ marginInlineEnd: 'a' });
   });
 
+  it('should use an interface which marks `marginInlineEnd` as optional', () => {
+    const result = marginInlineEnd<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = marginInlineEnd<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

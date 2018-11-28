@@ -24,6 +24,11 @@ describe('gridTemplateAreas', () => {
     expect(result).toEqual({ gridTemplateAreas: 'a' });
   });
 
+  it('should use an interface which marks `gridTemplateAreas` as optional', () => {
+    const result = gridTemplateAreas<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = gridTemplateAreas<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

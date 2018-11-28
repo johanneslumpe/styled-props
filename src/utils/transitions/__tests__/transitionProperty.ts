@@ -24,6 +24,11 @@ describe('transitionProperty', () => {
     expect(result).toEqual({ transitionProperty: 'a' });
   });
 
+  it('should use an interface which marks `transitionProperty` as optional', () => {
+    const result = transitionProperty<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = transitionProperty<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

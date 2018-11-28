@@ -24,6 +24,11 @@ describe('margin', () => {
     expect(result).toEqual({ margin: 'a' });
   });
 
+  it('should use an interface which marks `margin` as optional', () => {
+    const result = margin<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = margin<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

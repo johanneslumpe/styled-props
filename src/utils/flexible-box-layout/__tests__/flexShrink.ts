@@ -24,6 +24,11 @@ describe('flexShrink', () => {
     expect(result).toEqual({ flexShrink: 'a' });
   });
 
+  it('should use an interface which marks `flexShrink` as optional', () => {
+    const result = flexShrink<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = flexShrink<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('fontLanguageOverride', () => {
     expect(result).toEqual({ fontLanguageOverride: 'a' });
   });
 
+  it('should use an interface which marks `fontLanguageOverride` as optional', () => {
+    const result = fontLanguageOverride<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontLanguageOverride<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

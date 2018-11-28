@@ -24,6 +24,11 @@ describe('overflowWrap', () => {
     expect(result).toEqual({ overflowWrap: 'a' });
   });
 
+  it('should use an interface which marks `overflowWrap` as optional', () => {
+    const result = overflowWrap<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = overflowWrap<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

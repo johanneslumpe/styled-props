@@ -24,6 +24,11 @@ describe('fontFamily', () => {
     expect(result).toEqual({ fontFamily: 'a' });
   });
 
+  it('should use an interface which marks `fontFamily` as optional', () => {
+    const result = fontFamily<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontFamily<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

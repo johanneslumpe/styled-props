@@ -24,6 +24,11 @@ describe('columnCount', () => {
     expect(result).toEqual({ columnCount: 'a' });
   });
 
+  it('should use an interface which marks `columnCount` as optional', () => {
+    const result = columnCount<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = columnCount<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

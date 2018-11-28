@@ -5,7 +5,7 @@ import { IStyleOptions } from '../../types';
 
 export interface IBorderTopProps<T> {
   /**
-   * The **`border-top`** CSS property is a shorthand that sets the values of `border-top-width`, `border-top-style`, and `border-top-color`. These properties describe an element's top `border`.
+   * The **`border-top`** CSS property is a shorthand that sets the values of `border-top-width`, `border-top-style` and `border-top-color`. These properties set an element's top border.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-top
    */

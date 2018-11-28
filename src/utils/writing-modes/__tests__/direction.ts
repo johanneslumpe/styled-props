@@ -24,6 +24,11 @@ describe('direction', () => {
     expect(result).toEqual({ direction: 'a' });
   });
 
+  it('should use an interface which marks `direction` as optional', () => {
+    const result = direction<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = direction<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

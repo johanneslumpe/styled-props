@@ -24,6 +24,11 @@ describe('fontVariantCaps', () => {
     expect(result).toEqual({ fontVariantCaps: 'a' });
   });
 
+  it('should use an interface which marks `fontVariantCaps` as optional', () => {
+    const result = fontVariantCaps<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = fontVariantCaps<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

@@ -24,6 +24,11 @@ describe('perspective', () => {
     expect(result).toEqual({ perspective: 'a' });
   });
 
+  it('should use an interface which marks `perspective` as optional', () => {
+    const result = perspective<'a'>()({});
+    expect(result).toEqual(undefined);
+  });
+
   it('should allow using a theme', () => {
     const result = perspective<'value', IThemeWithoutBreakpoints>({
       themeProp: 'dummy',

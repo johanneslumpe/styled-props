@@ -5,7 +5,7 @@ import { IStyleOptions } from '../../types';
 
 export interface IBorderBottomProps<T> {
   /**
-   * The **`border-bottom`** CSS property sets an element's bottom border. It's a shorthand for `border-bottom-width`, `border-bottom-style` and `border-bottom-color`.
+   * The **`border-bottom`** CSS property is a shorthand that sets the values of `border-bottom-width`, `border-bottom-style` and `border-bottom-color`. These properties set an element's bottom border.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom
    */
