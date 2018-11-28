@@ -5,9 +5,31 @@ interface IBaseCssValue<T> {
   base?: T;
 }
 
-export type StyleProps<T> = T extends (props: infer R) => any
+export type InferPropsFromFunctionArgument<T> = T extends (
+  props: infer R,
+) => any
   ? R extends { theme?: any } ? Pick<R, Exclude<keyof R, 'theme'>> : R
-  : never;
+  : {};
+
+export type StyleProps<
+  T1,
+  T2 = {},
+  T3 = {},
+  T4 = {},
+  T5 = {},
+  T6 = {},
+  T7 = {},
+  T8 = {},
+  T9 = {}
+> = InferPropsFromFunctionArgument<T1> &
+  InferPropsFromFunctionArgument<T2> &
+  InferPropsFromFunctionArgument<T3> &
+  InferPropsFromFunctionArgument<T4> &
+  InferPropsFromFunctionArgument<T5> &
+  InferPropsFromFunctionArgument<T6> &
+  InferPropsFromFunctionArgument<T7> &
+  InferPropsFromFunctionArgument<T8> &
+  InferPropsFromFunctionArgument<T9>;
 
 export type ResponsivePropValue<BreakPoints, ValueType> = {
   [P in Extract<keyof BreakPoints, string>]?: ValueType
