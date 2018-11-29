@@ -25,7 +25,7 @@
 **● theme**: * `T` & `object`
 *
 
-*Defined in [types.ts:32](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L32)*
+*Defined in [types.ts:54](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L54)*
 
 ___
 

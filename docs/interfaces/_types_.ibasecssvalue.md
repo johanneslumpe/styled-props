@@ -24,7 +24,7 @@
 
 **● base**: *[T]()*
 
-*Defined in [types.ts:5](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L5)*
+*Defined in [types.ts:5](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L5)*
 
 The base css value, without any media queries applied
 

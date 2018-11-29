@@ -30,7 +30,7 @@
 **● arrayResolver**: * `undefined` &#124; `function`
 *
 
-*Defined in [types.ts:69](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L69)*
+*Defined in [types.ts:91](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L91)*
 
 The resolver to be used for array values
 
@@ -41,7 +41,7 @@ ___
 
 **● cssProp**: *`string`*
 
-*Defined in [types.ts:54](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L54)*
+*Defined in [types.ts:76](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L76)*
 
 The css property this function should map to
 
@@ -52,7 +52,7 @@ ___
 
 **● prop**: *`Extract`<`keyof P`, `string`>*
 
-*Defined in [types.ts:59](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L59)*
+*Defined in [types.ts:81](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L81)*
 
 The property of the component's props to read from
 
@@ -63,7 +63,7 @@ ___
 
 **● themeProp**: *[K]()*
 
-*Defined in [types.ts:64](https://github.com/johanneslumpe/styled-props/blob/86dd9fd/src/types.ts#L64)*
+*Defined in [types.ts:86](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L86)*
 
 The property within the theme to map the `prop` value to
 
