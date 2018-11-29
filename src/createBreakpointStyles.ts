@@ -12,6 +12,7 @@ export function createBreakpointStyles<
   propValue: { [index: string]: any },
   themeValue: { [index: string]: any } = BASE_EMPTY_INDEXED_OBJECT,
   cssProp?: string,
+  arrayResolver?: (value: Array<string | number>) => string,
 ) {
   const result: IStyles = {};
   const { breakpoints } = theme;
@@ -25,12 +26,22 @@ export function createBreakpointStyles<
     }
     if (key === BREAKPOINTS_BASE_VALUE_KEY) {
       // shallow clone because we are not mutating any deep values
-      return cssProp ? { [cssProp]: val } : { ...val };
+      return cssProp
+        ? {
+            [cssProp]:
+              Array.isArray(val) && arrayResolver ? arrayResolver(val) : val,
+          }
+        : { ...val };
     } else {
       const breakpointValue = (breakpoints as IDictionary<string>)[
         key.toString()
       ];
-      acc[breakpointValue] = cssProp ? { [cssProp]: val } : val;
+      acc[breakpointValue] = cssProp
+        ? {
+            [cssProp]:
+              Array.isArray(val) && arrayResolver ? arrayResolver(val) : val,
+          }
+        : val;
     }
     return acc;
   }, result);

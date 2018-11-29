@@ -62,6 +62,7 @@ export function style<P, T extends {} = never, B extends {} = never>({
       finalValue,
       themeValue,
       cssProp,
+      arrayResolver,
     );
   };
 }

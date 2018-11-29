@@ -324,6 +324,32 @@ describe('style', () => {
     });
   });
 
+  it('should combine array values when using responsive props', () => {
+    const func = style<
+      IArrayProps,
+      typeof themeWithBreakpoints,
+      typeof themeWithBreakpoints.breakpoints
+    >({
+      cssProp: 'test',
+      prop: 'input',
+    });
+
+    const result = func({
+      input: {
+        base: ['a', 'b'],
+        large: ['c', 'd'],
+      },
+      theme: themeWithBreakpoints,
+    });
+
+    expect(result).toEqual({
+      test: 'a b',
+      [themeWithBreakpoints.breakpoints.large]: {
+        test: 'c d',
+      },
+    });
+  });
+
   it('should allow resolving of theme values in within arrays using a custom array resolver', () => {
     const func = style<IArrayProps, typeof theme>({
       arrayResolver: (value, themeValue) => {
