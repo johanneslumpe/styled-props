@@ -3,7 +3,15 @@
 ![Build status](https://travis-ci.org/johanneslumpe/styled-props.svg?branch=master)
 [![codecov](https://codecov.io/gh/johanneslumpe/styled-props/branch/master/graph/badge.svg)](https://codecov.io/gh/johanneslumpe/styled-props)
 
-This library is designed to enable creation of reusable UI components and is inspired by [styled-system](https://github.com/jxnblk/styled-system). The main difference is that this version relies on objects for theme values and media queries, making it resilient to changes, e.g. when new values or breakpoints are added. Additionally it aims to give users proper auto-completion for css values when using any of the pre-defined helpers within TypeScript. (this is a work in progress)
+This library is designed to enable creation of reusable UI components and is inspired by [styled-system](https://github.com/jxnblk/styled-system). The main difference is that this version relies on objects for theme values and media queries, making it resilient to changes, e.g. when new values or breakpoints are added. Additionally it aims to give users proper auto-completion for css values when using any of the pre-defined helpers within TypeScript (powered by [css-types](https://github.com/johanneslumpe/css-types))
+
+## Elevator pitch
+
+- Generate component variants and decide which properties can be customized at runtime
+- Support for media queries via objects
+- Autocompletion of CSS values, including keyword combinations (e.g for `display`)
+- Restrict which length values can be used and use them in a typesafe way with value utilities provided by `css-types`
+- Ability to use tuple types by passing arrays
 
 ## Get it
 
@@ -82,11 +90,10 @@ import { StyleProps } from '@johanneslumpe/styled-props';
 
 const MyComponent = styled.div<
   // `StyleProps` is a helper type which will remove the mandatory `theme` prop from helpers which require a theme.
-  // This is required because the theme-type does not properly flow through styled components, even when using
+  // This is required because the theme-type does not properly flow through styled-components, even when using
   // `ThemedStyledComponentsModule`. Additionally these are the props which will fuel editor auto-completion, so
   // it is unnecessary for `theme` to show up there, as it will be automatically injected.
-  StyleProps<typeof display> &
-  StyleProps<typeof colors>
+  StyleProps<typeof display, typeof colors>
 >`
   ${display} ${colors}
 `;
@@ -105,8 +112,23 @@ const AnotherComponent = () => (
   />
 );
 ```
-This is all you need to know to start using the library!
+
+## Utilities
+
+`styled-props` comes with a log of utilities out of the box! They can be imported from their respective sub folder in the module.
+
+The `display` utility can be imported like this:
+
+```ts
+import { display } from '@johanneslumpe/styled-props/util/display/display'
+```
+
+For a list of all utilities, please refer to [the docs](docs/README.md)
 
 ## Documentation
 
 Typedocs can be found in [the docs folder](docs/README.md)
+
+## Misc
+
+I am sorry for the short README and will provide a more extensive one as soon as I have time for it.
