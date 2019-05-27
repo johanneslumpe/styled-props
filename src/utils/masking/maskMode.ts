@@ -1,15 +1,15 @@
 import { MaskModeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskModeProps<T> {
+export interface MaskModeProps<T> {
   /**
    * The **`mask-mode`** CSS property sets whether the mask reference defined by `mask-image` is treated as a luminance or alpha mask.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-mode
    */
-  maskMode: T;
+  style$MaskMode: T;
 }
 
 export const maskMode = <
@@ -18,9 +18,9 @@ export const maskMode = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskModeProps<T>, Theme>> = {}) =>
-  style<IMaskModeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskModeProps<T>, Theme>> = {}) =>
+  style<MaskModeProps<T>, Theme, Breakpoints>({
     cssProp: 'maskMode',
-    prop: 'maskMode',
+    prop: 'style$MaskMode',
     themeProp,
   });

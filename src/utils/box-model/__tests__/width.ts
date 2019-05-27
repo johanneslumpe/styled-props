@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('width', () => {
   });
 
   it('should use `width` as component and css prop', () => {
-    const result = width()({ width: 'inherit' });
+    const result = width()({ style$Width: 'inherit' });
     expect(result).toEqual({ width: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = width<'a'>()({ width: 'a' });
+    const result = width<'a'>()({ style$Width: 'a' });
     expect(result).toEqual({ width: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('width', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = width<'value', IThemeWithoutBreakpoints>({
+    const result = width<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ width: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Width: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       width: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('width', () => {
   it('should allow using breakpoints', () => {
     const result = width<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      width: {
+      style$Width: {
         base: 'a',
         large: 'b',
         medium: 'c',

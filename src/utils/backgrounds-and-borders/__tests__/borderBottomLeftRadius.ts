@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderBottomLeftRadius', () => {
   });
 
   it('should use `borderBottomLeftRadius` as component and css prop', () => {
-    const result = borderBottomLeftRadius()({ borderBottomLeftRadius: 'inherit' });
+    const result = borderBottomLeftRadius()({ style$BorderBottomLeftRadius: 'inherit' });
     expect(result).toEqual({ borderBottomLeftRadius: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderBottomLeftRadius<'a'>()({ borderBottomLeftRadius: 'a' });
+    const result = borderBottomLeftRadius<'a'>()({ style$BorderBottomLeftRadius: 'a' });
     expect(result).toEqual({ borderBottomLeftRadius: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderBottomLeftRadius', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderBottomLeftRadius<'value', IThemeWithoutBreakpoints>({
+    const result = borderBottomLeftRadius<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderBottomLeftRadius: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderBottomLeftRadius: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderBottomLeftRadius: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderBottomLeftRadius', () => {
   it('should allow using breakpoints', () => {
     const result = borderBottomLeftRadius<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderBottomLeftRadius: {
+      style$BorderBottomLeftRadius: {
         base: 'a',
         large: 'b',
         medium: 'c',

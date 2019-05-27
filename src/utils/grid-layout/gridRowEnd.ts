@@ -1,15 +1,15 @@
 import { GridRowEndProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridRowEndProps<T> {
+export interface GridRowEndProps<T> {
   /**
    * The **`grid-row-end`** CSS property specifies a grid item’s end position within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-end edge of its grid area.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-row-end
    */
-  gridRowEnd: T;
+  style$GridRowEnd: T;
 }
 
 export const gridRowEnd = <
@@ -18,9 +18,9 @@ export const gridRowEnd = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridRowEndProps<T>, Theme>> = {}) =>
-  style<IGridRowEndProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridRowEndProps<T>, Theme>> = {}) =>
+  style<GridRowEndProps<T>, Theme, Breakpoints>({
     cssProp: 'gridRowEnd',
-    prop: 'gridRowEnd',
+    prop: 'style$GridRowEnd',
     themeProp,
   });

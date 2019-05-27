@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('animationDelay', () => {
   });
 
   it('should use `animationDelay` as component and css prop', () => {
-    const result = animationDelay()({ animationDelay: 'inherit' });
+    const result = animationDelay()({ style$AnimationDelay: 'inherit' });
     expect(result).toEqual({ animationDelay: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = animationDelay<'a'>()({ animationDelay: 'a' });
+    const result = animationDelay<'a'>()({ style$AnimationDelay: 'a' });
     expect(result).toEqual({ animationDelay: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('animationDelay', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = animationDelay<'value', IThemeWithoutBreakpoints>({
+    const result = animationDelay<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ animationDelay: 'value', theme: themeWithoutBreakpoints });
+    })({ style$AnimationDelay: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       animationDelay: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('animationDelay', () => {
   it('should allow using breakpoints', () => {
     const result = animationDelay<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      animationDelay: {
+      style$AnimationDelay: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { FontWeightProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontWeightProps<T> {
+export interface FontWeightProps<T> {
   /**
-   * The **`font-weight`** CSS property specifies the weight (or boldness) of the font. The font weights available to you will depend on the `font-family` you are using. Some fonts are only available in `normal` and `bold`.
+   * The **`font-weight`** CSS property sets the weight (or boldness) of the font. The weights available depend on the `font-family` you are using.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-weight
    */
-  fontWeight: T;
+  style$FontWeight: T;
 }
 
 export const fontWeight = <
@@ -18,9 +18,9 @@ export const fontWeight = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontWeightProps<T>, Theme>> = {}) =>
-  style<IFontWeightProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontWeightProps<T>, Theme>> = {}) =>
+  style<FontWeightProps<T>, Theme, Breakpoints>({
     cssProp: 'fontWeight',
-    prop: 'fontWeight',
+    prop: 'style$FontWeight',
     themeProp,
   });

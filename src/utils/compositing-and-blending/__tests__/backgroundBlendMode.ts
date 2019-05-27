@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('backgroundBlendMode', () => {
   });
 
   it('should use `backgroundBlendMode` as component and css prop', () => {
-    const result = backgroundBlendMode()({ backgroundBlendMode: 'inherit' });
+    const result = backgroundBlendMode()({ style$BackgroundBlendMode: 'inherit' });
     expect(result).toEqual({ backgroundBlendMode: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = backgroundBlendMode<'a'>()({ backgroundBlendMode: 'a' });
+    const result = backgroundBlendMode<'a'>()({ style$BackgroundBlendMode: 'a' });
     expect(result).toEqual({ backgroundBlendMode: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('backgroundBlendMode', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = backgroundBlendMode<'value', IThemeWithoutBreakpoints>({
+    const result = backgroundBlendMode<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ backgroundBlendMode: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BackgroundBlendMode: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       backgroundBlendMode: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('backgroundBlendMode', () => {
   it('should allow using breakpoints', () => {
     const result = backgroundBlendMode<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      backgroundBlendMode: {
+      style$BackgroundBlendMode: {
         base: 'a',
         large: 'b',
         medium: 'c',

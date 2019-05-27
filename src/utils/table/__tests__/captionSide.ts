@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('captionSide', () => {
   });
 
   it('should use `captionSide` as component and css prop', () => {
-    const result = captionSide()({ captionSide: 'inherit' });
+    const result = captionSide()({ style$CaptionSide: 'inherit' });
     expect(result).toEqual({ captionSide: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = captionSide<'a'>()({ captionSide: 'a' });
+    const result = captionSide<'a'>()({ style$CaptionSide: 'a' });
     expect(result).toEqual({ captionSide: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('captionSide', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = captionSide<'value', IThemeWithoutBreakpoints>({
+    const result = captionSide<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ captionSide: 'value', theme: themeWithoutBreakpoints });
+    })({ style$CaptionSide: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       captionSide: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('captionSide', () => {
   it('should allow using breakpoints', () => {
     const result = captionSide<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      captionSide: {
+      style$CaptionSide: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { MixBlendModePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMixBlendModeProps<T> {
+export interface MixBlendModeProps<T> {
   /**
    * The **`mix-blend-mode`** CSS property sets how an element's content should blend with the content of the element's parent and the element's background.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode
    */
-  mixBlendMode: T;
+  style$MixBlendMode: T;
 }
 
 export const mixBlendMode = <
@@ -18,9 +18,9 @@ export const mixBlendMode = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMixBlendModeProps<T>, Theme>> = {}) =>
-  style<IMixBlendModeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MixBlendModeProps<T>, Theme>> = {}) =>
+  style<MixBlendModeProps<T>, Theme, Breakpoints>({
     cssProp: 'mixBlendMode',
-    prop: 'mixBlendMode',
+    prop: 'style$MixBlendMode',
     themeProp,
   });

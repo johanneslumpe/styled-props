@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontKerning', () => {
   });
 
   it('should use `fontKerning` as component and css prop', () => {
-    const result = fontKerning()({ fontKerning: 'inherit' });
+    const result = fontKerning()({ style$FontKerning: 'inherit' });
     expect(result).toEqual({ fontKerning: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontKerning<'a'>()({ fontKerning: 'a' });
+    const result = fontKerning<'a'>()({ style$FontKerning: 'a' });
     expect(result).toEqual({ fontKerning: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontKerning', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontKerning<'value', IThemeWithoutBreakpoints>({
+    const result = fontKerning<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontKerning: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontKerning: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontKerning: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontKerning', () => {
   it('should allow using breakpoints', () => {
     const result = fontKerning<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontKerning: {
+      style$FontKerning: {
         base: 'a',
         large: 'b',
         medium: 'c',

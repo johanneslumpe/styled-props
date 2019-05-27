@@ -1,15 +1,15 @@
 import { ColumnsProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColumnsProps<T> {
+export interface ColumnsProps<T> {
   /**
    * The **`columns`** CSS property sets the column width and column count of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/columns
    */
-  columns: T;
+  style$Columns: T;
 }
 
 export const columns = <
@@ -18,9 +18,9 @@ export const columns = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColumnsProps<T>, Theme>> = {}) =>
-  style<IColumnsProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColumnsProps<T>, Theme>> = {}) =>
+  style<ColumnsProps<T>, Theme, Breakpoints>({
     cssProp: 'columns',
-    prop: 'columns',
+    prop: 'style$Columns',
     themeProp,
   });

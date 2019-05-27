@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textAlignLast', () => {
   });
 
   it('should use `textAlignLast` as component and css prop', () => {
-    const result = textAlignLast()({ textAlignLast: 'inherit' });
+    const result = textAlignLast()({ style$TextAlignLast: 'inherit' });
     expect(result).toEqual({ textAlignLast: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textAlignLast<'a'>()({ textAlignLast: 'a' });
+    const result = textAlignLast<'a'>()({ style$TextAlignLast: 'a' });
     expect(result).toEqual({ textAlignLast: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textAlignLast', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textAlignLast<'value', IThemeWithoutBreakpoints>({
+    const result = textAlignLast<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textAlignLast: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextAlignLast: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textAlignLast: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textAlignLast', () => {
   it('should allow using breakpoints', () => {
     const result = textAlignLast<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textAlignLast: {
+      style$TextAlignLast: {
         base: 'a',
         large: 'b',
         medium: 'c',

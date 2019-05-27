@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('perspectiveOrigin', () => {
   });
 
   it('should use `perspectiveOrigin` as component and css prop', () => {
-    const result = perspectiveOrigin()({ perspectiveOrigin: 'inherit' });
+    const result = perspectiveOrigin()({ style$PerspectiveOrigin: 'inherit' });
     expect(result).toEqual({ perspectiveOrigin: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = perspectiveOrigin<'a'>()({ perspectiveOrigin: 'a' });
+    const result = perspectiveOrigin<'a'>()({ style$PerspectiveOrigin: 'a' });
     expect(result).toEqual({ perspectiveOrigin: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('perspectiveOrigin', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = perspectiveOrigin<'value', IThemeWithoutBreakpoints>({
+    const result = perspectiveOrigin<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ perspectiveOrigin: 'value', theme: themeWithoutBreakpoints });
+    })({ style$PerspectiveOrigin: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       perspectiveOrigin: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('perspectiveOrigin', () => {
   it('should allow using breakpoints', () => {
     const result = perspectiveOrigin<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      perspectiveOrigin: {
+      style$PerspectiveOrigin: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { ScrollBehaviorPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IScrollBehaviorProps<T> {
+export interface ScrollBehaviorProps<T> {
   /**
-   * The **`scroll-behavior`** CSS property specifies the scrolling behavior for a scrolling box when scrolling is triggered by one of the navigation or CSSOM scrolling APIs.
+   * The **`scroll-behavior`** CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation or CSSOM scrolling APIs.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/scroll-behavior
    */
-  scrollBehavior: T;
+  style$ScrollBehavior: T;
 }
 
 export const scrollBehavior = <
@@ -18,9 +18,9 @@ export const scrollBehavior = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IScrollBehaviorProps<T>, Theme>> = {}) =>
-  style<IScrollBehaviorProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ScrollBehaviorProps<T>, Theme>> = {}) =>
+  style<ScrollBehaviorProps<T>, Theme, Breakpoints>({
     cssProp: 'scrollBehavior',
-    prop: 'scrollBehavior',
+    prop: 'style$ScrollBehavior',
     themeProp,
   });

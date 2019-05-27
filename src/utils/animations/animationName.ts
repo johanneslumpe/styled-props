@@ -1,15 +1,15 @@
 import { AnimationNameProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAnimationNameProps<T> {
+export interface AnimationNameProps<T> {
   /**
    * The **`animation-name`** CSS property sets one or more animations to apply to an element. Each name is an `@keyframes` at-rule that sets the property values for the animation sequence.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/animation-name
    */
-  animationName: T;
+  style$AnimationName: T;
 }
 
 export const animationName = <
@@ -18,9 +18,9 @@ export const animationName = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAnimationNameProps<T>, Theme>> = {}) =>
-  style<IAnimationNameProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AnimationNameProps<T>, Theme>> = {}) =>
+  style<AnimationNameProps<T>, Theme, Breakpoints>({
     cssProp: 'animationName',
-    prop: 'animationName',
+    prop: 'style$AnimationName',
     themeProp,
   });

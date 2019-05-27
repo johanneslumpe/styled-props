@@ -1,15 +1,15 @@
 import { GridAutoRowsProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridAutoRowsProps<T> {
+export interface GridAutoRowsProps<T> {
   /**
    * The **`grid-auto-rows`** CSS property specifies the size of an implicitly-created grid row track.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-auto-rows
    */
-  gridAutoRows: T;
+  style$GridAutoRows: T;
 }
 
 export const gridAutoRows = <
@@ -18,9 +18,9 @@ export const gridAutoRows = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridAutoRowsProps<T>, Theme>> = {}) =>
-  style<IGridAutoRowsProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridAutoRowsProps<T>, Theme>> = {}) =>
+  style<GridAutoRowsProps<T>, Theme, Breakpoints>({
     cssProp: 'gridAutoRows',
-    prop: 'gridAutoRows',
+    prop: 'style$GridAutoRows',
     themeProp,
   });

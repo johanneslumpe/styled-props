@@ -1,15 +1,15 @@
 import { GapProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGapProps<T> {
+export interface GapProps<T> {
   /**
    * The **`gap`** CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for `row-gap` and `column-gap`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/gap
    */
-  gap: T;
+  style$Gap: T;
 }
 
 export const gap = <
@@ -18,9 +18,9 @@ export const gap = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGapProps<T>, Theme>> = {}) =>
-  style<IGapProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GapProps<T>, Theme>> = {}) =>
+  style<GapProps<T>, Theme, Breakpoints>({
     cssProp: 'gap',
-    prop: 'gap',
+    prop: 'style$Gap',
     themeProp,
   });

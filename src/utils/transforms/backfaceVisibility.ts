@@ -1,15 +1,15 @@
 import { BackfaceVisibilityPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBackfaceVisibilityProps<T> {
+export interface BackfaceVisibilityProps<T> {
   /**
    * The **`backface-visibility`** CSS property sets whether the back face of an element is visible when turned towards the user.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/backface-visibility
    */
-  backfaceVisibility: T;
+  style$BackfaceVisibility: T;
 }
 
 export const backfaceVisibility = <
@@ -18,9 +18,9 @@ export const backfaceVisibility = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBackfaceVisibilityProps<T>, Theme>> = {}) =>
-  style<IBackfaceVisibilityProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BackfaceVisibilityProps<T>, Theme>> = {}) =>
+  style<BackfaceVisibilityProps<T>, Theme, Breakpoints>({
     cssProp: 'backfaceVisibility',
-    prop: 'backfaceVisibility',
+    prop: 'style$BackfaceVisibility',
     themeProp,
   });

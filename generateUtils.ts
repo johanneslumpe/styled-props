@@ -3,7 +3,6 @@ import cheerio from 'cheerio';
 import cliProgress from 'cli-progress';
 import * as fs from 'fs';
 import { camelCase, chunk, kebabCase, upperFirst } from 'lodash/fp';
-import { IRawProperties } from 'mdn-data';
 import cssProperties from 'mdn-data/css/properties.json';
 import * as path from 'path';
 import TurndownService from 'turndown';
@@ -20,6 +19,7 @@ const utilTestTemplate = fs.readFileSync('./util-test-template.txt').toString();
 const TYPE_DECLARATION_REGEX = /.*?type(.*?)(<|=).*/;
 const TYPE_NAME_REGEX = /__TYPE_NAME__/g;
 const PROPERTY_NAME_REGEX = /__PROPERTY_NAME__/g;
+const COMPONENT_PROPERTY_NAME_REGEX = /__COMPONENT_PROPERTY_NAME__/g;
 const INTERFACE_PROPERTY_NAME_REGEX = /__INTERFACE_PROPERTY_NAME__/g;
 const INTERFACE_PROPERTY_COMMENT_TOKEN = '__INTERFACE_PROPERTY_COMMENT__';
 
@@ -74,10 +74,11 @@ async function mkDirNestedAsync(dirPath: string) {
 
 async function writeUtilFileAsync(data: IUtilData) {
   await mkDirNestedAsync(`utils/${data.directory}/__tests__`);
-
+  const componentProperty = `style$${upperFirst(data.propertyName)}`;
   const source = utilTemplate
     .replace(TYPE_NAME_REGEX, data.typeName)
     .replace(PROPERTY_NAME_REGEX, data.propertyName)
+    .replace(COMPONENT_PROPERTY_NAME_REGEX, componentProperty)
     .replace(INTERFACE_PROPERTY_NAME_REGEX, data.interfacePropertyName)
     .replace(
       INTERFACE_PROPERTY_COMMENT_TOKEN,
@@ -90,10 +91,9 @@ async function writeUtilFileAsync(data: IUtilData) {
         '',
     );
 
-  const testSource = utilTestTemplate.replace(
-    PROPERTY_NAME_REGEX,
-    data.propertyName,
-  );
+  const testSource = utilTestTemplate
+    .replace(PROPERTY_NAME_REGEX, data.propertyName)
+    .replace(COMPONENT_PROPERTY_NAME_REGEX, componentProperty);
 
   const utilPromise = writeFileAsync(
     path.resolve(UTILS_BASE_PATH, data.directory, `${data.propertyName}.ts`),

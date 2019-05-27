@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('transitionTimingFunction', () => {
   });
 
   it('should use `transitionTimingFunction` as component and css prop', () => {
-    const result = transitionTimingFunction()({ transitionTimingFunction: 'inherit' });
+    const result = transitionTimingFunction()({ style$TransitionTimingFunction: 'inherit' });
     expect(result).toEqual({ transitionTimingFunction: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = transitionTimingFunction<'a'>()({ transitionTimingFunction: 'a' });
+    const result = transitionTimingFunction<'a'>()({ style$TransitionTimingFunction: 'a' });
     expect(result).toEqual({ transitionTimingFunction: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('transitionTimingFunction', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = transitionTimingFunction<'value', IThemeWithoutBreakpoints>({
+    const result = transitionTimingFunction<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ transitionTimingFunction: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TransitionTimingFunction: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       transitionTimingFunction: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('transitionTimingFunction', () => {
   it('should allow using breakpoints', () => {
     const result = transitionTimingFunction<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      transitionTimingFunction: {
+      style$TransitionTimingFunction: {
         base: 'a',
         large: 'b',
         medium: 'c',

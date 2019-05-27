@@ -1,15 +1,15 @@
 import { OutlineColorProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOutlineColorProps<T> {
+export interface OutlineColorProps<T> {
   /**
    * The **`outline-color`** CSS property sets the color of an element's outline.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/outline-color
    */
-  outlineColor: T;
+  style$OutlineColor: T;
 }
 
 export const outlineColor = <
@@ -18,9 +18,9 @@ export const outlineColor = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOutlineColorProps<T>, Theme>> = {}) =>
-  style<IOutlineColorProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OutlineColorProps<T>, Theme>> = {}) =>
+  style<OutlineColorProps<T>, Theme, Breakpoints>({
     cssProp: 'outlineColor',
-    prop: 'outlineColor',
+    prop: 'style$OutlineColor',
     themeProp,
   });

@@ -1,15 +1,15 @@
 import { ColumnGapProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColumnGapProps<T> {
+export interface ColumnGapProps<T> {
   /**
    * The **`column-gap`** CSS property sets the size of the gap (gutter) between an element's columns.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/column-gap
    */
-  columnGap: T;
+  style$ColumnGap: T;
 }
 
 export const columnGap = <
@@ -18,9 +18,9 @@ export const columnGap = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColumnGapProps<T>, Theme>> = {}) =>
-  style<IColumnGapProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColumnGapProps<T>, Theme>> = {}) =>
+  style<ColumnGapProps<T>, Theme, Breakpoints>({
     cssProp: 'columnGap',
-    prop: 'columnGap',
+    prop: 'style$ColumnGap',
     themeProp,
   });

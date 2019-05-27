@@ -1,6 +1,6 @@
 import { BREAKPOINTS_BASE_VALUE_KEY } from './constants';
 import { createBreakpointStyles } from './createBreakpointStyles';
-import { IStyleOptions, IStyles, WithTheme } from './types';
+import { StyleOptions, Styles, WithTheme } from './types';
 
 const DEFAULT_ARRAY_RESOLVER = (value: Array<string | number>) =>
   value.join(' ');
@@ -10,11 +10,11 @@ export function style<P, T extends {} = never, B extends {} = never>({
   prop,
   themeProp,
   arrayResolver = DEFAULT_ARRAY_RESOLVER,
-}: IStyleOptions<P, T>) {
+}: StyleOptions<P, T>) {
   let breakpointKeys: string[];
   return function styleImplementation(
     props: WithTheme<P, T, B>,
-  ): IStyles | undefined {
+  ): Styles | undefined {
     const propValue = props[prop];
     if (propValue === undefined || propValue === null) {
       return undefined;

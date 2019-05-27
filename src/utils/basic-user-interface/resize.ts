@@ -1,15 +1,15 @@
 import { ResizePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IResizeProps<T> {
+export interface ResizeProps<T> {
   /**
    * The **`resize`** CSS property sets whether an element is resizable, and if so, in which directions.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/resize
    */
-  resize: T;
+  style$Resize: T;
 }
 
 export const resize = <
@@ -18,9 +18,9 @@ export const resize = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IResizeProps<T>, Theme>> = {}) =>
-  style<IResizeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ResizeProps<T>, Theme>> = {}) =>
+  style<ResizeProps<T>, Theme, Breakpoints>({
     cssProp: 'resize',
-    prop: 'resize',
+    prop: 'style$Resize',
     themeProp,
   });

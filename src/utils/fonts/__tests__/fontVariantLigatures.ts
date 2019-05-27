@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontVariantLigatures', () => {
   });
 
   it('should use `fontVariantLigatures` as component and css prop', () => {
-    const result = fontVariantLigatures()({ fontVariantLigatures: 'inherit' });
+    const result = fontVariantLigatures()({ style$FontVariantLigatures: 'inherit' });
     expect(result).toEqual({ fontVariantLigatures: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontVariantLigatures<'a'>()({ fontVariantLigatures: 'a' });
+    const result = fontVariantLigatures<'a'>()({ style$FontVariantLigatures: 'a' });
     expect(result).toEqual({ fontVariantLigatures: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontVariantLigatures', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontVariantLigatures<'value', IThemeWithoutBreakpoints>({
+    const result = fontVariantLigatures<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontVariantLigatures: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontVariantLigatures: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontVariantLigatures: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontVariantLigatures', () => {
   it('should allow using breakpoints', () => {
     const result = fontVariantLigatures<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontVariantLigatures: {
+      style$FontVariantLigatures: {
         base: 'a',
         large: 'b',
         medium: 'c',

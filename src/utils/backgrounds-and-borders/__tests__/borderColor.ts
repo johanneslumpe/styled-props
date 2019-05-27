@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderColor', () => {
   });
 
   it('should use `borderColor` as component and css prop', () => {
-    const result = borderColor()({ borderColor: 'inherit' });
+    const result = borderColor()({ style$BorderColor: 'inherit' });
     expect(result).toEqual({ borderColor: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderColor<'a'>()({ borderColor: 'a' });
+    const result = borderColor<'a'>()({ style$BorderColor: 'a' });
     expect(result).toEqual({ borderColor: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderColor', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderColor<'value', IThemeWithoutBreakpoints>({
+    const result = borderColor<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderColor: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderColor: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderColor: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderColor', () => {
   it('should allow using breakpoints', () => {
     const result = borderColor<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderColor: {
+      style$BorderColor: {
         base: 'a',
         large: 'b',
         medium: 'c',

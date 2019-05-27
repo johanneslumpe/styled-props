@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textOverflow', () => {
   });
 
   it('should use `textOverflow` as component and css prop', () => {
-    const result = textOverflow()({ textOverflow: 'inherit' });
+    const result = textOverflow()({ style$TextOverflow: 'inherit' });
     expect(result).toEqual({ textOverflow: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textOverflow<'a'>()({ textOverflow: 'a' });
+    const result = textOverflow<'a'>()({ style$TextOverflow: 'a' });
     expect(result).toEqual({ textOverflow: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textOverflow', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textOverflow<'value', IThemeWithoutBreakpoints>({
+    const result = textOverflow<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textOverflow: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextOverflow: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textOverflow: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textOverflow', () => {
   it('should allow using breakpoints', () => {
     const result = textOverflow<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textOverflow: {
+      style$TextOverflow: {
         base: 'a',
         large: 'b',
         medium: 'c',

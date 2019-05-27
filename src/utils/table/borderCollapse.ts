@@ -1,15 +1,15 @@
 import { BorderCollapsePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderCollapseProps<T> {
+export interface BorderCollapseProps<T> {
   /**
    * The **`border-collapse`** CSS property sets whether cells inside a `<table>` have shared or separate borders.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-collapse
    */
-  borderCollapse: T;
+  style$BorderCollapse: T;
 }
 
 export const borderCollapse = <
@@ -18,9 +18,9 @@ export const borderCollapse = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderCollapseProps<T>, Theme>> = {}) =>
-  style<IBorderCollapseProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderCollapseProps<T>, Theme>> = {}) =>
+  style<BorderCollapseProps<T>, Theme, Breakpoints>({
     cssProp: 'borderCollapse',
-    prop: 'borderCollapse',
+    prop: 'style$BorderCollapse',
     themeProp,
   });

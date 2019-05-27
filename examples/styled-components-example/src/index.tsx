@@ -11,7 +11,7 @@ ReactDOM.render(
     <div>
       <Button
         variant={{ base: 'primary', medium: 'secondary' }}
-        padding={{ base: px(10), medium: px(15), large: [px(20), em(5)] }}
+        style$Padding={{ base: px(10), medium: px(15), large: [px(20), em(5)] }}
       >
         A button with styled-props!
       </Button>

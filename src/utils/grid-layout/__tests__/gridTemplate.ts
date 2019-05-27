@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('gridTemplate', () => {
   });
 
   it('should use `gridTemplate` as component and css prop', () => {
-    const result = gridTemplate()({ gridTemplate: 'inherit' });
+    const result = gridTemplate()({ style$GridTemplate: 'inherit' });
     expect(result).toEqual({ gridTemplate: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = gridTemplate<'a'>()({ gridTemplate: 'a' });
+    const result = gridTemplate<'a'>()({ style$GridTemplate: 'a' });
     expect(result).toEqual({ gridTemplate: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('gridTemplate', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = gridTemplate<'value', IThemeWithoutBreakpoints>({
+    const result = gridTemplate<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ gridTemplate: 'value', theme: themeWithoutBreakpoints });
+    })({ style$GridTemplate: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       gridTemplate: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('gridTemplate', () => {
   it('should allow using breakpoints', () => {
     const result = gridTemplate<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      gridTemplate: {
+      style$GridTemplate: {
         base: 'a',
         large: 'b',
         medium: 'c',

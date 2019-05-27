@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textIndent', () => {
   });
 
   it('should use `textIndent` as component and css prop', () => {
-    const result = textIndent()({ textIndent: 'inherit' });
+    const result = textIndent()({ style$TextIndent: 'inherit' });
     expect(result).toEqual({ textIndent: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textIndent<'a'>()({ textIndent: 'a' });
+    const result = textIndent<'a'>()({ style$TextIndent: 'a' });
     expect(result).toEqual({ textIndent: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textIndent', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textIndent<'value', IThemeWithoutBreakpoints>({
+    const result = textIndent<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textIndent: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextIndent: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textIndent: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textIndent', () => {
   it('should allow using breakpoints', () => {
     const result = textIndent<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textIndent: {
+      style$TextIndent: {
         base: 'a',
         large: 'b',
         medium: 'c',

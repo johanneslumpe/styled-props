@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('transform', () => {
   });
 
   it('should use `transform` as component and css prop', () => {
-    const result = transform()({ transform: 'inherit' });
+    const result = transform()({ style$Transform: 'inherit' });
     expect(result).toEqual({ transform: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = transform<'a'>()({ transform: 'a' });
+    const result = transform<'a'>()({ style$Transform: 'a' });
     expect(result).toEqual({ transform: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('transform', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = transform<'value', IThemeWithoutBreakpoints>({
+    const result = transform<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ transform: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Transform: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       transform: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('transform', () => {
   it('should allow using breakpoints', () => {
     const result = transform<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      transform: {
+      style$Transform: {
         base: 'a',
         large: 'b',
         medium: 'c',

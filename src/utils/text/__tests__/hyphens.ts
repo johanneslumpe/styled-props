@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('hyphens', () => {
   });
 
   it('should use `hyphens` as component and css prop', () => {
-    const result = hyphens()({ hyphens: 'inherit' });
+    const result = hyphens()({ style$Hyphens: 'inherit' });
     expect(result).toEqual({ hyphens: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = hyphens<'a'>()({ hyphens: 'a' });
+    const result = hyphens<'a'>()({ style$Hyphens: 'a' });
     expect(result).toEqual({ hyphens: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('hyphens', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = hyphens<'value', IThemeWithoutBreakpoints>({
+    const result = hyphens<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ hyphens: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Hyphens: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       hyphens: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('hyphens', () => {
   it('should allow using breakpoints', () => {
     const result = hyphens<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      hyphens: {
+      style$Hyphens: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { AllPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAllProps<T> {
+export interface AllProps<T> {
   /**
-   * The `**all**` CSS shorthand property sets all of an element's properties (other than `unicode-bidi` and `direction`) to their initial or inherited values, or to the values specified in another stylesheet origin.
+   * The `**all**` shorthand CSS property resets all of an element's properties (except `unicode-bidi` and `direction`). It can set properties to their initial or inherited values, or to the values specified in another stylesheet origin.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/all
    */
-  all: T;
+  style$All: T;
 }
 
 export const all = <
@@ -18,9 +18,9 @@ export const all = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAllProps<T>, Theme>> = {}) =>
-  style<IAllProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AllProps<T>, Theme>> = {}) =>
+  style<AllProps<T>, Theme, Breakpoints>({
     cssProp: 'all',
-    prop: 'all',
+    prop: 'style$All',
     themeProp,
   });

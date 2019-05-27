@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontLanguageOverride', () => {
   });
 
   it('should use `fontLanguageOverride` as component and css prop', () => {
-    const result = fontLanguageOverride()({ fontLanguageOverride: 'inherit' });
+    const result = fontLanguageOverride()({ style$FontLanguageOverride: 'inherit' });
     expect(result).toEqual({ fontLanguageOverride: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontLanguageOverride<'a'>()({ fontLanguageOverride: 'a' });
+    const result = fontLanguageOverride<'a'>()({ style$FontLanguageOverride: 'a' });
     expect(result).toEqual({ fontLanguageOverride: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontLanguageOverride', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontLanguageOverride<'value', IThemeWithoutBreakpoints>({
+    const result = fontLanguageOverride<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontLanguageOverride: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontLanguageOverride: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontLanguageOverride: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontLanguageOverride', () => {
   it('should allow using breakpoints', () => {
     const result = fontLanguageOverride<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontLanguageOverride: {
+      style$FontLanguageOverride: {
         base: 'a',
         large: 'b',
         medium: 'c',

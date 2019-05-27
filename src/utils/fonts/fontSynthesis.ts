@@ -1,15 +1,15 @@
 import { FontSynthesisPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontSynthesisProps<T> {
+export interface FontSynthesisProps<T> {
   /**
    * The **`font-synthesis`** CSS property controls which missing typefaces, bold or italic, may be synthesized by the browser.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-synthesis
    */
-  fontSynthesis: T;
+  style$FontSynthesis: T;
 }
 
 export const fontSynthesis = <
@@ -18,9 +18,9 @@ export const fontSynthesis = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontSynthesisProps<T>, Theme>> = {}) =>
-  style<IFontSynthesisProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontSynthesisProps<T>, Theme>> = {}) =>
+  style<FontSynthesisProps<T>, Theme, Breakpoints>({
     cssProp: 'fontSynthesis',
-    prop: 'fontSynthesis',
+    prop: 'style$FontSynthesis',
     themeProp,
   });

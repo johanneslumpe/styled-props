@@ -1,15 +1,15 @@
 import { LeftProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ILeftProps<T> {
+export interface LeftProps<T> {
   /**
    * The **`left`** CSS property participates in specifying the horizontal position of a _positioned element_. It has no effect on non-positioned elements.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/left
    */
-  left: T;
+  style$Left: T;
 }
 
 export const left = <
@@ -18,9 +18,9 @@ export const left = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ILeftProps<T>, Theme>> = {}) =>
-  style<ILeftProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<LeftProps<T>, Theme>> = {}) =>
+  style<LeftProps<T>, Theme, Breakpoints>({
     cssProp: 'left',
-    prop: 'left',
+    prop: 'style$Left',
     themeProp,
   });

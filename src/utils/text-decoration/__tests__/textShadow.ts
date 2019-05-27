@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textShadow', () => {
   });
 
   it('should use `textShadow` as component and css prop', () => {
-    const result = textShadow()({ textShadow: 'inherit' });
+    const result = textShadow()({ style$TextShadow: 'inherit' });
     expect(result).toEqual({ textShadow: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textShadow<'a'>()({ textShadow: 'a' });
+    const result = textShadow<'a'>()({ style$TextShadow: 'a' });
     expect(result).toEqual({ textShadow: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textShadow', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textShadow<'value', IThemeWithoutBreakpoints>({
+    const result = textShadow<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textShadow: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextShadow: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textShadow: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textShadow', () => {
   it('should allow using breakpoints', () => {
     const result = textShadow<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textShadow: {
+      style$TextShadow: {
         base: 'a',
         large: 'b',
         medium: 'c',

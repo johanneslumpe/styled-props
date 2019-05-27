@@ -1,15 +1,15 @@
 import { JustifySelfPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IJustifySelfProps<T> {
+export interface JustifySelfProps<T> {
   /**
    * The CSS **`justify-self`** property set the way a box is justified inside its alignment container along the appropriate axis.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/justify-self
    */
-  justifySelf: T;
+  style$JustifySelf: T;
 }
 
 export const justifySelf = <
@@ -18,9 +18,9 @@ export const justifySelf = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IJustifySelfProps<T>, Theme>> = {}) =>
-  style<IJustifySelfProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<JustifySelfProps<T>, Theme>> = {}) =>
+  style<JustifySelfProps<T>, Theme, Breakpoints>({
     cssProp: 'justifySelf',
-    prop: 'justifySelf',
+    prop: 'style$JustifySelf',
     themeProp,
   });

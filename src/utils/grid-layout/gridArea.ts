@@ -1,15 +1,15 @@
 import { GridAreaProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridAreaProps<T> {
+export interface GridAreaProps<T> {
   /**
-   * The **`grid-area`** CSS property is a shorthand property for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`, specifying a grid item’s size and location within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the edges of its grid area.
+   * The **`grid-area`** CSS property is a shorthand property for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`, specifying a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the edges of its grid area.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-area
    */
-  gridArea: T;
+  style$GridArea: T;
 }
 
 export const gridArea = <
@@ -18,9 +18,9 @@ export const gridArea = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridAreaProps<T>, Theme>> = {}) =>
-  style<IGridAreaProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridAreaProps<T>, Theme>> = {}) =>
+  style<GridAreaProps<T>, Theme, Breakpoints>({
     cssProp: 'gridArea',
-    prop: 'gridArea',
+    prop: 'style$GridArea',
     themeProp,
   });

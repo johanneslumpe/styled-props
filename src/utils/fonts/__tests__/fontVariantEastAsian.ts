@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontVariantEastAsian', () => {
   });
 
   it('should use `fontVariantEastAsian` as component and css prop', () => {
-    const result = fontVariantEastAsian()({ fontVariantEastAsian: 'inherit' });
+    const result = fontVariantEastAsian()({ style$FontVariantEastAsian: 'inherit' });
     expect(result).toEqual({ fontVariantEastAsian: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontVariantEastAsian<'a'>()({ fontVariantEastAsian: 'a' });
+    const result = fontVariantEastAsian<'a'>()({ style$FontVariantEastAsian: 'a' });
     expect(result).toEqual({ fontVariantEastAsian: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontVariantEastAsian', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontVariantEastAsian<'value', IThemeWithoutBreakpoints>({
+    const result = fontVariantEastAsian<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontVariantEastAsian: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontVariantEastAsian: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontVariantEastAsian: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontVariantEastAsian', () => {
   it('should allow using breakpoints', () => {
     const result = fontVariantEastAsian<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontVariantEastAsian: {
+      style$FontVariantEastAsian: {
         base: 'a',
         large: 'b',
         medium: 'c',

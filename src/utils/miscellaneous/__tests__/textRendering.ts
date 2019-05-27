@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textRendering', () => {
   });
 
   it('should use `textRendering` as component and css prop', () => {
-    const result = textRendering()({ textRendering: 'inherit' });
+    const result = textRendering()({ style$TextRendering: 'inherit' });
     expect(result).toEqual({ textRendering: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textRendering<'a'>()({ textRendering: 'a' });
+    const result = textRendering<'a'>()({ style$TextRendering: 'a' });
     expect(result).toEqual({ textRendering: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textRendering', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textRendering<'value', IThemeWithoutBreakpoints>({
+    const result = textRendering<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textRendering: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextRendering: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textRendering: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textRendering', () => {
   it('should allow using breakpoints', () => {
     const result = textRendering<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textRendering: {
+      style$TextRendering: {
         base: 'a',
         large: 'b',
         medium: 'c',

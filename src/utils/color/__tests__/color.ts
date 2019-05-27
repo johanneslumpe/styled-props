@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('color', () => {
   });
 
   it('should use `color` as component and css prop', () => {
-    const result = color()({ color: 'inherit' });
+    const result = color()({ style$Color: 'inherit' });
     expect(result).toEqual({ color: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = color<'a'>()({ color: 'a' });
+    const result = color<'a'>()({ style$Color: 'a' });
     expect(result).toEqual({ color: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('color', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = color<'value', IThemeWithoutBreakpoints>({
+    const result = color<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ color: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Color: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       color: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('color', () => {
   it('should allow using breakpoints', () => {
     const result = color<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      color: {
+      style$Color: {
         base: 'a',
         large: 'b',
         medium: 'c',

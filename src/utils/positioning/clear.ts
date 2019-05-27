@@ -1,15 +1,15 @@
 import { ClearPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IClearProps<T> {
+export interface ClearProps<T> {
   /**
    * The **`clear`** CSS property sets whether an element must be moved below (cleared) floating elements that precede it. The `clear` property applies to floating and non-floating elements.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/clear
    */
-  clear: T;
+  style$Clear: T;
 }
 
 export const clear = <
@@ -18,9 +18,9 @@ export const clear = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IClearProps<T>, Theme>> = {}) =>
-  style<IClearProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ClearProps<T>, Theme>> = {}) =>
+  style<ClearProps<T>, Theme, Breakpoints>({
     cssProp: 'clear',
-    prop: 'clear',
+    prop: 'style$Clear',
     themeProp,
   });

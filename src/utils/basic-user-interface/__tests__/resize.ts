@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('resize', () => {
   });
 
   it('should use `resize` as component and css prop', () => {
-    const result = resize()({ resize: 'inherit' });
+    const result = resize()({ style$Resize: 'inherit' });
     expect(result).toEqual({ resize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = resize<'a'>()({ resize: 'a' });
+    const result = resize<'a'>()({ style$Resize: 'a' });
     expect(result).toEqual({ resize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('resize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = resize<'value', IThemeWithoutBreakpoints>({
+    const result = resize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ resize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Resize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       resize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('resize', () => {
   it('should allow using breakpoints', () => {
     const result = resize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      resize: {
+      style$Resize: {
         base: 'a',
         large: 'b',
         medium: 'c',

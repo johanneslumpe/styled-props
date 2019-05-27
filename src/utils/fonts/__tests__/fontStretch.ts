@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontStretch', () => {
   });
 
   it('should use `fontStretch` as component and css prop', () => {
-    const result = fontStretch()({ fontStretch: 'inherit' });
+    const result = fontStretch()({ style$FontStretch: 'inherit' });
     expect(result).toEqual({ fontStretch: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontStretch<'a'>()({ fontStretch: 'a' });
+    const result = fontStretch<'a'>()({ style$FontStretch: 'a' });
     expect(result).toEqual({ fontStretch: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontStretch', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontStretch<'value', IThemeWithoutBreakpoints>({
+    const result = fontStretch<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontStretch: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontStretch: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontStretch: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontStretch', () => {
   it('should allow using breakpoints', () => {
     const result = fontStretch<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontStretch: {
+      style$FontStretch: {
         base: 'a',
         large: 'b',
         medium: 'c',

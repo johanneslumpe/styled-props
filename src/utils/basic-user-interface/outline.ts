@@ -1,15 +1,15 @@
 import { OutlineProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOutlineProps<T> {
+export interface OutlineProps<T> {
   /**
    * The **`outline`** CSS property is a shorthand to set various outline properties in a single declaration: `outline-style`, `outline-width`, and `outline-color`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/outline
    */
-  outline: T;
+  style$Outline: T;
 }
 
 export const outline = <
@@ -18,9 +18,9 @@ export const outline = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOutlineProps<T>, Theme>> = {}) =>
-  style<IOutlineProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OutlineProps<T>, Theme>> = {}) =>
+  style<OutlineProps<T>, Theme, Breakpoints>({
     cssProp: 'outline',
-    prop: 'outline',
+    prop: 'style$Outline',
     themeProp,
   });

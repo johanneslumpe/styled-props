@@ -1,15 +1,15 @@
 import { RotateProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IRotateProps<T> {
+export interface RotateProps<T> {
   /**
-   * The **`rotate`** CSS property allows you to specify rotation transforms individually and independantly of the `transform` property. This maps better to typical user interface usage, and saves having to remember the exact order of transform functions to specify in the `transform` value.
+   * The **`rotate`** CSS property allows you to specify rotation transforms individually and independently of the `transform` property. This maps better to typical user interface usage, and saves having to remember the exact order of transform functions to specify in the `transform` property.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/rotate
    */
-  rotate: T;
+  style$Rotate: T;
 }
 
 export const rotate = <
@@ -18,9 +18,9 @@ export const rotate = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IRotateProps<T>, Theme>> = {}) =>
-  style<IRotateProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<RotateProps<T>, Theme>> = {}) =>
+  style<RotateProps<T>, Theme, Breakpoints>({
     cssProp: 'rotate',
-    prop: 'rotate',
+    prop: 'style$Rotate',
     themeProp,
   });

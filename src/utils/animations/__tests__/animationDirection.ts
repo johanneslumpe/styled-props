@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('animationDirection', () => {
   });
 
   it('should use `animationDirection` as component and css prop', () => {
-    const result = animationDirection()({ animationDirection: 'inherit' });
+    const result = animationDirection()({ style$AnimationDirection: 'inherit' });
     expect(result).toEqual({ animationDirection: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = animationDirection<'a'>()({ animationDirection: 'a' });
+    const result = animationDirection<'a'>()({ style$AnimationDirection: 'a' });
     expect(result).toEqual({ animationDirection: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('animationDirection', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = animationDirection<'value', IThemeWithoutBreakpoints>({
+    const result = animationDirection<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ animationDirection: 'value', theme: themeWithoutBreakpoints });
+    })({ style$AnimationDirection: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       animationDirection: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('animationDirection', () => {
   it('should allow using breakpoints', () => {
     const result = animationDirection<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      animationDirection: {
+      style$AnimationDirection: {
         base: 'a',
         large: 'b',
         medium: 'c',

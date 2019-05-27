@@ -1,15 +1,15 @@
 import { FontVariantEastAsianPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontVariantEastAsianProps<T> {
+export interface FontVariantEastAsianProps<T> {
   /**
    * The **`font-variant-east-asian`** CSS property controls the use of alternate glyphs for East Asian scripts, like Japanese and Chinese.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-east-asian
    */
-  fontVariantEastAsian: T;
+  style$FontVariantEastAsian: T;
 }
 
 export const fontVariantEastAsian = <
@@ -18,9 +18,9 @@ export const fontVariantEastAsian = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontVariantEastAsianProps<T>, Theme>> = {}) =>
-  style<IFontVariantEastAsianProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontVariantEastAsianProps<T>, Theme>> = {}) =>
+  style<FontVariantEastAsianProps<T>, Theme, Breakpoints>({
     cssProp: 'fontVariantEastAsian',
-    prop: 'fontVariantEastAsian',
+    prop: 'style$FontVariantEastAsian',
     themeProp,
   });

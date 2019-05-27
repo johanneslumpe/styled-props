@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textUnderlinePosition', () => {
   });
 
   it('should use `textUnderlinePosition` as component and css prop', () => {
-    const result = textUnderlinePosition()({ textUnderlinePosition: 'inherit' });
+    const result = textUnderlinePosition()({ style$TextUnderlinePosition: 'inherit' });
     expect(result).toEqual({ textUnderlinePosition: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textUnderlinePosition<'a'>()({ textUnderlinePosition: 'a' });
+    const result = textUnderlinePosition<'a'>()({ style$TextUnderlinePosition: 'a' });
     expect(result).toEqual({ textUnderlinePosition: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textUnderlinePosition', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textUnderlinePosition<'value', IThemeWithoutBreakpoints>({
+    const result = textUnderlinePosition<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textUnderlinePosition: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextUnderlinePosition: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textUnderlinePosition: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textUnderlinePosition', () => {
   it('should allow using breakpoints', () => {
     const result = textUnderlinePosition<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textUnderlinePosition: {
+      style$TextUnderlinePosition: {
         base: 'a',
         large: 'b',
         medium: 'c',

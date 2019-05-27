@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textOrientation', () => {
   });
 
   it('should use `textOrientation` as component and css prop', () => {
-    const result = textOrientation()({ textOrientation: 'inherit' });
+    const result = textOrientation()({ style$TextOrientation: 'inherit' });
     expect(result).toEqual({ textOrientation: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textOrientation<'a'>()({ textOrientation: 'a' });
+    const result = textOrientation<'a'>()({ style$TextOrientation: 'a' });
     expect(result).toEqual({ textOrientation: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textOrientation', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textOrientation<'value', IThemeWithoutBreakpoints>({
+    const result = textOrientation<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textOrientation: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextOrientation: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textOrientation: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textOrientation', () => {
   it('should allow using breakpoints', () => {
     const result = textOrientation<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textOrientation: {
+      style$TextOrientation: {
         base: 'a',
         large: 'b',
         medium: 'c',

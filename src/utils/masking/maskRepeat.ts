@@ -1,15 +1,15 @@
 import { MaskRepeatProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskRepeatProps<T> {
+export interface MaskRepeatProps<T> {
   /**
    * The **`mask-repeat`** CSS property sets how mask images are repeated. A mask image can be repeated along the horizontal axis, the vertical axis, both axes, or not repeated at all.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-repeat
    */
-  maskRepeat: T;
+  style$MaskRepeat: T;
 }
 
 export const maskRepeat = <
@@ -18,9 +18,9 @@ export const maskRepeat = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskRepeatProps<T>, Theme>> = {}) =>
-  style<IMaskRepeatProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskRepeatProps<T>, Theme>> = {}) =>
+  style<MaskRepeatProps<T>, Theme, Breakpoints>({
     cssProp: 'maskRepeat',
-    prop: 'maskRepeat',
+    prop: 'style$MaskRepeat',
     themeProp,
   });

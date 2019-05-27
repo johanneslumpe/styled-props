@@ -1,15 +1,15 @@
 import { MaskCompositeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskCompositeProps<T> {
+export interface MaskCompositeProps<T> {
   /**
    * The **`mask-composite`** CSS property represents a compositing operation used on the current mask layer with the mask layers below it.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-composite
    */
-  maskComposite: T;
+  style$MaskComposite: T;
 }
 
 export const maskComposite = <
@@ -18,9 +18,9 @@ export const maskComposite = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskCompositeProps<T>, Theme>> = {}) =>
-  style<IMaskCompositeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskCompositeProps<T>, Theme>> = {}) =>
+  style<MaskCompositeProps<T>, Theme, Breakpoints>({
     cssProp: 'maskComposite',
-    prop: 'maskComposite',
+    prop: 'style$MaskComposite',
     themeProp,
   });

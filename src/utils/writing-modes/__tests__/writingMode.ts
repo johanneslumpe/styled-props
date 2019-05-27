@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('writingMode', () => {
   });
 
   it('should use `writingMode` as component and css prop', () => {
-    const result = writingMode()({ writingMode: 'inherit' });
+    const result = writingMode()({ style$WritingMode: 'inherit' });
     expect(result).toEqual({ writingMode: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = writingMode<'a'>()({ writingMode: 'a' });
+    const result = writingMode<'a'>()({ style$WritingMode: 'a' });
     expect(result).toEqual({ writingMode: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('writingMode', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = writingMode<'value', IThemeWithoutBreakpoints>({
+    const result = writingMode<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ writingMode: 'value', theme: themeWithoutBreakpoints });
+    })({ style$WritingMode: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       writingMode: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('writingMode', () => {
   it('should allow using breakpoints', () => {
     const result = writingMode<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      writingMode: {
+      style$WritingMode: {
         base: 'a',
         large: 'b',
         medium: 'c',

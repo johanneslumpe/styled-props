@@ -1,15 +1,15 @@
 import { MaskSizeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskSizeProps<T> {
+export interface MaskSizeProps<T> {
   /**
    * The **`mask-size`** CSS property specifies the sizes of the mask images. The size of the image can be fully or partially constrained in order to preserve its intrinsic ratio.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-size
    */
-  maskSize: T;
+  style$MaskSize: T;
 }
 
 export const maskSize = <
@@ -18,9 +18,9 @@ export const maskSize = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskSizeProps<T>, Theme>> = {}) =>
-  style<IMaskSizeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskSizeProps<T>, Theme>> = {}) =>
+  style<MaskSizeProps<T>, Theme, Breakpoints>({
     cssProp: 'maskSize',
-    prop: 'maskSize',
+    prop: 'style$MaskSize',
     themeProp,
   });

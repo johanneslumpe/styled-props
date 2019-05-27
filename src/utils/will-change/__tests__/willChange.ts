@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('willChange', () => {
   });
 
   it('should use `willChange` as component and css prop', () => {
-    const result = willChange()({ willChange: 'inherit' });
+    const result = willChange()({ style$WillChange: 'inherit' });
     expect(result).toEqual({ willChange: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = willChange<'a'>()({ willChange: 'a' });
+    const result = willChange<'a'>()({ style$WillChange: 'a' });
     expect(result).toEqual({ willChange: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('willChange', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = willChange<'value', IThemeWithoutBreakpoints>({
+    const result = willChange<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ willChange: 'value', theme: themeWithoutBreakpoints });
+    })({ style$WillChange: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       willChange: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('willChange', () => {
   it('should allow using breakpoints', () => {
     const result = willChange<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      willChange: {
+      style$WillChange: {
         base: 'a',
         large: 'b',
         medium: 'c',

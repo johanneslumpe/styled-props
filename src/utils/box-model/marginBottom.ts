@@ -1,15 +1,15 @@
 import { MarginBottomProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMarginBottomProps<T> {
+export interface MarginBottomProps<T> {
   /**
    * The **`margin-bottom`** CSS property sets the margin area on the bottom of an element. A positive value places it farther from its neighbors, while a negative value places it closer.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/margin-bottom
    */
-  marginBottom: T;
+  style$MarginBottom: T;
 }
 
 export const marginBottom = <
@@ -18,9 +18,9 @@ export const marginBottom = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMarginBottomProps<T>, Theme>> = {}) =>
-  style<IMarginBottomProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MarginBottomProps<T>, Theme>> = {}) =>
+  style<MarginBottomProps<T>, Theme, Breakpoints>({
     cssProp: 'marginBottom',
-    prop: 'marginBottom',
+    prop: 'style$MarginBottom',
     themeProp,
   });

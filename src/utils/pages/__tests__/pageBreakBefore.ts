@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('pageBreakBefore', () => {
   });
 
   it('should use `pageBreakBefore` as component and css prop', () => {
-    const result = pageBreakBefore()({ pageBreakBefore: 'inherit' });
+    const result = pageBreakBefore()({ style$PageBreakBefore: 'inherit' });
     expect(result).toEqual({ pageBreakBefore: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = pageBreakBefore<'a'>()({ pageBreakBefore: 'a' });
+    const result = pageBreakBefore<'a'>()({ style$PageBreakBefore: 'a' });
     expect(result).toEqual({ pageBreakBefore: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('pageBreakBefore', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = pageBreakBefore<'value', IThemeWithoutBreakpoints>({
+    const result = pageBreakBefore<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ pageBreakBefore: 'value', theme: themeWithoutBreakpoints });
+    })({ style$PageBreakBefore: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       pageBreakBefore: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('pageBreakBefore', () => {
   it('should allow using breakpoints', () => {
     const result = pageBreakBefore<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      pageBreakBefore: {
+      style$PageBreakBefore: {
         base: 'a',
         large: 'b',
         medium: 'c',

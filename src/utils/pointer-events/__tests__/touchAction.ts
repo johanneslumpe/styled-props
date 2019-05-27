@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('touchAction', () => {
   });
 
   it('should use `touchAction` as component and css prop', () => {
-    const result = touchAction()({ touchAction: 'inherit' });
+    const result = touchAction()({ style$TouchAction: 'inherit' });
     expect(result).toEqual({ touchAction: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = touchAction<'a'>()({ touchAction: 'a' });
+    const result = touchAction<'a'>()({ style$TouchAction: 'a' });
     expect(result).toEqual({ touchAction: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('touchAction', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = touchAction<'value', IThemeWithoutBreakpoints>({
+    const result = touchAction<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ touchAction: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TouchAction: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       touchAction: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('touchAction', () => {
   it('should allow using breakpoints', () => {
     const result = touchAction<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      touchAction: {
+      style$TouchAction: {
         base: 'a',
         large: 'b',
         medium: 'c',

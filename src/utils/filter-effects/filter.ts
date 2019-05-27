@@ -1,15 +1,15 @@
 import { FilterProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFilterProps<T> {
+export interface FilterProps<T> {
   /**
    * The **`filter`** CSS property applies graphical effects like blur or color shift to an element. Filters are commonly used to adjust the rendering of images, backgrounds, and borders.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/filter
    */
-  filter: T;
+  style$Filter: T;
 }
 
 export const filter = <
@@ -18,9 +18,9 @@ export const filter = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFilterProps<T>, Theme>> = {}) =>
-  style<IFilterProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FilterProps<T>, Theme>> = {}) =>
+  style<FilterProps<T>, Theme, Breakpoints>({
     cssProp: 'filter',
-    prop: 'filter',
+    prop: 'style$Filter',
     themeProp,
   });

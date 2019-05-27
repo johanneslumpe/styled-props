@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('minWidth', () => {
   });
 
   it('should use `minWidth` as component and css prop', () => {
-    const result = minWidth()({ minWidth: 'inherit' });
+    const result = minWidth()({ style$MinWidth: 'inherit' });
     expect(result).toEqual({ minWidth: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = minWidth<'a'>()({ minWidth: 'a' });
+    const result = minWidth<'a'>()({ style$MinWidth: 'a' });
     expect(result).toEqual({ minWidth: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('minWidth', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = minWidth<'value', IThemeWithoutBreakpoints>({
+    const result = minWidth<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ minWidth: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MinWidth: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       minWidth: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('minWidth', () => {
   it('should allow using breakpoints', () => {
     const result = minWidth<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      minWidth: {
+      style$MinWidth: {
         base: 'a',
         large: 'b',
         medium: 'c',

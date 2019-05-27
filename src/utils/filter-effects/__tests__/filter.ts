@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('filter', () => {
   });
 
   it('should use `filter` as component and css prop', () => {
-    const result = filter()({ filter: 'inherit' });
+    const result = filter()({ style$Filter: 'inherit' });
     expect(result).toEqual({ filter: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = filter<'a'>()({ filter: 'a' });
+    const result = filter<'a'>()({ style$Filter: 'a' });
     expect(result).toEqual({ filter: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('filter', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = filter<'value', IThemeWithoutBreakpoints>({
+    const result = filter<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ filter: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Filter: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       filter: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('filter', () => {
   it('should allow using breakpoints', () => {
     const result = filter<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      filter: {
+      style$Filter: {
         base: 'a',
         large: 'b',
         medium: 'c',

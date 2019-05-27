@@ -1,15 +1,15 @@
 import { TopProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITopProps<T> {
+export interface TopProps<T> {
   /**
    * The **`top`** CSS property participates in specifying the vertical position of a _positioned element_. It has no effect on non-positioned elements.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/top
    */
-  top: T;
+  style$Top: T;
 }
 
 export const top = <
@@ -18,9 +18,9 @@ export const top = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITopProps<T>, Theme>> = {}) =>
-  style<ITopProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TopProps<T>, Theme>> = {}) =>
+  style<TopProps<T>, Theme, Breakpoints>({
     cssProp: 'top',
-    prop: 'top',
+    prop: 'style$Top',
     themeProp,
   });

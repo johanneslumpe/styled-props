@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('hangingPunctuation', () => {
   });
 
   it('should use `hangingPunctuation` as component and css prop', () => {
-    const result = hangingPunctuation()({ hangingPunctuation: 'inherit' });
+    const result = hangingPunctuation()({ style$HangingPunctuation: 'inherit' });
     expect(result).toEqual({ hangingPunctuation: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = hangingPunctuation<'a'>()({ hangingPunctuation: 'a' });
+    const result = hangingPunctuation<'a'>()({ style$HangingPunctuation: 'a' });
     expect(result).toEqual({ hangingPunctuation: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('hangingPunctuation', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = hangingPunctuation<'value', IThemeWithoutBreakpoints>({
+    const result = hangingPunctuation<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ hangingPunctuation: 'value', theme: themeWithoutBreakpoints });
+    })({ style$HangingPunctuation: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       hangingPunctuation: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('hangingPunctuation', () => {
   it('should allow using breakpoints', () => {
     const result = hangingPunctuation<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      hangingPunctuation: {
+      style$HangingPunctuation: {
         base: 'a',
         large: 'b',
         medium: 'c',

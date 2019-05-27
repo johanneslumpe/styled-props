@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('transitionDuration', () => {
   });
 
   it('should use `transitionDuration` as component and css prop', () => {
-    const result = transitionDuration()({ transitionDuration: 'inherit' });
+    const result = transitionDuration()({ style$TransitionDuration: 'inherit' });
     expect(result).toEqual({ transitionDuration: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = transitionDuration<'a'>()({ transitionDuration: 'a' });
+    const result = transitionDuration<'a'>()({ style$TransitionDuration: 'a' });
     expect(result).toEqual({ transitionDuration: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('transitionDuration', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = transitionDuration<'value', IThemeWithoutBreakpoints>({
+    const result = transitionDuration<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ transitionDuration: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TransitionDuration: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       transitionDuration: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('transitionDuration', () => {
   it('should allow using breakpoints', () => {
     const result = transitionDuration<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      transitionDuration: {
+      style$TransitionDuration: {
         base: 'a',
         large: 'b',
         medium: 'c',

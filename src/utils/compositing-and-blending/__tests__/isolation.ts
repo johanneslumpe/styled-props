@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('isolation', () => {
   });
 
   it('should use `isolation` as component and css prop', () => {
-    const result = isolation()({ isolation: 'inherit' });
+    const result = isolation()({ style$Isolation: 'inherit' });
     expect(result).toEqual({ isolation: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = isolation<'a'>()({ isolation: 'a' });
+    const result = isolation<'a'>()({ style$Isolation: 'a' });
     expect(result).toEqual({ isolation: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('isolation', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = isolation<'value', IThemeWithoutBreakpoints>({
+    const result = isolation<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ isolation: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Isolation: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       isolation: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('isolation', () => {
   it('should allow using breakpoints', () => {
     const result = isolation<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      isolation: {
+      style$Isolation: {
         base: 'a',
         large: 'b',
         medium: 'c',

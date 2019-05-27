@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('clip', () => {
   });
 
   it('should use `clip` as component and css prop', () => {
-    const result = clip()({ clip: 'inherit' });
+    const result = clip()({ style$Clip: 'inherit' });
     expect(result).toEqual({ clip: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = clip<'a'>()({ clip: 'a' });
+    const result = clip<'a'>()({ style$Clip: 'a' });
     expect(result).toEqual({ clip: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('clip', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = clip<'value', IThemeWithoutBreakpoints>({
+    const result = clip<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ clip: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Clip: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       clip: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('clip', () => {
   it('should allow using breakpoints', () => {
     const result = clip<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      clip: {
+      style$Clip: {
         base: 'a',
         large: 'b',
         medium: 'c',

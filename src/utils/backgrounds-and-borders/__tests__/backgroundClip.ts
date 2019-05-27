@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('backgroundClip', () => {
   });
 
   it('should use `backgroundClip` as component and css prop', () => {
-    const result = backgroundClip()({ backgroundClip: 'inherit' });
+    const result = backgroundClip()({ style$BackgroundClip: 'inherit' });
     expect(result).toEqual({ backgroundClip: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = backgroundClip<'a'>()({ backgroundClip: 'a' });
+    const result = backgroundClip<'a'>()({ style$BackgroundClip: 'a' });
     expect(result).toEqual({ backgroundClip: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('backgroundClip', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = backgroundClip<'value', IThemeWithoutBreakpoints>({
+    const result = backgroundClip<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ backgroundClip: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BackgroundClip: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       backgroundClip: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('backgroundClip', () => {
   it('should allow using breakpoints', () => {
     const result = backgroundClip<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      backgroundClip: {
+      style$BackgroundClip: {
         base: 'a',
         large: 'b',
         medium: 'c',

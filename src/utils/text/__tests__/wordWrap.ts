@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('wordWrap', () => {
   });
 
   it('should use `wordWrap` as component and css prop', () => {
-    const result = wordWrap()({ wordWrap: 'inherit' });
+    const result = wordWrap()({ style$WordWrap: 'inherit' });
     expect(result).toEqual({ wordWrap: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = wordWrap<'a'>()({ wordWrap: 'a' });
+    const result = wordWrap<'a'>()({ style$WordWrap: 'a' });
     expect(result).toEqual({ wordWrap: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('wordWrap', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = wordWrap<'value', IThemeWithoutBreakpoints>({
+    const result = wordWrap<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ wordWrap: 'value', theme: themeWithoutBreakpoints });
+    })({ style$WordWrap: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       wordWrap: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('wordWrap', () => {
   it('should allow using breakpoints', () => {
     const result = wordWrap<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      wordWrap: {
+      style$WordWrap: {
         base: 'a',
         large: 'b',
         medium: 'c',

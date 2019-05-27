@@ -1,15 +1,15 @@
 import { TextTransformPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextTransformProps<T> {
+export interface TextTransformProps<T> {
   /**
-   * The **`text-transform`** CSS property specifies how to capitalize an element's text. It can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized.
+   * The **`text-transform`** CSS property specifies how to capitalize an element's text. It can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also can help improve legibility for ruby.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-transform
    */
-  textTransform: T;
+  style$TextTransform: T;
 }
 
 export const textTransform = <
@@ -18,9 +18,9 @@ export const textTransform = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextTransformProps<T>, Theme>> = {}) =>
-  style<ITextTransformProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextTransformProps<T>, Theme>> = {}) =>
+  style<TextTransformProps<T>, Theme, Breakpoints>({
     cssProp: 'textTransform',
-    prop: 'textTransform',
+    prop: 'style$TextTransform',
     themeProp,
   });

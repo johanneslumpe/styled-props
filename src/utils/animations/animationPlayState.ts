@@ -1,15 +1,15 @@
 import { AnimationPlayStateProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAnimationPlayStateProps<T> {
+export interface AnimationPlayStateProps<T> {
   /**
    * The **`animation-play-state`** CSS property sets whether an animation is running or paused.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/animation-play-state
    */
-  animationPlayState: T;
+  style$AnimationPlayState: T;
 }
 
 export const animationPlayState = <
@@ -18,9 +18,9 @@ export const animationPlayState = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAnimationPlayStateProps<T>, Theme>> = {}) =>
-  style<IAnimationPlayStateProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AnimationPlayStateProps<T>, Theme>> = {}) =>
+  style<AnimationPlayStateProps<T>, Theme, Breakpoints>({
     cssProp: 'animationPlayState',
-    prop: 'animationPlayState',
+    prop: 'style$AnimationPlayState',
     themeProp,
   });

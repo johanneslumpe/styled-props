@@ -1,15 +1,15 @@
 import { TextJustifyPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextJustifyProps<T> {
+export interface TextJustifyProps<T> {
   /**
    * The **`text-justify`** CSS property sets what type of justification should be applied to text when `text-align``: justify;` is set on an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-justify
    */
-  textJustify: T;
+  style$TextJustify: T;
 }
 
 export const textJustify = <
@@ -18,9 +18,9 @@ export const textJustify = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextJustifyProps<T>, Theme>> = {}) =>
-  style<ITextJustifyProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextJustifyProps<T>, Theme>> = {}) =>
+  style<TextJustifyProps<T>, Theme, Breakpoints>({
     cssProp: 'textJustify',
-    prop: 'textJustify',
+    prop: 'style$TextJustify',
     themeProp,
   });

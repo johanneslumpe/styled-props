@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('flexShrink', () => {
   });
 
   it('should use `flexShrink` as component and css prop', () => {
-    const result = flexShrink()({ flexShrink: 'inherit' });
+    const result = flexShrink()({ style$FlexShrink: 'inherit' });
     expect(result).toEqual({ flexShrink: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = flexShrink<'a'>()({ flexShrink: 'a' });
+    const result = flexShrink<'a'>()({ style$FlexShrink: 'a' });
     expect(result).toEqual({ flexShrink: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('flexShrink', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = flexShrink<'value', IThemeWithoutBreakpoints>({
+    const result = flexShrink<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ flexShrink: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FlexShrink: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       flexShrink: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('flexShrink', () => {
   it('should allow using breakpoints', () => {
     const result = flexShrink<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      flexShrink: {
+      style$FlexShrink: {
         base: 'a',
         large: 'b',
         medium: 'c',

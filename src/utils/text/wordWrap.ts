@@ -1,15 +1,15 @@
 import { WordWrapPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IWordWrapProps<T> {
+export interface WordWrapProps<T> {
   /**
-   * The `**overflow-wrap**` CSS property sets whether the browser should insert line breaks within words to prevent text from overflowing its content box.
+   * The `**overflow-wrap**` CSS property applies to inline elements, setting whether the browser should insert line breaks within an otherwise unbreakable string to prevent text from overflowing its line box.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/overflow-wrap
    */
-  wordWrap: T;
+  style$WordWrap: T;
 }
 
 export const wordWrap = <
@@ -18,9 +18,9 @@ export const wordWrap = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IWordWrapProps<T>, Theme>> = {}) =>
-  style<IWordWrapProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<WordWrapProps<T>, Theme>> = {}) =>
+  style<WordWrapProps<T>, Theme, Breakpoints>({
     cssProp: 'wordWrap',
-    prop: 'wordWrap',
+    prop: 'style$WordWrap',
     themeProp,
   });

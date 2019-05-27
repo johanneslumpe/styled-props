@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontOpticalSizing', () => {
   });
 
   it('should use `fontOpticalSizing` as component and css prop', () => {
-    const result = fontOpticalSizing()({ fontOpticalSizing: 'inherit' });
+    const result = fontOpticalSizing()({ style$FontOpticalSizing: 'inherit' });
     expect(result).toEqual({ fontOpticalSizing: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontOpticalSizing<'a'>()({ fontOpticalSizing: 'a' });
+    const result = fontOpticalSizing<'a'>()({ style$FontOpticalSizing: 'a' });
     expect(result).toEqual({ fontOpticalSizing: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontOpticalSizing', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontOpticalSizing<'value', IThemeWithoutBreakpoints>({
+    const result = fontOpticalSizing<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontOpticalSizing: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontOpticalSizing: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontOpticalSizing: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontOpticalSizing', () => {
   it('should allow using breakpoints', () => {
     const result = fontOpticalSizing<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontOpticalSizing: {
+      style$FontOpticalSizing: {
         base: 'a',
         large: 'b',
         medium: 'c',

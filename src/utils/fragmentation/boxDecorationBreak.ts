@@ -1,15 +1,15 @@
 import { BoxDecorationBreakPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBoxDecorationBreakProps<T> {
+export interface BoxDecorationBreakProps<T> {
   /**
    * The **`box-decoration-break`** CSS property specifies how an element's fragments should be rendered when broken across multiple lines, columns, or pages.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/box-decoration-break
    */
-  boxDecorationBreak: T;
+  style$BoxDecorationBreak: T;
 }
 
 export const boxDecorationBreak = <
@@ -18,9 +18,9 @@ export const boxDecorationBreak = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBoxDecorationBreakProps<T>, Theme>> = {}) =>
-  style<IBoxDecorationBreakProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BoxDecorationBreakProps<T>, Theme>> = {}) =>
+  style<BoxDecorationBreakProps<T>, Theme, Breakpoints>({
     cssProp: 'boxDecorationBreak',
-    prop: 'boxDecorationBreak',
+    prop: 'style$BoxDecorationBreak',
     themeProp,
   });

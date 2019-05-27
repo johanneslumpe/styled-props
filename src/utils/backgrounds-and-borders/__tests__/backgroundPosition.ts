@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('backgroundPosition', () => {
   });
 
   it('should use `backgroundPosition` as component and css prop', () => {
-    const result = backgroundPosition()({ backgroundPosition: 'inherit' });
+    const result = backgroundPosition()({ style$BackgroundPosition: 'inherit' });
     expect(result).toEqual({ backgroundPosition: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = backgroundPosition<'a'>()({ backgroundPosition: 'a' });
+    const result = backgroundPosition<'a'>()({ style$BackgroundPosition: 'a' });
     expect(result).toEqual({ backgroundPosition: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('backgroundPosition', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = backgroundPosition<'value', IThemeWithoutBreakpoints>({
+    const result = backgroundPosition<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ backgroundPosition: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BackgroundPosition: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       backgroundPosition: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('backgroundPosition', () => {
   it('should allow using breakpoints', () => {
     const result = backgroundPosition<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      backgroundPosition: {
+      style$BackgroundPosition: {
         base: 'a',
         large: 'b',
         medium: 'c',

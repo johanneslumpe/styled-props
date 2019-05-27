@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('transformBox', () => {
   });
 
   it('should use `transformBox` as component and css prop', () => {
-    const result = transformBox()({ transformBox: 'inherit' });
+    const result = transformBox()({ style$TransformBox: 'inherit' });
     expect(result).toEqual({ transformBox: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = transformBox<'a'>()({ transformBox: 'a' });
+    const result = transformBox<'a'>()({ style$TransformBox: 'a' });
     expect(result).toEqual({ transformBox: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('transformBox', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = transformBox<'value', IThemeWithoutBreakpoints>({
+    const result = transformBox<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ transformBox: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TransformBox: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       transformBox: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('transformBox', () => {
   it('should allow using breakpoints', () => {
     const result = transformBox<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      transformBox: {
+      style$TransformBox: {
         base: 'a',
         large: 'b',
         medium: 'c',

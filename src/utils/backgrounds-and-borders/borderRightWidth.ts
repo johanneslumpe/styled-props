@@ -1,15 +1,15 @@
 import { BorderRightWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderRightWidthProps<T> {
+export interface BorderRightWidthProps<T> {
   /**
    * The **`border-right-width`** CSS property sets the width of the right border of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-right-width
    */
-  borderRightWidth: T;
+  style$BorderRightWidth: T;
 }
 
 export const borderRightWidth = <
@@ -18,9 +18,9 @@ export const borderRightWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderRightWidthProps<T>, Theme>> = {}) =>
-  style<IBorderRightWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderRightWidthProps<T>, Theme>> = {}) =>
+  style<BorderRightWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'borderRightWidth',
-    prop: 'borderRightWidth',
+    prop: 'style$BorderRightWidth',
     themeProp,
   });

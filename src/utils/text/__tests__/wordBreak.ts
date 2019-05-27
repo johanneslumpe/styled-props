@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('wordBreak', () => {
   });
 
   it('should use `wordBreak` as component and css prop', () => {
-    const result = wordBreak()({ wordBreak: 'inherit' });
+    const result = wordBreak()({ style$WordBreak: 'inherit' });
     expect(result).toEqual({ wordBreak: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = wordBreak<'a'>()({ wordBreak: 'a' });
+    const result = wordBreak<'a'>()({ style$WordBreak: 'a' });
     expect(result).toEqual({ wordBreak: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('wordBreak', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = wordBreak<'value', IThemeWithoutBreakpoints>({
+    const result = wordBreak<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ wordBreak: 'value', theme: themeWithoutBreakpoints });
+    })({ style$WordBreak: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       wordBreak: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('wordBreak', () => {
   it('should allow using breakpoints', () => {
     const result = wordBreak<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      wordBreak: {
+      style$WordBreak: {
         base: 'a',
         large: 'b',
         medium: 'c',

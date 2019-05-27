@@ -1,15 +1,15 @@
 import { BorderImageOutsetProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderImageOutsetProps<T> {
+export interface BorderImageOutsetProps<T> {
   /**
    * The **`border-image-outset`** CSS property sets the distance by which an element's border image is set out from its border box.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-image-outset
    */
-  borderImageOutset: T;
+  style$BorderImageOutset: T;
 }
 
 export const borderImageOutset = <
@@ -18,9 +18,9 @@ export const borderImageOutset = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderImageOutsetProps<T>, Theme>> = {}) =>
-  style<IBorderImageOutsetProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderImageOutsetProps<T>, Theme>> = {}) =>
+  style<BorderImageOutsetProps<T>, Theme, Breakpoints>({
     cssProp: 'borderImageOutset',
-    prop: 'borderImageOutset',
+    prop: 'style$BorderImageOutset',
     themeProp,
   });

@@ -1,15 +1,15 @@
 import { TabSizeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITabSizeProps<T> {
+export interface TabSizeProps<T> {
   /**
    * The **`tab-size`** CSS property is used to customize the width of a tab (`U+0009`) character.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/tab-size
    */
-  tabSize: T;
+  style$TabSize: T;
 }
 
 export const tabSize = <
@@ -18,9 +18,9 @@ export const tabSize = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITabSizeProps<T>, Theme>> = {}) =>
-  style<ITabSizeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TabSizeProps<T>, Theme>> = {}) =>
+  style<TabSizeProps<T>, Theme, Breakpoints>({
     cssProp: 'tabSize',
-    prop: 'tabSize',
+    prop: 'style$TabSize',
     themeProp,
   });

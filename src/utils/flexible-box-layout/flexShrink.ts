@@ -1,15 +1,15 @@
 import { FlexShrinkProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFlexShrinkProps<T> {
+export interface FlexShrinkProps<T> {
   /**
-   * The **`flex-shrink`** CSS property sets the flex shrink factor of a flex item. If the size of flex items is larger than the flex container, items shrink to fit according to `flex-shrink`.
+   * The **`flex-shrink`** CSS property sets the flex shrink factor of a flex item. If the size of all flex items is larger than the flex container, items shrink to fit according to `flex-shrink`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/flex-shrink
    */
-  flexShrink: T;
+  style$FlexShrink: T;
 }
 
 export const flexShrink = <
@@ -18,9 +18,9 @@ export const flexShrink = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFlexShrinkProps<T>, Theme>> = {}) =>
-  style<IFlexShrinkProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FlexShrinkProps<T>, Theme>> = {}) =>
+  style<FlexShrinkProps<T>, Theme, Breakpoints>({
     cssProp: 'flexShrink',
-    prop: 'flexShrink',
+    prop: 'style$FlexShrink',
     themeProp,
   });

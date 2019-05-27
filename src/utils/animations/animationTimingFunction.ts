@@ -1,15 +1,15 @@
 import { AnimationTimingFunctionProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAnimationTimingFunctionProps<T> {
+export interface AnimationTimingFunctionProps<T> {
   /**
    * The `**animation-timing-function**` CSS property sets how an animation progresses through the duration of each cycle.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/animation-timing-function
    */
-  animationTimingFunction: T;
+  style$AnimationTimingFunction: T;
 }
 
 export const animationTimingFunction = <
@@ -18,9 +18,9 @@ export const animationTimingFunction = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAnimationTimingFunctionProps<T>, Theme>> = {}) =>
-  style<IAnimationTimingFunctionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AnimationTimingFunctionProps<T>, Theme>> = {}) =>
+  style<AnimationTimingFunctionProps<T>, Theme, Breakpoints>({
     cssProp: 'animationTimingFunction',
-    prop: 'animationTimingFunction',
+    prop: 'style$AnimationTimingFunction',
     themeProp,
   });

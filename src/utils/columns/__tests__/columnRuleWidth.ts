@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('columnRuleWidth', () => {
   });
 
   it('should use `columnRuleWidth` as component and css prop', () => {
-    const result = columnRuleWidth()({ columnRuleWidth: 'inherit' });
+    const result = columnRuleWidth()({ style$ColumnRuleWidth: 'inherit' });
     expect(result).toEqual({ columnRuleWidth: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = columnRuleWidth<'a'>()({ columnRuleWidth: 'a' });
+    const result = columnRuleWidth<'a'>()({ style$ColumnRuleWidth: 'a' });
     expect(result).toEqual({ columnRuleWidth: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('columnRuleWidth', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = columnRuleWidth<'value', IThemeWithoutBreakpoints>({
+    const result = columnRuleWidth<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ columnRuleWidth: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ColumnRuleWidth: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       columnRuleWidth: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('columnRuleWidth', () => {
   it('should allow using breakpoints', () => {
     const result = columnRuleWidth<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      columnRuleWidth: {
+      style$ColumnRuleWidth: {
         base: 'a',
         large: 'b',
         medium: 'c',

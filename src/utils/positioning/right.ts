@@ -1,15 +1,15 @@
 import { RightProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IRightProps<T> {
+export interface RightProps<T> {
   /**
    * The **`right`** CSS property participates in specifying the horizontal position of a _positioned element_. It has no effect on non-positioned elements.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/right
    */
-  right: T;
+  style$Right: T;
 }
 
 export const right = <
@@ -18,9 +18,9 @@ export const right = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IRightProps<T>, Theme>> = {}) =>
-  style<IRightProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<RightProps<T>, Theme>> = {}) =>
+  style<RightProps<T>, Theme, Breakpoints>({
     cssProp: 'right',
-    prop: 'right',
+    prop: 'style$Right',
     themeProp,
   });

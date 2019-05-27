@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderInlineEnd', () => {
   });
 
   it('should use `borderInlineEnd` as component and css prop', () => {
-    const result = borderInlineEnd()({ borderInlineEnd: 'inherit' });
+    const result = borderInlineEnd()({ style$BorderInlineEnd: 'inherit' });
     expect(result).toEqual({ borderInlineEnd: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderInlineEnd<'a'>()({ borderInlineEnd: 'a' });
+    const result = borderInlineEnd<'a'>()({ style$BorderInlineEnd: 'a' });
     expect(result).toEqual({ borderInlineEnd: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderInlineEnd', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderInlineEnd<'value', IThemeWithoutBreakpoints>({
+    const result = borderInlineEnd<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderInlineEnd: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderInlineEnd: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderInlineEnd: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderInlineEnd', () => {
   it('should allow using breakpoints', () => {
     const result = borderInlineEnd<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderInlineEnd: {
+      style$BorderInlineEnd: {
         base: 'a',
         large: 'b',
         medium: 'c',

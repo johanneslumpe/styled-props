@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('emptyCells', () => {
   });
 
   it('should use `emptyCells` as component and css prop', () => {
-    const result = emptyCells()({ emptyCells: 'inherit' });
+    const result = emptyCells()({ style$EmptyCells: 'inherit' });
     expect(result).toEqual({ emptyCells: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = emptyCells<'a'>()({ emptyCells: 'a' });
+    const result = emptyCells<'a'>()({ style$EmptyCells: 'a' });
     expect(result).toEqual({ emptyCells: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('emptyCells', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = emptyCells<'value', IThemeWithoutBreakpoints>({
+    const result = emptyCells<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ emptyCells: 'value', theme: themeWithoutBreakpoints });
+    })({ style$EmptyCells: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       emptyCells: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('emptyCells', () => {
   it('should allow using breakpoints', () => {
     const result = emptyCells<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      emptyCells: {
+      style$EmptyCells: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { ColumnRuleStylePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColumnRuleStyleProps<T> {
+export interface ColumnRuleStyleProps<T> {
   /**
    * The **`column-rule-style`** CSS property sets the style of the line drawn between columns in a multi-column layout.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/column-rule-style
    */
-  columnRuleStyle: T;
+  style$ColumnRuleStyle: T;
 }
 
 export const columnRuleStyle = <
@@ -18,9 +18,9 @@ export const columnRuleStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColumnRuleStyleProps<T>, Theme>> = {}) =>
-  style<IColumnRuleStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColumnRuleStyleProps<T>, Theme>> = {}) =>
+  style<ColumnRuleStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'columnRuleStyle',
-    prop: 'columnRuleStyle',
+    prop: 'style$ColumnRuleStyle',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textDecorationColor', () => {
   });
 
   it('should use `textDecorationColor` as component and css prop', () => {
-    const result = textDecorationColor()({ textDecorationColor: 'inherit' });
+    const result = textDecorationColor()({ style$TextDecorationColor: 'inherit' });
     expect(result).toEqual({ textDecorationColor: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textDecorationColor<'a'>()({ textDecorationColor: 'a' });
+    const result = textDecorationColor<'a'>()({ style$TextDecorationColor: 'a' });
     expect(result).toEqual({ textDecorationColor: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textDecorationColor', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textDecorationColor<'value', IThemeWithoutBreakpoints>({
+    const result = textDecorationColor<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textDecorationColor: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextDecorationColor: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textDecorationColor: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textDecorationColor', () => {
   it('should allow using breakpoints', () => {
     const result = textDecorationColor<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textDecorationColor: {
+      style$TextDecorationColor: {
         base: 'a',
         large: 'b',
         medium: 'c',

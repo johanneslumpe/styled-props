@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('lineHeight', () => {
   });
 
   it('should use `lineHeight` as component and css prop', () => {
-    const result = lineHeight()({ lineHeight: 'inherit' });
+    const result = lineHeight()({ style$LineHeight: 'inherit' });
     expect(result).toEqual({ lineHeight: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = lineHeight<'a'>()({ lineHeight: 'a' });
+    const result = lineHeight<'a'>()({ style$LineHeight: 'a' });
     expect(result).toEqual({ lineHeight: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('lineHeight', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = lineHeight<'value', IThemeWithoutBreakpoints>({
+    const result = lineHeight<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ lineHeight: 'value', theme: themeWithoutBreakpoints });
+    })({ style$LineHeight: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       lineHeight: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('lineHeight', () => {
   it('should allow using breakpoints', () => {
     const result = lineHeight<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      lineHeight: {
+      style$LineHeight: {
         base: 'a',
         large: 'b',
         medium: 'c',

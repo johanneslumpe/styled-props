@@ -1,15 +1,15 @@
 import { OutlineOffsetProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOutlineOffsetProps<T> {
+export interface OutlineOffsetProps<T> {
   /**
    * The **`outline-offset`** CSS property sets the amount of space between an outline and the edge or border of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/outline-offset
    */
-  outlineOffset: T;
+  style$OutlineOffset: T;
 }
 
 export const outlineOffset = <
@@ -18,9 +18,9 @@ export const outlineOffset = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOutlineOffsetProps<T>, Theme>> = {}) =>
-  style<IOutlineOffsetProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OutlineOffsetProps<T>, Theme>> = {}) =>
+  style<OutlineOffsetProps<T>, Theme, Breakpoints>({
     cssProp: 'outlineOffset',
-    prop: 'outlineOffset',
+    prop: 'style$OutlineOffset',
     themeProp,
   });

@@ -1,15 +1,15 @@
 import { VisibilityPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IVisibilityProps<T> {
+export interface VisibilityProps<T> {
   /**
    * The **`visibility`** CSS property shows or hides an element without changing the layout of a document. The property can also hide rows or columns in a `<table>`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/visibility
    */
-  visibility: T;
+  style$Visibility: T;
 }
 
 export const visibility = <
@@ -18,9 +18,9 @@ export const visibility = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IVisibilityProps<T>, Theme>> = {}) =>
-  style<IVisibilityProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<VisibilityProps<T>, Theme>> = {}) =>
+  style<VisibilityProps<T>, Theme, Breakpoints>({
     cssProp: 'visibility',
-    prop: 'visibility',
+    prop: 'style$Visibility',
     themeProp,
   });

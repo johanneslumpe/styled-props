@@ -1,15 +1,15 @@
 import { ListStyleTypeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IListStyleTypeProps<T> {
+export interface ListStyleTypeProps<T> {
   /**
    * The **`list-style-type`** CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/list-style-type
    */
-  listStyleType: T;
+  style$ListStyleType: T;
 }
 
 export const listStyleType = <
@@ -18,9 +18,9 @@ export const listStyleType = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IListStyleTypeProps<T>, Theme>> = {}) =>
-  style<IListStyleTypeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ListStyleTypeProps<T>, Theme>> = {}) =>
+  style<ListStyleTypeProps<T>, Theme, Breakpoints>({
     cssProp: 'listStyleType',
-    prop: 'listStyleType',
+    prop: 'style$ListStyleType',
     themeProp,
   });

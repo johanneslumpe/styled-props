@@ -1,15 +1,15 @@
 import { FontFamilyProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontFamilyProps<T> {
+export interface FontFamilyProps<T> {
   /**
    * The **`font-family`** CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-family
    */
-  fontFamily: T;
+  style$FontFamily: T;
 }
 
 export const fontFamily = <
@@ -18,9 +18,9 @@ export const fontFamily = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontFamilyProps<T>, Theme>> = {}) =>
-  style<IFontFamilyProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontFamilyProps<T>, Theme>> = {}) =>
+  style<FontFamilyProps<T>, Theme, Breakpoints>({
     cssProp: 'fontFamily',
-    prop: 'fontFamily',
+    prop: 'style$FontFamily',
     themeProp,
   });

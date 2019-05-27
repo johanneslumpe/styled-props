@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('shapeMargin', () => {
   });
 
   it('should use `shapeMargin` as component and css prop', () => {
-    const result = shapeMargin()({ shapeMargin: 'inherit' });
+    const result = shapeMargin()({ style$ShapeMargin: 'inherit' });
     expect(result).toEqual({ shapeMargin: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = shapeMargin<'a'>()({ shapeMargin: 'a' });
+    const result = shapeMargin<'a'>()({ style$ShapeMargin: 'a' });
     expect(result).toEqual({ shapeMargin: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('shapeMargin', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = shapeMargin<'value', IThemeWithoutBreakpoints>({
+    const result = shapeMargin<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ shapeMargin: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ShapeMargin: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       shapeMargin: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('shapeMargin', () => {
   it('should allow using breakpoints', () => {
     const result = shapeMargin<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      shapeMargin: {
+      style$ShapeMargin: {
         base: 'a',
         large: 'b',
         medium: 'c',

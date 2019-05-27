@@ -1,15 +1,15 @@
 import { ListStyleImageProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IListStyleImageProps<T> {
+export interface ListStyleImageProps<T> {
   /**
    * The **`list-style-image`** CSS property sets an image to be used as the list item marker.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/list-style-image
    */
-  listStyleImage: T;
+  style$ListStyleImage: T;
 }
 
 export const listStyleImage = <
@@ -18,9 +18,9 @@ export const listStyleImage = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IListStyleImageProps<T>, Theme>> = {}) =>
-  style<IListStyleImageProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ListStyleImageProps<T>, Theme>> = {}) =>
+  style<ListStyleImageProps<T>, Theme, Breakpoints>({
     cssProp: 'listStyleImage',
-    prop: 'listStyleImage',
+    prop: 'style$ListStyleImage',
     themeProp,
   });

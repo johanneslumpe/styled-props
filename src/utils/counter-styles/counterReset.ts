@@ -1,15 +1,15 @@
 import { CounterResetProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ICounterResetProps<T> {
+export interface CounterResetProps<T> {
   /**
    * The **`counter-reset`** CSS property resets a CSS counter to a given value.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/counter-reset
    */
-  counterReset: T;
+  style$CounterReset: T;
 }
 
 export const counterReset = <
@@ -18,9 +18,9 @@ export const counterReset = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ICounterResetProps<T>, Theme>> = {}) =>
-  style<ICounterResetProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<CounterResetProps<T>, Theme>> = {}) =>
+  style<CounterResetProps<T>, Theme, Breakpoints>({
     cssProp: 'counterReset',
-    prop: 'counterReset',
+    prop: 'style$CounterReset',
     themeProp,
   });

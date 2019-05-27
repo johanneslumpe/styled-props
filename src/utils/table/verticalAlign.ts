@@ -1,15 +1,15 @@
 import { VerticalAlignProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IVerticalAlignProps<T> {
+export interface VerticalAlignProps<T> {
   /**
-   * The **`vertical-align`** CSS property specifies sets vertical alignment of an inline or table-cell box.
+   * The **`vertical-align`** CSS property sets vertical alignment of an inline or table-cell box.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/vertical-align
    */
-  verticalAlign: T;
+  style$VerticalAlign: T;
 }
 
 export const verticalAlign = <
@@ -18,9 +18,9 @@ export const verticalAlign = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IVerticalAlignProps<T>, Theme>> = {}) =>
-  style<IVerticalAlignProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<VerticalAlignProps<T>, Theme>> = {}) =>
+  style<VerticalAlignProps<T>, Theme, Breakpoints>({
     cssProp: 'verticalAlign',
-    prop: 'verticalAlign',
+    prop: 'style$VerticalAlign',
     themeProp,
   });

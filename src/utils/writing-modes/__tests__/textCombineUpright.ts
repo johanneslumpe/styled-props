@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textCombineUpright', () => {
   });
 
   it('should use `textCombineUpright` as component and css prop', () => {
-    const result = textCombineUpright()({ textCombineUpright: 'inherit' });
+    const result = textCombineUpright()({ style$TextCombineUpright: 'inherit' });
     expect(result).toEqual({ textCombineUpright: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textCombineUpright<'a'>()({ textCombineUpright: 'a' });
+    const result = textCombineUpright<'a'>()({ style$TextCombineUpright: 'a' });
     expect(result).toEqual({ textCombineUpright: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textCombineUpright', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textCombineUpright<'value', IThemeWithoutBreakpoints>({
+    const result = textCombineUpright<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textCombineUpright: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextCombineUpright: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textCombineUpright: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textCombineUpright', () => {
   it('should allow using breakpoints', () => {
     const result = textCombineUpright<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textCombineUpright: {
+      style$TextCombineUpright: {
         base: 'a',
         large: 'b',
         medium: 'c',

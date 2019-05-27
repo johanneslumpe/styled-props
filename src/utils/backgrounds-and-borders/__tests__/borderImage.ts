@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderImage', () => {
   });
 
   it('should use `borderImage` as component and css prop', () => {
-    const result = borderImage()({ borderImage: 'inherit' });
+    const result = borderImage()({ style$BorderImage: 'inherit' });
     expect(result).toEqual({ borderImage: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderImage<'a'>()({ borderImage: 'a' });
+    const result = borderImage<'a'>()({ style$BorderImage: 'a' });
     expect(result).toEqual({ borderImage: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderImage', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderImage<'value', IThemeWithoutBreakpoints>({
+    const result = borderImage<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderImage: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderImage: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderImage: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderImage', () => {
   it('should allow using breakpoints', () => {
     const result = borderImage<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderImage: {
+      style$BorderImage: {
         base: 'a',
         large: 'b',
         medium: 'c',

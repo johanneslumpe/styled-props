@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('bottom', () => {
   });
 
   it('should use `bottom` as component and css prop', () => {
-    const result = bottom()({ bottom: 'inherit' });
+    const result = bottom()({ style$Bottom: 'inherit' });
     expect(result).toEqual({ bottom: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = bottom<'a'>()({ bottom: 'a' });
+    const result = bottom<'a'>()({ style$Bottom: 'a' });
     expect(result).toEqual({ bottom: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('bottom', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = bottom<'value', IThemeWithoutBreakpoints>({
+    const result = bottom<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ bottom: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Bottom: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       bottom: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('bottom', () => {
   it('should allow using breakpoints', () => {
     const result = bottom<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      bottom: {
+      style$Bottom: {
         base: 'a',
         large: 'b',
         medium: 'c',

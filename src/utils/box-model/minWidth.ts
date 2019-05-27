@@ -1,15 +1,15 @@
 import { MinWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMinWidthProps<T> {
+export interface MinWidthProps<T> {
   /**
    * The **`min-width`** CSS property sets the minimum width of an element. It prevents the used value of the `width` property from becoming smaller than the value specified for `min-width`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/min-width
    */
-  minWidth: T;
+  style$MinWidth: T;
 }
 
 export const minWidth = <
@@ -18,9 +18,9 @@ export const minWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMinWidthProps<T>, Theme>> = {}) =>
-  style<IMinWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MinWidthProps<T>, Theme>> = {}) =>
+  style<MinWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'minWidth',
-    prop: 'minWidth',
+    prop: 'style$MinWidth',
     themeProp,
   });

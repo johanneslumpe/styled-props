@@ -1,15 +1,15 @@
 import { PaddingBottomProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPaddingBottomProps<T> {
+export interface PaddingBottomProps<T> {
   /**
-   * The **`padding-bottom`** CSS property sets the height of the padding area on the bottom of an element.
+   * The **`padding-bottom`** CSS property sets the height of the padding area on the bottom of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/padding-bottom
    */
-  paddingBottom: T;
+  style$PaddingBottom: T;
 }
 
 export const paddingBottom = <
@@ -18,9 +18,9 @@ export const paddingBottom = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPaddingBottomProps<T>, Theme>> = {}) =>
-  style<IPaddingBottomProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PaddingBottomProps<T>, Theme>> = {}) =>
+  style<PaddingBottomProps<T>, Theme, Breakpoints>({
     cssProp: 'paddingBottom',
-    prop: 'paddingBottom',
+    prop: 'style$PaddingBottom',
     themeProp,
   });

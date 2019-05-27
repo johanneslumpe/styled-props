@@ -1,15 +1,15 @@
 import { BoxSizingPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBoxSizingProps<T> {
+export interface BoxSizingProps<T> {
   /**
-   * The **`box-sizing`** CSS property defines how the user agent should calculate the total width and height of an element.
+   * The **`box-sizing`** CSS property sets how the total width and height of an element is calculated.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/box-sizing
    */
-  boxSizing: T;
+  style$BoxSizing: T;
 }
 
 export const boxSizing = <
@@ -18,9 +18,9 @@ export const boxSizing = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBoxSizingProps<T>, Theme>> = {}) =>
-  style<IBoxSizingProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BoxSizingProps<T>, Theme>> = {}) =>
+  style<BoxSizingProps<T>, Theme, Breakpoints>({
     cssProp: 'boxSizing',
-    prop: 'boxSizing',
+    prop: 'style$BoxSizing',
     themeProp,
   });

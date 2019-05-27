@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('tableLayout', () => {
   });
 
   it('should use `tableLayout` as component and css prop', () => {
-    const result = tableLayout()({ tableLayout: 'inherit' });
+    const result = tableLayout()({ style$TableLayout: 'inherit' });
     expect(result).toEqual({ tableLayout: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = tableLayout<'a'>()({ tableLayout: 'a' });
+    const result = tableLayout<'a'>()({ style$TableLayout: 'a' });
     expect(result).toEqual({ tableLayout: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('tableLayout', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = tableLayout<'value', IThemeWithoutBreakpoints>({
+    const result = tableLayout<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ tableLayout: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TableLayout: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       tableLayout: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('tableLayout', () => {
   it('should allow using breakpoints', () => {
     const result = tableLayout<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      tableLayout: {
+      style$TableLayout: {
         base: 'a',
         large: 'b',
         medium: 'c',

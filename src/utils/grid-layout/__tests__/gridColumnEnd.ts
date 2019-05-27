@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('gridColumnEnd', () => {
   });
 
   it('should use `gridColumnEnd` as component and css prop', () => {
-    const result = gridColumnEnd()({ gridColumnEnd: 'inherit' });
+    const result = gridColumnEnd()({ style$GridColumnEnd: 'inherit' });
     expect(result).toEqual({ gridColumnEnd: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = gridColumnEnd<'a'>()({ gridColumnEnd: 'a' });
+    const result = gridColumnEnd<'a'>()({ style$GridColumnEnd: 'a' });
     expect(result).toEqual({ gridColumnEnd: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('gridColumnEnd', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = gridColumnEnd<'value', IThemeWithoutBreakpoints>({
+    const result = gridColumnEnd<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ gridColumnEnd: 'value', theme: themeWithoutBreakpoints });
+    })({ style$GridColumnEnd: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       gridColumnEnd: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('gridColumnEnd', () => {
   it('should allow using breakpoints', () => {
     const result = gridColumnEnd<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      gridColumnEnd: {
+      style$GridColumnEnd: {
         base: 'a',
         large: 'b',
         medium: 'c',

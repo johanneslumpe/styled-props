@@ -1,15 +1,15 @@
 import { OverflowYPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOverflowYProps<T> {
+export interface OverflowYProps<T> {
   /**
    * The **`overflow-y`** CSS property sets what shows when content overflows a block-level element's top and bottom edges. This may be nothing, a scroll bar, or the overflow content.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/overflow-y
    */
-  overflowY: T;
+  style$OverflowY: T;
 }
 
 export const overflowY = <
@@ -18,9 +18,9 @@ export const overflowY = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOverflowYProps<T>, Theme>> = {}) =>
-  style<IOverflowYProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OverflowYProps<T>, Theme>> = {}) =>
+  style<OverflowYProps<T>, Theme, Breakpoints>({
     cssProp: 'overflowY',
-    prop: 'overflowY',
+    prop: 'style$OverflowY',
     themeProp,
   });

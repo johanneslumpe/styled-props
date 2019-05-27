@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('animationIterationCount', () => {
   });
 
   it('should use `animationIterationCount` as component and css prop', () => {
-    const result = animationIterationCount()({ animationIterationCount: 'inherit' });
+    const result = animationIterationCount()({ style$AnimationIterationCount: 'inherit' });
     expect(result).toEqual({ animationIterationCount: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = animationIterationCount<'a'>()({ animationIterationCount: 'a' });
+    const result = animationIterationCount<'a'>()({ style$AnimationIterationCount: 'a' });
     expect(result).toEqual({ animationIterationCount: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('animationIterationCount', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = animationIterationCount<'value', IThemeWithoutBreakpoints>({
+    const result = animationIterationCount<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ animationIterationCount: 'value', theme: themeWithoutBreakpoints });
+    })({ style$AnimationIterationCount: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       animationIterationCount: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('animationIterationCount', () => {
   it('should allow using breakpoints', () => {
     const result = animationIterationCount<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      animationIterationCount: {
+      style$AnimationIterationCount: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('shapeOutside', () => {
   });
 
   it('should use `shapeOutside` as component and css prop', () => {
-    const result = shapeOutside()({ shapeOutside: 'inherit' });
+    const result = shapeOutside()({ style$ShapeOutside: 'inherit' });
     expect(result).toEqual({ shapeOutside: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = shapeOutside<'a'>()({ shapeOutside: 'a' });
+    const result = shapeOutside<'a'>()({ style$ShapeOutside: 'a' });
     expect(result).toEqual({ shapeOutside: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('shapeOutside', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = shapeOutside<'value', IThemeWithoutBreakpoints>({
+    const result = shapeOutside<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ shapeOutside: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ShapeOutside: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       shapeOutside: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('shapeOutside', () => {
   it('should allow using breakpoints', () => {
     const result = shapeOutside<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      shapeOutside: {
+      style$ShapeOutside: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('opacity', () => {
   });
 
   it('should use `opacity` as component and css prop', () => {
-    const result = opacity()({ opacity: 'inherit' });
+    const result = opacity()({ style$Opacity: 'inherit' });
     expect(result).toEqual({ opacity: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = opacity<'a'>()({ opacity: 'a' });
+    const result = opacity<'a'>()({ style$Opacity: 'a' });
     expect(result).toEqual({ opacity: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('opacity', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = opacity<'value', IThemeWithoutBreakpoints>({
+    const result = opacity<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ opacity: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Opacity: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       opacity: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('opacity', () => {
   it('should allow using breakpoints', () => {
     const result = opacity<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      opacity: {
+      style$Opacity: {
         base: 'a',
         large: 'b',
         medium: 'c',

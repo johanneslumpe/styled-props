@@ -1,15 +1,15 @@
 import { FontKerningPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontKerningProps<T> {
+export interface FontKerningProps<T> {
   /**
    * The **`font-kerning`** CSS property sets the use of the kerning information stored in a font.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-kerning
    */
-  fontKerning: T;
+  style$FontKerning: T;
 }
 
 export const fontKerning = <
@@ -18,9 +18,9 @@ export const fontKerning = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontKerningProps<T>, Theme>> = {}) =>
-  style<IFontKerningProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontKerningProps<T>, Theme>> = {}) =>
+  style<FontKerningProps<T>, Theme, Breakpoints>({
     cssProp: 'fontKerning',
-    prop: 'fontKerning',
+    prop: 'style$FontKerning',
     themeProp,
   });

@@ -1,15 +1,15 @@
 import { AnimationProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAnimationProps<T> {
+export interface AnimationProps<T> {
   /**
-   * The **`animation`** shorthand CSS property sets an animated transition between styles. It is a shorthand for `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, and `animation-play-state`.
+   * The **`animation`** shorthand CSS property applies an animation between styles. It is a shorthand for `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, and `animation-play-state`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/animation
    */
-  animation: T;
+  style$Animation: T;
 }
 
 export const animation = <
@@ -18,9 +18,9 @@ export const animation = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAnimationProps<T>, Theme>> = {}) =>
-  style<IAnimationProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AnimationProps<T>, Theme>> = {}) =>
+  style<AnimationProps<T>, Theme, Breakpoints>({
     cssProp: 'animation',
-    prop: 'animation',
+    prop: 'style$Animation',
     themeProp,
   });

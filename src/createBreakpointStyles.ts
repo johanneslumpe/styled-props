@@ -1,8 +1,8 @@
 import { BREAKPOINTS_BASE_VALUE_KEY } from './constants';
-import { IDictionary, IStyles } from './types';
+import { Dictionary, Styles } from './types';
 
 const BASE_EMPTY_OBJECT = {};
-const BASE_EMPTY_INDEXED_OBJECT: IDictionary<any> = BASE_EMPTY_OBJECT;
+const BASE_EMPTY_INDEXED_OBJECT: Dictionary<any> = BASE_EMPTY_OBJECT;
 
 export function createBreakpointStyles<
   T extends { breakpoints: { [index: string]: string } }
@@ -14,7 +14,7 @@ export function createBreakpointStyles<
   cssProp?: string,
   arrayResolver?: (value: Array<string | number>) => string,
 ) {
-  const result: IStyles = {};
+  const result: Styles = {};
   const { breakpoints } = theme;
   const themeVal = themeValue;
 
@@ -33,7 +33,7 @@ export function createBreakpointStyles<
           }
         : { ...val };
     } else {
-      const breakpointValue = (breakpoints as IDictionary<string>)[
+      const breakpointValue = (breakpoints as Dictionary<string>)[
         key.toString()
       ];
       acc[breakpointValue] = cssProp

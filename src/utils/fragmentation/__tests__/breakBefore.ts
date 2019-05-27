@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('breakBefore', () => {
   });
 
   it('should use `breakBefore` as component and css prop', () => {
-    const result = breakBefore()({ breakBefore: 'inherit' });
+    const result = breakBefore()({ style$BreakBefore: 'inherit' });
     expect(result).toEqual({ breakBefore: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = breakBefore<'a'>()({ breakBefore: 'a' });
+    const result = breakBefore<'a'>()({ style$BreakBefore: 'a' });
     expect(result).toEqual({ breakBefore: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('breakBefore', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = breakBefore<'value', IThemeWithoutBreakpoints>({
+    const result = breakBefore<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ breakBefore: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BreakBefore: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       breakBefore: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('breakBefore', () => {
   it('should allow using breakpoints', () => {
     const result = breakBefore<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      breakBefore: {
+      style$BreakBefore: {
         base: 'a',
         large: 'b',
         medium: 'c',

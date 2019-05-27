@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('caretColor', () => {
   });
 
   it('should use `caretColor` as component and css prop', () => {
-    const result = caretColor()({ caretColor: 'inherit' });
+    const result = caretColor()({ style$CaretColor: 'inherit' });
     expect(result).toEqual({ caretColor: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = caretColor<'a'>()({ caretColor: 'a' });
+    const result = caretColor<'a'>()({ style$CaretColor: 'a' });
     expect(result).toEqual({ caretColor: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('caretColor', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = caretColor<'value', IThemeWithoutBreakpoints>({
+    const result = caretColor<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ caretColor: 'value', theme: themeWithoutBreakpoints });
+    })({ style$CaretColor: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       caretColor: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('caretColor', () => {
   it('should allow using breakpoints', () => {
     const result = caretColor<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      caretColor: {
+      style$CaretColor: {
         base: 'a',
         large: 'b',
         medium: 'c',

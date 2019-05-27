@@ -1,15 +1,15 @@
 import { GridRowStartProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridRowStartProps<T> {
+export interface GridRowStartProps<T> {
   /**
    * The **`grid-row-start`** CSS property specifies a grid item’s start position within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start edge of its grid area.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-row-start
    */
-  gridRowStart: T;
+  style$GridRowStart: T;
 }
 
 export const gridRowStart = <
@@ -18,9 +18,9 @@ export const gridRowStart = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridRowStartProps<T>, Theme>> = {}) =>
-  style<IGridRowStartProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridRowStartProps<T>, Theme>> = {}) =>
+  style<GridRowStartProps<T>, Theme, Breakpoints>({
     cssProp: 'gridRowStart',
-    prop: 'gridRowStart',
+    prop: 'style$GridRowStart',
     themeProp,
   });

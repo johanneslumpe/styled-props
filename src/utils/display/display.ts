@@ -1,15 +1,15 @@
 import { DisplayPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IDisplayProps<T> {
+export interface DisplayProps<T> {
   /**
-   * The **`display`** CSS property defines the _display type_ of an element, which consists of the two basic qualities of how an element generates boxes — the **outer display type** defining how the box participates in flow layout, and the **inner display type** defining how the children of the box are laid out.
+   * The **`display`** CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as grid or flex.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/display
    */
-  display: T;
+  style$Display: T;
 }
 
 export const display = <
@@ -18,9 +18,9 @@ export const display = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IDisplayProps<T>, Theme>> = {}) =>
-  style<IDisplayProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<DisplayProps<T>, Theme>> = {}) =>
+  style<DisplayProps<T>, Theme, Breakpoints>({
     cssProp: 'display',
-    prop: 'display',
+    prop: 'style$Display',
     themeProp,
   });

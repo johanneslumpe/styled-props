@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('counterReset', () => {
   });
 
   it('should use `counterReset` as component and css prop', () => {
-    const result = counterReset()({ counterReset: 'inherit' });
+    const result = counterReset()({ style$CounterReset: 'inherit' });
     expect(result).toEqual({ counterReset: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = counterReset<'a'>()({ counterReset: 'a' });
+    const result = counterReset<'a'>()({ style$CounterReset: 'a' });
     expect(result).toEqual({ counterReset: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('counterReset', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = counterReset<'value', IThemeWithoutBreakpoints>({
+    const result = counterReset<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ counterReset: 'value', theme: themeWithoutBreakpoints });
+    })({ style$CounterReset: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       counterReset: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('counterReset', () => {
   it('should allow using breakpoints', () => {
     const result = counterReset<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      counterReset: {
+      style$CounterReset: {
         base: 'a',
         large: 'b',
         medium: 'c',

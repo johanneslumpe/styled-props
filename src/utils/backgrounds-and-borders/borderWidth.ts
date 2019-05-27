@@ -1,15 +1,15 @@
 import { BorderWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderWidthProps<T> {
+export interface BorderWidthProps<T> {
   /**
-   * The **`border-width`** shorthand CSS property sets the widths of all four sides of an element's border.
+   * The **`border-width`** shorthand CSS property sets the width of an element's border.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-width
    */
-  borderWidth: T;
+  style$BorderWidth: T;
 }
 
 export const borderWidth = <
@@ -18,9 +18,9 @@ export const borderWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderWidthProps<T>, Theme>> = {}) =>
-  style<IBorderWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderWidthProps<T>, Theme>> = {}) =>
+  style<BorderWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'borderWidth',
-    prop: 'borderWidth',
+    prop: 'style$BorderWidth',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('counterIncrement', () => {
   });
 
   it('should use `counterIncrement` as component and css prop', () => {
-    const result = counterIncrement()({ counterIncrement: 'inherit' });
+    const result = counterIncrement()({ style$CounterIncrement: 'inherit' });
     expect(result).toEqual({ counterIncrement: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = counterIncrement<'a'>()({ counterIncrement: 'a' });
+    const result = counterIncrement<'a'>()({ style$CounterIncrement: 'a' });
     expect(result).toEqual({ counterIncrement: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('counterIncrement', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = counterIncrement<'value', IThemeWithoutBreakpoints>({
+    const result = counterIncrement<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ counterIncrement: 'value', theme: themeWithoutBreakpoints });
+    })({ style$CounterIncrement: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       counterIncrement: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('counterIncrement', () => {
   it('should allow using breakpoints', () => {
     const result = counterIncrement<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      counterIncrement: {
+      style$CounterIncrement: {
         base: 'a',
         large: 'b',
         medium: 'c',

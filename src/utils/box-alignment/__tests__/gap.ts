@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('gap', () => {
   });
 
   it('should use `gap` as component and css prop', () => {
-    const result = gap()({ gap: 'inherit' });
+    const result = gap()({ style$Gap: 'inherit' });
     expect(result).toEqual({ gap: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = gap<'a'>()({ gap: 'a' });
+    const result = gap<'a'>()({ style$Gap: 'a' });
     expect(result).toEqual({ gap: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('gap', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = gap<'value', IThemeWithoutBreakpoints>({
+    const result = gap<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ gap: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Gap: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       gap: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('gap', () => {
   it('should allow using breakpoints', () => {
     const result = gap<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      gap: {
+      style$Gap: {
         base: 'a',
         large: 'b',
         medium: 'c',

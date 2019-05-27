@@ -1,15 +1,15 @@
 import { TransformOriginProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITransformOriginProps<T> {
+export interface TransformOriginProps<T> {
   /**
    * The **`transform-origin`** CSS property sets the origin for an element's transformations.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/transform-origin
    */
-  transformOrigin: T;
+  style$TransformOrigin: T;
 }
 
 export const transformOrigin = <
@@ -18,9 +18,9 @@ export const transformOrigin = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITransformOriginProps<T>, Theme>> = {}) =>
-  style<ITransformOriginProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TransformOriginProps<T>, Theme>> = {}) =>
+  style<TransformOriginProps<T>, Theme, Breakpoints>({
     cssProp: 'transformOrigin',
-    prop: 'transformOrigin',
+    prop: 'style$TransformOrigin',
     themeProp,
   });

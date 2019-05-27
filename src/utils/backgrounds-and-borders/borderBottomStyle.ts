@@ -1,15 +1,15 @@
 import { BorderBottomStylePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBottomStyleProps<T> {
+export interface BorderBottomStyleProps<T> {
   /**
    * The **`border-bottom-style`** CSS property sets the line style of an element's bottom `border`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-style
    */
-  borderBottomStyle: T;
+  style$BorderBottomStyle: T;
 }
 
 export const borderBottomStyle = <
@@ -18,9 +18,9 @@ export const borderBottomStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBottomStyleProps<T>, Theme>> = {}) =>
-  style<IBorderBottomStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBottomStyleProps<T>, Theme>> = {}) =>
+  style<BorderBottomStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBottomStyle',
-    prop: 'borderBottomStyle',
+    prop: 'style$BorderBottomStyle',
     themeProp,
   });

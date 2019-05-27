@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderInlineStartWidth', () => {
   });
 
   it('should use `borderInlineStartWidth` as component and css prop', () => {
-    const result = borderInlineStartWidth()({ borderInlineStartWidth: 'inherit' });
+    const result = borderInlineStartWidth()({ style$BorderInlineStartWidth: 'inherit' });
     expect(result).toEqual({ borderInlineStartWidth: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderInlineStartWidth<'a'>()({ borderInlineStartWidth: 'a' });
+    const result = borderInlineStartWidth<'a'>()({ style$BorderInlineStartWidth: 'a' });
     expect(result).toEqual({ borderInlineStartWidth: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderInlineStartWidth', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderInlineStartWidth<'value', IThemeWithoutBreakpoints>({
+    const result = borderInlineStartWidth<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderInlineStartWidth: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderInlineStartWidth: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderInlineStartWidth: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderInlineStartWidth', () => {
   it('should allow using breakpoints', () => {
     const result = borderInlineStartWidth<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderInlineStartWidth: {
+      style$BorderInlineStartWidth: {
         base: 'a',
         large: 'b',
         medium: 'c',

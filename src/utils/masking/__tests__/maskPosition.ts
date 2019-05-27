@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('maskPosition', () => {
   });
 
   it('should use `maskPosition` as component and css prop', () => {
-    const result = maskPosition()({ maskPosition: 'inherit' });
+    const result = maskPosition()({ style$MaskPosition: 'inherit' });
     expect(result).toEqual({ maskPosition: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = maskPosition<'a'>()({ maskPosition: 'a' });
+    const result = maskPosition<'a'>()({ style$MaskPosition: 'a' });
     expect(result).toEqual({ maskPosition: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('maskPosition', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = maskPosition<'value', IThemeWithoutBreakpoints>({
+    const result = maskPosition<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ maskPosition: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MaskPosition: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       maskPosition: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('maskPosition', () => {
   it('should allow using breakpoints', () => {
     const result = maskPosition<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      maskPosition: {
+      style$MaskPosition: {
         base: 'a',
         large: 'b',
         medium: 'c',

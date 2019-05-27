@@ -1,15 +1,15 @@
 import { LetterSpacingProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ILetterSpacingProps<T> {
+export interface LetterSpacingProps<T> {
   /**
    * The **`letter-spacing`** CSS property sets the spacing behavior between text characters.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/letter-spacing
    */
-  letterSpacing: T;
+  style$LetterSpacing: T;
 }
 
 export const letterSpacing = <
@@ -18,9 +18,9 @@ export const letterSpacing = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ILetterSpacingProps<T>, Theme>> = {}) =>
-  style<ILetterSpacingProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<LetterSpacingProps<T>, Theme>> = {}) =>
+  style<LetterSpacingProps<T>, Theme, Breakpoints>({
     cssProp: 'letterSpacing',
-    prop: 'letterSpacing',
+    prop: 'style$LetterSpacing',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('shapeImageThreshold', () => {
   });
 
   it('should use `shapeImageThreshold` as component and css prop', () => {
-    const result = shapeImageThreshold()({ shapeImageThreshold: 'inherit' });
+    const result = shapeImageThreshold()({ style$ShapeImageThreshold: 'inherit' });
     expect(result).toEqual({ shapeImageThreshold: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = shapeImageThreshold<'a'>()({ shapeImageThreshold: 'a' });
+    const result = shapeImageThreshold<'a'>()({ style$ShapeImageThreshold: 'a' });
     expect(result).toEqual({ shapeImageThreshold: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('shapeImageThreshold', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = shapeImageThreshold<'value', IThemeWithoutBreakpoints>({
+    const result = shapeImageThreshold<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ shapeImageThreshold: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ShapeImageThreshold: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       shapeImageThreshold: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('shapeImageThreshold', () => {
   it('should allow using breakpoints', () => {
     const result = shapeImageThreshold<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      shapeImageThreshold: {
+      style$ShapeImageThreshold: {
         base: 'a',
         large: 'b',
         medium: 'c',

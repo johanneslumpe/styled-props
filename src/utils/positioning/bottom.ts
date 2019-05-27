@@ -1,15 +1,15 @@
 import { BottomProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBottomProps<T> {
+export interface BottomProps<T> {
   /**
-   * The **`bottom`** CSS property participates in specifying the vertical position of a _positioned element_. It has no effect on non-positioned elements.
+   * The **`bottom`** CSS property participates in setting the vertical position of a positioned element. It has no effect on non-positioned elements.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/bottom
    */
-  bottom: T;
+  style$Bottom: T;
 }
 
 export const bottom = <
@@ -18,9 +18,9 @@ export const bottom = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBottomProps<T>, Theme>> = {}) =>
-  style<IBottomProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BottomProps<T>, Theme>> = {}) =>
+  style<BottomProps<T>, Theme, Breakpoints>({
     cssProp: 'bottom',
-    prop: 'bottom',
+    prop: 'style$Bottom',
     themeProp,
   });

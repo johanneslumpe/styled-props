@@ -1,15 +1,15 @@
 import { TransformBoxPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITransformBoxProps<T> {
+export interface TransformBoxProps<T> {
   /**
    * The **`transform-box`** CSS property defines the layout box to which the `transform` and `transform-origin` properties relate.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/transform-box
    */
-  transformBox: T;
+  style$TransformBox: T;
 }
 
 export const transformBox = <
@@ -18,9 +18,9 @@ export const transformBox = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITransformBoxProps<T>, Theme>> = {}) =>
-  style<ITransformBoxProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TransformBoxProps<T>, Theme>> = {}) =>
+  style<TransformBoxProps<T>, Theme, Breakpoints>({
     cssProp: 'transformBox',
-    prop: 'transformBox',
+    prop: 'style$TransformBox',
     themeProp,
   });

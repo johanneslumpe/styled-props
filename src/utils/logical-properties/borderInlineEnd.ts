@@ -1,15 +1,15 @@
 import { BorderInlineEndProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderInlineEndProps<T> {
+export interface BorderInlineEndProps<T> {
   /**
    * The **`border-inline-end`** CSS property is a shorthand property for setting the individual logical inline-end border property values in a single place in the style sheet.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-end
    */
-  borderInlineEnd: T;
+  style$BorderInlineEnd: T;
 }
 
 export const borderInlineEnd = <
@@ -18,9 +18,9 @@ export const borderInlineEnd = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderInlineEndProps<T>, Theme>> = {}) =>
-  style<IBorderInlineEndProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderInlineEndProps<T>, Theme>> = {}) =>
+  style<BorderInlineEndProps<T>, Theme, Breakpoints>({
     cssProp: 'borderInlineEnd',
-    prop: 'borderInlineEnd',
+    prop: 'style$BorderInlineEnd',
     themeProp,
   });

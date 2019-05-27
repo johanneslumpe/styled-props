@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('outlineColor', () => {
   });
 
   it('should use `outlineColor` as component and css prop', () => {
-    const result = outlineColor()({ outlineColor: 'inherit' });
+    const result = outlineColor()({ style$OutlineColor: 'inherit' });
     expect(result).toEqual({ outlineColor: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = outlineColor<'a'>()({ outlineColor: 'a' });
+    const result = outlineColor<'a'>()({ style$OutlineColor: 'a' });
     expect(result).toEqual({ outlineColor: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('outlineColor', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = outlineColor<'value', IThemeWithoutBreakpoints>({
+    const result = outlineColor<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ outlineColor: 'value', theme: themeWithoutBreakpoints });
+    })({ style$OutlineColor: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       outlineColor: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('outlineColor', () => {
   it('should allow using breakpoints', () => {
     const result = outlineColor<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      outlineColor: {
+      style$OutlineColor: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('tabSize', () => {
   });
 
   it('should use `tabSize` as component and css prop', () => {
-    const result = tabSize()({ tabSize: 'inherit' });
+    const result = tabSize()({ style$TabSize: 'inherit' });
     expect(result).toEqual({ tabSize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = tabSize<'a'>()({ tabSize: 'a' });
+    const result = tabSize<'a'>()({ style$TabSize: 'a' });
     expect(result).toEqual({ tabSize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('tabSize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = tabSize<'value', IThemeWithoutBreakpoints>({
+    const result = tabSize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ tabSize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TabSize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       tabSize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('tabSize', () => {
   it('should allow using breakpoints', () => {
     const result = tabSize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      tabSize: {
+      style$TabSize: {
         base: 'a',
         large: 'b',
         medium: 'c',

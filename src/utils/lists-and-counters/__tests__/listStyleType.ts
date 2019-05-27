@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('listStyleType', () => {
   });
 
   it('should use `listStyleType` as component and css prop', () => {
-    const result = listStyleType()({ listStyleType: 'inherit' });
+    const result = listStyleType()({ style$ListStyleType: 'inherit' });
     expect(result).toEqual({ listStyleType: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = listStyleType<'a'>()({ listStyleType: 'a' });
+    const result = listStyleType<'a'>()({ style$ListStyleType: 'a' });
     expect(result).toEqual({ listStyleType: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('listStyleType', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = listStyleType<'value', IThemeWithoutBreakpoints>({
+    const result = listStyleType<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ listStyleType: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ListStyleType: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       listStyleType: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('listStyleType', () => {
   it('should allow using breakpoints', () => {
     const result = listStyleType<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      listStyleType: {
+      style$ListStyleType: {
         base: 'a',
         large: 'b',
         medium: 'c',

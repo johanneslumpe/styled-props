@@ -1,15 +1,15 @@
 import { GridAutoColumnsProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridAutoColumnsProps<T> {
+export interface GridAutoColumnsProps<T> {
   /**
    * The **`grid-auto-columns`** CSS property specifies the size of an implicitly-created grid column track.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-auto-columns
    */
-  gridAutoColumns: T;
+  style$GridAutoColumns: T;
 }
 
 export const gridAutoColumns = <
@@ -18,9 +18,9 @@ export const gridAutoColumns = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridAutoColumnsProps<T>, Theme>> = {}) =>
-  style<IGridAutoColumnsProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridAutoColumnsProps<T>, Theme>> = {}) =>
+  style<GridAutoColumnsProps<T>, Theme, Breakpoints>({
     cssProp: 'gridAutoColumns',
-    prop: 'gridAutoColumns',
+    prop: 'style$GridAutoColumns',
     themeProp,
   });

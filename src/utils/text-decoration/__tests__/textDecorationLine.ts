@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textDecorationLine', () => {
   });
 
   it('should use `textDecorationLine` as component and css prop', () => {
-    const result = textDecorationLine()({ textDecorationLine: 'inherit' });
+    const result = textDecorationLine()({ style$TextDecorationLine: 'inherit' });
     expect(result).toEqual({ textDecorationLine: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textDecorationLine<'a'>()({ textDecorationLine: 'a' });
+    const result = textDecorationLine<'a'>()({ style$TextDecorationLine: 'a' });
     expect(result).toEqual({ textDecorationLine: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textDecorationLine', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textDecorationLine<'value', IThemeWithoutBreakpoints>({
+    const result = textDecorationLine<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textDecorationLine: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextDecorationLine: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textDecorationLine: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textDecorationLine', () => {
   it('should allow using breakpoints', () => {
     const result = textDecorationLine<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textDecorationLine: {
+      style$TextDecorationLine: {
         base: 'a',
         large: 'b',
         medium: 'c',

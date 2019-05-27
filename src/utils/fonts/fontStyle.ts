@@ -1,15 +1,15 @@
 import { FontStyleProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontStyleProps<T> {
+export interface FontStyleProps<T> {
   /**
    * The **`font-style`** CSS property sets whether a font should be styled with a normal, italic, or oblique face from its `font-family`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-style
    */
-  fontStyle: T;
+  style$FontStyle: T;
 }
 
 export const fontStyle = <
@@ -18,9 +18,9 @@ export const fontStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontStyleProps<T>, Theme>> = {}) =>
-  style<IFontStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontStyleProps<T>, Theme>> = {}) =>
+  style<FontStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'fontStyle',
-    prop: 'fontStyle',
+    prop: 'style$FontStyle',
     themeProp,
   });

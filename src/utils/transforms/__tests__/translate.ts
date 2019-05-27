@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('translate', () => {
   });
 
   it('should use `translate` as component and css prop', () => {
-    const result = translate()({ translate: 'inherit' });
+    const result = translate()({ style$Translate: 'inherit' });
     expect(result).toEqual({ translate: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = translate<'a'>()({ translate: 'a' });
+    const result = translate<'a'>()({ style$Translate: 'a' });
     expect(result).toEqual({ translate: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('translate', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = translate<'value', IThemeWithoutBreakpoints>({
+    const result = translate<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ translate: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Translate: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       translate: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('translate', () => {
   it('should allow using breakpoints', () => {
     const result = translate<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      translate: {
+      style$Translate: {
         base: 'a',
         large: 'b',
         medium: 'c',

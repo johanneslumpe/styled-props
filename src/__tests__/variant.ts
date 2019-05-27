@@ -1,4 +1,4 @@
-import { IStyles } from '../types';
+import { Styles } from '../types';
 import { variant } from '../variant';
 
 interface IProps {
@@ -6,8 +6,8 @@ interface IProps {
 }
 
 interface IButtonVariants {
-  primary: IStyles;
-  secondary: IStyles;
+  primary: Styles;
+  secondary: Styles;
 }
 
 interface IBreakpoints {

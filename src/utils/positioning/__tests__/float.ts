@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('float', () => {
   });
 
   it('should use `float` as component and css prop', () => {
-    const result = float()({ float: 'inherit' });
+    const result = float()({ style$Float: 'inherit' });
     expect(result).toEqual({ float: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = float<'a'>()({ float: 'a' });
+    const result = float<'a'>()({ style$Float: 'a' });
     expect(result).toEqual({ float: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('float', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = float<'value', IThemeWithoutBreakpoints>({
+    const result = float<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ float: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Float: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       float: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('float', () => {
   it('should allow using breakpoints', () => {
     const result = float<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      float: {
+      style$Float: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { PageBreakBeforePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPageBreakBeforeProps<T> {
+export interface PageBreakBeforeProps<T> {
   /**
    * The **`page-break-before`** CSS property adjusts page breaks _before_ the current element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/page-break-before
    */
-  pageBreakBefore: T;
+  style$PageBreakBefore: T;
 }
 
 export const pageBreakBefore = <
@@ -18,9 +18,9 @@ export const pageBreakBefore = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPageBreakBeforeProps<T>, Theme>> = {}) =>
-  style<IPageBreakBeforeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PageBreakBeforeProps<T>, Theme>> = {}) =>
+  style<PageBreakBeforeProps<T>, Theme, Breakpoints>({
     cssProp: 'pageBreakBefore',
-    prop: 'pageBreakBefore',
+    prop: 'style$PageBreakBefore',
     themeProp,
   });

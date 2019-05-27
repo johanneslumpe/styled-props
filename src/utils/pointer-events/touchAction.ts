@@ -1,15 +1,15 @@
 import { TouchActionPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITouchActionProps<T> {
+export interface TouchActionProps<T> {
   /**
-   * The **`touch-action`** CSS property sets how a region can be manipulated by a touchscreen user (for example, by zooming features built into the browser).
+   * The **`touch-action`** CSS property sets how an element's region can be manipulated by a touchscreen user (for example, by zooming features built into the browser).
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/touch-action
    */
-  touchAction: T;
+  style$TouchAction: T;
 }
 
 export const touchAction = <
@@ -18,9 +18,9 @@ export const touchAction = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITouchActionProps<T>, Theme>> = {}) =>
-  style<ITouchActionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TouchActionProps<T>, Theme>> = {}) =>
+  style<TouchActionProps<T>, Theme, Breakpoints>({
     cssProp: 'touchAction',
-    prop: 'touchAction',
+    prop: 'style$TouchAction',
     themeProp,
   });

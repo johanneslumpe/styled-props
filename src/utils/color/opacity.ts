@@ -1,15 +1,15 @@
 import { OpacityProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOpacityProps<T> {
+export interface OpacityProps<T> {
   /**
-   * The **`opacity`** CSS property sets the transparency of an element or the degree to which content behind an element is visible.
+   * The **`opacity`** CSS property sets the opacity of an element. Opacity is the degree to which content behind an element is hidden, and is the opposite of transparency.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/opacity
    */
-  opacity: T;
+  style$Opacity: T;
 }
 
 export const opacity = <
@@ -18,9 +18,9 @@ export const opacity = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOpacityProps<T>, Theme>> = {}) =>
-  style<IOpacityProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OpacityProps<T>, Theme>> = {}) =>
+  style<OpacityProps<T>, Theme, Breakpoints>({
     cssProp: 'opacity',
-    prop: 'opacity',
+    prop: 'style$Opacity',
     themeProp,
   });

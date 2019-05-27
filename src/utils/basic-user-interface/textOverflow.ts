@@ -1,15 +1,15 @@
 import { TextOverflowProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextOverflowProps<T> {
+export interface TextOverflowProps<T> {
   /**
-   * The **`text-overflow`** CSS property determines how overflowed content that is not displayed is signaled to users. It can be clipped, display an ellipsis ('`…`', `U+2026 Horizontal Ellipsis`), or display a custom string.
+   * The **`text-overflow`** CSS property sets how hidden overflow content is signaled to users. It can be clipped, display an ellipsis ('`…`'), or display a custom string.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-overflow
    */
-  textOverflow: T;
+  style$TextOverflow: T;
 }
 
 export const textOverflow = <
@@ -18,9 +18,9 @@ export const textOverflow = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextOverflowProps<T>, Theme>> = {}) =>
-  style<ITextOverflowProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextOverflowProps<T>, Theme>> = {}) =>
+  style<TextOverflowProps<T>, Theme, Breakpoints>({
     cssProp: 'textOverflow',
-    prop: 'textOverflow',
+    prop: 'style$TextOverflow',
     themeProp,
   });

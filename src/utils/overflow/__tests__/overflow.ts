@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('overflow', () => {
   });
 
   it('should use `overflow` as component and css prop', () => {
-    const result = overflow()({ overflow: 'inherit' });
+    const result = overflow()({ style$Overflow: 'inherit' });
     expect(result).toEqual({ overflow: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = overflow<'a'>()({ overflow: 'a' });
+    const result = overflow<'a'>()({ style$Overflow: 'a' });
     expect(result).toEqual({ overflow: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('overflow', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = overflow<'value', IThemeWithoutBreakpoints>({
+    const result = overflow<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ overflow: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Overflow: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       overflow: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('overflow', () => {
   it('should allow using breakpoints', () => {
     const result = overflow<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      overflow: {
+      style$Overflow: {
         base: 'a',
         large: 'b',
         medium: 'c',

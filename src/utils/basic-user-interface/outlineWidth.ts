@@ -1,15 +1,15 @@
 import { OutlineWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOutlineWidthProps<T> {
+export interface OutlineWidthProps<T> {
   /**
    * The **`outline-width`** CSS property sets the thickness of an element's outline. An outline is a line that is drawn around an element, outside the `border`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/outline-width
    */
-  outlineWidth: T;
+  style$OutlineWidth: T;
 }
 
 export const outlineWidth = <
@@ -18,9 +18,9 @@ export const outlineWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOutlineWidthProps<T>, Theme>> = {}) =>
-  style<IOutlineWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OutlineWidthProps<T>, Theme>> = {}) =>
+  style<OutlineWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'outlineWidth',
-    prop: 'outlineWidth',
+    prop: 'style$OutlineWidth',
     themeProp,
   });

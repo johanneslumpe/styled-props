@@ -1,15 +1,15 @@
 import { QuotesProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IQuotesProps<T> {
+export interface QuotesProps<T> {
   /**
    * The **`quotes`** CSS property sets how quotation marks appear.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/quotes
    */
-  quotes: T;
+  style$Quotes: T;
 }
 
 export const quotes = <
@@ -18,9 +18,9 @@ export const quotes = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IQuotesProps<T>, Theme>> = {}) =>
-  style<IQuotesProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<QuotesProps<T>, Theme>> = {}) =>
+  style<QuotesProps<T>, Theme, Breakpoints>({
     cssProp: 'quotes',
-    prop: 'quotes',
+    prop: 'style$Quotes',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('backgroundOrigin', () => {
   });
 
   it('should use `backgroundOrigin` as component and css prop', () => {
-    const result = backgroundOrigin()({ backgroundOrigin: 'inherit' });
+    const result = backgroundOrigin()({ style$BackgroundOrigin: 'inherit' });
     expect(result).toEqual({ backgroundOrigin: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = backgroundOrigin<'a'>()({ backgroundOrigin: 'a' });
+    const result = backgroundOrigin<'a'>()({ style$BackgroundOrigin: 'a' });
     expect(result).toEqual({ backgroundOrigin: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('backgroundOrigin', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = backgroundOrigin<'value', IThemeWithoutBreakpoints>({
+    const result = backgroundOrigin<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ backgroundOrigin: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BackgroundOrigin: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       backgroundOrigin: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('backgroundOrigin', () => {
   it('should allow using breakpoints', () => {
     const result = backgroundOrigin<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      backgroundOrigin: {
+      style$BackgroundOrigin: {
         base: 'a',
         large: 'b',
         medium: 'c',

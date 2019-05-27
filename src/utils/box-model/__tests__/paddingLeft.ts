@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('paddingLeft', () => {
   });
 
   it('should use `paddingLeft` as component and css prop', () => {
-    const result = paddingLeft()({ paddingLeft: 'inherit' });
+    const result = paddingLeft()({ style$PaddingLeft: 'inherit' });
     expect(result).toEqual({ paddingLeft: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = paddingLeft<'a'>()({ paddingLeft: 'a' });
+    const result = paddingLeft<'a'>()({ style$PaddingLeft: 'a' });
     expect(result).toEqual({ paddingLeft: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('paddingLeft', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = paddingLeft<'value', IThemeWithoutBreakpoints>({
+    const result = paddingLeft<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ paddingLeft: 'value', theme: themeWithoutBreakpoints });
+    })({ style$PaddingLeft: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       paddingLeft: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('paddingLeft', () => {
   it('should allow using breakpoints', () => {
     const result = paddingLeft<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      paddingLeft: {
+      style$PaddingLeft: {
         base: 'a',
         large: 'b',
         medium: 'c',
