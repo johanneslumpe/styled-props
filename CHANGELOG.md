@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/johanneslumpe/styled-props/compare/v0.2.0...v1.0.0) (2019-05-27)
+
+
+### Features
+
+* remove `I` prefix from interfaces and add `style$` prefix to all component props ([2b1e3c0](https://github.com/johanneslumpe/styled-props/commit/2b1e3c0))
+
+
+### BREAKING CHANGES
+
+* Removal of `I` prefixes will result in broken imports of types and the new `style$` prefix will require updates to component props which utilize any of the generated utilities.
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/johanneslumpe/styled-props/compare/v0.1.0...v0.2.0) (2018-11-29)
 
