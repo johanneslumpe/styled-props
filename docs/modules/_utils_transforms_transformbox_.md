@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITransformBoxProps](../interfaces/_utils_transforms_transformbox_.itransformboxprops.md)
+* [TransformBoxProps](../interfaces/_utils_transforms_transformbox_.transformboxprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` transformBox
 
-▸ **transformBox**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **transformBox**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/transforms/transformBox.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/transforms/transformBox.ts#L15)*
+*Defined in [utils/transforms/transformBox.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/transforms/transformBox.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

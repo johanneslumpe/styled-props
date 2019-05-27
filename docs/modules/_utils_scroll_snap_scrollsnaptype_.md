@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IScrollSnapTypeProps](../interfaces/_utils_scroll_snap_scrollsnaptype_.iscrollsnaptypeprops.md)
+* [ScrollSnapTypeProps](../interfaces/_utils_scroll_snap_scrollsnaptype_.scrollsnaptypeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` scrollSnapType
 
-▸ **scrollSnapType**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **scrollSnapType**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/scroll-snap/scrollSnapType.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/scroll-snap/scrollSnapType.ts#L15)*
+*Defined in [utils/scroll-snap/scrollSnapType.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/scroll-snap/scrollSnapType.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

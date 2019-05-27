@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IPageBreakAfterProps](../interfaces/_utils_pages_pagebreakafter_.ipagebreakafterprops.md)
+* [PageBreakAfterProps](../interfaces/_utils_pages_pagebreakafter_.pagebreakafterprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` pageBreakAfter
 
-▸ **pageBreakAfter**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **pageBreakAfter**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/pages/pageBreakAfter.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/pages/pageBreakAfter.ts#L15)*
+*Defined in [utils/pages/pageBreakAfter.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/pages/pageBreakAfter.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

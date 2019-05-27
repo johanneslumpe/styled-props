@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IMinHeightProps](../interfaces/_utils_box_model_minheight_.iminheightprops.md)
+* [MinHeightProps](../interfaces/_utils_box_model_minheight_.minheightprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` minHeight
 
-▸ **minHeight**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **minHeight**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/box-model/minHeight.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/box-model/minHeight.ts#L15)*
+*Defined in [utils/box-model/minHeight.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/box-model/minHeight.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

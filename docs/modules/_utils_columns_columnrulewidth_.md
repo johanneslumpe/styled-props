@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IColumnRuleWidthProps](../interfaces/_utils_columns_columnrulewidth_.icolumnrulewidthprops.md)
+* [ColumnRuleWidthProps](../interfaces/_utils_columns_columnrulewidth_.columnrulewidthprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` columnRuleWidth
 
-▸ **columnRuleWidth**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **columnRuleWidth**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/columns/columnRuleWidth.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/columns/columnRuleWidth.ts#L15)*
+*Defined in [utils/columns/columnRuleWidth.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/columns/columnRuleWidth.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

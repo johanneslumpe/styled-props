@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IAnimationProps](../interfaces/_utils_animations_animation_.ianimationprops.md)
+* [AnimationProps](../interfaces/_utils_animations_animation_.animationprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` animation
 
-▸ **animation**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **animation**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/animations/animation.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/animations/animation.ts#L15)*
+*Defined in [utils/animations/animation.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/animations/animation.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

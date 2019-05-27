@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IScrollBehaviorProps](../interfaces/_utils_cssom_view_scrollbehavior_.iscrollbehaviorprops.md)
+* [ScrollBehaviorProps](../interfaces/_utils_cssom_view_scrollbehavior_.scrollbehaviorprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` scrollBehavior
 
-▸ **scrollBehavior**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **scrollBehavior**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/cssom-view/scrollBehavior.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/cssom-view/scrollBehavior.ts#L15)*
+*Defined in [utils/cssom-view/scrollBehavior.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/cssom-view/scrollBehavior.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

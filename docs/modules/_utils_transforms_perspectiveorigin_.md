@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IPerspectiveOriginProps](../interfaces/_utils_transforms_perspectiveorigin_.iperspectiveoriginprops.md)
+* [PerspectiveOriginProps](../interfaces/_utils_transforms_perspectiveorigin_.perspectiveoriginprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` perspectiveOrigin
 
-▸ **perspectiveOrigin**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **perspectiveOrigin**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/transforms/perspectiveOrigin.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/transforms/perspectiveOrigin.ts#L15)*
+*Defined in [utils/transforms/perspectiveOrigin.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/transforms/perspectiveOrigin.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

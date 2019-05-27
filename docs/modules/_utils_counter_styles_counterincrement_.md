@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ICounterIncrementProps](../interfaces/_utils_counter_styles_counterincrement_.icounterincrementprops.md)
+* [CounterIncrementProps](../interfaces/_utils_counter_styles_counterincrement_.counterincrementprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` counterIncrement
 
-▸ **counterIncrement**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **counterIncrement**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/counter-styles/counterIncrement.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/counter-styles/counterIncrement.ts#L15)*
+*Defined in [utils/counter-styles/counterIncrement.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/counter-styles/counterIncrement.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

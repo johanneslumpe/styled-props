@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IColumnCountProps](../interfaces/_utils_columns_columncount_.icolumncountprops.md)
+* [ColumnCountProps](../interfaces/_utils_columns_columncount_.columncountprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` columnCount
 
-▸ **columnCount**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **columnCount**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/columns/columnCount.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/columns/columnCount.ts#L15)*
+*Defined in [utils/columns/columnCount.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/columns/columnCount.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

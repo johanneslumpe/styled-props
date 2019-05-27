@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IOutlineProps](../interfaces/_utils_basic_user_interface_outline_.ioutlineprops.md)
+* [OutlineProps](../interfaces/_utils_basic_user_interface_outline_.outlineprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` outline
 
-▸ **outline**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **outline**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/basic-user-interface/outline.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/basic-user-interface/outline.ts#L15)*
+*Defined in [utils/basic-user-interface/outline.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/basic-user-interface/outline.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IColumnRuleStyleProps](../interfaces/_utils_columns_columnrulestyle_.icolumnrulestyleprops.md)
+* [ColumnRuleStyleProps](../interfaces/_utils_columns_columnrulestyle_.columnrulestyleprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` columnRuleStyle
 
-▸ **columnRuleStyle**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **columnRuleStyle**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/columns/columnRuleStyle.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/columns/columnRuleStyle.ts#L15)*
+*Defined in [utils/columns/columnRuleStyle.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/columns/columnRuleStyle.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

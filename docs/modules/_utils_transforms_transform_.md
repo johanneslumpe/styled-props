@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITransformProps](../interfaces/_utils_transforms_transform_.itransformprops.md)
+* [TransformProps](../interfaces/_utils_transforms_transform_.transformprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` transform
 
-▸ **transform**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **transform**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/transforms/transform.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/transforms/transform.ts#L15)*
+*Defined in [utils/transforms/transform.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/transforms/transform.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

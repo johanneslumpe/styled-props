@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IShapeOutsideProps](../interfaces/_utils_shapes_shapeoutside_.ishapeoutsideprops.md)
+* [ShapeOutsideProps](../interfaces/_utils_shapes_shapeoutside_.shapeoutsideprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` shapeOutside
 
-▸ **shapeOutside**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **shapeOutside**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/shapes/shapeOutside.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/shapes/shapeOutside.ts#L15)*
+*Defined in [utils/shapes/shapeOutside.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/shapes/shapeOutside.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

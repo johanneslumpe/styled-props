@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IPerspectiveProps](../interfaces/_utils_transforms_perspective_.iperspectiveprops.md)
+* [PerspectiveProps](../interfaces/_utils_transforms_perspective_.perspectiveprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` perspective
 
-▸ **perspective**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **perspective**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/transforms/perspective.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/transforms/perspective.ts#L15)*
+*Defined in [utils/transforms/perspective.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/transforms/perspective.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

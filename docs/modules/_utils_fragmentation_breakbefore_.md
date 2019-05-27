@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBreakBeforeProps](../interfaces/_utils_fragmentation_breakbefore_.ibreakbeforeprops.md)
+* [BreakBeforeProps](../interfaces/_utils_fragmentation_breakbefore_.breakbeforeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` breakBefore
 
-▸ **breakBefore**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **breakBefore**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/fragmentation/breakBefore.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/fragmentation/breakBefore.ts#L15)*
+*Defined in [utils/fragmentation/breakBefore.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/fragmentation/breakBefore.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

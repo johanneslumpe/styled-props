@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITextDecorationLineProps](../interfaces/_utils_text_decoration_textdecorationline_.itextdecorationlineprops.md)
+* [TextDecorationLineProps](../interfaces/_utils_text_decoration_textdecorationline_.textdecorationlineprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` textDecorationLine
 
-▸ **textDecorationLine**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **textDecorationLine**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/text-decoration/textDecorationLine.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/text-decoration/textDecorationLine.ts#L15)*
+*Defined in [utils/text-decoration/textDecorationLine.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/text-decoration/textDecorationLine.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,13 +6,13 @@
 
 ### Interfaces
 
-* [IBaseCssValue](../interfaces/_types_.ibasecssvalue.md)
+* [BaseCssValue](../interfaces/_types_.basecssvalue.md)
+* [Dictionary](../interfaces/_types_.dictionary.md)
 * [IBreakpointTheme](../interfaces/_types_.ibreakpointtheme.md)
-* [IDictionary](../interfaces/_types_.idictionary.md)
-* [IStyleOptions](../interfaces/_types_.istyleoptions.md)
-* [IStyles](../interfaces/_types_.istyles.md)
-* [ITheme](../interfaces/_types_.itheme.md)
-* [IVariantOptions](../interfaces/_types_.ivariantoptions.md)
+* [StyleOptions](../interfaces/_types_.styleoptions.md)
+* [Styles](../interfaces/_types_.styles.md)
+* [Theme](../interfaces/_types_.theme.md)
+* [VariantOptions](../interfaces/_types_.variantoptions.md)
 
 ### Type aliases
 
@@ -32,18 +32,18 @@
 
 ###  InferPropsFromFunctionArgument
 
-**ΤInferPropsFromFunctionArgument**: *`InferPropsFromFunctionArgument&lt;T&gt;`*
+**Ƭ InferPropsFromFunctionArgument**: *`InferPropsFromFunctionArgument<T>`*
 
-*Defined in [types.ts:8](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L8)*
+*Defined in [types.ts:8](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L8)*
 
 ___
 <a id="responsiveobject"></a>
 
 ###  ResponsiveObject
 
-**ΤResponsiveObject**: *`object`*
+**Ƭ ResponsiveObject**: *`object`*
 
-*Defined in [types.ts:49](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L49)*
+*Defined in [types.ts:49](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L49)*
 
 #### Type declaration
 
@@ -52,48 +52,45 @@ ___
 
 ###  ResponsiveProp
 
-**ΤResponsiveProp**: *`ResponsiveProp&lt;ValueType, BreakPoints&gt;`*
+**Ƭ ResponsiveProp**: *`ResponsiveProp<ValueType, BreakPoints>`*
 
-*Defined in [types.ts:39](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L39)*
+*Defined in [types.ts:39](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L39)*
 
 ___
 <a id="responsivepropvalue"></a>
 
 ###  ResponsivePropValue
 
-**ΤResponsivePropValue**: * `object` & [IBaseCssValue](../interfaces/_types_.ibasecssvalue.md)<`ValueType`>
-*
+**Ƭ ResponsivePropValue**: *`object` & [BaseCssValue](../interfaces/_types_.basecssvalue.md)<`ValueType`>*
 
-*Defined in [types.ts:34](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L34)*
+*Defined in [types.ts:34](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L34)*
 
 ___
 <a id="styleprops"></a>
 
 ###  StyleProps
 
-**ΤStyleProps**: * [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T1`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T2`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T3`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T4`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T5`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T6`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T7`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T8`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T9`>
-*
+**Ƭ StyleProps**: *[InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T1`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T2`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T3`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T4`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T5`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T6`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T7`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T8`> & [InferPropsFromFunctionArgument](_types_.md#inferpropsfromfunctionargument)<`T9`>*
 
-*Defined in [types.ts:14](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L14)*
+*Defined in [types.ts:14](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L14)*
 
 ___
 <a id="themewithbreakpoints"></a>
 
 ###  ThemeWithBreakpoints
 
-**ΤThemeWithBreakpoints**: *`ThemeWithBreakpoints&lt;T, B&gt;`*
+**Ƭ ThemeWithBreakpoints**: *`ThemeWithBreakpoints<T, B>`*
 
-*Defined in [types.ts:61](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L61)*
+*Defined in [types.ts:61](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L61)*
 
 ___
 <a id="withtheme"></a>
 
 ###  WithTheme
 
-**ΤWithTheme**: * [ResponsiveObject](_types_.md#responsiveobject)<`P`, `B`> & [ThemeWithBreakpoints](_types_.md#themewithbreakpoints)<`T`, `B`>
-*
+**Ƭ WithTheme**: *[ResponsiveObject](_types_.md#responsiveobject)<`P`, `B`> & [ThemeWithBreakpoints](_types_.md#themewithbreakpoints)<`T`, `B`>*
 
-*Defined in [types.ts:65](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L65)*
+*Defined in [types.ts:65](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L65)*
 
 ___
 

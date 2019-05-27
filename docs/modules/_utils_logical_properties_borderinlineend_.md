@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBorderInlineEndProps](../interfaces/_utils_logical_properties_borderinlineend_.iborderinlineendprops.md)
+* [BorderInlineEndProps](../interfaces/_utils_logical_properties_borderinlineend_.borderinlineendprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` borderInlineEnd
 
-▸ **borderInlineEnd**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **borderInlineEnd**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/logical-properties/borderInlineEnd.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/logical-properties/borderInlineEnd.ts#L15)*
+*Defined in [utils/logical-properties/borderInlineEnd.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/logical-properties/borderInlineEnd.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

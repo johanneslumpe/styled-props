@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IZIndexProps](../interfaces/_utils_positioning_zindex_.izindexprops.md)
+* [ZIndexProps](../interfaces/_utils_positioning_zindex_.zindexprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` zIndex
 
-▸ **zIndex**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **zIndex**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/positioning/zIndex.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/positioning/zIndex.ts#L15)*
+*Defined in [utils/positioning/zIndex.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/positioning/zIndex.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IUnicodeBidiProps](../interfaces/_utils_writing_modes_unicodebidi_.iunicodebidiprops.md)
+* [UnicodeBidiProps](../interfaces/_utils_writing_modes_unicodebidi_.unicodebidiprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` unicodeBidi
 
-▸ **unicodeBidi**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **unicodeBidi**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/writing-modes/unicodeBidi.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/writing-modes/unicodeBidi.ts#L15)*
+*Defined in [utils/writing-modes/unicodeBidi.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/writing-modes/unicodeBidi.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

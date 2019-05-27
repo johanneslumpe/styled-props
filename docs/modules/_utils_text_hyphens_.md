@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IHyphensProps](../interfaces/_utils_text_hyphens_.ihyphensprops.md)
+* [HyphensProps](../interfaces/_utils_text_hyphens_.hyphensprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` hyphens
 
-▸ **hyphens**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **hyphens**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/text/hyphens.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/text/hyphens.ts#L15)*
+*Defined in [utils/text/hyphens.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/text/hyphens.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

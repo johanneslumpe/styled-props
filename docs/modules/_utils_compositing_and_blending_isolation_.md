@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IIsolationProps](../interfaces/_utils_compositing_and_blending_isolation_.iisolationprops.md)
+* [IsolationProps](../interfaces/_utils_compositing_and_blending_isolation_.isolationprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` isolation
 
-▸ **isolation**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **isolation**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/compositing-and-blending/isolation.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/compositing-and-blending/isolation.ts#L15)*
+*Defined in [utils/compositing-and-blending/isolation.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/compositing-and-blending/isolation.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

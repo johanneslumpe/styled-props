@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IPointerEventsProps](../interfaces/_utils_pointer_events_pointerevents_.ipointereventsprops.md)
+* [PointerEventsProps](../interfaces/_utils_pointer_events_pointerevents_.pointereventsprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` pointerEvents
 
-▸ **pointerEvents**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **pointerEvents**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/pointer-events/pointerEvents.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/pointer-events/pointerEvents.ts#L15)*
+*Defined in [utils/pointer-events/pointerEvents.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/pointer-events/pointerEvents.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IListStyleTypeProps](../interfaces/_utils_lists_and_counters_liststyletype_.iliststyletypeprops.md)
+* [ListStyleTypeProps](../interfaces/_utils_lists_and_counters_liststyletype_.liststyletypeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` listStyleType
 
-▸ **listStyleType**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **listStyleType**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/lists-and-counters/listStyleType.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/lists-and-counters/listStyleType.ts#L15)*
+*Defined in [utils/lists-and-counters/listStyleType.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/lists-and-counters/listStyleType.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

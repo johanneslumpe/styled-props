@@ -17,15 +17,15 @@
 
 ### `<Const>` DEFAULT_ARRAY_RESOLVER
 
-▸ **DEFAULT_ARRAY_RESOLVER**(value: *`Array`< `string` &#124; `number`>*): `string`
+▸ **DEFAULT_ARRAY_RESOLVER**(value: *`Array`<`string` \| `number`>*): `string`
 
-*Defined in [style.ts:5](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/style.ts#L5)*
+*Defined in [style.ts:5](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/style.ts#L5)*
 
 **Parameters:**
 
-| Param | Type |
+| Name | Type |
 | ------ | ------ |
-| value | `Array`< `string` &#124; `number`> |
+| value | `Array`<`string` \| `number`> |
 
 **Returns:** `string`
 
@@ -34,9 +34,9 @@ ___
 
 ###  style
 
-▸ **style**P,T,B(__namedParameters: *`object`*): `styleImplementation`
+▸ **style**<`P`,`T`,`B`>(__namedParameters: *`object`*): `styleImplementation`
 
-*Defined in [style.ts:8](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/style.ts#L8)*
+*Defined in [style.ts:8](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/style.ts#L8)*
 
 **Type parameters:**
 
@@ -45,9 +45,14 @@ ___
 #### B :  `__type`
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| __namedParameters | `object` |
+**__namedParameters: `object`**
+
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| arrayResolver | `function` |  DEFAULT_ARRAY_RESOLVER |
+| cssProp | `string` | - |
+| prop | `Extract<keyof P, string>` | - |
+| themeProp | `undefined` \| `Extract<keyof T, string>` | - |
 
 **Returns:** `styleImplementation`
 

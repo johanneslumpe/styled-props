@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IGridTemplateRowsProps](../interfaces/_utils_grid_layout_gridtemplaterows_.igridtemplaterowsprops.md)
+* [GridTemplateRowsProps](../interfaces/_utils_grid_layout_gridtemplaterows_.gridtemplaterowsprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` gridTemplateRows
 
-▸ **gridTemplateRows**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **gridTemplateRows**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/grid-layout/gridTemplateRows.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/grid-layout/gridTemplateRows.ts#L15)*
+*Defined in [utils/grid-layout/gridTemplateRows.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/grid-layout/gridTemplateRows.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

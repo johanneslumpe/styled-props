@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IOutlineColorProps](../interfaces/_utils_basic_user_interface_outlinecolor_.ioutlinecolorprops.md)
+* [OutlineColorProps](../interfaces/_utils_basic_user_interface_outlinecolor_.outlinecolorprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` outlineColor
 
-▸ **outlineColor**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **outlineColor**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/basic-user-interface/outlineColor.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/basic-user-interface/outlineColor.ts#L15)*
+*Defined in [utils/basic-user-interface/outlineColor.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/basic-user-interface/outlineColor.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

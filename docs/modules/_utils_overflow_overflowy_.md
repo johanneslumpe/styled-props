@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IOverflowYProps](../interfaces/_utils_overflow_overflowy_.ioverflowyprops.md)
+* [OverflowYProps](../interfaces/_utils_overflow_overflowy_.overflowyprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` overflowY
 
-▸ **overflowY**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **overflowY**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/overflow/overflowY.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/overflow/overflowY.ts#L15)*
+*Defined in [utils/overflow/overflowY.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/overflow/overflowY.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

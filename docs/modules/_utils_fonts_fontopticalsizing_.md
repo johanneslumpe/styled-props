@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IFontOpticalSizingProps](../interfaces/_utils_fonts_fontopticalsizing_.ifontopticalsizingprops.md)
+* [FontOpticalSizingProps](../interfaces/_utils_fonts_fontopticalsizing_.fontopticalsizingprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` fontOpticalSizing
 
-▸ **fontOpticalSizing**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **fontOpticalSizing**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/fonts/fontOpticalSizing.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/fonts/fontOpticalSizing.ts#L15)*
+*Defined in [utils/fonts/fontOpticalSizing.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/fonts/fontOpticalSizing.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

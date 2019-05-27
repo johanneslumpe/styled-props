@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ILeftProps](../interfaces/_utils_positioning_left_.ileftprops.md)
+* [LeftProps](../interfaces/_utils_positioning_left_.leftprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` left
 
-▸ **left**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **left**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/positioning/left.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/positioning/left.ts#L15)*
+*Defined in [utils/positioning/left.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/positioning/left.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

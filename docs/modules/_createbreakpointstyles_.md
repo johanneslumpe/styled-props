@@ -21,9 +21,9 @@
 
 ### `<Const>` BASE_EMPTY_INDEXED_OBJECT
 
-**● BASE_EMPTY_INDEXED_OBJECT**: *[IDictionary](../interfaces/_types_.idictionary.md)<`any`>* =  BASE_EMPTY_OBJECT
+**● BASE_EMPTY_INDEXED_OBJECT**: *[Dictionary](../interfaces/_types_.dictionary.md)<`any`>* =  BASE_EMPTY_OBJECT
 
-*Defined in [createBreakpointStyles.ts:5](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/createBreakpointStyles.ts#L5)*
+*Defined in [createBreakpointStyles.ts:5](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/createBreakpointStyles.ts#L5)*
 
 ___
 <a id="base_empty_object"></a>
@@ -32,7 +32,7 @@ ___
 
 **● BASE_EMPTY_OBJECT**: *`object`*
 
-*Defined in [createBreakpointStyles.ts:4](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/createBreakpointStyles.ts#L4)*
+*Defined in [createBreakpointStyles.ts:4](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/createBreakpointStyles.ts#L4)*
 
 #### Type declaration
 
@@ -44,25 +44,25 @@ ___
 
 ###  createBreakpointStyles
 
-▸ **createBreakpointStyles**T(theme: *`T`*, breakpointKeys: *`string`[]*, propValue: *`object`*, themeValue?: *`object`*, cssProp?: * `undefined` &#124; `string`*, arrayResolver?: * `undefined` &#124; `function`*): `any`
+▸ **createBreakpointStyles**<`T`>(theme: *`T`*, breakpointKeys: *`string`[]*, propValue: *`object`*, themeValue?: *`object`*, cssProp?: *`undefined` \| `string`*, arrayResolver?: *`undefined` \| `function`*): [Styles](../interfaces/_types_.styles.md)
 
-*Defined in [createBreakpointStyles.ts:7](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/createBreakpointStyles.ts#L7)*
+*Defined in [createBreakpointStyles.ts:7](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/createBreakpointStyles.ts#L7)*
 
 **Type parameters:**
 
 #### T :  `object`
 **Parameters:**
 
-| Param | Type | Default value |
+| Name | Type | Default value |
 | ------ | ------ | ------ |
 | theme | `T` | - |
 | breakpointKeys | `string`[] | - |
 | propValue | `object` | - |
 | `Default value` themeValue | `object` |  BASE_EMPTY_INDEXED_OBJECT |
-| `Optional` cssProp |  `undefined` &#124; `string`| - |
-| `Optional` arrayResolver |  `undefined` &#124; `function`| - |
+| `Optional` cssProp | `undefined` \| `string` | - |
+| `Optional` arrayResolver | `undefined` \| `function` | - |
 
-**Returns:** `any`
+**Returns:** [Styles](../interfaces/_types_.styles.md)
 
 ___
 

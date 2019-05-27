@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBottomProps](../interfaces/_utils_positioning_bottom_.ibottomprops.md)
+* [BottomProps](../interfaces/_utils_positioning_bottom_.bottomprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` bottom
 
-▸ **bottom**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **bottom**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/positioning/bottom.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/positioning/bottom.ts#L15)*
+*Defined in [utils/positioning/bottom.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/positioning/bottom.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

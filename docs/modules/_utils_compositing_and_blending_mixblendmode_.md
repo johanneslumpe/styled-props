@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IMixBlendModeProps](../interfaces/_utils_compositing_and_blending_mixblendmode_.imixblendmodeprops.md)
+* [MixBlendModeProps](../interfaces/_utils_compositing_and_blending_mixblendmode_.mixblendmodeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` mixBlendMode
 
-▸ **mixBlendMode**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **mixBlendMode**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/compositing-and-blending/mixBlendMode.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/compositing-and-blending/mixBlendMode.ts#L15)*
+*Defined in [utils/compositing-and-blending/mixBlendMode.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/compositing-and-blending/mixBlendMode.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

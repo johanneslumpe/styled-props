@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITransitionPropertyProps](../interfaces/_utils_transitions_transitionproperty_.itransitionpropertyprops.md)
+* [TransitionPropertyProps](../interfaces/_utils_transitions_transitionproperty_.transitionpropertyprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` transitionProperty
 
-▸ **transitionProperty**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **transitionProperty**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/transitions/transitionProperty.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/transitions/transitionProperty.ts#L15)*
+*Defined in [utils/transitions/transitionProperty.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/transitions/transitionProperty.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IFilterProps](../interfaces/_utils_filter_effects_filter_.ifilterprops.md)
+* [FilterProps](../interfaces/_utils_filter_effects_filter_.filterprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` filter
 
-▸ **filter**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **filter**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/filter-effects/filter.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/filter-effects/filter.ts#L15)*
+*Defined in [utils/filter-effects/filter.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/filter-effects/filter.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

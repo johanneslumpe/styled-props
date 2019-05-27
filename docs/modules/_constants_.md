@@ -18,7 +18,7 @@
 
 **● BREAKPOINTS_BASE_VALUE_KEY**: *"base"* = "base"
 
-*Defined in [constants.ts:1](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/constants.ts#L1)*
+*Defined in [constants.ts:1](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/constants.ts#L1)*
 
 ___
 

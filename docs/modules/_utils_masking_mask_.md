@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IMaskProps](../interfaces/_utils_masking_mask_.imaskprops.md)
+* [MaskProps](../interfaces/_utils_masking_mask_.maskprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` mask
 
-▸ **mask**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **mask**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/masking/mask.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/masking/mask.ts#L15)*
+*Defined in [utils/masking/mask.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/masking/mask.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

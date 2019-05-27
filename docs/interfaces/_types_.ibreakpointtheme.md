@@ -23,10 +23,9 @@
 
 ###  theme
 
-**● theme**: * `T` & `object`
-*
+**● theme**: *`T` & `object`*
 
-*Defined in [types.ts:58](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/types.ts#L58)*
+*Defined in [types.ts:58](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/types.ts#L58)*
 
 ___
 

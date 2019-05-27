@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IOverflowProps](../interfaces/_utils_overflow_overflow_.ioverflowprops.md)
+* [OverflowProps](../interfaces/_utils_overflow_overflow_.overflowprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` overflow
 
-▸ **overflow**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **overflow**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/overflow/overflow.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/overflow/overflow.ts#L15)*
+*Defined in [utils/overflow/overflow.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/overflow/overflow.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

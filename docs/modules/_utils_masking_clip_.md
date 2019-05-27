@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IClipProps](../interfaces/_utils_masking_clip_.iclipprops.md)
+* [ClipProps](../interfaces/_utils_masking_clip_.clipprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` clip
 
-▸ **clip**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **clip**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/masking/clip.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/masking/clip.ts#L15)*
+*Defined in [utils/masking/clip.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/masking/clip.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

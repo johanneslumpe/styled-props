@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IMinInlineSizeProps](../interfaces/_utils_logical_properties_mininlinesize_.imininlinesizeprops.md)
+* [MinInlineSizeProps](../interfaces/_utils_logical_properties_mininlinesize_.mininlinesizeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` minInlineSize
 
-▸ **minInlineSize**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **minInlineSize**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/logical-properties/minInlineSize.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/logical-properties/minInlineSize.ts#L15)*
+*Defined in [utils/logical-properties/minInlineSize.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/logical-properties/minInlineSize.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

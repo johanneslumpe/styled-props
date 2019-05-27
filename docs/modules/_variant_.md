@@ -16,9 +16,9 @@
 
 ###  variant
 
-▸ **variant**P,T,B(__namedParameters: *`object`*): `variantImplementation`
+▸ **variant**<`P`,`T`,`B`>(__namedParameters: *`object`*): `variantImplementation`
 
-*Defined in [variant.ts:5](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/variant.ts#L5)*
+*Defined in [variant.ts:5](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/variant.ts#L5)*
 
 **Type parameters:**
 
@@ -27,9 +27,12 @@
 #### B :  `__type`
 **Parameters:**
 
-| Param | Type |
+**__namedParameters: `object`**
+
+| Name | Type |
 | ------ | ------ |
-| __namedParameters | `object` |
+| prop | `Extract<keyof P, string>` |
+| themeProp | `Extract<keyof T, string>` |
 
 **Returns:** `variantImplementation`
 

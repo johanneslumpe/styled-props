@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBorderTopProps](../interfaces/_utils_backgrounds_and_borders_bordertop_.ibordertopprops.md)
+* [BorderTopProps](../interfaces/_utils_backgrounds_and_borders_bordertop_.bordertopprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` borderTop
 
-▸ **borderTop**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **borderTop**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/backgrounds-and-borders/borderTop.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/backgrounds-and-borders/borderTop.ts#L15)*
+*Defined in [utils/backgrounds-and-borders/borderTop.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/backgrounds-and-borders/borderTop.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

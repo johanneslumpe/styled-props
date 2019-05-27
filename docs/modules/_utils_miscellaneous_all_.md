@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IAllProps](../interfaces/_utils_miscellaneous_all_.iallprops.md)
+* [AllProps](../interfaces/_utils_miscellaneous_all_.allprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` all
 
-▸ **all**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **all**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/miscellaneous/all.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/miscellaneous/all.ts#L15)*
+*Defined in [utils/miscellaneous/all.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/miscellaneous/all.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

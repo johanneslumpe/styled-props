@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITextCombineUprightProps](../interfaces/_utils_writing_modes_textcombineupright_.itextcombineuprightprops.md)
+* [TextCombineUprightProps](../interfaces/_utils_writing_modes_textcombineupright_.textcombineuprightprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` textCombineUpright
 
-▸ **textCombineUpright**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **textCombineUpright**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/writing-modes/textCombineUpright.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/writing-modes/textCombineUpright.ts#L15)*
+*Defined in [utils/writing-modes/textCombineUpright.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/writing-modes/textCombineUpright.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

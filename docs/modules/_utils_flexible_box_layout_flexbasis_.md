@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IFlexBasisProps](../interfaces/_utils_flexible_box_layout_flexbasis_.iflexbasisprops.md)
+* [FlexBasisProps](../interfaces/_utils_flexible_box_layout_flexbasis_.flexbasisprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` flexBasis
 
-▸ **flexBasis**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **flexBasis**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/flexible-box-layout/flexBasis.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/flexible-box-layout/flexBasis.ts#L15)*
+*Defined in [utils/flexible-box-layout/flexBasis.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/flexible-box-layout/flexBasis.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IVerticalAlignProps](../interfaces/_utils_table_verticalalign_.iverticalalignprops.md)
+* [VerticalAlignProps](../interfaces/_utils_table_verticalalign_.verticalalignprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` verticalAlign
 
-▸ **verticalAlign**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **verticalAlign**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/table/verticalAlign.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/table/verticalAlign.ts#L15)*
+*Defined in [utils/table/verticalAlign.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/table/verticalAlign.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

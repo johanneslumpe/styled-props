@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IMinBlockSizeProps](../interfaces/_utils_logical_properties_minblocksize_.iminblocksizeprops.md)
+* [MinBlockSizeProps](../interfaces/_utils_logical_properties_minblocksize_.minblocksizeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` minBlockSize
 
-▸ **minBlockSize**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **minBlockSize**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/logical-properties/minBlockSize.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/logical-properties/minBlockSize.ts#L15)*
+*Defined in [utils/logical-properties/minBlockSize.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/logical-properties/minBlockSize.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

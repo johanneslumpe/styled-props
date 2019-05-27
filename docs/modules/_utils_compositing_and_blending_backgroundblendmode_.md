@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBackgroundBlendModeProps](../interfaces/_utils_compositing_and_blending_backgroundblendmode_.ibackgroundblendmodeprops.md)
+* [BackgroundBlendModeProps](../interfaces/_utils_compositing_and_blending_backgroundblendmode_.backgroundblendmodeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` backgroundBlendMode
 
-▸ **backgroundBlendMode**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **backgroundBlendMode**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/compositing-and-blending/backgroundBlendMode.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/compositing-and-blending/backgroundBlendMode.ts#L15)*
+*Defined in [utils/compositing-and-blending/backgroundBlendMode.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/compositing-and-blending/backgroundBlendMode.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

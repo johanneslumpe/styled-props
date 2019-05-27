@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IWillChangeProps](../interfaces/_utils_will_change_willchange_.iwillchangeprops.md)
+* [WillChangeProps](../interfaces/_utils_will_change_willchange_.willchangeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` willChange
 
-▸ **willChange**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **willChange**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/will-change/willChange.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/will-change/willChange.ts#L15)*
+*Defined in [utils/will-change/willChange.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/will-change/willChange.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

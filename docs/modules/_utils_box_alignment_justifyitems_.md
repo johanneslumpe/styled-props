@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IJustifyItemsProps](../interfaces/_utils_box_alignment_justifyitems_.ijustifyitemsprops.md)
+* [JustifyItemsProps](../interfaces/_utils_box_alignment_justifyitems_.justifyitemsprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` justifyItems
 
-▸ **justifyItems**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **justifyItems**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/box-alignment/justifyItems.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/box-alignment/justifyItems.ts#L15)*
+*Defined in [utils/box-alignment/justifyItems.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/box-alignment/justifyItems.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IContentProps](../interfaces/_utils_generated_content_content_.icontentprops.md)
+* [ContentProps](../interfaces/_utils_generated_content_content_.contentprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` content
 
-▸ **content**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **content**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/generated-content/content.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/generated-content/content.ts#L15)*
+*Defined in [utils/generated-content/content.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/generated-content/content.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

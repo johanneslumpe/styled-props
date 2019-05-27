@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IAnimationDelayProps](../interfaces/_utils_animations_animationdelay_.ianimationdelayprops.md)
+* [AnimationDelayProps](../interfaces/_utils_animations_animationdelay_.animationdelayprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` animationDelay
 
-▸ **animationDelay**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **animationDelay**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/animations/animationDelay.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/animations/animationDelay.ts#L15)*
+*Defined in [utils/animations/animationDelay.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/animations/animationDelay.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

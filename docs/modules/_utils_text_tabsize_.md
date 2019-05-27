@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITabSizeProps](../interfaces/_utils_text_tabsize_.itabsizeprops.md)
+* [TabSizeProps](../interfaces/_utils_text_tabsize_.tabsizeprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` tabSize
 
-▸ **tabSize**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **tabSize**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/text/tabSize.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/text/tabSize.ts#L15)*
+*Defined in [utils/text/tabSize.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/text/tabSize.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

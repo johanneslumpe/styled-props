@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBorderBlockEndColorProps](../interfaces/_utils_logical_properties_borderblockendcolor_.iborderblockendcolorprops.md)
+* [BorderBlockEndColorProps](../interfaces/_utils_logical_properties_borderblockendcolor_.borderblockendcolorprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` borderBlockEndColor
 
-▸ **borderBlockEndColor**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **borderBlockEndColor**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/logical-properties/borderBlockEndColor.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/logical-properties/borderBlockEndColor.ts#L15)*
+*Defined in [utils/logical-properties/borderBlockEndColor.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/logical-properties/borderBlockEndColor.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

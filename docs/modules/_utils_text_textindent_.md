@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [ITextIndentProps](../interfaces/_utils_text_textindent_.itextindentprops.md)
+* [TextIndentProps](../interfaces/_utils_text_textindent_.textindentprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` textIndent
 
-▸ **textIndent**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **textIndent**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/text/textIndent.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/text/textIndent.ts#L15)*
+*Defined in [utils/text/textIndent.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/text/textIndent.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 

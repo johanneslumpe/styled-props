@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-* [IBorderInlineStartColorProps](../interfaces/_utils_logical_properties_borderinlinestartcolor_.iborderinlinestartcolorprops.md)
+* [BorderInlineStartColorProps](../interfaces/_utils_logical_properties_borderinlinestartcolor_.borderinlinestartcolorprops.md)
 
 ### Functions
 
@@ -20,9 +20,9 @@
 
 ### `<Const>` borderInlineStartColor
 
-▸ **borderInlineStartColor**T,Theme,Breakpoints(__namedParameters?: *`object`*): `styleImplementation`
+▸ **borderInlineStartColor**<`T`,`Theme`,`Breakpoints`>(__namedParameters?: *`object`*): `styleImplementation`
 
-*Defined in [utils/logical-properties/borderInlineStartColor.ts:15](https://github.com/johanneslumpe/styled-props/blob/3abf398/src/utils/logical-properties/borderInlineStartColor.ts#L15)*
+*Defined in [utils/logical-properties/borderInlineStartColor.ts:15](https://github.com/johanneslumpe/styled-props/blob/8e709f1/src/utils/logical-properties/borderInlineStartColor.ts#L15)*
 
 **Type parameters:**
 
@@ -31,9 +31,11 @@
 #### Breakpoints 
 **Parameters:**
 
-| Param | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` __namedParameters | `object` |  {} |
+**`Default value` __namedParameters: `object`**
+
+| Name | Type |
+| ------ | ------ |
+| themeProp | `undefined` \| `Extract<keyof Theme, string>` |
 
 **Returns:** `styleImplementation`
 
