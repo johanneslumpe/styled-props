@@ -36,7 +36,7 @@
     "cli-progress": "^2.1.0",
     "jest": "^24.8.0",
     "lodash": "^4.17.11",
-    "mdn-data": "^1.2.0",
+    "mdn-data": "^2.0.2",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
     "standard-version": "^4.4.0",
@@ -50,6 +50,6 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "@johanneslumpe/css-types": "^0.3.0"
+    "@johanneslumpe/css-types": "^0.4.0"
   }
 }
