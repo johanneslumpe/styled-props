@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('outlineWidth', () => {
   });
 
   it('should use `outlineWidth` as component and css prop', () => {
-    const result = outlineWidth()({ outlineWidth: 'inherit' });
+    const result = outlineWidth()({ style$OutlineWidth: 'inherit' });
     expect(result).toEqual({ outlineWidth: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = outlineWidth<'a'>()({ outlineWidth: 'a' });
+    const result = outlineWidth<'a'>()({ style$OutlineWidth: 'a' });
     expect(result).toEqual({ outlineWidth: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('outlineWidth', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = outlineWidth<'value', IThemeWithoutBreakpoints>({
+    const result = outlineWidth<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ outlineWidth: 'value', theme: themeWithoutBreakpoints });
+    })({ style$OutlineWidth: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       outlineWidth: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('outlineWidth', () => {
   it('should allow using breakpoints', () => {
     const result = outlineWidth<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      outlineWidth: {
+      style$OutlineWidth: {
         base: 'a',
         large: 'b',
         medium: 'c',

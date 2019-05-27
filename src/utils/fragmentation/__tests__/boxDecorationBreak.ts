@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('boxDecorationBreak', () => {
   });
 
   it('should use `boxDecorationBreak` as component and css prop', () => {
-    const result = boxDecorationBreak()({ boxDecorationBreak: 'inherit' });
+    const result = boxDecorationBreak()({ style$BoxDecorationBreak: 'inherit' });
     expect(result).toEqual({ boxDecorationBreak: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = boxDecorationBreak<'a'>()({ boxDecorationBreak: 'a' });
+    const result = boxDecorationBreak<'a'>()({ style$BoxDecorationBreak: 'a' });
     expect(result).toEqual({ boxDecorationBreak: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('boxDecorationBreak', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = boxDecorationBreak<'value', IThemeWithoutBreakpoints>({
+    const result = boxDecorationBreak<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ boxDecorationBreak: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BoxDecorationBreak: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       boxDecorationBreak: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('boxDecorationBreak', () => {
   it('should allow using breakpoints', () => {
     const result = boxDecorationBreak<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      boxDecorationBreak: {
+      style$BoxDecorationBreak: {
         base: 'a',
         large: 'b',
         medium: 'c',

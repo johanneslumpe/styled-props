@@ -1,15 +1,15 @@
 import { BorderTopRightRadiusProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderTopRightRadiusProps<T> {
+export interface BorderTopRightRadiusProps<T> {
   /**
    * The **`border-top-right-radius`** CSS property rounds the top-right corner of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius
    */
-  borderTopRightRadius: T;
+  style$BorderTopRightRadius: T;
 }
 
 export const borderTopRightRadius = <
@@ -18,9 +18,9 @@ export const borderTopRightRadius = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderTopRightRadiusProps<T>, Theme>> = {}) =>
-  style<IBorderTopRightRadiusProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderTopRightRadiusProps<T>, Theme>> = {}) =>
+  style<BorderTopRightRadiusProps<T>, Theme, Breakpoints>({
     cssProp: 'borderTopRightRadius',
-    prop: 'borderTopRightRadius',
+    prop: 'style$BorderTopRightRadius',
     themeProp,
   });

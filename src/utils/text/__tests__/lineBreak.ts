@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('lineBreak', () => {
   });
 
   it('should use `lineBreak` as component and css prop', () => {
-    const result = lineBreak()({ lineBreak: 'inherit' });
+    const result = lineBreak()({ style$LineBreak: 'inherit' });
     expect(result).toEqual({ lineBreak: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = lineBreak<'a'>()({ lineBreak: 'a' });
+    const result = lineBreak<'a'>()({ style$LineBreak: 'a' });
     expect(result).toEqual({ lineBreak: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('lineBreak', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = lineBreak<'value', IThemeWithoutBreakpoints>({
+    const result = lineBreak<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ lineBreak: 'value', theme: themeWithoutBreakpoints });
+    })({ style$LineBreak: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       lineBreak: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('lineBreak', () => {
   it('should allow using breakpoints', () => {
     const result = lineBreak<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      lineBreak: {
+      style$LineBreak: {
         base: 'a',
         large: 'b',
         medium: 'c',

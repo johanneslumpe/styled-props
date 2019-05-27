@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textTransform', () => {
   });
 
   it('should use `textTransform` as component and css prop', () => {
-    const result = textTransform()({ textTransform: 'inherit' });
+    const result = textTransform()({ style$TextTransform: 'inherit' });
     expect(result).toEqual({ textTransform: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textTransform<'a'>()({ textTransform: 'a' });
+    const result = textTransform<'a'>()({ style$TextTransform: 'a' });
     expect(result).toEqual({ textTransform: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textTransform', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textTransform<'value', IThemeWithoutBreakpoints>({
+    const result = textTransform<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textTransform: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextTransform: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textTransform: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textTransform', () => {
   it('should allow using breakpoints', () => {
     const result = textTransform<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textTransform: {
+      style$TextTransform: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { BorderBottomWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBottomWidthProps<T> {
+export interface BorderBottomWidthProps<T> {
   /**
-   * The **`border-bottom-width`** CSS property sets the width of the bottom border of a box.
+   * The **`border-bottom-width`** CSS property sets the width of the bottom border of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-width
    */
-  borderBottomWidth: T;
+  style$BorderBottomWidth: T;
 }
 
 export const borderBottomWidth = <
@@ -18,9 +18,9 @@ export const borderBottomWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBottomWidthProps<T>, Theme>> = {}) =>
-  style<IBorderBottomWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBottomWidthProps<T>, Theme>> = {}) =>
+  style<BorderBottomWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBottomWidth',
-    prop: 'borderBottomWidth',
+    prop: 'style$BorderBottomWidth',
     themeProp,
   });

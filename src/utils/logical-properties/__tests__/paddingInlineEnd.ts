@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('paddingInlineEnd', () => {
   });
 
   it('should use `paddingInlineEnd` as component and css prop', () => {
-    const result = paddingInlineEnd()({ paddingInlineEnd: 'inherit' });
+    const result = paddingInlineEnd()({ style$PaddingInlineEnd: 'inherit' });
     expect(result).toEqual({ paddingInlineEnd: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = paddingInlineEnd<'a'>()({ paddingInlineEnd: 'a' });
+    const result = paddingInlineEnd<'a'>()({ style$PaddingInlineEnd: 'a' });
     expect(result).toEqual({ paddingInlineEnd: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('paddingInlineEnd', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = paddingInlineEnd<'value', IThemeWithoutBreakpoints>({
+    const result = paddingInlineEnd<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ paddingInlineEnd: 'value', theme: themeWithoutBreakpoints });
+    })({ style$PaddingInlineEnd: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       paddingInlineEnd: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('paddingInlineEnd', () => {
   it('should allow using breakpoints', () => {
     const result = paddingInlineEnd<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      paddingInlineEnd: {
+      style$PaddingInlineEnd: {
         base: 'a',
         large: 'b',
         medium: 'c',

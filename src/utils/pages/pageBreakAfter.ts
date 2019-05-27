@@ -1,15 +1,15 @@
 import { PageBreakAfterPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPageBreakAfterProps<T> {
+export interface PageBreakAfterProps<T> {
   /**
    * The **`page-break-after`** CSS property adjusts page breaks _after_ the current element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/page-break-after
    */
-  pageBreakAfter: T;
+  style$PageBreakAfter: T;
 }
 
 export const pageBreakAfter = <
@@ -18,9 +18,9 @@ export const pageBreakAfter = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPageBreakAfterProps<T>, Theme>> = {}) =>
-  style<IPageBreakAfterProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PageBreakAfterProps<T>, Theme>> = {}) =>
+  style<PageBreakAfterProps<T>, Theme, Breakpoints>({
     cssProp: 'pageBreakAfter',
-    prop: 'pageBreakAfter',
+    prop: 'style$PageBreakAfter',
     themeProp,
   });

@@ -1,15 +1,15 @@
 import { BorderSpacingProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderSpacingProps<T> {
+export interface BorderSpacingProps<T> {
   /**
    * The **`border-spacing`** CSS property sets the distance between the borders of adjacent `<table>` cells. This property applies only when `border-collapse` is `separate`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-spacing
    */
-  borderSpacing: T;
+  style$BorderSpacing: T;
 }
 
 export const borderSpacing = <
@@ -18,9 +18,9 @@ export const borderSpacing = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderSpacingProps<T>, Theme>> = {}) =>
-  style<IBorderSpacingProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderSpacingProps<T>, Theme>> = {}) =>
+  style<BorderSpacingProps<T>, Theme, Breakpoints>({
     cssProp: 'borderSpacing',
-    prop: 'borderSpacing',
+    prop: 'style$BorderSpacing',
     themeProp,
   });

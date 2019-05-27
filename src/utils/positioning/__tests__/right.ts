@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('right', () => {
   });
 
   it('should use `right` as component and css prop', () => {
-    const result = right()({ right: 'inherit' });
+    const result = right()({ style$Right: 'inherit' });
     expect(result).toEqual({ right: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = right<'a'>()({ right: 'a' });
+    const result = right<'a'>()({ style$Right: 'a' });
     expect(result).toEqual({ right: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('right', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = right<'value', IThemeWithoutBreakpoints>({
+    const result = right<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ right: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Right: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       right: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('right', () => {
   it('should allow using breakpoints', () => {
     const result = right<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      right: {
+      style$Right: {
         base: 'a',
         large: 'b',
         medium: 'c',

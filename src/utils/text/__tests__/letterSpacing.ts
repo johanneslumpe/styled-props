@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('letterSpacing', () => {
   });
 
   it('should use `letterSpacing` as component and css prop', () => {
-    const result = letterSpacing()({ letterSpacing: 'inherit' });
+    const result = letterSpacing()({ style$LetterSpacing: 'inherit' });
     expect(result).toEqual({ letterSpacing: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = letterSpacing<'a'>()({ letterSpacing: 'a' });
+    const result = letterSpacing<'a'>()({ style$LetterSpacing: 'a' });
     expect(result).toEqual({ letterSpacing: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('letterSpacing', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = letterSpacing<'value', IThemeWithoutBreakpoints>({
+    const result = letterSpacing<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ letterSpacing: 'value', theme: themeWithoutBreakpoints });
+    })({ style$LetterSpacing: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       letterSpacing: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('letterSpacing', () => {
   it('should allow using breakpoints', () => {
     const result = letterSpacing<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      letterSpacing: {
+      style$LetterSpacing: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('maxHeight', () => {
   });
 
   it('should use `maxHeight` as component and css prop', () => {
-    const result = maxHeight()({ maxHeight: 'inherit' });
+    const result = maxHeight()({ style$MaxHeight: 'inherit' });
     expect(result).toEqual({ maxHeight: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = maxHeight<'a'>()({ maxHeight: 'a' });
+    const result = maxHeight<'a'>()({ style$MaxHeight: 'a' });
     expect(result).toEqual({ maxHeight: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('maxHeight', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = maxHeight<'value', IThemeWithoutBreakpoints>({
+    const result = maxHeight<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ maxHeight: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MaxHeight: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       maxHeight: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('maxHeight', () => {
   it('should allow using breakpoints', () => {
     const result = maxHeight<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      maxHeight: {
+      style$MaxHeight: {
         base: 'a',
         large: 'b',
         medium: 'c',

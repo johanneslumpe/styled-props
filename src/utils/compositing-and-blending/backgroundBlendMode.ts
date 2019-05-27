@@ -1,15 +1,15 @@
 import { BackgroundBlendModeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBackgroundBlendModeProps<T> {
+export interface BackgroundBlendModeProps<T> {
   /**
    * The **`background-blend-mode`** CSS property sets how an element's background images should blend with each other and with the element's background color.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/background-blend-mode
    */
-  backgroundBlendMode: T;
+  style$BackgroundBlendMode: T;
 }
 
 export const backgroundBlendMode = <
@@ -18,9 +18,9 @@ export const backgroundBlendMode = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBackgroundBlendModeProps<T>, Theme>> = {}) =>
-  style<IBackgroundBlendModeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BackgroundBlendModeProps<T>, Theme>> = {}) =>
+  style<BackgroundBlendModeProps<T>, Theme, Breakpoints>({
     cssProp: 'backgroundBlendMode',
-    prop: 'backgroundBlendMode',
+    prop: 'style$BackgroundBlendMode',
     themeProp,
   });

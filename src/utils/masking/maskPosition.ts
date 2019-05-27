@@ -1,15 +1,15 @@
 import { MaskPositionProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskPositionProps<T> {
+export interface MaskPositionProps<T> {
   /**
    * The **`mask-position`** CSS property sets the initial position, relative to the mask position layer set by `mask-origin`, for each defined mask image.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-position
    */
-  maskPosition: T;
+  style$MaskPosition: T;
 }
 
 export const maskPosition = <
@@ -18,9 +18,9 @@ export const maskPosition = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskPositionProps<T>, Theme>> = {}) =>
-  style<IMaskPositionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskPositionProps<T>, Theme>> = {}) =>
+  style<MaskPositionProps<T>, Theme, Breakpoints>({
     cssProp: 'maskPosition',
-    prop: 'maskPosition',
+    prop: 'style$MaskPosition',
     themeProp,
   });

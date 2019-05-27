@@ -1,15 +1,15 @@
 import { ColumnRuleWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColumnRuleWidthProps<T> {
+export interface ColumnRuleWidthProps<T> {
   /**
-   * The **`column-rule-width`** CSS property sets the width of the rule (line) drawn between columns in a multi-column layout.
+   * The **`column-rule-width`** CSS property sets the width of the line drawn between columns in a multi-column layout.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/column-rule-width
    */
-  columnRuleWidth: T;
+  style$ColumnRuleWidth: T;
 }
 
 export const columnRuleWidth = <
@@ -18,9 +18,9 @@ export const columnRuleWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColumnRuleWidthProps<T>, Theme>> = {}) =>
-  style<IColumnRuleWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColumnRuleWidthProps<T>, Theme>> = {}) =>
+  style<ColumnRuleWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'columnRuleWidth',
-    prop: 'columnRuleWidth',
+    prop: 'style$ColumnRuleWidth',
     themeProp,
   });

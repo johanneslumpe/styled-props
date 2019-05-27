@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('imageOrientation', () => {
   });
 
   it('should use `imageOrientation` as component and css prop', () => {
-    const result = imageOrientation()({ imageOrientation: 'inherit' });
+    const result = imageOrientation()({ style$ImageOrientation: 'inherit' });
     expect(result).toEqual({ imageOrientation: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = imageOrientation<'a'>()({ imageOrientation: 'a' });
+    const result = imageOrientation<'a'>()({ style$ImageOrientation: 'a' });
     expect(result).toEqual({ imageOrientation: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('imageOrientation', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = imageOrientation<'value', IThemeWithoutBreakpoints>({
+    const result = imageOrientation<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ imageOrientation: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ImageOrientation: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       imageOrientation: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('imageOrientation', () => {
   it('should allow using breakpoints', () => {
     const result = imageOrientation<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      imageOrientation: {
+      style$ImageOrientation: {
         base: 'a',
         large: 'b',
         medium: 'c',

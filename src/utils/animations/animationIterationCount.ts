@@ -1,15 +1,15 @@
 import { AnimationIterationCountProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAnimationIterationCountProps<T> {
+export interface AnimationIterationCountProps<T> {
   /**
    * The **`animation-iteration-count`** CSS property sets the number of times an animation cycle should be played before stopping.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/animation-iteration-count
    */
-  animationIterationCount: T;
+  style$AnimationIterationCount: T;
 }
 
 export const animationIterationCount = <
@@ -18,9 +18,9 @@ export const animationIterationCount = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAnimationIterationCountProps<T>, Theme>> = {}) =>
-  style<IAnimationIterationCountProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AnimationIterationCountProps<T>, Theme>> = {}) =>
+  style<AnimationIterationCountProps<T>, Theme, Breakpoints>({
     cssProp: 'animationIterationCount',
-    prop: 'animationIterationCount',
+    prop: 'style$AnimationIterationCount',
     themeProp,
   });

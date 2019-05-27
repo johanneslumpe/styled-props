@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('minHeight', () => {
   });
 
   it('should use `minHeight` as component and css prop', () => {
-    const result = minHeight()({ minHeight: 'inherit' });
+    const result = minHeight()({ style$MinHeight: 'inherit' });
     expect(result).toEqual({ minHeight: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = minHeight<'a'>()({ minHeight: 'a' });
+    const result = minHeight<'a'>()({ style$MinHeight: 'a' });
     expect(result).toEqual({ minHeight: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('minHeight', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = minHeight<'value', IThemeWithoutBreakpoints>({
+    const result = minHeight<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ minHeight: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MinHeight: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       minHeight: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('minHeight', () => {
   it('should allow using breakpoints', () => {
     const result = minHeight<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      minHeight: {
+      style$MinHeight: {
         base: 'a',
         large: 'b',
         medium: 'c',

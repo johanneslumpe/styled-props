@@ -1,15 +1,15 @@
 import { RowGapProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IRowGapProps<T> {
+export interface RowGapProps<T> {
   /**
-   * The **`row-gap`** CSS property sets the size of the gap (gutter) between an element's rows.
+   * The **`row-gap`** CSS property sets the size of the gap (gutter) between an element's grid rows.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/row-gap
    */
-  rowGap: T;
+  style$RowGap: T;
 }
 
 export const rowGap = <
@@ -18,9 +18,9 @@ export const rowGap = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IRowGapProps<T>, Theme>> = {}) =>
-  style<IRowGapProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<RowGapProps<T>, Theme>> = {}) =>
+  style<RowGapProps<T>, Theme, Breakpoints>({
     cssProp: 'rowGap',
-    prop: 'rowGap',
+    prop: 'style$RowGap',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('rowGap', () => {
   });
 
   it('should use `rowGap` as component and css prop', () => {
-    const result = rowGap()({ rowGap: 'inherit' });
+    const result = rowGap()({ style$RowGap: 'inherit' });
     expect(result).toEqual({ rowGap: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = rowGap<'a'>()({ rowGap: 'a' });
+    const result = rowGap<'a'>()({ style$RowGap: 'a' });
     expect(result).toEqual({ rowGap: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('rowGap', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = rowGap<'value', IThemeWithoutBreakpoints>({
+    const result = rowGap<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ rowGap: 'value', theme: themeWithoutBreakpoints });
+    })({ style$RowGap: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       rowGap: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('rowGap', () => {
   it('should allow using breakpoints', () => {
     const result = rowGap<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      rowGap: {
+      style$RowGap: {
         base: 'a',
         large: 'b',
         medium: 'c',

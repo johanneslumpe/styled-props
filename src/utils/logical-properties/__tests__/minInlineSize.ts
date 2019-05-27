@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('minInlineSize', () => {
   });
 
   it('should use `minInlineSize` as component and css prop', () => {
-    const result = minInlineSize()({ minInlineSize: 'inherit' });
+    const result = minInlineSize()({ style$MinInlineSize: 'inherit' });
     expect(result).toEqual({ minInlineSize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = minInlineSize<'a'>()({ minInlineSize: 'a' });
+    const result = minInlineSize<'a'>()({ style$MinInlineSize: 'a' });
     expect(result).toEqual({ minInlineSize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('minInlineSize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = minInlineSize<'value', IThemeWithoutBreakpoints>({
+    const result = minInlineSize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ minInlineSize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MinInlineSize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       minInlineSize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('minInlineSize', () => {
   it('should allow using breakpoints', () => {
     const result = minInlineSize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      minInlineSize: {
+      style$MinInlineSize: {
         base: 'a',
         large: 'b',
         medium: 'c',

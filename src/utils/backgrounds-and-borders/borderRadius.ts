@@ -1,15 +1,15 @@
 import { BorderRadiusProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderRadiusProps<T> {
+export interface BorderRadiusProps<T> {
   /**
    * The **`border-radius`** CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-radius
    */
-  borderRadius: T;
+  style$BorderRadius: T;
 }
 
 export const borderRadius = <
@@ -18,9 +18,9 @@ export const borderRadius = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderRadiusProps<T>, Theme>> = {}) =>
-  style<IBorderRadiusProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderRadiusProps<T>, Theme>> = {}) =>
+  style<BorderRadiusProps<T>, Theme, Breakpoints>({
     cssProp: 'borderRadius',
-    prop: 'borderRadius',
+    prop: 'style$BorderRadius',
     themeProp,
   });

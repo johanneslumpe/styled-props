@@ -1,15 +1,15 @@
 import { BorderTopStylePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderTopStyleProps<T> {
+export interface BorderTopStyleProps<T> {
   /**
    * The **`border-top-style`** CSS property sets the line style of an element's top `border`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-top-style
    */
-  borderTopStyle: T;
+  style$BorderTopStyle: T;
 }
 
 export const borderTopStyle = <
@@ -18,9 +18,9 @@ export const borderTopStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderTopStyleProps<T>, Theme>> = {}) =>
-  style<IBorderTopStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderTopStyleProps<T>, Theme>> = {}) =>
+  style<BorderTopStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'borderTopStyle',
-    prop: 'borderTopStyle',
+    prop: 'style$BorderTopStyle',
     themeProp,
   });

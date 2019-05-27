@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('boxShadow', () => {
   });
 
   it('should use `boxShadow` as component and css prop', () => {
-    const result = boxShadow()({ boxShadow: 'inherit' });
+    const result = boxShadow()({ style$BoxShadow: 'inherit' });
     expect(result).toEqual({ boxShadow: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = boxShadow<'a'>()({ boxShadow: 'a' });
+    const result = boxShadow<'a'>()({ style$BoxShadow: 'a' });
     expect(result).toEqual({ boxShadow: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('boxShadow', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = boxShadow<'value', IThemeWithoutBreakpoints>({
+    const result = boxShadow<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ boxShadow: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BoxShadow: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       boxShadow: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('boxShadow', () => {
   it('should allow using breakpoints', () => {
     const result = boxShadow<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      boxShadow: {
+      style$BoxShadow: {
         base: 'a',
         large: 'b',
         medium: 'c',

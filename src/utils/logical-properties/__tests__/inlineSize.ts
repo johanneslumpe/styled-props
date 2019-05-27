@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('inlineSize', () => {
   });
 
   it('should use `inlineSize` as component and css prop', () => {
-    const result = inlineSize()({ inlineSize: 'inherit' });
+    const result = inlineSize()({ style$InlineSize: 'inherit' });
     expect(result).toEqual({ inlineSize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = inlineSize<'a'>()({ inlineSize: 'a' });
+    const result = inlineSize<'a'>()({ style$InlineSize: 'a' });
     expect(result).toEqual({ inlineSize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('inlineSize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = inlineSize<'value', IThemeWithoutBreakpoints>({
+    const result = inlineSize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ inlineSize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$InlineSize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       inlineSize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('inlineSize', () => {
   it('should allow using breakpoints', () => {
     const result = inlineSize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      inlineSize: {
+      style$InlineSize: {
         base: 'a',
         large: 'b',
         medium: 'c',

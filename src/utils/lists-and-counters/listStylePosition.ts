@@ -1,15 +1,15 @@
 import { ListStylePositionPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IListStylePositionProps<T> {
+export interface ListStylePositionProps<T> {
   /**
    * The **`list-style-position`** CSS property sets the position of the `::marker` relative to a list item.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/list-style-position
    */
-  listStylePosition: T;
+  style$ListStylePosition: T;
 }
 
 export const listStylePosition = <
@@ -18,9 +18,9 @@ export const listStylePosition = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IListStylePositionProps<T>, Theme>> = {}) =>
-  style<IListStylePositionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ListStylePositionProps<T>, Theme>> = {}) =>
+  style<ListStylePositionProps<T>, Theme, Breakpoints>({
     cssProp: 'listStylePosition',
-    prop: 'listStylePosition',
+    prop: 'style$ListStylePosition',
     themeProp,
   });

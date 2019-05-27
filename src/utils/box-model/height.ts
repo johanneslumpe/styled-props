@@ -1,15 +1,15 @@
 import { HeightProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IHeightProps<T> {
+export interface HeightProps<T> {
   /**
    * The **`height`** CSS property specifies the height of an element. By default, the property defines the height of the content area. If `box-sizing` is set to `border-box`, however, it instead determines the height of the border area.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/height
    */
-  height: T;
+  style$Height: T;
 }
 
 export const height = <
@@ -18,9 +18,9 @@ export const height = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IHeightProps<T>, Theme>> = {}) =>
-  style<IHeightProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<HeightProps<T>, Theme>> = {}) =>
+  style<HeightProps<T>, Theme, Breakpoints>({
     cssProp: 'height',
-    prop: 'height',
+    prop: 'style$Height',
     themeProp,
   });

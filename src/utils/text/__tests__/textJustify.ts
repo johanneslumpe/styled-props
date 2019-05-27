@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textJustify', () => {
   });
 
   it('should use `textJustify` as component and css prop', () => {
-    const result = textJustify()({ textJustify: 'inherit' });
+    const result = textJustify()({ style$TextJustify: 'inherit' });
     expect(result).toEqual({ textJustify: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textJustify<'a'>()({ textJustify: 'a' });
+    const result = textJustify<'a'>()({ style$TextJustify: 'a' });
     expect(result).toEqual({ textJustify: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textJustify', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textJustify<'value', IThemeWithoutBreakpoints>({
+    const result = textJustify<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textJustify: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextJustify: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textJustify: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textJustify', () => {
   it('should allow using breakpoints', () => {
     const result = textJustify<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textJustify: {
+      style$TextJustify: {
         base: 'a',
         large: 'b',
         medium: 'c',

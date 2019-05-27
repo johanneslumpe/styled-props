@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('animationFillMode', () => {
   });
 
   it('should use `animationFillMode` as component and css prop', () => {
-    const result = animationFillMode()({ animationFillMode: 'inherit' });
+    const result = animationFillMode()({ style$AnimationFillMode: 'inherit' });
     expect(result).toEqual({ animationFillMode: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = animationFillMode<'a'>()({ animationFillMode: 'a' });
+    const result = animationFillMode<'a'>()({ style$AnimationFillMode: 'a' });
     expect(result).toEqual({ animationFillMode: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('animationFillMode', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = animationFillMode<'value', IThemeWithoutBreakpoints>({
+    const result = animationFillMode<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ animationFillMode: 'value', theme: themeWithoutBreakpoints });
+    })({ style$AnimationFillMode: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       animationFillMode: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('animationFillMode', () => {
   it('should allow using breakpoints', () => {
     const result = animationFillMode<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      animationFillMode: {
+      style$AnimationFillMode: {
         base: 'a',
         large: 'b',
         medium: 'c',

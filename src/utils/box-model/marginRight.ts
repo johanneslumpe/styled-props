@@ -1,15 +1,15 @@
 import { MarginRightProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMarginRightProps<T> {
+export interface MarginRightProps<T> {
   /**
    * The **`margin-right`** CSS property sets the margin area on the right side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/margin-right
    */
-  marginRight: T;
+  style$MarginRight: T;
 }
 
 export const marginRight = <
@@ -18,9 +18,9 @@ export const marginRight = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMarginRightProps<T>, Theme>> = {}) =>
-  style<IMarginRightProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MarginRightProps<T>, Theme>> = {}) =>
+  style<MarginRightProps<T>, Theme, Breakpoints>({
     cssProp: 'marginRight',
-    prop: 'marginRight',
+    prop: 'style$MarginRight',
     themeProp,
   });

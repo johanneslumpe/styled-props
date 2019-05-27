@@ -1,15 +1,15 @@
 import { WhiteSpacePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IWhiteSpaceProps<T> {
+export interface WhiteSpaceProps<T> {
   /**
    * The **`white-space`** CSS property sets how white space inside an element is handled.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/white-space
    */
-  whiteSpace: T;
+  style$WhiteSpace: T;
 }
 
 export const whiteSpace = <
@@ -18,9 +18,9 @@ export const whiteSpace = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IWhiteSpaceProps<T>, Theme>> = {}) =>
-  style<IWhiteSpaceProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<WhiteSpaceProps<T>, Theme>> = {}) =>
+  style<WhiteSpaceProps<T>, Theme, Breakpoints>({
     cssProp: 'whiteSpace',
-    prop: 'whiteSpace',
+    prop: 'style$WhiteSpace',
     themeProp,
   });

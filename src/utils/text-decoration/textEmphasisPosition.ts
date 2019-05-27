@@ -1,15 +1,15 @@
 import { TextEmphasisPositionPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextEmphasisPositionProps<T> {
+export interface TextEmphasisPositionProps<T> {
   /**
    * The **`text-emphasis-position`** CSS property sets where emphasis marks are drawn. Like ruby text, if there isn't enough room for emphasis marks, the line height is increased.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-position
    */
-  textEmphasisPosition: T;
+  style$TextEmphasisPosition: T;
 }
 
 export const textEmphasisPosition = <
@@ -18,9 +18,9 @@ export const textEmphasisPosition = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextEmphasisPositionProps<T>, Theme>> = {}) =>
-  style<ITextEmphasisPositionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextEmphasisPositionProps<T>, Theme>> = {}) =>
+  style<TextEmphasisPositionProps<T>, Theme, Breakpoints>({
     cssProp: 'textEmphasisPosition',
-    prop: 'textEmphasisPosition',
+    prop: 'style$TextEmphasisPosition',
     themeProp,
   });

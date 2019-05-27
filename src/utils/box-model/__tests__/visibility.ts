@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('visibility', () => {
   });
 
   it('should use `visibility` as component and css prop', () => {
-    const result = visibility()({ visibility: 'inherit' });
+    const result = visibility()({ style$Visibility: 'inherit' });
     expect(result).toEqual({ visibility: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = visibility<'a'>()({ visibility: 'a' });
+    const result = visibility<'a'>()({ style$Visibility: 'a' });
     expect(result).toEqual({ visibility: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('visibility', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = visibility<'value', IThemeWithoutBreakpoints>({
+    const result = visibility<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ visibility: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Visibility: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       visibility: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('visibility', () => {
   it('should allow using breakpoints', () => {
     const result = visibility<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      visibility: {
+      style$Visibility: {
         base: 'a',
         large: 'b',
         medium: 'c',

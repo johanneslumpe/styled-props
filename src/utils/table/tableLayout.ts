@@ -1,15 +1,15 @@
 import { TableLayoutPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITableLayoutProps<T> {
+export interface TableLayoutProps<T> {
   /**
    * The **`table-layout`** CSS property sets the algorithm used to lay out `<table>` cells, rows, and columns.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/table-layout
    */
-  tableLayout: T;
+  style$TableLayout: T;
 }
 
 export const tableLayout = <
@@ -18,9 +18,9 @@ export const tableLayout = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITableLayoutProps<T>, Theme>> = {}) =>
-  style<ITableLayoutProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TableLayoutProps<T>, Theme>> = {}) =>
+  style<TableLayoutProps<T>, Theme, Breakpoints>({
     cssProp: 'tableLayout',
-    prop: 'tableLayout',
+    prop: 'style$TableLayout',
     themeProp,
   });

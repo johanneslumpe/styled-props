@@ -1,15 +1,15 @@
 import { MarginTopProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMarginTopProps<T> {
+export interface MarginTopProps<T> {
   /**
    * The **`margin-top`** CSS property sets the margin area on the top of an element. A positive value places it farther from its neighbors, while a negative value places it closer.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/margin-top
    */
-  marginTop: T;
+  style$MarginTop: T;
 }
 
 export const marginTop = <
@@ -18,9 +18,9 @@ export const marginTop = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMarginTopProps<T>, Theme>> = {}) =>
-  style<IMarginTopProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MarginTopProps<T>, Theme>> = {}) =>
+  style<MarginTopProps<T>, Theme, Breakpoints>({
     cssProp: 'marginTop',
-    prop: 'marginTop',
+    prop: 'style$MarginTop',
     themeProp,
   });

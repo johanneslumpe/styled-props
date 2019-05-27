@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('marginTop', () => {
   });
 
   it('should use `marginTop` as component and css prop', () => {
-    const result = marginTop()({ marginTop: 'inherit' });
+    const result = marginTop()({ style$MarginTop: 'inherit' });
     expect(result).toEqual({ marginTop: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = marginTop<'a'>()({ marginTop: 'a' });
+    const result = marginTop<'a'>()({ style$MarginTop: 'a' });
     expect(result).toEqual({ marginTop: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('marginTop', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = marginTop<'value', IThemeWithoutBreakpoints>({
+    const result = marginTop<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ marginTop: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MarginTop: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       marginTop: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('marginTop', () => {
   it('should allow using breakpoints', () => {
     const result = marginTop<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      marginTop: {
+      style$MarginTop: {
         base: 'a',
         large: 'b',
         medium: 'c',

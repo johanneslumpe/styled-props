@@ -1,15 +1,15 @@
 import { BorderTopProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderTopProps<T> {
+export interface BorderTopProps<T> {
   /**
-   * The **`border-top`** CSS property is a shorthand that sets the values of `border-top-width`, `border-top-style` and `border-top-color`. These properties set an element's top border.
+   * The **`border-top`** shorthand CSS property set an element's top border. It sets the values of `border-top-width`, `border-top-style` and `border-top-color`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-top
    */
-  borderTop: T;
+  style$BorderTop: T;
 }
 
 export const borderTop = <
@@ -18,9 +18,9 @@ export const borderTop = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderTopProps<T>, Theme>> = {}) =>
-  style<IBorderTopProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderTopProps<T>, Theme>> = {}) =>
+  style<BorderTopProps<T>, Theme, Breakpoints>({
     cssProp: 'borderTop',
-    prop: 'borderTop',
+    prop: 'style$BorderTop',
     themeProp,
   });

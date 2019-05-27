@@ -1,15 +1,15 @@
 import { FontVariantPositionPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontVariantPositionProps<T> {
+export interface FontVariantPositionProps<T> {
   /**
    * The **`font-variant-position`** CSS property controls the use of alternate, smaller glyphs that are positioned as superscript or subscript.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-position
    */
-  fontVariantPosition: T;
+  style$FontVariantPosition: T;
 }
 
 export const fontVariantPosition = <
@@ -18,9 +18,9 @@ export const fontVariantPosition = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontVariantPositionProps<T>, Theme>> = {}) =>
-  style<IFontVariantPositionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontVariantPositionProps<T>, Theme>> = {}) =>
+  style<FontVariantPositionProps<T>, Theme, Breakpoints>({
     cssProp: 'fontVariantPosition',
-    prop: 'fontVariantPosition',
+    prop: 'style$FontVariantPosition',
     themeProp,
   });

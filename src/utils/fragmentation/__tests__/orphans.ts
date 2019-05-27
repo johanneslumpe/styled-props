@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('orphans', () => {
   });
 
   it('should use `orphans` as component and css prop', () => {
-    const result = orphans()({ orphans: 'inherit' });
+    const result = orphans()({ style$Orphans: 'inherit' });
     expect(result).toEqual({ orphans: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = orphans<'a'>()({ orphans: 'a' });
+    const result = orphans<'a'>()({ style$Orphans: 'a' });
     expect(result).toEqual({ orphans: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('orphans', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = orphans<'value', IThemeWithoutBreakpoints>({
+    const result = orphans<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ orphans: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Orphans: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       orphans: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('orphans', () => {
   it('should allow using breakpoints', () => {
     const result = orphans<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      orphans: {
+      style$Orphans: {
         base: 'a',
         large: 'b',
         medium: 'c',

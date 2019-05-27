@@ -1,15 +1,15 @@
 import { PageBreakInsidePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPageBreakInsideProps<T> {
+export interface PageBreakInsideProps<T> {
   /**
    * The **`page-break-inside`** CSS property adjusts page breaks _inside_ the current element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/page-break-inside
    */
-  pageBreakInside: T;
+  style$PageBreakInside: T;
 }
 
 export const pageBreakInside = <
@@ -18,9 +18,9 @@ export const pageBreakInside = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPageBreakInsideProps<T>, Theme>> = {}) =>
-  style<IPageBreakInsideProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PageBreakInsideProps<T>, Theme>> = {}) =>
+  style<PageBreakInsideProps<T>, Theme, Breakpoints>({
     cssProp: 'pageBreakInside',
-    prop: 'pageBreakInside',
+    prop: 'style$PageBreakInside',
     themeProp,
   });

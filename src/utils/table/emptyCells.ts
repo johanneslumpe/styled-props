@@ -1,15 +1,15 @@
 import { EmptyCellsPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IEmptyCellsProps<T> {
+export interface EmptyCellsProps<T> {
   /**
    * The **`empty-cells`** CSS property sets whether borders and backgrounds appear around `<table>` cells that have no visible content.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/empty-cells
    */
-  emptyCells: T;
+  style$EmptyCells: T;
 }
 
 export const emptyCells = <
@@ -18,9 +18,9 @@ export const emptyCells = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IEmptyCellsProps<T>, Theme>> = {}) =>
-  style<IEmptyCellsProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<EmptyCellsProps<T>, Theme>> = {}) =>
+  style<EmptyCellsProps<T>, Theme, Breakpoints>({
     cssProp: 'emptyCells',
-    prop: 'emptyCells',
+    prop: 'style$EmptyCells',
     themeProp,
   });

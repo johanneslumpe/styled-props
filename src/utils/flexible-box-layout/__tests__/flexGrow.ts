@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('flexGrow', () => {
   });
 
   it('should use `flexGrow` as component and css prop', () => {
-    const result = flexGrow()({ flexGrow: 'inherit' });
+    const result = flexGrow()({ style$FlexGrow: 'inherit' });
     expect(result).toEqual({ flexGrow: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = flexGrow<'a'>()({ flexGrow: 'a' });
+    const result = flexGrow<'a'>()({ style$FlexGrow: 'a' });
     expect(result).toEqual({ flexGrow: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('flexGrow', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = flexGrow<'value', IThemeWithoutBreakpoints>({
+    const result = flexGrow<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ flexGrow: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FlexGrow: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       flexGrow: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('flexGrow', () => {
   it('should allow using breakpoints', () => {
     const result = flexGrow<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      flexGrow: {
+      style$FlexGrow: {
         base: 'a',
         large: 'b',
         medium: 'c',

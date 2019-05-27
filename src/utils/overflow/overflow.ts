@@ -1,15 +1,15 @@
 import { OverflowPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IOverflowProps<T> {
+export interface OverflowProps<T> {
   /**
-   * The **`overflow`** CSS property sets what to do when an element's content is too big to fit in its block formatting context. It is a shorthand for `overflow-x` and `overflow-y`.
+   * The **`overflow`** shorthand CSS property sets what to do when an element's content is too big to fit in its block formatting context. It is a shorthand for `overflow-x` and `overflow-y`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/overflow
    */
-  overflow: T;
+  style$Overflow: T;
 }
 
 export const overflow = <
@@ -18,9 +18,9 @@ export const overflow = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IOverflowProps<T>, Theme>> = {}) =>
-  style<IOverflowProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<OverflowProps<T>, Theme>> = {}) =>
+  style<OverflowProps<T>, Theme, Breakpoints>({
     cssProp: 'overflow',
-    prop: 'overflow',
+    prop: 'style$Overflow',
     themeProp,
   });

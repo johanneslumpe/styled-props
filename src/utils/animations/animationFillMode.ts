@@ -1,15 +1,15 @@
 import { AnimationFillModeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IAnimationFillModeProps<T> {
+export interface AnimationFillModeProps<T> {
   /**
    * The **`animation-fill-mode`** CSS property sets how a CSS animation applies styles to its target before and after its execution.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/animation-fill-mode
    */
-  animationFillMode: T;
+  style$AnimationFillMode: T;
 }
 
 export const animationFillMode = <
@@ -18,9 +18,9 @@ export const animationFillMode = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IAnimationFillModeProps<T>, Theme>> = {}) =>
-  style<IAnimationFillModeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<AnimationFillModeProps<T>, Theme>> = {}) =>
+  style<AnimationFillModeProps<T>, Theme, Breakpoints>({
     cssProp: 'animationFillMode',
-    prop: 'animationFillMode',
+    prop: 'style$AnimationFillMode',
     themeProp,
   });

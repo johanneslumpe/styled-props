@@ -1,29 +1,29 @@
-export interface IDummyValue {
+export interface DummyValue {
   value: string;
 }
 
-export interface IBreakpoints {
+export interface Breakpoints {
   small: string;
   medium: string;
   large: string;
 }
 
-export interface ITheme {
-  dummy: IDummyValue;
-  breakpoints: IBreakpoints;
+export interface Theme {
+  dummy: DummyValue;
+  breakpoints: Breakpoints;
 }
 
-export interface IThemeWithoutBreakpoints {
-  dummy: IDummyValue;
+export interface ThemeWithoutBreakpoints {
+  dummy: DummyValue;
 }
 
-export const themeWithoutBreakpoints: IThemeWithoutBreakpoints = {
+export const themeWithoutBreakpoints: ThemeWithoutBreakpoints = {
   dummy: {
     value: 'test-value',
   },
 };
 
-export const theme: ITheme = {
+export const theme: Theme = {
   ...themeWithoutBreakpoints,
   breakpoints: {
     large: '@media (min-width: 50em)',

@@ -1,15 +1,15 @@
 import { PositionPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPositionProps<T> {
+export interface PositionProps<T> {
   /**
-   * The **`position`** CSS property specifies how an element is positioned in a document. The `top`, `right`, `bottom`, and `left` properties determine the final location of positioned elements.
+   * The **`position`** CSS property sets how an element is positioned in a document. The `top`, `right`, `bottom`, and `left` properties determine the final location of positioned elements.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/position
    */
-  position: T;
+  style$Position: T;
 }
 
 export const position = <
@@ -18,9 +18,9 @@ export const position = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPositionProps<T>, Theme>> = {}) =>
-  style<IPositionProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PositionProps<T>, Theme>> = {}) =>
+  style<PositionProps<T>, Theme, Breakpoints>({
     cssProp: 'position',
-    prop: 'position',
+    prop: 'style$Position',
     themeProp,
   });

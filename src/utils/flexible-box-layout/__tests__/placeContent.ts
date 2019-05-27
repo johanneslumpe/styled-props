@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('placeContent', () => {
   });
 
   it('should use `placeContent` as component and css prop', () => {
-    const result = placeContent()({ placeContent: 'inherit' });
+    const result = placeContent()({ style$PlaceContent: 'inherit' });
     expect(result).toEqual({ placeContent: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = placeContent<'a'>()({ placeContent: 'a' });
+    const result = placeContent<'a'>()({ style$PlaceContent: 'a' });
     expect(result).toEqual({ placeContent: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('placeContent', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = placeContent<'value', IThemeWithoutBreakpoints>({
+    const result = placeContent<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ placeContent: 'value', theme: themeWithoutBreakpoints });
+    })({ style$PlaceContent: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       placeContent: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('placeContent', () => {
   it('should allow using breakpoints', () => {
     const result = placeContent<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      placeContent: {
+      style$PlaceContent: {
         base: 'a',
         large: 'b',
         medium: 'c',

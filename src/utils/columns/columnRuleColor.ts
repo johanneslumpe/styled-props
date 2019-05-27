@@ -1,15 +1,15 @@
 import { ColumnRuleColorProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColumnRuleColorProps<T> {
+export interface ColumnRuleColorProps<T> {
   /**
-   * The **`column-rule-color`** CSS property sets the color of the rule (line) drawn between columns in a multi-column layout.
+   * The **`column-rule-color`** CSS property sets the color of the line drawn between columns in a multi-column layout.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/column-rule-color
    */
-  columnRuleColor: T;
+  style$ColumnRuleColor: T;
 }
 
 export const columnRuleColor = <
@@ -18,9 +18,9 @@ export const columnRuleColor = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColumnRuleColorProps<T>, Theme>> = {}) =>
-  style<IColumnRuleColorProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColumnRuleColorProps<T>, Theme>> = {}) =>
+  style<ColumnRuleColorProps<T>, Theme, Breakpoints>({
     cssProp: 'columnRuleColor',
-    prop: 'columnRuleColor',
+    prop: 'style$ColumnRuleColor',
     themeProp,
   });

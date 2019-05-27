@@ -1,15 +1,15 @@
 import { BorderBlockStartProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBlockStartProps<T> {
+export interface BorderBlockStartProps<T> {
   /**
    * The **`border-block-start`** CSS property is a shorthand property for setting the individual logical block-start border property values in a single place in the style sheet.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-block-start
    */
-  borderBlockStart: T;
+  style$BorderBlockStart: T;
 }
 
 export const borderBlockStart = <
@@ -18,9 +18,9 @@ export const borderBlockStart = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBlockStartProps<T>, Theme>> = {}) =>
-  style<IBorderBlockStartProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBlockStartProps<T>, Theme>> = {}) =>
+  style<BorderBlockStartProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBlockStart',
-    prop: 'borderBlockStart',
+    prop: 'style$BorderBlockStart',
     themeProp,
   });

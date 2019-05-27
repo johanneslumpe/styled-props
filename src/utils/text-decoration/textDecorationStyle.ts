@@ -1,15 +1,15 @@
 import { TextDecorationStylePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextDecorationStyleProps<T> {
+export interface TextDecorationStyleProps<T> {
   /**
    * The **`text-decoration-style`** CSS property sets the style of the lines specified by `text-decoration-line`. The style applies to all lines that are set with `text-decoration-line`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-style
    */
-  textDecorationStyle: T;
+  style$TextDecorationStyle: T;
 }
 
 export const textDecorationStyle = <
@@ -18,9 +18,9 @@ export const textDecorationStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextDecorationStyleProps<T>, Theme>> = {}) =>
-  style<ITextDecorationStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextDecorationStyleProps<T>, Theme>> = {}) =>
+  style<TextDecorationStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'textDecorationStyle',
-    prop: 'textDecorationStyle',
+    prop: 'style$TextDecorationStyle',
     themeProp,
   });

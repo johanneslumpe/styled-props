@@ -1,15 +1,15 @@
 import { FontSizeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontSizeProps<T> {
+export interface FontSizeProps<T> {
   /**
    * The **`font-size`** CSS property sets the size of the font. This property is also used to compute the size of `em`, `ex`, and other relative `<length>` units.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-size
    */
-  fontSize: T;
+  style$FontSize: T;
 }
 
 export const fontSize = <
@@ -18,9 +18,9 @@ export const fontSize = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontSizeProps<T>, Theme>> = {}) =>
-  style<IFontSizeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontSizeProps<T>, Theme>> = {}) =>
+  style<FontSizeProps<T>, Theme, Breakpoints>({
     cssProp: 'fontSize',
-    prop: 'fontSize',
+    prop: 'style$FontSize',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('backgroundSize', () => {
   });
 
   it('should use `backgroundSize` as component and css prop', () => {
-    const result = backgroundSize()({ backgroundSize: 'inherit' });
+    const result = backgroundSize()({ style$BackgroundSize: 'inherit' });
     expect(result).toEqual({ backgroundSize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = backgroundSize<'a'>()({ backgroundSize: 'a' });
+    const result = backgroundSize<'a'>()({ style$BackgroundSize: 'a' });
     expect(result).toEqual({ backgroundSize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('backgroundSize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = backgroundSize<'value', IThemeWithoutBreakpoints>({
+    const result = backgroundSize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ backgroundSize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BackgroundSize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       backgroundSize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('backgroundSize', () => {
   it('should allow using breakpoints', () => {
     const result = backgroundSize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      backgroundSize: {
+      style$BackgroundSize: {
         base: 'a',
         large: 'b',
         medium: 'c',

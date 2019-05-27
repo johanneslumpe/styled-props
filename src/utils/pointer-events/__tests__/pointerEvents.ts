@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('pointerEvents', () => {
   });
 
   it('should use `pointerEvents` as component and css prop', () => {
-    const result = pointerEvents()({ pointerEvents: 'inherit' });
+    const result = pointerEvents()({ style$PointerEvents: 'inherit' });
     expect(result).toEqual({ pointerEvents: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = pointerEvents<'a'>()({ pointerEvents: 'a' });
+    const result = pointerEvents<'a'>()({ style$PointerEvents: 'a' });
     expect(result).toEqual({ pointerEvents: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('pointerEvents', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = pointerEvents<'value', IThemeWithoutBreakpoints>({
+    const result = pointerEvents<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ pointerEvents: 'value', theme: themeWithoutBreakpoints });
+    })({ style$PointerEvents: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       pointerEvents: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('pointerEvents', () => {
   it('should allow using breakpoints', () => {
     const result = pointerEvents<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      pointerEvents: {
+      style$PointerEvents: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { ColumnSpanPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColumnSpanProps<T> {
+export interface ColumnSpanProps<T> {
   /**
    * The **`column-span`** CSS property makes it possible for an element to span across all columns when its value is set to `all`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/column-span
    */
-  columnSpan: T;
+  style$ColumnSpan: T;
 }
 
 export const columnSpan = <
@@ -18,9 +18,9 @@ export const columnSpan = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColumnSpanProps<T>, Theme>> = {}) =>
-  style<IColumnSpanProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColumnSpanProps<T>, Theme>> = {}) =>
+  style<ColumnSpanProps<T>, Theme, Breakpoints>({
     cssProp: 'columnSpan',
-    prop: 'columnSpan',
+    prop: 'style$ColumnSpan',
     themeProp,
   });

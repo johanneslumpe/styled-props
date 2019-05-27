@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('breakAfter', () => {
   });
 
   it('should use `breakAfter` as component and css prop', () => {
-    const result = breakAfter()({ breakAfter: 'inherit' });
+    const result = breakAfter()({ style$BreakAfter: 'inherit' });
     expect(result).toEqual({ breakAfter: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = breakAfter<'a'>()({ breakAfter: 'a' });
+    const result = breakAfter<'a'>()({ style$BreakAfter: 'a' });
     expect(result).toEqual({ breakAfter: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('breakAfter', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = breakAfter<'value', IThemeWithoutBreakpoints>({
+    const result = breakAfter<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ breakAfter: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BreakAfter: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       breakAfter: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('breakAfter', () => {
   it('should allow using breakpoints', () => {
     const result = breakAfter<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      breakAfter: {
+      style$BreakAfter: {
         base: 'a',
         large: 'b',
         medium: 'c',

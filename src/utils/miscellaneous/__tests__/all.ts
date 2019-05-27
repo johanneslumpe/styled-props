@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('all', () => {
   });
 
   it('should use `all` as component and css prop', () => {
-    const result = all()({ all: 'inherit' });
+    const result = all()({ style$All: 'inherit' });
     expect(result).toEqual({ all: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = all<'a'>()({ all: 'a' });
+    const result = all<'a'>()({ style$All: 'a' });
     expect(result).toEqual({ all: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('all', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = all<'value', IThemeWithoutBreakpoints>({
+    const result = all<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ all: 'value', theme: themeWithoutBreakpoints });
+    })({ style$All: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       all: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('all', () => {
   it('should allow using breakpoints', () => {
     const result = all<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      all: {
+      style$All: {
         base: 'a',
         large: 'b',
         medium: 'c',

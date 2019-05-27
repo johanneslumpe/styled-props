@@ -1,15 +1,15 @@
 import { PerspectiveOriginPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPerspectiveOriginProps<T> {
+export interface PerspectiveOriginProps<T> {
   /**
    * The **`perspective-origin`** CSS property determines the position at which the viewer is looking. It is used as the _vanishing point_ by the `perspective` property.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/perspective-origin
    */
-  perspectiveOrigin: T;
+  style$PerspectiveOrigin: T;
 }
 
 export const perspectiveOrigin = <
@@ -18,9 +18,9 @@ export const perspectiveOrigin = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPerspectiveOriginProps<T>, Theme>> = {}) =>
-  style<IPerspectiveOriginProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PerspectiveOriginProps<T>, Theme>> = {}) =>
+  style<PerspectiveOriginProps<T>, Theme, Breakpoints>({
     cssProp: 'perspectiveOrigin',
-    prop: 'perspectiveOrigin',
+    prop: 'style$PerspectiveOrigin',
     themeProp,
   });

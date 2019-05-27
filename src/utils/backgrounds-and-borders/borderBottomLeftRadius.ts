@@ -1,15 +1,15 @@
 import { BorderBottomLeftRadiusProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBottomLeftRadiusProps<T> {
+export interface BorderBottomLeftRadiusProps<T> {
   /**
    * The **`border-bottom-left-radius`** CSS property rounds the bottom-left corner of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius
    */
-  borderBottomLeftRadius: T;
+  style$BorderBottomLeftRadius: T;
 }
 
 export const borderBottomLeftRadius = <
@@ -18,9 +18,9 @@ export const borderBottomLeftRadius = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBottomLeftRadiusProps<T>, Theme>> = {}) =>
-  style<IBorderBottomLeftRadiusProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBottomLeftRadiusProps<T>, Theme>> = {}) =>
+  style<BorderBottomLeftRadiusProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBottomLeftRadius',
-    prop: 'borderBottomLeftRadius',
+    prop: 'style$BorderBottomLeftRadius',
     themeProp,
   });

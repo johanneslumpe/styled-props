@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('flexDirection', () => {
   });
 
   it('should use `flexDirection` as component and css prop', () => {
-    const result = flexDirection()({ flexDirection: 'inherit' });
+    const result = flexDirection()({ style$FlexDirection: 'inherit' });
     expect(result).toEqual({ flexDirection: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = flexDirection<'a'>()({ flexDirection: 'a' });
+    const result = flexDirection<'a'>()({ style$FlexDirection: 'a' });
     expect(result).toEqual({ flexDirection: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('flexDirection', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = flexDirection<'value', IThemeWithoutBreakpoints>({
+    const result = flexDirection<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ flexDirection: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FlexDirection: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       flexDirection: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('flexDirection', () => {
   it('should allow using breakpoints', () => {
     const result = flexDirection<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      flexDirection: {
+      style$FlexDirection: {
         base: 'a',
         large: 'b',
         medium: 'c',

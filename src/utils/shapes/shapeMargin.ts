@@ -1,15 +1,15 @@
 import { ShapeMarginProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IShapeMarginProps<T> {
+export interface ShapeMarginProps<T> {
   /**
-   * The **`shape-margin`** CSS property specifies a margin for a CSS shape created using `shape-outside`.
+   * The **`shape-margin`** CSS property sets a margin for a CSS shape created using `shape-outside`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/shape-margin
    */
-  shapeMargin: T;
+  style$ShapeMargin: T;
 }
 
 export const shapeMargin = <
@@ -18,9 +18,9 @@ export const shapeMargin = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IShapeMarginProps<T>, Theme>> = {}) =>
-  style<IShapeMarginProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ShapeMarginProps<T>, Theme>> = {}) =>
+  style<ShapeMarginProps<T>, Theme, Breakpoints>({
     cssProp: 'shapeMargin',
-    prop: 'shapeMargin',
+    prop: 'style$ShapeMargin',
     themeProp,
   });

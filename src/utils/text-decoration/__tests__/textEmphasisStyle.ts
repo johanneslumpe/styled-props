@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textEmphasisStyle', () => {
   });
 
   it('should use `textEmphasisStyle` as component and css prop', () => {
-    const result = textEmphasisStyle()({ textEmphasisStyle: 'inherit' });
+    const result = textEmphasisStyle()({ style$TextEmphasisStyle: 'inherit' });
     expect(result).toEqual({ textEmphasisStyle: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textEmphasisStyle<'a'>()({ textEmphasisStyle: 'a' });
+    const result = textEmphasisStyle<'a'>()({ style$TextEmphasisStyle: 'a' });
     expect(result).toEqual({ textEmphasisStyle: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textEmphasisStyle', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textEmphasisStyle<'value', IThemeWithoutBreakpoints>({
+    const result = textEmphasisStyle<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textEmphasisStyle: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextEmphasisStyle: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textEmphasisStyle: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textEmphasisStyle', () => {
   it('should allow using breakpoints', () => {
     const result = textEmphasisStyle<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textEmphasisStyle: {
+      style$TextEmphasisStyle: {
         base: 'a',
         large: 'b',
         medium: 'c',

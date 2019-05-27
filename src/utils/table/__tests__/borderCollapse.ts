@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderCollapse', () => {
   });
 
   it('should use `borderCollapse` as component and css prop', () => {
-    const result = borderCollapse()({ borderCollapse: 'inherit' });
+    const result = borderCollapse()({ style$BorderCollapse: 'inherit' });
     expect(result).toEqual({ borderCollapse: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderCollapse<'a'>()({ borderCollapse: 'a' });
+    const result = borderCollapse<'a'>()({ style$BorderCollapse: 'a' });
     expect(result).toEqual({ borderCollapse: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderCollapse', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderCollapse<'value', IThemeWithoutBreakpoints>({
+    const result = borderCollapse<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderCollapse: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderCollapse: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderCollapse: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderCollapse', () => {
   it('should allow using breakpoints', () => {
     const result = borderCollapse<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderCollapse: {
+      style$BorderCollapse: {
         base: 'a',
         large: 'b',
         medium: 'c',

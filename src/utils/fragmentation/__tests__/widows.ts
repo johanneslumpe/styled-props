@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('widows', () => {
   });
 
   it('should use `widows` as component and css prop', () => {
-    const result = widows()({ widows: 'inherit' });
+    const result = widows()({ style$Widows: 'inherit' });
     expect(result).toEqual({ widows: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = widows<'a'>()({ widows: 'a' });
+    const result = widows<'a'>()({ style$Widows: 'a' });
     expect(result).toEqual({ widows: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('widows', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = widows<'value', IThemeWithoutBreakpoints>({
+    const result = widows<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ widows: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Widows: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       widows: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('widows', () => {
   it('should allow using breakpoints', () => {
     const result = widows<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      widows: {
+      style$Widows: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { GridTemplateProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridTemplateProps<T> {
+export interface GridTemplateProps<T> {
   /**
    * The **`grid-template`** CSS property is a shorthand property for defining grid columns, rows, and areas.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-template
    */
-  gridTemplate: T;
+  style$GridTemplate: T;
 }
 
 export const gridTemplate = <
@@ -18,9 +18,9 @@ export const gridTemplate = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridTemplateProps<T>, Theme>> = {}) =>
-  style<IGridTemplateProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridTemplateProps<T>, Theme>> = {}) =>
+  style<GridTemplateProps<T>, Theme, Breakpoints>({
     cssProp: 'gridTemplate',
-    prop: 'gridTemplate',
+    prop: 'style$GridTemplate',
     themeProp,
   });

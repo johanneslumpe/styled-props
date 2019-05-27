@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('height', () => {
   });
 
   it('should use `height` as component and css prop', () => {
-    const result = height()({ height: 'inherit' });
+    const result = height()({ style$Height: 'inherit' });
     expect(result).toEqual({ height: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = height<'a'>()({ height: 'a' });
+    const result = height<'a'>()({ style$Height: 'a' });
     expect(result).toEqual({ height: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('height', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = height<'value', IThemeWithoutBreakpoints>({
+    const result = height<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ height: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Height: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       height: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('height', () => {
   it('should allow using breakpoints', () => {
     const result = height<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      height: {
+      style$Height: {
         base: 'a',
         large: 'b',
         medium: 'c',

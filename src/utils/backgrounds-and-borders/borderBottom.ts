@@ -1,15 +1,15 @@
 import { BorderBottomProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBottomProps<T> {
+export interface BorderBottomProps<T> {
   /**
-   * The **`border-bottom`** CSS property is a shorthand that sets the values of `border-bottom-width`, `border-bottom-style` and `border-bottom-color`. These properties set an element's bottom border.
+   * The **`border-bottom`** shorthand CSS property sets an element's bottom border. It sets the values of `border-bottom-width`, `border-bottom-style` and `border-bottom-color`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom
    */
-  borderBottom: T;
+  style$BorderBottom: T;
 }
 
 export const borderBottom = <
@@ -18,9 +18,9 @@ export const borderBottom = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBottomProps<T>, Theme>> = {}) =>
-  style<IBorderBottomProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBottomProps<T>, Theme>> = {}) =>
+  style<BorderBottomProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBottom',
-    prop: 'borderBottom',
+    prop: 'style$BorderBottom',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('rotate', () => {
   });
 
   it('should use `rotate` as component and css prop', () => {
-    const result = rotate()({ rotate: 'inherit' });
+    const result = rotate()({ style$Rotate: 'inherit' });
     expect(result).toEqual({ rotate: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = rotate<'a'>()({ rotate: 'a' });
+    const result = rotate<'a'>()({ style$Rotate: 'a' });
     expect(result).toEqual({ rotate: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('rotate', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = rotate<'value', IThemeWithoutBreakpoints>({
+    const result = rotate<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ rotate: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Rotate: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       rotate: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('rotate', () => {
   it('should allow using breakpoints', () => {
     const result = rotate<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      rotate: {
+      style$Rotate: {
         base: 'a',
         large: 'b',
         medium: 'c',

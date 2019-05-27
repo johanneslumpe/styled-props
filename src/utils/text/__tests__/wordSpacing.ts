@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('wordSpacing', () => {
   });
 
   it('should use `wordSpacing` as component and css prop', () => {
-    const result = wordSpacing()({ wordSpacing: 'inherit' });
+    const result = wordSpacing()({ style$WordSpacing: 'inherit' });
     expect(result).toEqual({ wordSpacing: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = wordSpacing<'a'>()({ wordSpacing: 'a' });
+    const result = wordSpacing<'a'>()({ style$WordSpacing: 'a' });
     expect(result).toEqual({ wordSpacing: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('wordSpacing', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = wordSpacing<'value', IThemeWithoutBreakpoints>({
+    const result = wordSpacing<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ wordSpacing: 'value', theme: themeWithoutBreakpoints });
+    })({ style$WordSpacing: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       wordSpacing: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('wordSpacing', () => {
   it('should allow using breakpoints', () => {
     const result = wordSpacing<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      wordSpacing: {
+      style$WordSpacing: {
         base: 'a',
         large: 'b',
         medium: 'c',

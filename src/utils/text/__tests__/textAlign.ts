@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('textAlign', () => {
   });
 
   it('should use `textAlign` as component and css prop', () => {
-    const result = textAlign()({ textAlign: 'inherit' });
+    const result = textAlign()({ style$TextAlign: 'inherit' });
     expect(result).toEqual({ textAlign: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = textAlign<'a'>()({ textAlign: 'a' });
+    const result = textAlign<'a'>()({ style$TextAlign: 'a' });
     expect(result).toEqual({ textAlign: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('textAlign', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = textAlign<'value', IThemeWithoutBreakpoints>({
+    const result = textAlign<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ textAlign: 'value', theme: themeWithoutBreakpoints });
+    })({ style$TextAlign: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       textAlign: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('textAlign', () => {
   it('should allow using breakpoints', () => {
     const result = textAlign<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      textAlign: {
+      style$TextAlign: {
         base: 'a',
         large: 'b',
         medium: 'c',

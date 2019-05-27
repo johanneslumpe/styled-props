@@ -1,15 +1,15 @@
 import { MaxHeightProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaxHeightProps<T> {
+export interface MaxHeightProps<T> {
   /**
    * The **`max-height`** CSS property sets the maximum height of an element. It prevents the used value of the `height` property from becoming larger than the value specified for `max-height`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/max-height
    */
-  maxHeight: T;
+  style$MaxHeight: T;
 }
 
 export const maxHeight = <
@@ -18,9 +18,9 @@ export const maxHeight = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaxHeightProps<T>, Theme>> = {}) =>
-  style<IMaxHeightProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaxHeightProps<T>, Theme>> = {}) =>
+  style<MaxHeightProps<T>, Theme, Breakpoints>({
     cssProp: 'maxHeight',
-    prop: 'maxHeight',
+    prop: 'style$MaxHeight',
     themeProp,
   });

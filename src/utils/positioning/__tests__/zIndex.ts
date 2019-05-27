@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('zIndex', () => {
   });
 
   it('should use `zIndex` as component and css prop', () => {
-    const result = zIndex()({ zIndex: 'inherit' });
+    const result = zIndex()({ style$ZIndex: 'inherit' });
     expect(result).toEqual({ zIndex: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = zIndex<'a'>()({ zIndex: 'a' });
+    const result = zIndex<'a'>()({ style$ZIndex: 'a' });
     expect(result).toEqual({ zIndex: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('zIndex', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = zIndex<'value', IThemeWithoutBreakpoints>({
+    const result = zIndex<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ zIndex: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ZIndex: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       zIndex: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('zIndex', () => {
   it('should allow using breakpoints', () => {
     const result = zIndex<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      zIndex: {
+      style$ZIndex: {
         base: 'a',
         large: 'b',
         medium: 'c',

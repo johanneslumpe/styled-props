@@ -1,15 +1,15 @@
 import { MaskOriginProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskOriginProps<T> {
+export interface MaskOriginProps<T> {
   /**
    * The **`mask-origin`** CSS property sets the origin of a mask.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-origin
    */
-  maskOrigin: T;
+  style$MaskOrigin: T;
 }
 
 export const maskOrigin = <
@@ -18,9 +18,9 @@ export const maskOrigin = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskOriginProps<T>, Theme>> = {}) =>
-  style<IMaskOriginProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskOriginProps<T>, Theme>> = {}) =>
+  style<MaskOriginProps<T>, Theme, Breakpoints>({
     cssProp: 'maskOrigin',
-    prop: 'maskOrigin',
+    prop: 'style$MaskOrigin',
     themeProp,
   });

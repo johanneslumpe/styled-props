@@ -1,15 +1,15 @@
 import { IsolationPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IIsolationProps<T> {
+export interface IsolationProps<T> {
   /**
    * The **`isolation`** CSS property determines whether an element must create a new stacking context.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/isolation
    */
-  isolation: T;
+  style$Isolation: T;
 }
 
 export const isolation = <
@@ -18,9 +18,9 @@ export const isolation = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IIsolationProps<T>, Theme>> = {}) =>
-  style<IIsolationProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<IsolationProps<T>, Theme>> = {}) =>
+  style<IsolationProps<T>, Theme, Breakpoints>({
     cssProp: 'isolation',
-    prop: 'isolation',
+    prop: 'style$Isolation',
     themeProp,
   });

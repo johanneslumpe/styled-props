@@ -1,15 +1,15 @@
 import { BackgroundColorProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBackgroundColorProps<T> {
+export interface BackgroundColorProps<T> {
   /**
    * The **`background-color`** CSS property sets the background color of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/background-color
    */
-  backgroundColor: T;
+  style$BackgroundColor: T;
 }
 
 export const backgroundColor = <
@@ -18,9 +18,9 @@ export const backgroundColor = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBackgroundColorProps<T>, Theme>> = {}) =>
-  style<IBackgroundColorProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BackgroundColorProps<T>, Theme>> = {}) =>
+  style<BackgroundColorProps<T>, Theme, Breakpoints>({
     cssProp: 'backgroundColor',
-    prop: 'backgroundColor',
+    prop: 'style$BackgroundColor',
     themeProp,
   });

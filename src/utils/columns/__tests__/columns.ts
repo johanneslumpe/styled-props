@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('columns', () => {
   });
 
   it('should use `columns` as component and css prop', () => {
-    const result = columns()({ columns: 'inherit' });
+    const result = columns()({ style$Columns: 'inherit' });
     expect(result).toEqual({ columns: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = columns<'a'>()({ columns: 'a' });
+    const result = columns<'a'>()({ style$Columns: 'a' });
     expect(result).toEqual({ columns: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('columns', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = columns<'value', IThemeWithoutBreakpoints>({
+    const result = columns<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ columns: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Columns: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       columns: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('columns', () => {
   it('should allow using breakpoints', () => {
     const result = columns<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      columns: {
+      style$Columns: {
         base: 'a',
         large: 'b',
         medium: 'c',

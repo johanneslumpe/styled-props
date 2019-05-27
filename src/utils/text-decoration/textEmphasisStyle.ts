@@ -1,15 +1,15 @@
 import { TextEmphasisStyleProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextEmphasisStyleProps<T> {
+export interface TextEmphasisStyleProps<T> {
   /**
-   * The **`text-emphasis-style`** CSS property defines the type of emphasis used. It can also be set, and reset, using the `text-emphasis` shorthand.
+   * The **`text-emphasis-style`** CSS property sets the appearance of emphasis marks. It can also be set, and reset, using the `text-emphasis` shorthand.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-style
    */
-  textEmphasisStyle: T;
+  style$TextEmphasisStyle: T;
 }
 
 export const textEmphasisStyle = <
@@ -18,9 +18,9 @@ export const textEmphasisStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextEmphasisStyleProps<T>, Theme>> = {}) =>
-  style<ITextEmphasisStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextEmphasisStyleProps<T>, Theme>> = {}) =>
+  style<TextEmphasisStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'textEmphasisStyle',
-    prop: 'textEmphasisStyle',
+    prop: 'style$TextEmphasisStyle',
     themeProp,
   });

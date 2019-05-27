@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('maskImage', () => {
   });
 
   it('should use `maskImage` as component and css prop', () => {
-    const result = maskImage()({ maskImage: 'inherit' });
+    const result = maskImage()({ style$MaskImage: 'inherit' });
     expect(result).toEqual({ maskImage: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = maskImage<'a'>()({ maskImage: 'a' });
+    const result = maskImage<'a'>()({ style$MaskImage: 'a' });
     expect(result).toEqual({ maskImage: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('maskImage', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = maskImage<'value', IThemeWithoutBreakpoints>({
+    const result = maskImage<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ maskImage: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MaskImage: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       maskImage: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('maskImage', () => {
   it('should allow using breakpoints', () => {
     const result = maskImage<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      maskImage: {
+      style$MaskImage: {
         base: 'a',
         large: 'b',
         medium: 'c',

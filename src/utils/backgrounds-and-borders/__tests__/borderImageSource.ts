@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderImageSource', () => {
   });
 
   it('should use `borderImageSource` as component and css prop', () => {
-    const result = borderImageSource()({ borderImageSource: 'inherit' });
+    const result = borderImageSource()({ style$BorderImageSource: 'inherit' });
     expect(result).toEqual({ borderImageSource: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderImageSource<'a'>()({ borderImageSource: 'a' });
+    const result = borderImageSource<'a'>()({ style$BorderImageSource: 'a' });
     expect(result).toEqual({ borderImageSource: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderImageSource', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderImageSource<'value', IThemeWithoutBreakpoints>({
+    const result = borderImageSource<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderImageSource: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderImageSource: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderImageSource: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderImageSource', () => {
   it('should allow using breakpoints', () => {
     const result = borderImageSource<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderImageSource: {
+      style$BorderImageSource: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('perspective', () => {
   });
 
   it('should use `perspective` as component and css prop', () => {
-    const result = perspective()({ perspective: 'inherit' });
+    const result = perspective()({ style$Perspective: 'inherit' });
     expect(result).toEqual({ perspective: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = perspective<'a'>()({ perspective: 'a' });
+    const result = perspective<'a'>()({ style$Perspective: 'a' });
     expect(result).toEqual({ perspective: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('perspective', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = perspective<'value', IThemeWithoutBreakpoints>({
+    const result = perspective<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ perspective: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Perspective: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       perspective: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('perspective', () => {
   it('should allow using breakpoints', () => {
     const result = perspective<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      perspective: {
+      style$Perspective: {
         base: 'a',
         large: 'b',
         medium: 'c',

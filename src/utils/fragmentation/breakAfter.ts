@@ -1,15 +1,15 @@
 import { BreakAfterPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBreakAfterProps<T> {
+export interface BreakAfterProps<T> {
   /**
-   * The **`break-after`** CSS property defines how page, column, or region breaks should behave after a generated box. If there is no generated box, the property is ignored.
+   * The **`break-after`** CSS property sets how page, column, or region breaks should behave after a generated box. If there is no generated box, the property is ignored.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/break-after
    */
-  breakAfter: T;
+  style$BreakAfter: T;
 }
 
 export const breakAfter = <
@@ -18,9 +18,9 @@ export const breakAfter = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBreakAfterProps<T>, Theme>> = {}) =>
-  style<IBreakAfterProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BreakAfterProps<T>, Theme>> = {}) =>
+  style<BreakAfterProps<T>, Theme, Breakpoints>({
     cssProp: 'breakAfter',
-    prop: 'breakAfter',
+    prop: 'style$BreakAfter',
     themeProp,
   });

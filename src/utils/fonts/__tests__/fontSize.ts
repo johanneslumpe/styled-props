@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontSize', () => {
   });
 
   it('should use `fontSize` as component and css prop', () => {
-    const result = fontSize()({ fontSize: 'inherit' });
+    const result = fontSize()({ style$FontSize: 'inherit' });
     expect(result).toEqual({ fontSize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontSize<'a'>()({ fontSize: 'a' });
+    const result = fontSize<'a'>()({ style$FontSize: 'a' });
     expect(result).toEqual({ fontSize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontSize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontSize<'value', IThemeWithoutBreakpoints>({
+    const result = fontSize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontSize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontSize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontSize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontSize', () => {
   it('should allow using breakpoints', () => {
     const result = fontSize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontSize: {
+      style$FontSize: {
         base: 'a',
         large: 'b',
         medium: 'c',

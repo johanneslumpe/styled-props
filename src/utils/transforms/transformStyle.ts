@@ -1,15 +1,15 @@
 import { TransformStylePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITransformStyleProps<T> {
+export interface TransformStyleProps<T> {
   /**
    * The **`transform-style`** CSS property sets whether children of an element are positioned in the 3D space or are flattened in the plane of the element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/transform-style
    */
-  transformStyle: T;
+  style$TransformStyle: T;
 }
 
 export const transformStyle = <
@@ -18,9 +18,9 @@ export const transformStyle = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITransformStyleProps<T>, Theme>> = {}) =>
-  style<ITransformStyleProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TransformStyleProps<T>, Theme>> = {}) =>
+  style<TransformStyleProps<T>, Theme, Breakpoints>({
     cssProp: 'transformStyle',
-    prop: 'transformStyle',
+    prop: 'style$TransformStyle',
     themeProp,
   });

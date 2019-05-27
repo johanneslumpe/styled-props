@@ -1,15 +1,15 @@
 import { FontStretchProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontStretchProps<T> {
+export interface FontStretchProps<T> {
   /**
    * The **`font-stretch`** CSS property selects a normal, condensed, or expanded face from a font.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-stretch
    */
-  fontStretch: T;
+  style$FontStretch: T;
 }
 
 export const fontStretch = <
@@ -18,9 +18,9 @@ export const fontStretch = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontStretchProps<T>, Theme>> = {}) =>
-  style<IFontStretchProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontStretchProps<T>, Theme>> = {}) =>
+  style<FontStretchProps<T>, Theme, Breakpoints>({
     cssProp: 'fontStretch',
-    prop: 'fontStretch',
+    prop: 'style$FontStretch',
     themeProp,
   });

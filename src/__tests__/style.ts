@@ -1,43 +1,43 @@
 import { style } from '../style';
 
-interface IProps {
+interface Props {
   input?: string;
 }
 
-interface IColorProps<Colors> {
-  input?: Extract<keyof Colors, string>;
+interface ColorProps<TColors> {
+  input?: Extract<keyof TColors, string>;
 }
 
-interface IColors {
+interface Colors {
   red: string;
   green: string;
   blue: string;
 }
 
-interface IBreakpoints {
+interface Breakpoints {
   small: string;
   medium: string;
   large: string;
 }
 
-interface ITheme {
-  colors: IColors;
+interface Theme {
+  colors: Colors;
 }
 
-interface IThemeWithBreakpoints {
-  colors: IColors;
-  breakpoints: IBreakpoints;
+interface ThemeWithBreakpoints {
+  colors: Colors;
+  breakpoints: Breakpoints;
 }
 
-interface IArrayProps {
+interface ArrayProps {
   input: [string, string];
 }
 
 const buildMediaQueryString = (emValue: number) =>
   `@media (min-width: ${emValue}em)`;
 describe('style', () => {
-  let theme: ITheme;
-  let themeWithBreakpoints: IThemeWithBreakpoints;
+  let theme: Theme;
+  let themeWithBreakpoints: ThemeWithBreakpoints;
 
   beforeEach(() => {
     theme = {
@@ -62,19 +62,19 @@ describe('style', () => {
   });
 
   it('should return a function', () => {
-    const result = style<IProps>({ cssProp: 'output', prop: 'input' });
+    const result = style<Props>({ cssProp: 'output', prop: 'input' });
 
     expect(result).toBeInstanceOf(Function);
   });
 
   it('should return `undefined` if specified prop is not set', () => {
-    const result = style<IProps>({ cssProp: 'output', prop: 'input' })({});
+    const result = style<Props>({ cssProp: 'output', prop: 'input' })({});
 
     expect(result).toBe(undefined);
   });
 
   it('should assign the value of `prop` to `cssProp` and return an object if a value is set', () => {
-    const result = style<IProps>({ cssProp: 'output', prop: 'input' })({
+    const result = style<Props>({ cssProp: 'output', prop: 'input' })({
       input: 'value',
     });
 
@@ -82,7 +82,7 @@ describe('style', () => {
   });
 
   it('should return the value for a theme prop', () => {
-    const result = style<IColorProps<typeof theme.colors>, ITheme>({
+    const result = style<ColorProps<typeof theme.colors>, Theme>({
       cssProp: 'color',
       prop: 'input',
       themeProp: 'colors',
@@ -95,7 +95,7 @@ describe('style', () => {
   });
 
   it('should return the prop value if `theme[themeProp][prop]` is falsy', () => {
-    const result = style<IColorProps<{ [index: string]: string }>, ITheme>({
+    const result = style<ColorProps<{ [index: string]: string }>, Theme>({
       cssProp: 'color',
       prop: 'input',
       themeProp: 'colors',
@@ -112,7 +112,7 @@ describe('style', () => {
       colors: undefined,
     };
 
-    const result = style<IColorProps<{ [index: string]: string }>, typeof t>({
+    const result = style<ColorProps<{ [index: string]: string }>, typeof t>({
       cssProp: 'color',
       prop: 'input',
       themeProp: 'colors',
@@ -129,7 +129,7 @@ describe('style', () => {
 
   it('should return the respective values for breakpoints', () => {
     const result = style<
-      IColorProps<typeof theme.colors>,
+      ColorProps<typeof theme.colors>,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -160,7 +160,7 @@ describe('style', () => {
 
   it('should return the value as is for each breakpoint, if no value can be found on the theme', () => {
     const result = style<
-      IColorProps<{ [index: string]: string }>,
+      ColorProps<{ [index: string]: string }>,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -191,7 +191,7 @@ describe('style', () => {
 
   it('should order media query results based on ordering within `theme.breakpoints` not based on ordering of the responsive object props', () => {
     const result = style<
-      IColorProps<{ [index: string]: string }>,
+      ColorProps<{ [index: string]: string }>,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -218,7 +218,7 @@ describe('style', () => {
 
   it('should allow `base` as value for breakpoints to define the base value (without media query) of a property', () => {
     const result = style<
-      IColorProps<typeof theme.colors>,
+      ColorProps<typeof theme.colors>,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -251,7 +251,7 @@ describe('style', () => {
 
   it('should put base values in front of all other values', () => {
     const result = style<
-      IColorProps<typeof theme.colors>,
+      ColorProps<typeof theme.colors>,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -278,7 +278,7 @@ describe('style', () => {
 
   it('should return `undefined` if a responsive object is passed in but no theme and/or breakpoints are provided', () => {
     const func = style<
-      IColorProps<typeof theme.colors>,
+      ColorProps<typeof theme.colors>,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -312,7 +312,7 @@ describe('style', () => {
   });
 
   it('should combine array values', () => {
-    const func = style<IArrayProps>({
+    const func = style<ArrayProps>({
       cssProp: 'test',
       prop: 'input',
     });
@@ -326,7 +326,7 @@ describe('style', () => {
 
   it('should combine array values when using responsive props', () => {
     const func = style<
-      IArrayProps,
+      ArrayProps,
       typeof themeWithBreakpoints,
       typeof themeWithBreakpoints.breakpoints
     >({
@@ -351,7 +351,7 @@ describe('style', () => {
   });
 
   it('should allow resolving of theme values in within arrays using a custom array resolver', () => {
-    const func = style<IArrayProps, typeof theme>({
+    const func = style<ArrayProps, typeof theme>({
       arrayResolver: (value, themeValue) => {
         const myTheme: any = themeValue || ({} as { [index: string]: string });
         return value.map((val, i) => myTheme[val.toString()] || val).join(' ');

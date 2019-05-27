@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('alignContent', () => {
   });
 
   it('should use `alignContent` as component and css prop', () => {
-    const result = alignContent()({ alignContent: 'inherit' });
+    const result = alignContent()({ style$AlignContent: 'inherit' });
     expect(result).toEqual({ alignContent: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = alignContent<'a'>()({ alignContent: 'a' });
+    const result = alignContent<'a'>()({ style$AlignContent: 'a' });
     expect(result).toEqual({ alignContent: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('alignContent', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = alignContent<'value', IThemeWithoutBreakpoints>({
+    const result = alignContent<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ alignContent: 'value', theme: themeWithoutBreakpoints });
+    })({ style$AlignContent: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       alignContent: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('alignContent', () => {
   it('should allow using breakpoints', () => {
     const result = alignContent<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      alignContent: {
+      style$AlignContent: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { BorderBlockEndProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBlockEndProps<T> {
+export interface BorderBlockEndProps<T> {
   /**
    * The **`border-block-end`** CSS property is a shorthand property for setting the individual logical block-end border property values in a single place in the style sheet.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-block-end
    */
-  borderBlockEnd: T;
+  style$BorderBlockEnd: T;
 }
 
 export const borderBlockEnd = <
@@ -18,9 +18,9 @@ export const borderBlockEnd = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBlockEndProps<T>, Theme>> = {}) =>
-  style<IBorderBlockEndProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBlockEndProps<T>, Theme>> = {}) =>
+  style<BorderBlockEndProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBlockEnd',
-    prop: 'borderBlockEnd',
+    prop: 'style$BorderBlockEnd',
     themeProp,
   });

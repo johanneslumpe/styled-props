@@ -1,15 +1,15 @@
 import { MarginProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMarginProps<T> {
+export interface MarginProps<T> {
   /**
    * The **`margin`** CSS property sets the margin area on all four sides of an element. It is a shorthand for `margin-top`, `margin-right`, `margin-bottom`, and `margin-left`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/margin
    */
-  margin: T;
+  style$Margin: T;
 }
 
 export const margin = <
@@ -18,9 +18,9 @@ export const margin = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMarginProps<T>, Theme>> = {}) =>
-  style<IMarginProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MarginProps<T>, Theme>> = {}) =>
+  style<MarginProps<T>, Theme, Breakpoints>({
     cssProp: 'margin',
-    prop: 'margin',
+    prop: 'style$Margin',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontSynthesis', () => {
   });
 
   it('should use `fontSynthesis` as component and css prop', () => {
-    const result = fontSynthesis()({ fontSynthesis: 'inherit' });
+    const result = fontSynthesis()({ style$FontSynthesis: 'inherit' });
     expect(result).toEqual({ fontSynthesis: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontSynthesis<'a'>()({ fontSynthesis: 'a' });
+    const result = fontSynthesis<'a'>()({ style$FontSynthesis: 'a' });
     expect(result).toEqual({ fontSynthesis: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontSynthesis', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontSynthesis<'value', IThemeWithoutBreakpoints>({
+    const result = fontSynthesis<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontSynthesis: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontSynthesis: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontSynthesis: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontSynthesis', () => {
   it('should allow using breakpoints', () => {
     const result = fontSynthesis<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontSynthesis: {
+      style$FontSynthesis: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('scrollSnapType', () => {
   });
 
   it('should use `scrollSnapType` as component and css prop', () => {
-    const result = scrollSnapType()({ scrollSnapType: 'inherit' });
+    const result = scrollSnapType()({ style$ScrollSnapType: 'inherit' });
     expect(result).toEqual({ scrollSnapType: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = scrollSnapType<'a'>()({ scrollSnapType: 'a' });
+    const result = scrollSnapType<'a'>()({ style$ScrollSnapType: 'a' });
     expect(result).toEqual({ scrollSnapType: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('scrollSnapType', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = scrollSnapType<'value', IThemeWithoutBreakpoints>({
+    const result = scrollSnapType<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ scrollSnapType: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ScrollSnapType: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       scrollSnapType: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('scrollSnapType', () => {
   it('should allow using breakpoints', () => {
     const result = scrollSnapType<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      scrollSnapType: {
+      style$ScrollSnapType: {
         base: 'a',
         large: 'b',
         medium: 'c',

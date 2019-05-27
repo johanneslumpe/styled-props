@@ -1,15 +1,15 @@
 import { WordBreakPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IWordBreakProps<T> {
+export interface WordBreakProps<T> {
   /**
    * The **`word-break`** CSS property sets whether line breaks appear wherever the text would otherwise overflow its content box.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/word-break
    */
-  wordBreak: T;
+  style$WordBreak: T;
 }
 
 export const wordBreak = <
@@ -18,9 +18,9 @@ export const wordBreak = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IWordBreakProps<T>, Theme>> = {}) =>
-  style<IWordBreakProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<WordBreakProps<T>, Theme>> = {}) =>
+  style<WordBreakProps<T>, Theme, Breakpoints>({
     cssProp: 'wordBreak',
-    prop: 'wordBreak',
+    prop: 'style$WordBreak',
     themeProp,
   });

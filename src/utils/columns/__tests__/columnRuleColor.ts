@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('columnRuleColor', () => {
   });
 
   it('should use `columnRuleColor` as component and css prop', () => {
-    const result = columnRuleColor()({ columnRuleColor: 'inherit' });
+    const result = columnRuleColor()({ style$ColumnRuleColor: 'inherit' });
     expect(result).toEqual({ columnRuleColor: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = columnRuleColor<'a'>()({ columnRuleColor: 'a' });
+    const result = columnRuleColor<'a'>()({ style$ColumnRuleColor: 'a' });
     expect(result).toEqual({ columnRuleColor: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('columnRuleColor', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = columnRuleColor<'value', IThemeWithoutBreakpoints>({
+    const result = columnRuleColor<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ columnRuleColor: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ColumnRuleColor: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       columnRuleColor: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('columnRuleColor', () => {
   it('should allow using breakpoints', () => {
     const result = columnRuleColor<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      columnRuleColor: {
+      style$ColumnRuleColor: {
         base: 'a',
         large: 'b',
         medium: 'c',

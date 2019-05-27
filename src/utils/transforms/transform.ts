@@ -1,15 +1,15 @@
 import { TransformProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITransformProps<T> {
+export interface TransformProps<T> {
   /**
    * The **`transform`** CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/transform
    */
-  transform: T;
+  style$Transform: T;
 }
 
 export const transform = <
@@ -18,9 +18,9 @@ export const transform = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITransformProps<T>, Theme>> = {}) =>
-  style<ITransformProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TransformProps<T>, Theme>> = {}) =>
+  style<TransformProps<T>, Theme, Breakpoints>({
     cssProp: 'transform',
-    prop: 'transform',
+    prop: 'style$Transform',
     themeProp,
   });

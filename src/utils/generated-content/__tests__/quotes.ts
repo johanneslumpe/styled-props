@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('quotes', () => {
   });
 
   it('should use `quotes` as component and css prop', () => {
-    const result = quotes()({ quotes: 'inherit' });
+    const result = quotes()({ style$Quotes: 'inherit' });
     expect(result).toEqual({ quotes: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = quotes<'a'>()({ quotes: 'a' });
+    const result = quotes<'a'>()({ style$Quotes: 'a' });
     expect(result).toEqual({ quotes: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('quotes', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = quotes<'value', IThemeWithoutBreakpoints>({
+    const result = quotes<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ quotes: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Quotes: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       quotes: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('quotes', () => {
   it('should allow using breakpoints', () => {
     const result = quotes<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      quotes: {
+      style$Quotes: {
         base: 'a',
         large: 'b',
         medium: 'c',

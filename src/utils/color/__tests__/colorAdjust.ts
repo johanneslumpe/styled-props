@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('colorAdjust', () => {
   });
 
   it('should use `colorAdjust` as component and css prop', () => {
-    const result = colorAdjust()({ colorAdjust: 'inherit' });
+    const result = colorAdjust()({ style$ColorAdjust: 'inherit' });
     expect(result).toEqual({ colorAdjust: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = colorAdjust<'a'>()({ colorAdjust: 'a' });
+    const result = colorAdjust<'a'>()({ style$ColorAdjust: 'a' });
     expect(result).toEqual({ colorAdjust: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('colorAdjust', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = colorAdjust<'value', IThemeWithoutBreakpoints>({
+    const result = colorAdjust<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ colorAdjust: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ColorAdjust: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       colorAdjust: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('colorAdjust', () => {
   it('should allow using breakpoints', () => {
     const result = colorAdjust<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      colorAdjust: {
+      style$ColorAdjust: {
         base: 'a',
         large: 'b',
         medium: 'c',

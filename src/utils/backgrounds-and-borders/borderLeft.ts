@@ -1,15 +1,15 @@
 import { BorderLeftProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderLeftProps<T> {
+export interface BorderLeftProps<T> {
   /**
-   * The **`border-left`** CSS property is a shorthand that sets the values of `border-left-width`, `border-left-style` and `border-left-color`. These properties set an element's left border.
+   * The **`border-left`** shorthand CSS property set an element's left border.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-left
    */
-  borderLeft: T;
+  style$BorderLeft: T;
 }
 
 export const borderLeft = <
@@ -18,9 +18,9 @@ export const borderLeft = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderLeftProps<T>, Theme>> = {}) =>
-  style<IBorderLeftProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderLeftProps<T>, Theme>> = {}) =>
+  style<BorderLeftProps<T>, Theme, Breakpoints>({
     cssProp: 'borderLeft',
-    prop: 'borderLeft',
+    prop: 'style$BorderLeft',
     themeProp,
   });

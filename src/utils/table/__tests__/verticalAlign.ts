@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('verticalAlign', () => {
   });
 
   it('should use `verticalAlign` as component and css prop', () => {
-    const result = verticalAlign()({ verticalAlign: 'inherit' });
+    const result = verticalAlign()({ style$VerticalAlign: 'inherit' });
     expect(result).toEqual({ verticalAlign: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = verticalAlign<'a'>()({ verticalAlign: 'a' });
+    const result = verticalAlign<'a'>()({ style$VerticalAlign: 'a' });
     expect(result).toEqual({ verticalAlign: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('verticalAlign', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = verticalAlign<'value', IThemeWithoutBreakpoints>({
+    const result = verticalAlign<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ verticalAlign: 'value', theme: themeWithoutBreakpoints });
+    })({ style$VerticalAlign: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       verticalAlign: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('verticalAlign', () => {
   it('should allow using breakpoints', () => {
     const result = verticalAlign<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      verticalAlign: {
+      style$VerticalAlign: {
         base: 'a',
         large: 'b',
         medium: 'c',

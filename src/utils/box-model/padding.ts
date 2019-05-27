@@ -1,15 +1,15 @@
 import { PaddingProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPaddingProps<T> {
+export interface PaddingProps<T> {
   /**
    * The **`padding`** CSS property sets the padding area on all four sides of an element. It is a shorthand for `padding-top`, `padding-right`, `padding-bottom`, and `padding-left`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/padding
    */
-  padding: T;
+  style$Padding: T;
 }
 
 export const padding = <
@@ -18,9 +18,9 @@ export const padding = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPaddingProps<T>, Theme>> = {}) =>
-  style<IPaddingProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PaddingProps<T>, Theme>> = {}) =>
+  style<PaddingProps<T>, Theme, Breakpoints>({
     cssProp: 'padding',
-    prop: 'padding',
+    prop: 'style$Padding',
     themeProp,
   });

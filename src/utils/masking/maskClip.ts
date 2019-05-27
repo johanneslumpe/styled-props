@@ -1,15 +1,15 @@
 import { MaskClipProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskClipProps<T> {
+export interface MaskClipProps<T> {
   /**
-   * The **`mask-clip`** CSS property determines the area, which is affected by a mask. The painted content of an element must be restricted to this area.
+   * The **`mask-clip`** CSS property determines the area which is affected by a mask. The painted content of an element must be restricted to this area.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-clip
    */
-  maskClip: T;
+  style$MaskClip: T;
 }
 
 export const maskClip = <
@@ -18,9 +18,9 @@ export const maskClip = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskClipProps<T>, Theme>> = {}) =>
-  style<IMaskClipProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskClipProps<T>, Theme>> = {}) =>
+  style<MaskClipProps<T>, Theme, Breakpoints>({
     cssProp: 'maskClip',
-    prop: 'maskClip',
+    prop: 'style$MaskClip',
     themeProp,
   });

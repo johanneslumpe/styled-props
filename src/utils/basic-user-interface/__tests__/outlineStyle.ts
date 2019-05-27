@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('outlineStyle', () => {
   });
 
   it('should use `outlineStyle` as component and css prop', () => {
-    const result = outlineStyle()({ outlineStyle: 'inherit' });
+    const result = outlineStyle()({ style$OutlineStyle: 'inherit' });
     expect(result).toEqual({ outlineStyle: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = outlineStyle<'a'>()({ outlineStyle: 'a' });
+    const result = outlineStyle<'a'>()({ style$OutlineStyle: 'a' });
     expect(result).toEqual({ outlineStyle: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('outlineStyle', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = outlineStyle<'value', IThemeWithoutBreakpoints>({
+    const result = outlineStyle<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ outlineStyle: 'value', theme: themeWithoutBreakpoints });
+    })({ style$OutlineStyle: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       outlineStyle: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('outlineStyle', () => {
   it('should allow using breakpoints', () => {
     const result = outlineStyle<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      outlineStyle: {
+      style$OutlineStyle: {
         base: 'a',
         large: 'b',
         medium: 'c',

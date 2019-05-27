@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('order', () => {
   });
 
   it('should use `order` as component and css prop', () => {
-    const result = order()({ order: 'inherit' });
+    const result = order()({ style$Order: 'inherit' });
     expect(result).toEqual({ order: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = order<'a'>()({ order: 'a' });
+    const result = order<'a'>()({ style$Order: 'a' });
     expect(result).toEqual({ order: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('order', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = order<'value', IThemeWithoutBreakpoints>({
+    const result = order<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ order: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Order: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       order: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('order', () => {
   it('should allow using breakpoints', () => {
     const result = order<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      order: {
+      style$Order: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { BorderTopLeftRadiusProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderTopLeftRadiusProps<T> {
+export interface BorderTopLeftRadiusProps<T> {
   /**
    * The **`border-top-left-radius`** CSS property rounds the top-left corner of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius
    */
-  borderTopLeftRadius: T;
+  style$BorderTopLeftRadius: T;
 }
 
 export const borderTopLeftRadius = <
@@ -18,9 +18,9 @@ export const borderTopLeftRadius = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderTopLeftRadiusProps<T>, Theme>> = {}) =>
-  style<IBorderTopLeftRadiusProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderTopLeftRadiusProps<T>, Theme>> = {}) =>
+  style<BorderTopLeftRadiusProps<T>, Theme, Breakpoints>({
     cssProp: 'borderTopLeftRadius',
-    prop: 'borderTopLeftRadius',
+    prop: 'style$BorderTopLeftRadius',
     themeProp,
   });

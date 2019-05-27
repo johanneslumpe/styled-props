@@ -1,15 +1,15 @@
 import { FontVariantNumericPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFontVariantNumericProps<T> {
+export interface FontVariantNumericProps<T> {
   /**
    * The **`font-variant-numeric`** CSS property controls the usage of alternate glyphs for numbers, fractions, and ordinal markers.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
    */
-  fontVariantNumeric: T;
+  style$FontVariantNumeric: T;
 }
 
 export const fontVariantNumeric = <
@@ -18,9 +18,9 @@ export const fontVariantNumeric = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFontVariantNumericProps<T>, Theme>> = {}) =>
-  style<IFontVariantNumericProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FontVariantNumericProps<T>, Theme>> = {}) =>
+  style<FontVariantNumericProps<T>, Theme, Breakpoints>({
     cssProp: 'fontVariantNumeric',
-    prop: 'fontVariantNumeric',
+    prop: 'style$FontVariantNumeric',
     themeProp,
   });

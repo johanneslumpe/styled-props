@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('overflowWrap', () => {
   });
 
   it('should use `overflowWrap` as component and css prop', () => {
-    const result = overflowWrap()({ overflowWrap: 'inherit' });
+    const result = overflowWrap()({ style$OverflowWrap: 'inherit' });
     expect(result).toEqual({ overflowWrap: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = overflowWrap<'a'>()({ overflowWrap: 'a' });
+    const result = overflowWrap<'a'>()({ style$OverflowWrap: 'a' });
     expect(result).toEqual({ overflowWrap: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('overflowWrap', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = overflowWrap<'value', IThemeWithoutBreakpoints>({
+    const result = overflowWrap<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ overflowWrap: 'value', theme: themeWithoutBreakpoints });
+    })({ style$OverflowWrap: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       overflowWrap: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('overflowWrap', () => {
   it('should allow using breakpoints', () => {
     const result = overflowWrap<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      overflowWrap: {
+      style$OverflowWrap: {
         base: 'a',
         large: 'b',
         medium: 'c',

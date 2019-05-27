@@ -1,15 +1,15 @@
 import { BorderProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderProps<T> {
+export interface BorderProps<T> {
   /**
-   * The **`border`** CSS property sets an element's border. It's a shorthand for `border-width`, `border-style`, and `border-color`.
+   * The **`border`** shorthand CSS property sets an element's border. It sets the values of `border-width`, `border-style`, and `border-color`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border
    */
-  border: T;
+  style$Border: T;
 }
 
 export const border = <
@@ -18,9 +18,9 @@ export const border = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderProps<T>, Theme>> = {}) =>
-  style<IBorderProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderProps<T>, Theme>> = {}) =>
+  style<BorderProps<T>, Theme, Breakpoints>({
     cssProp: 'border',
-    prop: 'border',
+    prop: 'style$Border',
     themeProp,
   });

@@ -1,15 +1,15 @@
 import { FlexProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFlexProps<T> {
+export interface FlexProps<T> {
   /**
    * The **`flex`** CSS property sets how a flex item will grow or shrink to fit the space available in its flex container. It is a shorthand for `flex-grow`, `flex-shrink`, and `flex-basis`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/flex
    */
-  flex: T;
+  style$Flex: T;
 }
 
 export const flex = <
@@ -18,9 +18,9 @@ export const flex = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFlexProps<T>, Theme>> = {}) =>
-  style<IFlexProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FlexProps<T>, Theme>> = {}) =>
+  style<FlexProps<T>, Theme, Breakpoints>({
     cssProp: 'flex',
-    prop: 'flex',
+    prop: 'style$Flex',
     themeProp,
   });

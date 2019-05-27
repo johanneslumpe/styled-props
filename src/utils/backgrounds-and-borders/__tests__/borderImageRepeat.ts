@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderImageRepeat', () => {
   });
 
   it('should use `borderImageRepeat` as component and css prop', () => {
-    const result = borderImageRepeat()({ borderImageRepeat: 'inherit' });
+    const result = borderImageRepeat()({ style$BorderImageRepeat: 'inherit' });
     expect(result).toEqual({ borderImageRepeat: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderImageRepeat<'a'>()({ borderImageRepeat: 'a' });
+    const result = borderImageRepeat<'a'>()({ style$BorderImageRepeat: 'a' });
     expect(result).toEqual({ borderImageRepeat: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderImageRepeat', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderImageRepeat<'value', IThemeWithoutBreakpoints>({
+    const result = borderImageRepeat<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderImageRepeat: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderImageRepeat: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderImageRepeat: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderImageRepeat', () => {
   it('should allow using breakpoints', () => {
     const result = borderImageRepeat<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderImageRepeat: {
+      style$BorderImageRepeat: {
         base: 'a',
         large: 'b',
         medium: 'c',

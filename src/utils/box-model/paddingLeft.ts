@@ -1,15 +1,15 @@
 import { PaddingLeftProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPaddingLeftProps<T> {
+export interface PaddingLeftProps<T> {
   /**
-   * The **`padding-left`** CSS property sets the width of the padding area on the left side of an element.
+   * The **`padding-left`** CSS property sets the width of the padding area on the top of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/padding-left
    */
-  paddingLeft: T;
+  style$PaddingLeft: T;
 }
 
 export const paddingLeft = <
@@ -18,9 +18,9 @@ export const paddingLeft = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPaddingLeftProps<T>, Theme>> = {}) =>
-  style<IPaddingLeftProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PaddingLeftProps<T>, Theme>> = {}) =>
+  style<PaddingLeftProps<T>, Theme, Breakpoints>({
     cssProp: 'paddingLeft',
-    prop: 'paddingLeft',
+    prop: 'style$PaddingLeft',
     themeProp,
   });

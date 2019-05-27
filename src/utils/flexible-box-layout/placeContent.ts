@@ -1,15 +1,15 @@
 import { PlaceContentPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IPlaceContentProps<T> {
+export interface PlaceContentProps<T> {
   /**
-   * The `**place-content**` CSS property is a shorthand for `align-content` and `justify-content`. It can be used in any layout method which utilizes both us these alignment values.
+   * The `**place-content**` CSS property is a shorthand for `align-content` and `justify-content`. It can be used in any layout method which utilizes both of these alignment values.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/place-content
    */
-  placeContent: T;
+  style$PlaceContent: T;
 }
 
 export const placeContent = <
@@ -18,9 +18,9 @@ export const placeContent = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IPlaceContentProps<T>, Theme>> = {}) =>
-  style<IPlaceContentProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<PlaceContentProps<T>, Theme>> = {}) =>
+  style<PlaceContentProps<T>, Theme, Breakpoints>({
     cssProp: 'placeContent',
-    prop: 'placeContent',
+    prop: 'style$PlaceContent',
     themeProp,
   });

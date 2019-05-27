@@ -1,15 +1,15 @@
 import { BorderLeftWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderLeftWidthProps<T> {
+export interface BorderLeftWidthProps<T> {
   /**
    * The **`border-left-width`** CSS property sets the width of the left border of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-left-width
    */
-  borderLeftWidth: T;
+  style$BorderLeftWidth: T;
 }
 
 export const borderLeftWidth = <
@@ -18,9 +18,9 @@ export const borderLeftWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderLeftWidthProps<T>, Theme>> = {}) =>
-  style<IBorderLeftWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderLeftWidthProps<T>, Theme>> = {}) =>
+  style<BorderLeftWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'borderLeftWidth',
-    prop: 'borderLeftWidth',
+    prop: 'style$BorderLeftWidth',
     themeProp,
   });

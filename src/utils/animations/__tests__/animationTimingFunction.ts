@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('animationTimingFunction', () => {
   });
 
   it('should use `animationTimingFunction` as component and css prop', () => {
-    const result = animationTimingFunction()({ animationTimingFunction: 'inherit' });
+    const result = animationTimingFunction()({ style$AnimationTimingFunction: 'inherit' });
     expect(result).toEqual({ animationTimingFunction: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = animationTimingFunction<'a'>()({ animationTimingFunction: 'a' });
+    const result = animationTimingFunction<'a'>()({ style$AnimationTimingFunction: 'a' });
     expect(result).toEqual({ animationTimingFunction: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('animationTimingFunction', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = animationTimingFunction<'value', IThemeWithoutBreakpoints>({
+    const result = animationTimingFunction<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ animationTimingFunction: 'value', theme: themeWithoutBreakpoints });
+    })({ style$AnimationTimingFunction: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       animationTimingFunction: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('animationTimingFunction', () => {
   it('should allow using breakpoints', () => {
     const result = animationTimingFunction<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      animationTimingFunction: {
+      style$AnimationTimingFunction: {
         base: 'a',
         large: 'b',
         medium: 'c',

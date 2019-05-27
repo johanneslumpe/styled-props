@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('content', () => {
   });
 
   it('should use `content` as component and css prop', () => {
-    const result = content()({ content: 'inherit' });
+    const result = content()({ style$Content: 'inherit' });
     expect(result).toEqual({ content: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = content<'a'>()({ content: 'a' });
+    const result = content<'a'>()({ style$Content: 'a' });
     expect(result).toEqual({ content: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('content', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = content<'value', IThemeWithoutBreakpoints>({
+    const result = content<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ content: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Content: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       content: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('content', () => {
   it('should allow using breakpoints', () => {
     const result = content<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      content: {
+      style$Content: {
         base: 'a',
         large: 'b',
         medium: 'c',

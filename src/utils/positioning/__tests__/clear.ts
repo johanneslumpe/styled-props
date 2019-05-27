@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('clear', () => {
   });
 
   it('should use `clear` as component and css prop', () => {
-    const result = clear()({ clear: 'inherit' });
+    const result = clear()({ style$Clear: 'inherit' });
     expect(result).toEqual({ clear: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = clear<'a'>()({ clear: 'a' });
+    const result = clear<'a'>()({ style$Clear: 'a' });
     expect(result).toEqual({ clear: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('clear', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = clear<'value', IThemeWithoutBreakpoints>({
+    const result = clear<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ clear: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Clear: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       clear: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('clear', () => {
   it('should allow using breakpoints', () => {
     const result = clear<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      clear: {
+      style$Clear: {
         base: 'a',
         large: 'b',
         medium: 'c',

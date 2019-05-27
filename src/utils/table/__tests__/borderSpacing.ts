@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderSpacing', () => {
   });
 
   it('should use `borderSpacing` as component and css prop', () => {
-    const result = borderSpacing()({ borderSpacing: 'inherit' });
+    const result = borderSpacing()({ style$BorderSpacing: 'inherit' });
     expect(result).toEqual({ borderSpacing: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderSpacing<'a'>()({ borderSpacing: 'a' });
+    const result = borderSpacing<'a'>()({ style$BorderSpacing: 'a' });
     expect(result).toEqual({ borderSpacing: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderSpacing', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderSpacing<'value', IThemeWithoutBreakpoints>({
+    const result = borderSpacing<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderSpacing: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderSpacing: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderSpacing: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderSpacing', () => {
   it('should allow using breakpoints', () => {
     const result = borderSpacing<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderSpacing: {
+      style$BorderSpacing: {
         base: 'a',
         large: 'b',
         medium: 'c',

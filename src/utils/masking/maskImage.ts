@@ -1,15 +1,15 @@
 import { MaskImageProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskImageProps<T> {
+export interface MaskImageProps<T> {
   /**
    * The **`mask-image`** CSS property sets the image that is used as mask layer for an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-image
    */
-  maskImage: T;
+  style$MaskImage: T;
 }
 
 export const maskImage = <
@@ -18,9 +18,9 @@ export const maskImage = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskImageProps<T>, Theme>> = {}) =>
-  style<IMaskImageProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskImageProps<T>, Theme>> = {}) =>
+  style<MaskImageProps<T>, Theme, Breakpoints>({
     cssProp: 'maskImage',
-    prop: 'maskImage',
+    prop: 'style$MaskImage',
     themeProp,
   });

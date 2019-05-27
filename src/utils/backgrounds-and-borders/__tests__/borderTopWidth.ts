@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('borderTopWidth', () => {
   });
 
   it('should use `borderTopWidth` as component and css prop', () => {
-    const result = borderTopWidth()({ borderTopWidth: 'inherit' });
+    const result = borderTopWidth()({ style$BorderTopWidth: 'inherit' });
     expect(result).toEqual({ borderTopWidth: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = borderTopWidth<'a'>()({ borderTopWidth: 'a' });
+    const result = borderTopWidth<'a'>()({ style$BorderTopWidth: 'a' });
     expect(result).toEqual({ borderTopWidth: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('borderTopWidth', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = borderTopWidth<'value', IThemeWithoutBreakpoints>({
+    const result = borderTopWidth<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ borderTopWidth: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BorderTopWidth: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       borderTopWidth: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('borderTopWidth', () => {
   it('should allow using breakpoints', () => {
     const result = borderTopWidth<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      borderTopWidth: {
+      style$BorderTopWidth: {
         base: 'a',
         large: 'b',
         medium: 'c',

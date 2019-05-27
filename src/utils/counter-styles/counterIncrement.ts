@@ -1,15 +1,15 @@
 import { CounterIncrementProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ICounterIncrementProps<T> {
+export interface CounterIncrementProps<T> {
   /**
    * The **`counter-increment`** CSS property increases or decreases the value of a CSS counter by a given value.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/counter-increment
    */
-  counterIncrement: T;
+  style$CounterIncrement: T;
 }
 
 export const counterIncrement = <
@@ -18,9 +18,9 @@ export const counterIncrement = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ICounterIncrementProps<T>, Theme>> = {}) =>
-  style<ICounterIncrementProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<CounterIncrementProps<T>, Theme>> = {}) =>
+  style<CounterIncrementProps<T>, Theme, Breakpoints>({
     cssProp: 'counterIncrement',
-    prop: 'counterIncrement',
+    prop: 'style$CounterIncrement',
     themeProp,
   });

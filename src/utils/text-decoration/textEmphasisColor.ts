@@ -1,15 +1,15 @@
 import { TextEmphasisColorProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextEmphasisColorProps<T> {
+export interface TextEmphasisColorProps<T> {
   /**
    * The **`text-emphasis-color`** CSS property sets the color of emphasis marks. This value can also be set using the `text-emphasis` shorthand.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-color
    */
-  textEmphasisColor: T;
+  style$TextEmphasisColor: T;
 }
 
 export const textEmphasisColor = <
@@ -18,9 +18,9 @@ export const textEmphasisColor = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextEmphasisColorProps<T>, Theme>> = {}) =>
-  style<ITextEmphasisColorProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextEmphasisColorProps<T>, Theme>> = {}) =>
+  style<TextEmphasisColorProps<T>, Theme, Breakpoints>({
     cssProp: 'textEmphasisColor',
-    prop: 'textEmphasisColor',
+    prop: 'style$TextEmphasisColor',
     themeProp,
   });

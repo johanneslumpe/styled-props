@@ -1,15 +1,15 @@
 import { WordSpacingProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IWordSpacingProps<T> {
+export interface WordSpacingProps<T> {
   /**
    * The **`word-spacing`** CSS property sets the length of space between words and between tags.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/word-spacing
    */
-  wordSpacing: T;
+  style$WordSpacing: T;
 }
 
 export const wordSpacing = <
@@ -18,9 +18,9 @@ export const wordSpacing = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IWordSpacingProps<T>, Theme>> = {}) =>
-  style<IWordSpacingProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<WordSpacingProps<T>, Theme>> = {}) =>
+  style<WordSpacingProps<T>, Theme, Breakpoints>({
     cssProp: 'wordSpacing',
-    prop: 'wordSpacing',
+    prop: 'style$WordSpacing',
     themeProp,
   });

@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('boxSizing', () => {
   });
 
   it('should use `boxSizing` as component and css prop', () => {
-    const result = boxSizing()({ boxSizing: 'inherit' });
+    const result = boxSizing()({ style$BoxSizing: 'inherit' });
     expect(result).toEqual({ boxSizing: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = boxSizing<'a'>()({ boxSizing: 'a' });
+    const result = boxSizing<'a'>()({ style$BoxSizing: 'a' });
     expect(result).toEqual({ boxSizing: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('boxSizing', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = boxSizing<'value', IThemeWithoutBreakpoints>({
+    const result = boxSizing<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ boxSizing: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BoxSizing: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       boxSizing: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('boxSizing', () => {
   it('should allow using breakpoints', () => {
     const result = boxSizing<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      boxSizing: {
+      style$BoxSizing: {
         base: 'a',
         large: 'b',
         medium: 'c',

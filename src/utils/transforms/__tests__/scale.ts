@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('scale', () => {
   });
 
   it('should use `scale` as component and css prop', () => {
-    const result = scale()({ scale: 'inherit' });
+    const result = scale()({ style$Scale: 'inherit' });
     expect(result).toEqual({ scale: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = scale<'a'>()({ scale: 'a' });
+    const result = scale<'a'>()({ style$Scale: 'a' });
     expect(result).toEqual({ scale: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('scale', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = scale<'value', IThemeWithoutBreakpoints>({
+    const result = scale<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ scale: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Scale: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       scale: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('scale', () => {
   it('should allow using breakpoints', () => {
     const result = scale<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      scale: {
+      style$Scale: {
         base: 'a',
         large: 'b',
         medium: 'c',

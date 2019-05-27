@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('backfaceVisibility', () => {
   });
 
   it('should use `backfaceVisibility` as component and css prop', () => {
-    const result = backfaceVisibility()({ backfaceVisibility: 'inherit' });
+    const result = backfaceVisibility()({ style$BackfaceVisibility: 'inherit' });
     expect(result).toEqual({ backfaceVisibility: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = backfaceVisibility<'a'>()({ backfaceVisibility: 'a' });
+    const result = backfaceVisibility<'a'>()({ style$BackfaceVisibility: 'a' });
     expect(result).toEqual({ backfaceVisibility: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('backfaceVisibility', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = backfaceVisibility<'value', IThemeWithoutBreakpoints>({
+    const result = backfaceVisibility<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ backfaceVisibility: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BackfaceVisibility: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       backfaceVisibility: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('backfaceVisibility', () => {
   it('should allow using breakpoints', () => {
     const result = backfaceVisibility<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      backfaceVisibility: {
+      style$BackfaceVisibility: {
         base: 'a',
         large: 'b',
         medium: 'c',

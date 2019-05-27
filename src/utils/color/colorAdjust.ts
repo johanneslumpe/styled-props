@@ -1,15 +1,15 @@
 import { ColorAdjustPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IColorAdjustProps<T> {
+export interface ColorAdjustProps<T> {
   /**
    * The **`color-adjust`** CSS property sets what, if anything, the user agent may do to optimize the appearance of the element on the output device. By default, the browser is allowed to make any adjustments to the element's appearance it determines to be necessary and prudent given the type and capabilities of the output device.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/color-adjust
    */
-  colorAdjust: T;
+  style$ColorAdjust: T;
 }
 
 export const colorAdjust = <
@@ -18,9 +18,9 @@ export const colorAdjust = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IColorAdjustProps<T>, Theme>> = {}) =>
-  style<IColorAdjustProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ColorAdjustProps<T>, Theme>> = {}) =>
+  style<ColorAdjustProps<T>, Theme, Breakpoints>({
     cssProp: 'colorAdjust',
-    prop: 'colorAdjust',
+    prop: 'style$ColorAdjust',
     themeProp,
   });

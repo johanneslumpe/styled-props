@@ -1,15 +1,15 @@
 import { WillChangeProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IWillChangeProps<T> {
+export interface WillChangeProps<T> {
   /**
    * The **`will-change`** CSS property hints to browsers how an element is expected to change. Browsers may set up optimizations before an element is actually changed. These kinds of optimizations can increase the responsiveness of a page by doing potentially expensive work before they are actually required.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/will-change
    */
-  willChange: T;
+  style$WillChange: T;
 }
 
 export const willChange = <
@@ -18,9 +18,9 @@ export const willChange = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IWillChangeProps<T>, Theme>> = {}) =>
-  style<IWillChangeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<WillChangeProps<T>, Theme>> = {}) =>
+  style<WillChangeProps<T>, Theme, Breakpoints>({
     cssProp: 'willChange',
-    prop: 'willChange',
+    prop: 'style$WillChange',
     themeProp,
   });

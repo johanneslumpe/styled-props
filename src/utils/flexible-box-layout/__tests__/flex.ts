@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('flex', () => {
   });
 
   it('should use `flex` as component and css prop', () => {
-    const result = flex()({ flex: 'inherit' });
+    const result = flex()({ style$Flex: 'inherit' });
     expect(result).toEqual({ flex: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = flex<'a'>()({ flex: 'a' });
+    const result = flex<'a'>()({ style$Flex: 'a' });
     expect(result).toEqual({ flex: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('flex', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = flex<'value', IThemeWithoutBreakpoints>({
+    const result = flex<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ flex: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Flex: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       flex: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('flex', () => {
   it('should allow using breakpoints', () => {
     const result = flex<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      flex: {
+      style$Flex: {
         base: 'a',
         large: 'b',
         medium: 'c',

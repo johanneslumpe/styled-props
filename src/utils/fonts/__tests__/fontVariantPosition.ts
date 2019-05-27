@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('fontVariantPosition', () => {
   });
 
   it('should use `fontVariantPosition` as component and css prop', () => {
-    const result = fontVariantPosition()({ fontVariantPosition: 'inherit' });
+    const result = fontVariantPosition()({ style$FontVariantPosition: 'inherit' });
     expect(result).toEqual({ fontVariantPosition: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = fontVariantPosition<'a'>()({ fontVariantPosition: 'a' });
+    const result = fontVariantPosition<'a'>()({ style$FontVariantPosition: 'a' });
     expect(result).toEqual({ fontVariantPosition: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('fontVariantPosition', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = fontVariantPosition<'value', IThemeWithoutBreakpoints>({
+    const result = fontVariantPosition<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ fontVariantPosition: 'value', theme: themeWithoutBreakpoints });
+    })({ style$FontVariantPosition: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       fontVariantPosition: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('fontVariantPosition', () => {
   it('should allow using breakpoints', () => {
     const result = fontVariantPosition<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      fontVariantPosition: {
+      style$FontVariantPosition: {
         base: 'a',
         large: 'b',
         medium: 'c',

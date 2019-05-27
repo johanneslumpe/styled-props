@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('maskClip', () => {
   });
 
   it('should use `maskClip` as component and css prop', () => {
-    const result = maskClip()({ maskClip: 'inherit' });
+    const result = maskClip()({ style$MaskClip: 'inherit' });
     expect(result).toEqual({ maskClip: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = maskClip<'a'>()({ maskClip: 'a' });
+    const result = maskClip<'a'>()({ style$MaskClip: 'a' });
     expect(result).toEqual({ maskClip: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('maskClip', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = maskClip<'value', IThemeWithoutBreakpoints>({
+    const result = maskClip<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ maskClip: 'value', theme: themeWithoutBreakpoints });
+    })({ style$MaskClip: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       maskClip: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('maskClip', () => {
   it('should allow using breakpoints', () => {
     const result = maskClip<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      maskClip: {
+      style$MaskClip: {
         base: 'a',
         large: 'b',
         medium: 'c',

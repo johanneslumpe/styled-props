@@ -1,15 +1,15 @@
 import { TextIndentProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface ITextIndentProps<T> {
+export interface TextIndentProps<T> {
   /**
    * The **`text-indent`** CSS property sets the length of empty space (indentation) that is put before lines of text in a block.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/text-indent
    */
-  textIndent: T;
+  style$TextIndent: T;
 }
 
 export const textIndent = <
@@ -18,9 +18,9 @@ export const textIndent = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<ITextIndentProps<T>, Theme>> = {}) =>
-  style<ITextIndentProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<TextIndentProps<T>, Theme>> = {}) =>
+  style<TextIndentProps<T>, Theme, Breakpoints>({
     cssProp: 'textIndent',
-    prop: 'textIndent',
+    prop: 'style$TextIndent',
     themeProp,
   });

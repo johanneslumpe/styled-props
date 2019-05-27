@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('blockSize', () => {
   });
 
   it('should use `blockSize` as component and css prop', () => {
-    const result = blockSize()({ blockSize: 'inherit' });
+    const result = blockSize()({ style$BlockSize: 'inherit' });
     expect(result).toEqual({ blockSize: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = blockSize<'a'>()({ blockSize: 'a' });
+    const result = blockSize<'a'>()({ style$BlockSize: 'a' });
     expect(result).toEqual({ blockSize: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('blockSize', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = blockSize<'value', IThemeWithoutBreakpoints>({
+    const result = blockSize<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ blockSize: 'value', theme: themeWithoutBreakpoints });
+    })({ style$BlockSize: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       blockSize: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('blockSize', () => {
   it('should allow using breakpoints', () => {
     const result = blockSize<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      blockSize: {
+      style$BlockSize: {
         base: 'a',
         large: 'b',
         medium: 'c',

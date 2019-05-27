@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('imageRendering', () => {
   });
 
   it('should use `imageRendering` as component and css prop', () => {
-    const result = imageRendering()({ imageRendering: 'inherit' });
+    const result = imageRendering()({ style$ImageRendering: 'inherit' });
     expect(result).toEqual({ imageRendering: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = imageRendering<'a'>()({ imageRendering: 'a' });
+    const result = imageRendering<'a'>()({ style$ImageRendering: 'a' });
     expect(result).toEqual({ imageRendering: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('imageRendering', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = imageRendering<'value', IThemeWithoutBreakpoints>({
+    const result = imageRendering<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ imageRendering: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ImageRendering: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       imageRendering: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('imageRendering', () => {
   it('should allow using breakpoints', () => {
     const result = imageRendering<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      imageRendering: {
+      style$ImageRendering: {
         base: 'a',
         large: 'b',
         medium: 'c',

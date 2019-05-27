@@ -1,15 +1,15 @@
 import { WritingModePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IWritingModeProps<T> {
+export interface WritingModeProps<T> {
   /**
    * The **`writing-mode`** CSS property sets whether lines of text are laid out horizontally or vertically, as well as the direction in which blocks progress.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/writing-mode
    */
-  writingMode: T;
+  style$WritingMode: T;
 }
 
 export const writingMode = <
@@ -18,9 +18,9 @@ export const writingMode = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IWritingModeProps<T>, Theme>> = {}) =>
-  style<IWritingModeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<WritingModeProps<T>, Theme>> = {}) =>
+  style<WritingModeProps<T>, Theme, Breakpoints>({
     cssProp: 'writingMode',
-    prop: 'writingMode',
+    prop: 'style$WritingMode',
     themeProp,
   });

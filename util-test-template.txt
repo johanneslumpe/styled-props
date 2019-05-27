@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('__PROPERTY_NAME__', () => {
   });
 
   it('should use `__PROPERTY_NAME__` as component and css prop', () => {
-    const result = __PROPERTY_NAME__()({ __PROPERTY_NAME__: 'inherit' });
+    const result = __PROPERTY_NAME__()({ __COMPONENT_PROPERTY_NAME__: 'inherit' });
     expect(result).toEqual({ __PROPERTY_NAME__: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = __PROPERTY_NAME__<'a'>()({ __PROPERTY_NAME__: 'a' });
+    const result = __PROPERTY_NAME__<'a'>()({ __COMPONENT_PROPERTY_NAME__: 'a' });
     expect(result).toEqual({ __PROPERTY_NAME__: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('__PROPERTY_NAME__', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = __PROPERTY_NAME__<'value', IThemeWithoutBreakpoints>({
+    const result = __PROPERTY_NAME__<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ __PROPERTY_NAME__: 'value', theme: themeWithoutBreakpoints });
+    })({ __COMPONENT_PROPERTY_NAME__: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       __PROPERTY_NAME__: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('__PROPERTY_NAME__', () => {
   it('should allow using breakpoints', () => {
     const result = __PROPERTY_NAME__<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      __PROPERTY_NAME__: {
+      __COMPONENT_PROPERTY_NAME__: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { ClipProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IClipProps<T> {
+export interface ClipProps<T> {
   /**
    * The **`clip`** CSS property defines what portion of an element is visible. The `clip` property applies only to absolutely positioned elements, that is elements with `position:absolute` or `position:fixed`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/clip
    */
-  clip: T;
+  style$Clip: T;
 }
 
 export const clip = <
@@ -18,9 +18,9 @@ export const clip = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IClipProps<T>, Theme>> = {}) =>
-  style<IClipProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ClipProps<T>, Theme>> = {}) =>
+  style<ClipProps<T>, Theme, Breakpoints>({
     cssProp: 'clip',
-    prop: 'clip',
+    prop: 'style$Clip',
     themeProp,
   });

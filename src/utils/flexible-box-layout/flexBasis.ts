@@ -1,15 +1,15 @@
 import { FlexBasisProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IFlexBasisProps<T> {
+export interface FlexBasisProps<T> {
   /**
    * The **`flex-basis`** CSS property sets the initial main size of a flex item. It sets the size of the content box unless otherwise set with `box-sizing`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/flex-basis
    */
-  flexBasis: T;
+  style$FlexBasis: T;
 }
 
 export const flexBasis = <
@@ -18,9 +18,9 @@ export const flexBasis = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IFlexBasisProps<T>, Theme>> = {}) =>
-  style<IFlexBasisProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<FlexBasisProps<T>, Theme>> = {}) =>
+  style<FlexBasisProps<T>, Theme, Breakpoints>({
     cssProp: 'flexBasis',
-    prop: 'flexBasis',
+    prop: 'style$FlexBasis',
     themeProp,
   });

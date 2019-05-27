@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('clipPath', () => {
   });
 
   it('should use `clipPath` as component and css prop', () => {
-    const result = clipPath()({ clipPath: 'inherit' });
+    const result = clipPath()({ style$ClipPath: 'inherit' });
     expect(result).toEqual({ clipPath: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = clipPath<'a'>()({ clipPath: 'a' });
+    const result = clipPath<'a'>()({ style$ClipPath: 'a' });
     expect(result).toEqual({ clipPath: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('clipPath', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = clipPath<'value', IThemeWithoutBreakpoints>({
+    const result = clipPath<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ clipPath: 'value', theme: themeWithoutBreakpoints });
+    })({ style$ClipPath: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       clipPath: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('clipPath', () => {
   it('should allow using breakpoints', () => {
     const result = clipPath<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      clipPath: {
+      style$ClipPath: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { BorderTopWidthProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderTopWidthProps<T> {
+export interface BorderTopWidthProps<T> {
   /**
    * The **`border-top-width`** CSS property sets the width of the top border of an element.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-top-width
    */
-  borderTopWidth: T;
+  style$BorderTopWidth: T;
 }
 
 export const borderTopWidth = <
@@ -18,9 +18,9 @@ export const borderTopWidth = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderTopWidthProps<T>, Theme>> = {}) =>
-  style<IBorderTopWidthProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderTopWidthProps<T>, Theme>> = {}) =>
+  style<BorderTopWidthProps<T>, Theme, Breakpoints>({
     cssProp: 'borderTopWidth',
-    prop: 'borderTopWidth',
+    prop: 'style$BorderTopWidth',
     themeProp,
   });

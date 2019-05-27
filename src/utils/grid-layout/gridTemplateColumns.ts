@@ -1,15 +1,15 @@
 import { GridTemplateColumnsProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IGridTemplateColumnsProps<T> {
+export interface GridTemplateColumnsProps<T> {
   /**
    * The **`grid-template-columns`** CSS property defines the line names and track sizing functions of the grid columns.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/grid-template-columns
    */
-  gridTemplateColumns: T;
+  style$GridTemplateColumns: T;
 }
 
 export const gridTemplateColumns = <
@@ -18,9 +18,9 @@ export const gridTemplateColumns = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IGridTemplateColumnsProps<T>, Theme>> = {}) =>
-  style<IGridTemplateColumnsProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<GridTemplateColumnsProps<T>, Theme>> = {}) =>
+  style<GridTemplateColumnsProps<T>, Theme, Breakpoints>({
     cssProp: 'gridTemplateColumns',
-    prop: 'gridTemplateColumns',
+    prop: 'style$GridTemplateColumns',
     themeProp,
   });

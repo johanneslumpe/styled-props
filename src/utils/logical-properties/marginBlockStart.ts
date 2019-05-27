@@ -1,15 +1,15 @@
 import { MarginBlockStartProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMarginBlockStartProps<T> {
+export interface MarginBlockStartProps<T> {
   /**
    * The **`margin-block-start`** CSS property defines the logical block start margin of an element, which maps to a physical margin depending on the element's writing mode, directionality, and text orientation.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/margin-block-start
    */
-  marginBlockStart: T;
+  style$MarginBlockStart: T;
 }
 
 export const marginBlockStart = <
@@ -18,9 +18,9 @@ export const marginBlockStart = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMarginBlockStartProps<T>, Theme>> = {}) =>
-  style<IMarginBlockStartProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MarginBlockStartProps<T>, Theme>> = {}) =>
+  style<MarginBlockStartProps<T>, Theme, Breakpoints>({
     cssProp: 'marginBlockStart',
-    prop: 'marginBlockStart',
+    prop: 'style$MarginBlockStart',
     themeProp,
   });

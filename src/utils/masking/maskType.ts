@@ -1,15 +1,15 @@
 import { MaskTypePropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IMaskTypeProps<T> {
+export interface MaskTypeProps<T> {
   /**
    * The **`mask-type`** CSS property sets whether an SVG `<mask>` element is used as a _luminance_ or an _alpha_ mask. It applies to the `<mask>` element itself.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/mask-type
    */
-  maskType: T;
+  style$MaskType: T;
 }
 
 export const maskType = <
@@ -18,9 +18,9 @@ export const maskType = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IMaskTypeProps<T>, Theme>> = {}) =>
-  style<IMaskTypeProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<MaskTypeProps<T>, Theme>> = {}) =>
+  style<MaskTypeProps<T>, Theme, Breakpoints>({
     cssProp: 'maskType',
-    prop: 'maskType',
+    prop: 'style$MaskType',
     themeProp,
   });

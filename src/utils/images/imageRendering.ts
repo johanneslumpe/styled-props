@@ -1,15 +1,15 @@
 import { ImageRenderingPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IImageRenderingProps<T> {
+export interface ImageRenderingProps<T> {
   /**
    * The **`image-rendering`** CSS property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/image-rendering
    */
-  imageRendering: T;
+  style$ImageRendering: T;
 }
 
 export const imageRendering = <
@@ -18,9 +18,9 @@ export const imageRendering = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IImageRenderingProps<T>, Theme>> = {}) =>
-  style<IImageRenderingProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<ImageRenderingProps<T>, Theme>> = {}) =>
+  style<ImageRenderingProps<T>, Theme, Breakpoints>({
     cssProp: 'imageRendering',
-    prop: 'imageRendering',
+    prop: 'style$ImageRendering',
     themeProp,
   });

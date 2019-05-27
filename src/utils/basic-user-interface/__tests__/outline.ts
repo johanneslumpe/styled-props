@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('outline', () => {
   });
 
   it('should use `outline` as component and css prop', () => {
-    const result = outline()({ outline: 'inherit' });
+    const result = outline()({ style$Outline: 'inherit' });
     expect(result).toEqual({ outline: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = outline<'a'>()({ outline: 'a' });
+    const result = outline<'a'>()({ style$Outline: 'a' });
     expect(result).toEqual({ outline: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('outline', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = outline<'value', IThemeWithoutBreakpoints>({
+    const result = outline<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ outline: 'value', theme: themeWithoutBreakpoints });
+    })({ style$Outline: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       outline: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('outline', () => {
   it('should allow using breakpoints', () => {
     const result = outline<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      outline: {
+      style$Outline: {
         base: 'a',
         large: 'b',
         medium: 'c',

@@ -1,15 +1,15 @@
 import { JustifyItemsPropertyCombined } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IJustifyItemsProps<T> {
+export interface JustifyItemsProps<T> {
   /**
    * The CSS **`justify-items`** property defines the default `justify-self` for all items of the box, giving them all a default way of justifying each box along the appropriate axis.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/justify-items
    */
-  justifyItems: T;
+  style$JustifyItems: T;
 }
 
 export const justifyItems = <
@@ -18,9 +18,9 @@ export const justifyItems = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IJustifyItemsProps<T>, Theme>> = {}) =>
-  style<IJustifyItemsProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<JustifyItemsProps<T>, Theme>> = {}) =>
+  style<JustifyItemsProps<T>, Theme, Breakpoints>({
     cssProp: 'justifyItems',
-    prop: 'justifyItems',
+    prop: 'style$JustifyItems',
     themeProp,
   });

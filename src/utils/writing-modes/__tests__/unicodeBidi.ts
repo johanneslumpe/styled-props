@@ -1,8 +1,8 @@
 import {
-  IBreakpoints,
-  ITheme,
-  IThemeWithoutBreakpoints,
+  Breakpoints,
+  Theme,
   theme,
+  ThemeWithoutBreakpoints,
   themeWithoutBreakpoints,
 } from '../../../test-utils/theme';
 
@@ -15,12 +15,12 @@ describe('unicodeBidi', () => {
   });
 
   it('should use `unicodeBidi` as component and css prop', () => {
-    const result = unicodeBidi()({ unicodeBidi: 'inherit' });
+    const result = unicodeBidi()({ style$UnicodeBidi: 'inherit' });
     expect(result).toEqual({ unicodeBidi: 'inherit' });
   });
 
   it('should allow using a custom value type', () => {
-    const result = unicodeBidi<'a'>()({ unicodeBidi: 'a' });
+    const result = unicodeBidi<'a'>()({ style$UnicodeBidi: 'a' });
     expect(result).toEqual({ unicodeBidi: 'a' });
   });
 
@@ -30,9 +30,9 @@ describe('unicodeBidi', () => {
   });
 
   it('should allow using a theme', () => {
-    const result = unicodeBidi<'value', IThemeWithoutBreakpoints>({
+    const result = unicodeBidi<'value', ThemeWithoutBreakpoints>({
       themeProp: 'dummy',
-    })({ unicodeBidi: 'value', theme: themeWithoutBreakpoints });
+    })({ style$UnicodeBidi: 'value', theme: themeWithoutBreakpoints });
     expect(result).toEqual({
       unicodeBidi: themeWithoutBreakpoints.dummy.value,
     });
@@ -41,10 +41,10 @@ describe('unicodeBidi', () => {
   it('should allow using breakpoints', () => {
     const result = unicodeBidi<
       'a' | 'b' | 'c' | 'd',
-      ITheme,
-      IBreakpoints
+      Theme,
+      Breakpoints
     >()({
-      unicodeBidi: {
+      style$UnicodeBidi: {
         base: 'a',
         large: 'b',
         medium: 'c',

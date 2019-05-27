@@ -1,15 +1,15 @@
 import { BorderBottomColorProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderBottomColorProps<T> {
+export interface BorderBottomColorProps<T> {
   /**
    * The **`border-bottom-color`** CSS property sets the color of an element's bottom border. It can also be set with the shorthand CSS properties `border-color` or `border-bottom`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-color
    */
-  borderBottomColor: T;
+  style$BorderBottomColor: T;
 }
 
 export const borderBottomColor = <
@@ -18,9 +18,9 @@ export const borderBottomColor = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderBottomColorProps<T>, Theme>> = {}) =>
-  style<IBorderBottomColorProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderBottomColorProps<T>, Theme>> = {}) =>
+  style<BorderBottomColorProps<T>, Theme, Breakpoints>({
     cssProp: 'borderBottomColor',
-    prop: 'borderBottomColor',
+    prop: 'style$BorderBottomColor',
     themeProp,
   });

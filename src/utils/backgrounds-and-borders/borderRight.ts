@@ -1,15 +1,15 @@
 import { BorderRightProperty } from '@johanneslumpe/css-types';
 
 import { style } from '../../style';
-import { IStyleOptions } from '../../types';
+import { StyleOptions } from '../../types';
 
-export interface IBorderRightProps<T> {
+export interface BorderRightProps<T> {
   /**
-   * The **`border-right`** CSS property is a shorthand that sets the values of `border-right-width`, `border-right-style` and `border-right-color`. These properties set an element's right border.
+   * The **`border-right`** shorthand CSS property sets an element's right border. It sets the values of `border-right-width`, `border-right-style` and `border-right-color`.
    * 
    * @see https://developer.mozilla.org/docs/Web/CSS/border-right
    */
-  borderRight: T;
+  style$BorderRight: T;
 }
 
 export const borderRight = <
@@ -18,9 +18,9 @@ export const borderRight = <
   Breakpoints = never
 >({
   themeProp,
-}: Partial<IStyleOptions<IBorderRightProps<T>, Theme>> = {}) =>
-  style<IBorderRightProps<T>, Theme, Breakpoints>({
+}: Partial<StyleOptions<BorderRightProps<T>, Theme>> = {}) =>
+  style<BorderRightProps<T>, Theme, Breakpoints>({
     cssProp: 'borderRight',
-    prop: 'borderRight',
+    prop: 'style$BorderRight',
     themeProp,
   });
