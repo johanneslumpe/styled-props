@@ -34,7 +34,7 @@
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
     "cli-progress": "^2.1.0",
-    "jest": "^23.6.0",
+    "jest": "^24.8.0",
     "lodash": "^4.17.11",
     "mdn-data": "^1.2.0",
     "prettier": "^1.13.7",
@@ -45,9 +45,9 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
     "turndown": "^5.0.1",
-    "typedoc": "^0.12.0",
+    "typedoc": "^0.14.2",
     "typedoc-plugin-markdown": "^1.1.13",
-    "typescript": "^3.1.6"
+    "typescript": "^3.4.5"
   },
   "dependencies": {
     "@johanneslumpe/css-types": "^0.3.0"
